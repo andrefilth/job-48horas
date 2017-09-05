@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. --><xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.cea.com.br/EBO/CEA/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.cea.com.br/EBO/CEA/v1" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0">
+
+
+	<xsd:element name="PedidoImportadoOL" type="tns:PedidoImportadoOLDB2Type"/>
+	
+	
+	<xsd:complexType name="PedidoImportadoOLDetalheDB2Type">
+		<xsd:sequence>
+			<xsd:element name="NumeroPedido" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Numero do Pedido</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="CodigoContainer" type="string" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Codigo do Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="DescricaoTipoContainer" type="string" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Descricao Tipo Container</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="CodigoImportador" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Codigo Importador</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="CodigoTransportadorInterno" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Codigo Transportador Interno</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>													
+			<xsd:element name="DataPrevistaEmbarque" type="dateTime" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Data Prevista Embarque</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="DataEfetivaEmbarque" type="dateTime" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Data Efetiva Embarque</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="DataPrevistaDesembarque" type="dateTime" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Data Prevista Desembarque</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="DataEfetivaDesembarque" type="dateTime" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Data Efetiva Desembarque</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="DataPrevistaEntregaCD" type="dateTime" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Data Prevista Entrega CD</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="DataEfetivaEntregaCD" type="dateTime" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Data Efetiva Entrega CD</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="IsCargaSolta" type="boolean" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Carga Solta</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>																																																																																																								
+	
+												
+														
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="PedidoImportadoOLDB2Type">		
+			<xsd:sequence>
+            <xsd:element name="CodigoEmbarque" type="string" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Codigo Embarque</xsd:documentation>
+					</xsd:annotation>			
+				</xsd:element>
+            <xsd:element name="IdTransacao" type="decimal" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>ID Transacao</xsd:documentation>
+					</xsd:annotation>			
+				</xsd:element>
+            <xsd:element name="IsExclusao" type="boolean" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Exclusao</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+
+
+
+
+
+																																																																
+												
+				<xsd:element name="DetalhesPedidoImportadoOL" minOccurs="0" maxOccurs="unbounded" nillable="true" type="tns:PedidoImportadoOLDetalheDB2Type"/>
+			</xsd:sequence>
+		</xsd:complexType>
+</xsd:schema>

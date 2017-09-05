@@ -1,0 +1,1422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.cea.com.br/EBO/CEA/v1" xmlns:tns="http://www.cea.com.br/EBO/CEA/v1"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+	attributeFormDefault="qualified" version="1.0">
+	<xsd:complexType name="ArrayOfIDFType">
+		<xsd:sequence>
+			<xsd:element name="idf" type="tns:IDFType" minOccurs="1"
+				maxOccurs="unbounded">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ArrayOfPedidosType">
+		<xsd:sequence>
+			<xsd:element name="pedido" type="tns:PedidoType"
+				minOccurs="1" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ArrayOfEstoqueType">
+		<xsd:sequence>
+			<xsd:element name="estoque" type="tns:EstoqueType"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="EstoqueType">
+		<xsd:sequence>
+			<xsd:element name="identificador-movimento" type="xsd:int"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="identificador-sku" type="xsd:long"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="numero-amostra-inspecao" type="xsd:int"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="numero-pedido" type="xsd:long"
+				minOccurs="0" maxOccurs="1" />
+			<xsd:element name="numero-processo-qualidade" type="xsd:int"
+				minOccurs="0" maxOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="PedidoType">
+		<xsd:sequence>
+			<xsd:element name="numero-pedido" type="xsd:string" />
+			<xsd:element name="formula-negocio" type="xsd:string" />
+			<xsd:element name="classificacao" type="xsd:string" />
+			<xsd:element name="classificacao-codigo" type="xsd:string" />
+			<xsd:element name="valor-total" type="xsd:string" />
+			<xsd:element name="valor-unitario" type="xsd:string" />
+			<xsd:element name="quantidade-pecas" type="xsd:string" />
+			<xsd:element name="numero-ncm" type="xsd:string" />
+			<xsd:element name="valor-ipi" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="NotaAssociadaType">
+		<xsd:sequence>
+			<xsd:element name="dof-sequence" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					Exemplo:1 
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="data-emissao" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					Data de emissao da nota associada
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="serie-subserie" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					SERIE_SUBSERIE - Série / Subsérie do documento fiscal
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="numero" type="xsd:string" minOccurs="1"
+				maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					Exemplo: 022489
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="codigo-emitente-pfj" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					Exemplo: 022489
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="codigo-edof" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					Exemplo: NF
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="valor-total-dof" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					Exemplo: 00000001448.88
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="VolumeCargaType">
+		<xsd:sequence>
+			<xsd:element name="especie" type="xsd:string" minOccurs="1"
+				maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					Tipo do volumes, exemplo: "PECAS" 
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="marca" type="xsd:string" minOccurs="1"
+				maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					Marca 
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="numeracao" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+				Ex: 000000000000000			 
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="quantidade" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+				Ex: 000000000			 
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="peso-bruto" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					PESO_BRUTO_KG - Peso bruto total das mercadorias da nf em kg
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="peso-liquido" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					PESO_LIQUIDO_KG - Peso liquido total das mercadorias da nf em kg
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="TransportadorType">
+		<xsd:sequence>
+			<xsd:element name="transportador-pfj-codigo" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					TRANSPORTADOR_PFJ_CODIGO - Código da pessoa.
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="indicador-responsabilidade-frete"
+				type="xsd:string" minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					IND_RESP_FRETE - Indicador de responsabilidade pelo frete (1=remetente,2=destinatario)
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="marca-veiculo" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					MARCA_VEICULO - Marca do veículo
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="modelo-veiculo" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					MODELO_VEICULO - Modelo do veículo
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="placa-veiculo" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					NUM_PLACA_VEICULO - Número de registro (placas) do veículo transportador
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="codigo-uf-placa-veiculo" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					PLACA_VEICULO_UF_CODIGO - Código da unidade federativa
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="numero-embarque" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					numero de embarque
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="numero-veiculo" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					numero do veiculo
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="codigo-transportador-loc" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					ex: 001
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="codigo-via-transporte" type="xsd:int"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+						VT_CODIGO - Código da via de transporte.    (1,2,3,4,6,7,8,10)
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="volume" type="tns:VolumeCargaType"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+						Volume
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="AliquotaType">
+		<xsd:sequence>
+			<xsd:element name="aliquota-icms-diferencial" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					ALIQ_DIFA - Alíquota do ICMS quando há diferencial de alíquota
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="aliquota-icms" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					ALIQ_ICMS - Aicms = Alíquota de ICMS
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="aliquota-imposto-importacao" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					ALIQ_II - Alíquota do imposto de importação
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="aliquota-ipi" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					ALIQ_IPI - Aipi = Alíquota de IPI
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="aliquota-stf" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					ALIQ_STF - Alíquota ICMS de substituição tributária para frente
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="aliquota-stt" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					ALIQ_STT - Alíquota ICMS de substituição tributária para trás
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="IDFType">
+		<xsd:sequence>
+			<xsd:element name="aliquota" type="tns:AliquotaType"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					Dados das aliquotas
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="codigo-aplicacao-mercadoria" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					AM_CODIGO - Código de aplicação da mercadoria
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="codigo-fiscal-operacao-prestacao"
+				type="xsd:string" minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					CFOP_CODIGO - Código fiscal de operação e prestação
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="controle-instrucao" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					CTRL_INSTRUCAO - Controle de instrução de importação do registro 
+					(I=inclusao, A=alteração, E=exclusão)
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="numero-importado-dof" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					DOF_IMPORT_NUMERO - Número do documento importado atribuído pelo estabelecimento 
+					informante
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="data-di" type="xsd:string" minOccurs="1"
+				maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					DT_DI - 
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="codigo-entradasaida" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					ENTSAI_UNI_CODIGO - Código da Unidade de Medida ex.: peça=pc, par=par
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="codigo-estoque" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					ESTOQUE_UNI_CODIGO - Código da Unidade de Medida
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="codigo-finalidade-comercial" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					FIN_CODIGO - Código da finalidade comercial
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="numero-idf" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					IDF_NUM - Número sequencial do item de documento fiscal
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="texto-complementar-idf" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					IDF_TEXTO_COMPLEMENTAR - Texto complementar para o item. Sem editar
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="indicador-contabilizacao" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					IND_CONTABILIZACAO - Indica se o IDF debe ser contabilizado pelo SQL* Contabil
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="codigo-informante-estabelecimento"
+				type="xsd:string" minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					INFORMANTE_EST_CODIGO - Código da pessoa estabelecimento   --- Concatena com ‘FX’
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="codigo-mercadoria" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					MERC_CODIGO - Buscar da tabela do Ris. Deve ser montada como: 
+					fórmula de negócio + classificação + código
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="codigo-nbm" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					NBM_CODIGO - Código da NBM
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="codigo-natureza-operacao" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					NOP_CODIGO - Código da natureza da operação
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="numero-di" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					NUM_DI - 
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="codigo-om" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					OM_CODIGO - Código de origem da mercadoria
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="peso-bruto" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					PESO_BRUTO_KG - Peso bruto das mercadorias do item do DOF em kg
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="peso-liquido" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					PESO_LIQUIDO_KG - Peso liquido das mercadorias do item do DOF em kg
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="preco-total" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					PRECO_TOTAL
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="preco-unitario" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					PRECO_UNITARIO
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="quantidade" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					QTD - Quantidade do item da nota fiscal
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="codigo-situacao-icms" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					STC_CODIGO - Código de situação tributária da mercadoria quanto ao ICMS
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="codigo-situacao-ipi" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					STP_CODIGO - Código de situação tributária da mercadoria quanto ao IPI
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="subclasse-idf" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					SUBCLASSE_IDF - Subclasse do item de documento fiscal
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="tipo-complemento" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					TIPO_COMPLEMENTO - Se o DOF for de complemento, indica qual tipo de complemento  : 
+					I=Imposto = ,P= Preço e PI = Preço e Imposto
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="codigo-unidade-fiscal" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					UNI_FISCAL_CODIGO - Código da Unidade de Medida. 
+					Preencher:	Peça=PC e par=PAR 
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-ajustes-preco-total" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_AJUSTE_PRECO_TOTAL
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="valor-base-icms" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_BASE_ICMS - Valor da base de ICMS
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="valor-base-ipi" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_BASE_IPI - Bipi = Valor da base de IPI
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="valor-base-stf" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_BASE_STF
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="valor-base-stt" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_BASE_STT
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="valor-contabil" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_CONTABIL - Valor contábil do item em moeda nacional
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="valor-faturado" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_FATURADO - 
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="valor-fiscal" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_FISCAL - 
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="valor-icms" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_ICMS - (Vicms = Valor do ICMS) e (Vicms = Ticms * Aicms)
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-imposto-importacao" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_II - Valor do imposto de importação
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-ipi" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_IPI - (Vipi = Valor do IPI) e (Vipi = Tipi * Aipi)
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-rateio-ajuste-preco" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_RATEIO_AJUSTE_PRECO - Valor do rateio do ajuste (+) ou desconto (-) 
+					sobre o valor total do documento para o item
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-rateio-frete" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_RATEIO_FRETE - Valor do rateio do frete para o item
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-rateio-oda" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_RATEIO_ODA - Valor do rateio de outras despesas acessórias para o item
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-rateio-seguro" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_RATEIO_SEGURO - Valor do rateio do seguro para o item
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-stf" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_STF - Valor do ICMS devido à substituição tributária para frente relativo ao IDF
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-stt" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_STT - Valor do ICMS devido à substituição tributária para trás relativo ao IDF
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-tributavel-icms" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_TRIBUTAVEL_ICMS - Valor tributável de ICMS
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-tributavel-ipi" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_TRIBUTAVEL_IPI - Valor tributável de IPI
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-tributavel-stf" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_TRIBUTAVEL_STF - Valor tributável de substituição de ICMS para frente
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-tributavel-stt" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_TRIBUTAVEL_STT - Valor tributável de substituição de IPI para frente
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="DOFType">
+		<xsd:sequence>
+			<xsd:element name="ano-mes-emissao" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					ANO_MES_EMISSAO - Ano e mês de emissão do documento fiscal
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="filial" type="xsd:string" minOccurs="1"
+				maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					Numero da filial
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="codigo-fiscal-operacao-prestacao"
+				type="xsd:string" minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					CFOP_CODIGO - Código fiscal de operação e prestação
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="controle-conteudo" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					CTRL_CONTEUDO - Controle de situação do dof quanto ao seu conteúdo 
+					(I=incompleto, C=completo, G=congelado)
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="controle-instrucao" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					CTRL_INSTRUCAO - Controle de instrução de importação do registro (I=inclusao, A=alteração, E=exclusão)
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="controle-situacao-dof" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					CTRL_SITUACAO_DOF - Controle de situação do dof (S=cancelado, N=efetivo)
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="codigo-destinatario-pfj" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					DESTINATARIO_PFJ_CODIGO - Código da pessoa. (código do estabelecimento)
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="data-emissao" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					DH_EMISSAO - Data e hora de emissão do documento fiscal
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="numero-importacao-dof" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					DOF_IMPORT_NUMERO - Número do documento importado atribuído pelo estabelecimento 
+					informante (código do cliente)
+					Obs.: sem brancos entre os dados
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="data-fato-gerador-imposto" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					DT_FATO_GERADOR_IMPOSTO - Data  efetiva a ser considerada para escrituração
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="codigo-especie-dof" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					EDOF_CODIGO - Código da espécie de documento fiscal
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="emitente-codigo-pfj" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					EMITENTE_PFJ_CODIGO - Código da pessoa física / jurídica do emitente
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="indicador-contabilizacao" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+				    IND_CONTABILIZACAO - Indica se o doc fiscal deve ser contabilizado pelo SQL *CONTAB
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="indicado-entrada-saida" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					IND_ENTRADA_SAIDA - Indicador de operação de entrada ou saída (E=entrada, S=saida)
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="indicador-escrituracao" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					IND_ESCRITURACAO - Indica se o documento fiscal deve ser escriturado.
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="codigo-informante-estabelecimento"
+				type="xsd:string" minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					INFORMANTE_EST_CODIGO - Código da pessoa estabelecimento   
+					--  Concatena com ‘FX’
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="modo-emissao" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					MODO_EMISSAO - Modo de emissão do documento fiscal (C=comandado, I=imediato, 
+					L=liberado, E=emitido)
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="codigo-natureza-operacao" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					NOP_CODIGO - Código da natureza da operação
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="numero-registro-exportacao" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					NUM_RE_SISCOMEX - Número do registro de exportação (siscomex)
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="numero-nota-fiscal" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					NUMERO - Número do documento fiscal (num NF)
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+
+			<xsd:element name="codigo-rementente-pfj" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					REMETENTE_PFJ_CODIGO - Código da pessoa.
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="serie-subserie" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					SERIE_SUBSERIE - Série / Subsérie do documento fiscal
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="codigo-sistema" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					SIS_CODIGO - Código do sistema
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="tipo" type="xsd:string" minOccurs="1"
+				maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					TIPO - Tipo de Documento, Nulo ou N = Documento é normal.
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+
+			<xsd:element name="observacao" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+						CA2_OBSERVACAO - Preencher se houver observações
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="transportador" type="tns:TransportadorType"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+						Transportador
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="imposto" type="tns:ImpostoType"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					Dados do imposto
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="ImpostoType">
+		<xsd:sequence>
+			<xsd:element name="valor-ajuste-preco-total-mercadoria"
+				type="xsd:string" minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_AJUSTE_PRECO_TOTAL_M - Valor do ajuste (+) ou desconto (-) sobre o total 
+					dos itens de mercadoria
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-ajuste-preco-total-prestacao"
+				type="xsd:string" minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_AJUSTE_PRECO_TOTAL_P - Valor do ajuste (+) ou desconto (-) sobre o total 
+					dos itens de prestação;
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-ajuste-preco-total-servico"
+				type="xsd:string" minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_AJUSTE_PRECO_TOTAL_S - Valor do ajuste (+) ou desconto (-) sobre o total 
+					dos itens de serviço
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-fiscal-subclasse-m" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_FISCAL_M - Somatório dos valores fiscais dos itens subclasse = "M"
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-fiscal-subclasse-o" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_FISCAL_O - Somatório dos valores fiscais dos itens subclasse = "O"
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-fiscal-subclasse-p" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_FISCAL_P - Somatório dos valores fiscais dos itens subclasse = "P"
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-fiscal-subclasse-s" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_FISCAL_S - Somatório dos valores fiscais dos itens subclasse = "S"
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-frete" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_FRETE - Valor do frete para as mercadorias da nf
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-outras-despesas" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_OUTRAS_DESPESAS - Valor das outras despesas acessórias
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-seguro" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_SEGURO - Valor das despesas do dof com seguro
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-total-base-icms" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_TOTAL_BASE_ICMS - Somatório das bases de icms dos itens do dof
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-total-base-ipi" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_TOTAL_BASE_IPI - Somatório das bases de ipi dos itens do dof
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-total-base-stf" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_TOTAL_BASE_STF - Soma dos valores tributáveis da substituição 
+					tributária de ICMS para frente
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-total-base-stt" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_TOTAL_BASE_STT - Soma dos valores tributáveis da substituição 
+					tributária de ICMS para trás
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-total-contabil" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_TOTAL_CONTABIL - Valor total do dof 
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-total-faturado" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_TOTAL_FATURADO - Valor total faturado
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-total-icms" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_TOTAL_ICMS - Somatório do valor de icms dos itens do dof
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-total-ii" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_TOTAL_II - Somatório do valor de ii dos itens do dof
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-total-ipi" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_TOTAL_IPI - Somatório do valor de ipi dos itens do dof
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-total-stf" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_TOTAL_STF - Soma dos valores da substituição tributária de ICMS para frente
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-total-stt" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					VL_TOTAL_STT - Soma dos valores da substituição tributária de ICMS para trás
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="preco-total-subclasse-m" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					PRECO_TOTAL_M - Somatório dos valores totais dos itens subclasse = "M" (mercadoria)
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="preco-total-subclasse-o" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					PRECO_TOTAL_O - Somatório dos valores totais dos itens subclasse = "O"
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="preco-total-subclasse-p" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					PRECO_TOTAL_P - Somatório dos valores totais dos itens subclasse = "P"
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="preco-total-subclasse-s" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					PRECO_TOTAL_S - Somatório dos valores totais dos itens subclasse = "S"
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="NotaFiscalType">
+		<xsd:sequence>
+			<xsd:element name="codigo-tipo-emitente" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					Tipo de emitente da NF.
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="codigo-filial" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					Filial
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="codigo-emitente" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					emitente da NF.
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="numero-nota-fiscal" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					Numero da NF.
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="tipo-nota-fiscal" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					Tipo da NF.
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="data-emissao" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+				 		Data de emissão da NF.
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="data-movimento" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+				 		Data do movimento da NF.
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="recebimento" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="valor-total" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					Valor total da NF.
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="icms" type="xsd:string" minOccurs="1"
+				maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					valor total do icms da NF.
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="base-calculo-icms" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					Base de calculo do ICMS da NF.
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="total-icms-substituicao-tributaria"
+				type="xsd:string" minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					Valor total do icms da NF.
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="ipi" type="xsd:string" minOccurs="1"
+				maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					Valor total o ipi da NF.
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="motivo-devolucao" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					Observação de motivo de devolução.
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="codigo-situacao-nota" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					codigo da nota.
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="ultima-atualizacao" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					ultima atualização da NF.
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+
+			<xsd:element name="usuario-ultima-atualizacao" type="xsd:string"
+				minOccurs="1" maxOccurs="1" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation><![CDATA[
+					Usuario.
+				]]></xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

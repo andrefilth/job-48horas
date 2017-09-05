@@ -1,0 +1,51 @@
+<xs:schema elementFormDefault="qualified"
+    targetNamespace="http://www.oracle.com/retail/integration/custom/bo/EOfBrSupplierDesc/v1"
+    version="1.0"
+    xmlns="http://www.oracle.com/retail/integration/custom/bo/EOfBrSupplierDesc/v1"
+    xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="EOfBrSupplierDesc">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="EOfBrSupAttr">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="EOfBrSupSite">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="EOfBrSupSiteOrgUnit">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="EOfBrSupSiteAddr">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="EOfBrAddr">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>    
+    <xs:element name="EOfBrTributarySub">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="EOfBrCnaeCodes">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="EOfBrTaxRegimeb">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

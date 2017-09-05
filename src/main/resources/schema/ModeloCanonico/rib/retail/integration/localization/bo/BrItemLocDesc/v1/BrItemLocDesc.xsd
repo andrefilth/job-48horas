@@ -1,0 +1,55 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/localization/bo/BrItemLocDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/localization/bo/BrItemLocDesc/v1" xmlns:EOfBrItemLocDesc="http://www.oracle.com/retail/integration/custom/bo/EOfBrItemLocDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/EOfBrItemLocDesc/v1" schemaLocation="../../../../custom/bo/EOfBrItemLocDesc/v1/EOfBrItemLocDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+	<xs:element name="BrItemLocVirt">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrItemLocDesc:EOfBrItemLocVirt">
+               		<retailDoc:annotation>
+                 		<retailDoc:documentation>Provide an extension hook to customize ItemLocVirt
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="BrItemLocVirtRepl">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrItemLocDesc:EOfBrItemLocVirtRepl">
+               		<retailDoc:annotation>
+                 		<retailDoc:documentation>Provide an extension hook to customize ItemLocVirtRepl
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="BrItemLocPhys">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrItemLocDesc:EOfBrItemLocPhys">
+               		<retailDoc:annotation>
+                 		<retailDoc:documentation>Provide an extension hook to customize ItemLocPhys
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="BrItemLocDesc">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrItemLocDesc:EOfBrItemLocDesc">
+               		<retailDoc:annotation>
+                 		<retailDoc:documentation>Provide an extension hook to customize ItemLocDesc
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+</xs:schema>

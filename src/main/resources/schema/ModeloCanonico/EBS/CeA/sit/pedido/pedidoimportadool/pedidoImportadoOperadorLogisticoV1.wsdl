@@ -1,0 +1,66 @@
+<!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. --><definitions name="Consume" targetNamespace="http://www.cea.com.br/EBS/CEA/sit/pedidoimportado/defineoperadorlogistico" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.cea.com.br/EBS/CEA/sit/pedidoimportado/defineoperadorlogistico" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="PedidoImportadoOLEBO_v1.xsd">
+			</xsd:import>
+		</xsd:schema>
+		
+		
+		<xsd:schema>
+			<xsd:import namespace="http://www.cea.com.br/EBS/CEA/sit/pedidoimportado/defineoperadorlogistico" schemaLocation="PedidoImportadoOLEBS_v1.xsd">
+			</xsd:import>
+		</xsd:schema>
+    </types>
+
+	<message name="PedidoImportadoOLToDB2RequestMsg">
+		<part name="request" element="tns:PedidoImportadoOLToDB2Request"/>
+	</message>
+	<message name="PedidoImportadoOLToDB2ResponseMsg">
+		<part name="response" element="tns:PedidoImportadoOLToDB2Response"/>
+	</message>
+
+
+	<message name="TechnicalFaultMsg">
+		<part name="TechnicalFault" element="ebo:TechnicalFault"/>
+	</message>
+	<message name="BusinessFaultMsg">
+		<part name="BusinessFault" element="ebo:BusinessFault"/>
+	</message>
+
+
+	<portType name="SLGPortType">
+		<operation name="PersistePedidoImportado">
+			<input message="tns:PedidoImportadoOLToDB2RequestMsg"/>
+			<output message="tns:PedidoImportadoOLToDB2ResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+	</portType>
+
+	<binding name="SLGBinding" type="tns:SLGPortType">
+		<soap12:binding transport="http://www.w3.org/2003/05/soap/bindings/HTTP/" style="document"/>
+		<operation name="PersistePedidoImportado">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+	</binding>
+
+	<service name="SLGService">
+		<port name="SLGPort" binding="tns:SLGBinding">
+			<soap12:address location="http://localhost:7001/WSPedidoImportadoOperadorLogistico/service/pedidoImportadoOperadorLogisticoV1"/>
+		</port>
+	</service>
+
+</definitions>

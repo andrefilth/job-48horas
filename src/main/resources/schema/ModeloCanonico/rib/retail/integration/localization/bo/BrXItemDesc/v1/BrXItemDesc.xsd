@@ -1,0 +1,262 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/localization/bo/BrXItemDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/localization/bo/BrXItemDesc/v1" xmlns:EOfBrXItemDesc="http://www.oracle.com/retail/integration/custom/bo/EOfBrXItemDesc/v1" xmlns:NameValPairRBO="http://www.oracle.com/retail/integration/base/bo/NameValPairRBO/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/EOfBrXItemDesc/v1" schemaLocation="../../../../custom/bo/EOfBrXItemDesc/v1/EOfBrXItemDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+	<xs:import namespace="http://www.oracle.com/retail/integration/base/bo/NameValPairRBO/v1" schemaLocation="../../../../base/bo/NameValPairRBO/v1/NameValPairRBO.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+	<xs:element name="BrXItemVATDesc">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrXItemDesc:EOfBrXItemVATDesc">
+               		<retailDoc:annotation>
+                	 	<retailDoc:documentation>Provide an extension hook to customize XItemVATDesc
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="BrXISCLocDesc">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrXItemDesc:EOfBrXISCLocDesc">
+               		<retailDoc:annotation>
+                	 	<retailDoc:documentation>Provide an extension hook to customize XISCLocDesc
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="BrXItemUDADtl">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrXItemDesc:EOfBrXItemUDADtl">
+               		<retailDoc:annotation>
+                	 	<retailDoc:documentation>Provide an extension hook to customize XItemUDADtl
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="BrXItemImage">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrXItemDesc:EOfBrXItemImage">
+               		<retailDoc:annotation>
+                	 	<retailDoc:documentation>Provide an extension hook to customize XItemImage
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="BrXItemSeason">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrXItemDesc:EOfBrXItemSeason">
+               		<retailDoc:annotation>
+                	 	<retailDoc:documentation>Provide an extension hook to customize XItemSeason
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="BrXIZPDesc">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrXItemDesc:EOfBrXIZPDesc">
+               		<retailDoc:annotation>
+                	 	<retailDoc:documentation>Provide an extension hook to customize XIZPDesc
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="BrXISCDimDesc">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrXItemDesc:EOfBrXISCDimDesc">
+               		<retailDoc:annotation>
+                	 	<retailDoc:documentation>Provide an extension hook to customize XISCDimDesc
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="BrXItemBOMDesc">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrXItemDesc:EOfBrXItemBOMDesc">
+               		<retailDoc:annotation>
+                	 	<retailDoc:documentation>Provide an extension hook to customize XItemBOMDesc
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="BrXItemSupCtyDesc">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrXItemDesc:EOfBrXItemSupCtyDesc">
+               		<retailDoc:annotation>
+                	 	<retailDoc:documentation>Provide an extension hook to customize XItemSupCtyDesc
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="BrXItemSupDesc">
+		<xs:complexType>
+            <xs:sequence>
+            <xs:element minOccurs="0" name="origin_code" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Indicates the specific type of national (local) or imported fiscal attribute an item sold in Brazil has at the item/supplier level.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrXItemDesc:EOfBrXItemSupDesc">
+               		<retailDoc:annotation>
+                	 	<retailDoc:documentation>Provide an extension hook to customize XItemSupDesc
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="BrXItemCtryDesc">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element name="service_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates if an item is a service item or a product item.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                 <xs:element minOccurs="0" name="origin_code" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Holds the origin code.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="classification_id" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the fiscal classification for the item.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ncm_char_code" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> This is a sub-level of the NCM used to give a more detailed classification to apply the taxes.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ex_ipi" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This is the exception code defined by the government.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="pauta_code" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This is the lowest level code for tax classification. This code will represent the item and will be mainly used to calculate the ‘pauta’, which means a pre-defined base of calculation for ICMSST controlled at item level by the government.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="service_code" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This is the Tax Rules Unified Service Code needed for tax calculation.  This code is linked to the NCM.  Values are exported by the Mastersaf..</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="federal_service" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Holds the federal service code associated with a service item.  This code is linked to the NCM.  Values are exported by the Mastersaf..</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="state_of_manufacture" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the postal abbreviation for the state in which the item is manufactured.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="pharma_list_type" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Refers to the category of the pharmaceutical item. Valid values: ‘NEG’ – negative list, ‘POS’ – positive list, ‘NEU’ – neutral list.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element maxOccurs="unbounded" minOccurs="0" ref="NameValPairRBO:NameValPairRBO">
+               		<retailDoc:annotation>
+                	 	<retailDoc:documentation>Provide an extension hook to customize NameValPairRBO
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrXItemDesc:EOfBrXItemCtryDesc">
+               		<retailDoc:annotation>
+                	 	<retailDoc:documentation>Provide an extension hook to customize XItemCtryDesc
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="BrXItemCostDesc">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrXItemDesc:EOfBrXItemCostDesc">
+               		<retailDoc:annotation>
+                	 	<retailDoc:documentation>Provide an extension hook to customize XItemCostDesc
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="BrXItemDesc">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrXItemDesc:EOfBrXItemDesc">
+               		<retailDoc:annotation>
+                	 	<retailDoc:documentation>Provide an extension hook to customize XItemDesc
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 1 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar26">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 6 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="varchar23">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 3 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar225">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 25 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

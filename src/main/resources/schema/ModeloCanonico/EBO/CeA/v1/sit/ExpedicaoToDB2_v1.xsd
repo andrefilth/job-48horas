@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.cea.com.br/EBO/CEA/v1"
+	elementFormDefault="unqualified" attributeFormDefault="unqualified"
+	version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.cea.com.br/EBO/CEA/v1"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:complexType name="CriaExpedicaoToDB2Type">
+		<xsd:sequence>
+			<element name="LocaDestino" type="string" minOccurs="0" nillable="true" />
+			<element name="LocaOrigem" type="string" minOccurs="0" nillable="true" />
+			<element name="NumeroASN" type="int" minOccurs="0" nillable="true" />
+			<element name="DataExpedicao" type="dateTime" minOccurs="0" nillable="true" />
+			<element name="PaisDestino" type="string" minOccurs="0" nillable="true" />
+			<element name="NumeroExpedicao" type="int" minOccurs="0" nillable="true" />			
+			<element name="Comentarios" type="string" minOccurs="0" nillable="true" />
+			<element name="Distribuicoes"  minOccurs="0" maxOccurs="unbounded" nillable="true">
+				<complexType>
+					<sequence>
+						<element name="NumeroDistribuicao" type="int" minOccurs="0" nillable="true" />
+						<element name="TipoDistribuicao" type="string" minOccurs="0" nillable="true" />
+						<element name="Itens"  minOccurs="0" maxOccurs="unbounded" nillable="true">
+							<complexType>
+								<sequence>
+									<element name="ContainerId" type="string" minOccurs="0" nillable="true"/>								
+									<element name="CodigoItem" minOccurs="0" nillable="true">
+										<simpleType>
+											<restriction base="string">
+												<maxLength value="25" />
+											</restriction>
+										</simpleType>
+									</element>
+									<element name="QuantidadeItem" type="int" minOccurs="0" nillable="true" />
+									<element name="NumeroLinhaPedido" type="int" minOccurs="0" nillable="true" />
+								</sequence>
+							</complexType>
+						</element>
+					</sequence>
+				</complexType>
+			</element>			
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,37 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/MrchHrGrpRef/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/MrchHrGrpRef/v1" xmlns:ExtOfMrchHrGrpRef="http://www.oracle.com/retail/integration/custom/bo/ExtOfMrchHrGrpRef/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfMrchHrGrpRef/v1" schemaLocation="../../../../custom/bo/ExtOfMrchHrGrpRef/v1/ExtOfMrchHrGrpRef.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="MrchHrGrpRef">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="group_no" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the number which uniquely identifies the group.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfMrchHrGrpRef:ExtOfMrchHrGrpRef">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize MrchHrGrpRef.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="number4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

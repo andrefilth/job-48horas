@@ -1,0 +1,558 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/CEAXPartnerDesc/v1" version="1.1" xmlns="http://www.oracle.com/retail/integration/base/bo/CEAXPartnerDesc/v1" xmlns:AddrDesc="http://www.oracle.com/retail/integration/base/bo/AddrDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation> This is root element of this document which 
+			contains name space definitions for the document elements. 
+"xsds/retail/integration/custom/bo/ExtOfVendorHdrDesc/v1/ExtOfVendorHdrDesc.xsd"			</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/base/bo/AddrDesc/v1" schemaLocation="../../AddrDesc/v1/AddrDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation> It's a referenced element. For detailed 
+				description, please refer referenced element doc. 
+				</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="CEAXPartnerDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation> Description is not available. 
+				</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="partner_type" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Specifies the type of the 
+							partner. </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="partner_id" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Unique identifying number for 
+							a partner within the system. 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="partner_desc" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Contain the partner's 
+							description or name. </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="currency_code" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Contains a code identifying 
+							the currency the partner uses for business 
+							transactions. </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="lang" type="number6">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> The partner's preferred 
+							language. This field is provided for custom 
+							purchase orders in a specified language 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="status" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Determines if the partner is 
+							currently active. Valid values are 'A' = Active or 
+							'I' = Inactive. </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="contact_name" type="varchar2120">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Contains the name of the 
+							partner's representative contract. 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="contact_phone" type="varchar220">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Contains the phone number of 
+							the partner's representative contact. 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="contact_fax" type="varchar220">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Contains the fax number of 
+							the partner's representative contact. 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="contact_telex" type="varchar220">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Contains the telex number of 
+							the partner's representative contact. 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="contact_email" type="varchar2100">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Contains the e-mail address 
+							of the partner's representative contact. 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="mfg_id" type="varchar218">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Contains the manufacturer's 
+							tax identification number. This field is NULL when 
+							the Partner Type is Bank ('BK'). 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="principal_country_id" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Contains the country id to 
+							which the partner is assigned. This field is NULL 
+							when the Partner Type is Bank ('BK'). 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="line_of_credit" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Contains the line of credit 
+							the company has at the Bank in the Partner's 
+							currency. This field is not NULL when the Partner 
+							Type is Bank ('BK'). </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="tax_id" type="varchar218">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Contains the unique tax identification number of the partner </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="terms" type="varchar215">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Payment terms for the 
+							partner. These terms specify when payment is due 
+							and if any discounts exist for early payment. If 
+							populated, they will default on any invoice entered 
+							for this partner. </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="service_perf_req_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Indicates if the partner's 
+							services (e.g. shelf stocking) must be confirmed as 
+							performed before paying an invoice from that 
+							partner. Valid values are 'Y' and 'N'. 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="invc_pay_loc" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Indicates where invoices from 
+							this supplier are paid - at the store or centrally 
+							through corporate accounting. Valid values are 'S' 
+							(paid at the store) and 'C' (paid centrally). 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="invc_receive_loc" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Indicates where invoices from 
+							this supplier are received - at the store or centrally 
+							through corporate accounting. Valid values are 'S' 
+							(paid at the store) and 'C' (paid centrally). 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="import_country_id" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Import country of the Import 
+							Authority. This field is not populated for other 
+							partner types. </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="primary_ia_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Indicates if an Import 
+							Authority is the primary Import Authority for an 
+							import country. This field will always be 'N' for 
+							other partner types. There must be one and only one 
+							primary Import Authority for each country 
+							associated with an Import Authority on the partner 
+							table. </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="tsf_entity_id" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>ID of the transfer entity with which an external finisher (partner_type = E) is
+associated.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="org_unit_id" type="number15">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Organizational Unit Identificator</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="auto_rcv_stock_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This will indicate whether the system will update the stock for the external
+finisher when the 1st leg of the transfer is shipped</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="AddrDesc:AddrDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> It's a referenced element. 
+							For detailed description, please refer referenced 
+							element doc. </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element ref="CEAXPartnerFiscalAttr">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Partner fiscal attributes.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="CEAXPartnerFiscalAttr">
+		<xs:complexType>
+            <xs:sequence>
+				<xs:element ref="CEAXPartnerFiscalAddr">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Fiscal Address Attributes for Brazil.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element ref="CEAXPartnerFiscalReg">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Fiscal Registry Attributes for Brazil.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element ref="CEAXPartnerFiscalClass">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Fiscal Classification Attributes for Brazil.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="CEAXPartnerFiscalCNAE">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CNAE attribute list.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+			</xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="CEAXPartnerFiscalAddr">
+		<xs:complexType>
+            <xs:sequence>
+				<xs:element minOccurs="0" name="taxpayer_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Tipo de Pessoa Juridica</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="addr_1" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Linha 1 do endereco</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="addr_2" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Linha 2 do endereco</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="addr_3" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Linha 3 do endereco</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="neighborhood" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Bairro</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="jurisdiction_code" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Cidade</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="state" type="varchar25">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Estado</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="country" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Pa�s</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="postal_code" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Codigo Postal</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+			</xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="CEAXPartnerFiscalReg">
+		<xs:complexType>
+            <xs:sequence>
+				<xs:element minOccurs="0" name="cpf" type="varchar211">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>cpf</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="cnpj" type="varchar214">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>cnpj</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="nit" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Codigo NIT</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="suframa" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Suframa</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="im" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Inscricao Municipal</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="ie" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Inscricao Estadual</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+			</xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="CEAXPartnerFiscalClass">
+		<xs:complexType>
+            <xs:sequence>
+				<xs:element name="ipi_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contribuinte de IPI</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="icms_contrib_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contribuinte de ICMS</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="pis_contrib_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contribuinte de PIS</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="cofins_contrib_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contribuinte de COFINS</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+			</xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="CEAXPartnerFiscalCNAE">
+		<xs:complexType>
+            <xs:sequence>
+				<xs:element minOccurs="0" name="cnae_code" type="varchar29">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Codigo CNAE</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="primary_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicador de Principal</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+			</xs:sequence>
+        </xs:complexType>
+	</xs:element>
+    <xs:simpleType name="varchar2250">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 250 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="250"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar210">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 10 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2240">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 240 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="240"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar22">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 2 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2100">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 100 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar230">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 30 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="30"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar220">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 20 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar23">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 3 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="varchar25">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 5 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="5"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number6">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a number of digits 
+				count 6. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="number10">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a number of digits 
+				count 10. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2120">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 120 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="120"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar215">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 15 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="15"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar26">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 6 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar218">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 18 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="18"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number20_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a number of digits 
+				count 20 and fraction digit count of 4. 
+				</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="20"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number15">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a number of digits 
+				count 15. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="15"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 1 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="varchar211">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 11 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="11"/>
+        </xs:restriction>
+    </xs:simpleType> 
+    <xs:simpleType name="varchar29">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 9 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="9"/>
+        </xs:restriction>
+    </xs:simpleType>	
+	<xs:simpleType name="varchar214">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 14 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="14"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

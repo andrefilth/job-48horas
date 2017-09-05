@@ -1,0 +1,36 @@
+<xs:schema elementFormDefault="qualified"
+    targetNamespace="http://www.oracle.com/retail/integration/custom/bo/EOfInSupplierDesc/v1"
+    version="1.0"
+    xmlns="http://www.oracle.com/retail/integration/custom/bo/EOfInSupplierDesc/v1"
+    xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="EOfInSupplierDesc">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="EOfInSupAttr">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="EOfInSupSite">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="EOfInSupSiteOrgUnit">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="EOfInSupSiteAddr">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="EOfInAddr">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

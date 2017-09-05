@@ -1,0 +1,275 @@
+<definitions name="ManterUda" targetNamespace="http://www.cea.com.br/EBS/CEA/uda/manter/v1" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.cea.com.br/EBS/CEA/uda/manter/v1" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ 
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="ManterUdaEBO_v1.xsd">
+			</xsd:import>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import namespace="http://www.cea.com.br/EBS/CEA/uda/manter/v1" schemaLocation="ManterUdaEBS_v1.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</types>
+<!-- By Group -->
+	<message name="ManterMarcaRequestMsg">
+		<part name="request" element="tns:ManterMarcaRequest"/>
+	</message>
+	<message name="ManterMarcaResponseMsg">
+		<part name="response" element="tns:ManterMarcaResponse"/>
+	</message>
+
+	<message name="ManterPadronagemRequestMsg">
+		<part name="request" element="tns:ManterPadronagemRequest"/>
+	</message>
+	<message name="ManterPadronagemResponseMsg">
+		<part name="response" element="tns:ManterPadronagemResponse"/>
+	</message>
+	
+	<message name="ManterClasseProdutoRequestMsg">
+		<part name="request" element="tns:ManterClasseProdutoRequest"/>
+	</message>
+	<message name="ManterClasseProdutoResponseMsg">
+		<part name="response" element="tns:ManterClasseProdutoResponse"/>
+	</message>
+	
+	<message name="ManterConstrucaoPecaRequestMsg">
+		<part name="request" element="tns:ManterConstrucaoPecaRequest"/>
+	</message>
+	<message name="ManterConstrucaoPecaResponseMsg">
+		<part name="response" element="tns:ManterConstrucaoPecaResponse"/>
+	</message>
+
+	<message name="RemoverMarcaRequestMsg">
+		<part name="request" element="tns:RemoverMarcaRequest"/>
+	</message>
+	<message name="RemoverMarcaResponseMsg">
+		<part name="response" element="tns:RemoverMarcaResponse"/>
+	</message>
+
+	<message name="RemoverPadronagemRequestMsg">
+		<part name="request" element="tns:RemoverPadronagemRequest"/>
+	</message>
+	<message name="RemoverPadronagemResponseMsg">
+		<part name="response" element="tns:RemoverPadronagemResponse"/>
+	</message>
+	
+	<message name="RemoverClasseProdutoRequestMsg">
+		<part name="request" element="tns:RemoverClasseProdutoRequest"/>
+	</message>
+	<message name="RemoverClasseProdutoResponseMsg">
+		<part name="response" element="tns:RemoverClasseProdutoResponse"/>
+	</message>
+	
+	<message name="RemoverConstrucaoPecaRequestMsg">
+		<part name="request" element="tns:RemoverConstrucaoPecaRequest"/>
+	</message>
+	<message name="RemoverConstrucaoPecaResponseMsg">
+		<part name="response" element="tns:RemoverConstrucaoPecaResponse"/>
+	</message>
+
+	<message name="TechnicalFaultMsg">
+		<part name="TechnicalFault" element="ebo:TechnicalFault"/>
+	</message>
+	<message name="BusinessFaultMsg">
+		<part name="BusinessFault" element="ebo:BusinessFault"/>
+	</message>	
+
+	
+	<portType name="ManterUdaPortType">
+
+		<operation name="manterMarca">
+			<input message="tns:ManterMarcaRequestMsg"/>
+			<output message="tns:ManterMarcaResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+
+		<operation name="manterPadronagem">
+			<input message="tns:ManterPadronagemRequestMsg"/>
+			<output message="tns:ManterPadronagemResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+		
+		<operation name="manterClasseProduto">
+			<input message="tns:ManterClasseProdutoRequestMsg"/>
+			<output message="tns:ManterClasseProdutoResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+		
+		<operation name="manterConstrucaoPeca">
+			<input message="tns:ManterConstrucaoPecaRequestMsg"/>
+			<output message="tns:ManterConstrucaoPecaResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+		
+		<operation name="removerMarca">
+			<input message="tns:RemoverMarcaRequestMsg"/>
+			<output message="tns:RemoverMarcaResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+
+		<operation name="removerPadronagem">
+			<input message="tns:RemoverPadronagemRequestMsg"/>
+			<output message="tns:RemoverPadronagemResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+		
+		<operation name="removerClasseProduto">
+			<input message="tns:RemoverClasseProdutoRequestMsg"/>
+			<output message="tns:RemoverClasseProdutoResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+		
+		<operation name="removerConstrucaoPeca">
+			<input message="tns:RemoverConstrucaoPecaRequestMsg"/>
+			<output message="tns:RemoverConstrucaoPecaResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+		
+	</portType>
+
+	<binding name="ManterUdaBinding" type="tns:ManterUdaPortType">
+		<soap12:binding transport="http://www.w3.org/2003/05/soap/bindings/HTTP/" style="document"/>
+		<operation name="removerMarca">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>	
+		
+		<operation name="removerPadronagem">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+		
+		<operation name="removerClasseProduto">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+		
+		<operation name="removerConstrucaoPeca">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+		
+		<operation name="manterMarca">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>	
+		
+		<operation name="manterPadronagem">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+		
+		<operation name="manterClasseProduto">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+		
+		<operation name="manterConstrucaoPeca">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+	</binding>
+
+	<service name="ManterUdaService">
+		<port name="ManterUdaPort" binding="tns:ManterUdaBinding">
+			<soap12:address location="http://localhost:7001/wsintegracaouda/service/manterUdaV1"/>
+		</port>
+	</service>
+
+</definitions>

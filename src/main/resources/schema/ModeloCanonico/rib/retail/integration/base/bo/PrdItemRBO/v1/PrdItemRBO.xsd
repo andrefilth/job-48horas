@@ -1,0 +1,216 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/PrdItemRBO/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/PrdItemRBO/v1" xmlns:NameValPairRBO="http://www.oracle.com/retail/integration/base/bo/NameValPairRBO/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>
+			This is root element of this document which
+			contains name
+			space definitions for the document elements.
+		</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/base/bo/NameValPairRBO/v1" schemaLocation="../../NameValPairRBO/v1/NameValPairRBO.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				It's a referenced element. For detailed
+				description,
+				please refer referenced element doc.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="PrdItemRBO">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This contains all the item related
+				information when the
+				item type is product .
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="item_code" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the item code of the item.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="item_description" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the item description of the
+							item.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="item_origin" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the products orgin.Possible
+							values
+							are 0 - National 1 - Foreign 2 - Foreign
+							(but acquired in
+							national market)
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="item_utilization" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the destination of the
+							product.Possible values are I -
+							Industrialization C -
+							Commercialization U -
+							Consume A - Assets
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="is_transformed_item" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates whether product is
+							regular Item or modified by the
+							retailer. Possible values are
+							Y - Regular Item
+							N - Item modified by retailer
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="fiscal_classification_code" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Fiscal classification
+							code issued by the government and has tax implication.
+							For e.g: NCM in Brazil.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ext_fiscal_class_code" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Description is not available.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ipi_exception_code" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+					Indicates the IPI exception
+					code.
+					</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="product_type" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							First 2 digits from the Item
+							Category Code.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="state_of_manufacture" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Contains the postal abbreviation for the state in which the item
+							is manufactured
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="pharma_list_type" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Refers to the category of the pharmaceutical item.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="NameValPairRBO:NameValPairRBO">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Represents 1 to many Name Value Pair objects.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a string of max length of
+				1
+				characters.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar22">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a string of max length of
+				2
+				characters.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar23">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a string of max length of
+				3 characters.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21000">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a string of max length of
+				1000
+				characters.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1000"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar225">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a string of max length of
+				25
+				characters.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar26">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a string of max length of
+				6
+				characters.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2250">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a string of max length of
+				250
+				characters.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="250"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

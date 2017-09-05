@@ -1,0 +1,177 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/PrcInqDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/PrcInqDesc/v1" xmlns:ExtOfPrcInqDesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfPrcInqDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfPrcInqDesc/v1" schemaLocation="../../../../custom/bo/ExtOfPrcInqDesc/v1/ExtOfPrcInqDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="PrcInqDtl">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="status_code" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="item" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="location" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="location_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="pricing_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not Yet Available</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="selling_unit_retail" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not Yet Available</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="selling_uom" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="multi_units" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="multi_unit_retail" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="multi_selling_uom" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="currency_code" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not Yet Available</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="price_type" type="VARCHAR26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not Yet Available</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfPrcInqDesc:ExtOfPrcInqDtl">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize PrcInqDtl.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PrcInqDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="PrcInqDtl">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfPrcInqDesc:ExtOfPrcInqDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize PrcInqDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="number12_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 12 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar225">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 25 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar23">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 3 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar210">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 10 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="VARCHAR26">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar24">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 4 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number20_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 20 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="20"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number10">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 10.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 1 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

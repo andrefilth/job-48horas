@@ -1,0 +1,114 @@
+<xs:schema elementFormDefault="qualified"
+    targetNamespace="http://www.oracle.com/retail/integration/base/bo/CustOrdTsfDtlRBO/v1"
+    version="1.0"
+    xmlns="http://www.oracle.com/retail/integration/base/bo/CustOrdTsfDtlRBO/v1"
+    xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This object holds customer order detail information.
+		</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:element name="CustOrdTsfDtlRBO">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This object holds customer order detail information.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="item" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This will contain the items on the transfer.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="item_qty" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This will contain the quantity of each item on the transfer.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="uom" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This will contain the UOM of the item.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="unit_retail" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This will contain the unit retail value of the item.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="unit_retail_curr" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This will contain the currency of the unit retail value.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="total_retail" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This will contain the total unit retail of each item.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="total_retail_curr" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This will contain the currency of the total retail value.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar225">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max
+				length of 25 character.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number12_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits
+				count of 12 and decimal count of 4.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar24">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max
+				length of 4 character.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number20_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits
+				count of 20 and decimal count of 4.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="20"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar23">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max
+				length of 3 character.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

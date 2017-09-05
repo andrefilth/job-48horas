@@ -1,0 +1,112 @@
+<xs:schema elementFormDefault="qualified"
+    targetNamespace="http://www.oracle.com/retail/integration/base/bo/CEARouteDesc/v1"
+    version="1.0"
+    xmlns="http://www.oracle.com/retail/integration/base/bo/CEARouteDesc/v1"
+    xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:element name="CEARouteDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="dest_id" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>DC transshipment identification</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="route" type="varchar220">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Destination delivery route.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="description" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Route description.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="route_status" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Status of the route. 'Active' or 'Inactive'</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="last_used_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Last time the route was used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="user_id" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>User identification.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element maxOccurs="unbounded" ref="CEARouteDestDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Lista de destinos</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="CEARouteDestDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="ship_id" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Destination delivery store/wh</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="load_sequence" type="number3">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates the order for loading each route/dest within a trailer.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar210">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 120 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar220">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 120 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2240">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 120 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="240"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar230">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 120 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="30"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="number3">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

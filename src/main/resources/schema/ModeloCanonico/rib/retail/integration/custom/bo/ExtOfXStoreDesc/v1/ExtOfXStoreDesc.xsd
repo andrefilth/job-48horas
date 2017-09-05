@@ -1,0 +1,14 @@
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by wega (personal) -->
+<retailDoc:schema xmlns="http://www.oracle.com/retail/integration/custom/bo/ExtOfXStoreDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfXStoreDesc/v1" elementFormDefault="qualified" version="1.0">
+	<retailDoc:element name="ExtOfXStoreDesc">
+		<retailDoc:complexType>
+			<retailDoc:sequence>
+				<retailDoc:element name="zone_group_id">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the identification number of the zone group in which the zone is located.</retailDoc:documentation>
+					</retailDoc:annotation>
+				</retailDoc:element>
+			</retailDoc:sequence>
+		</retailDoc:complexType>
+	</retailDoc:element>
+</retailDoc:schema>

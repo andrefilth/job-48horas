@@ -1,0 +1,83 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/DSRcptDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/DSRcptDesc/v1" xmlns:ExtOfDSRcptDesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfDSRcptDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfDSRcptDesc/v1" schemaLocation="../../../../custom/bo/ExtOfDSRcptDesc/v1/ExtOfDSRcptDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="DSRcptDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="trans_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="item" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="store" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The store number which is requesting the inventory.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="units" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="unit_cost" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Unit cost associated with an item.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfDSRcptDesc:ExtOfDSRcptDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize DSRcptDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="number12_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 12 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar225">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 25 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number20_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 20 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="20"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number10">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 10.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

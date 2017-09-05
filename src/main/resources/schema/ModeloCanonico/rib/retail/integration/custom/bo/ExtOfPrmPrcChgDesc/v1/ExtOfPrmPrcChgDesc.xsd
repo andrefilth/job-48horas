@@ -1,0 +1,46 @@
+<xs:schema elementFormDefault="qualified"
+    targetNamespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfPrmPrcChgDesc/v1"
+    version="1.0"
+    xmlns="http://www.oracle.com/retail/integration/custom/bo/ExtOfPrmPrcChgDesc/v1"
+    xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="ExtOfPrmPrcChgThrDtl">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ExtOfPrmPrcChgGetItem">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ExtOfPrmPrcChgSmp">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ExtOfPrmPrcChgBuyItem">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ExtOfPrmPrcChgBuyGet">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ExtOfPrmPrcChgThr">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ExtOfPrmPrcChgDtl">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ExtOfPrmPrcChgDesc">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

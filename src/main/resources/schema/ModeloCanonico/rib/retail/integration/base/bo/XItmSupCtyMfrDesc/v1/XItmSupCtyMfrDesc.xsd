@@ -1,0 +1,53 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/XItmSupCtyMfrDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/XItmSupCtyMfrDesc/v1" xmlns:ExtOfXItmSupCtyMfrDesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfXItmSupCtyMfrDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+	<xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfXItmSupCtyMfrDesc/v1" schemaLocation="../../../../custom/bo/ExtOfXItmSupCtyMfrDesc/v1/ExtOfXItmSupCtyMfrDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed 
+				description, please refer referenced element 
+				doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="XItmSupCtyMfrDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="manufacturer_ctry_id" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Country ID of manufacturer.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="primary_manufacturer_ctry_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates if it's the primary country of manufacturer.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element maxOccurs="1" minOccurs="0" ref="ExtOfXItmSupCtyMfrDesc:ExtOfXItmSupCtyMfrDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to 
+							customize XItmSupCtyMfrDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+				</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>    
+    <xs:simpleType name="varchar23">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 3 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="23"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 1 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>    
+</xs:schema>

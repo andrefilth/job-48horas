@@ -1,0 +1,50 @@
+<!-- Created with Liquid XML Studio 1.0.8.0 (http://www.liquid-technologies.com) --><xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/ReportLocRef/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/ReportLocRef/v1" xmlns:ExtOfReportLocRef="http://www.oracle.com/retail/integration/custom/bo/ExtOfReportLocRef/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfReportLocRef/v1" schemaLocation="../../../../custom/bo/ExtOfReportLocRef/v1/ExtOfReportLocRef.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="ReportLocRef">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="1" name="report_ref_key" type="varchar232">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="1" name="report_url" type="varchar2256">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfReportLocRef:ExtOfReportLocRef">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize ReportLocRef.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar232">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 32 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="32"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2256">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 256 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="256"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

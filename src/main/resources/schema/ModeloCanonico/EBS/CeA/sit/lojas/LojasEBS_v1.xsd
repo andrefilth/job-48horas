@@ -1,0 +1,23 @@
+<xsd:schema targetNamespace="http://www.cea.com.br/EBS/CEA/sit/lojas" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns:tns="http://www.cea.com.br/EBS/CEA/sit/lojas" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="LojasEBO_v1.xsd"/>
+
+	 <xsd:element name="LojaFromDB2Request">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="IdentificadorIntegracao" type="xsd:decimal"/>
+				<xsd:element name="CodigoLoja" type="xsd:decimal"/>
+				<xsd:element name="NomeAcao" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="LojaFromDB2Response">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="LojaFromDB2" type="ebo:LojaFromDB2Type"/>
+	 			<xsd:element name="MensagemResposta" type="ebo:MensagemRespostaType"/>	 
+	 		</xsd:sequence>
+	 	</xsd:complexType>
+	 </xsd:element>
+		
+</xsd:schema>

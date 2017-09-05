@@ -1,0 +1,127 @@
+<xsd:schema targetNamespace="http://www.cea.com.br/EBS/CEA/precos/manter/precos/v1" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.cea.com.br/EBS/CEA/precos/manter/precos/v1" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v2" xmlns:ebo1="http://www.cea.com.br/EBO/CEA/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="ManterPrecosEBO_v1.xsd"/>
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v2" schemaLocation="../../../../EBO/CeA/v2/commons/MetaInformacaoEBO_v2.xsd"/>
+
+	<xsd:element name="ManterPrecosLiquidacaoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="tipoMensagem" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="mensagem" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:any minOccurs="1" maxOccurs="1"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="metaInformacao" type="ebo:MetaInformacaoType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ManterPrecosLiquidacaoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ebo1:MensagemResposta" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>	
+
+	<xsd:element name="RemoverPrecosLiquidacaoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="tipoMensagem" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="mensagem" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:any minOccurs="1" maxOccurs="1"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="metaInformacao" type="ebo:MetaInformacaoType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="RemoverPrecosLiquidacaoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ebo1:MensagemResposta" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>	
+	
+		<xsd:element name="ManterPrecosRegularesRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="tipoMensagem" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="mensagem" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:any minOccurs="1" maxOccurs="1"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="metaInformacao" type="ebo:MetaInformacaoType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ManterPrecosRegularesResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ebo1:MensagemResposta" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>	
+
+	<xsd:element name="RemoverPrecosRegularesRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="tipoMensagem" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="mensagem" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:any minOccurs="1" maxOccurs="1"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="metaInformacao" type="ebo:MetaInformacaoType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="RemoverPrecosRegularesResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ebo1:MensagemResposta" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>	
+	
+	<xsd:element name="ManterPrecosItemLocRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="tipoMensagem" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="PrecoVigenteToDB2" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element ref="ebo1:PrecoVigente" minOccurs="1" maxOccurs="unbounded"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="metaInformacao" type="ebo:MetaInformacaoType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ManterPrecosItemLocResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ebo1:MensagemResposta" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+		
+</xsd:schema>

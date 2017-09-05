@@ -1,0 +1,109 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/XMrchHrCompDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/XMrchHrCompDesc/v1" xmlns:ExtOfXMrchHrCompDesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfXMrchHrCompDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfXMrchHrCompDesc/v1" schemaLocation="../../../../custom/bo/ExtOfXMrchHrCompDesc/v1/ExtOfXMrchHrCompDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="XMrchHrCompDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="company" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The unique number which identifies the company for which the system is running.  This value cannot be modified.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="company_name" type="varchar2120">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The name of the company for which the system is running.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="add_1" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The first line of the company headquarters address.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="add_2" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The second line of the company headquarters address.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="add_3" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The third line of the company headquarters address.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="city" type="varchar2120">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The city the company headquarters.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="state" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The abbreviation of the state of the company headquarters.  This value must be predefined on the STATE table.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="country_code" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The abbreviation of the country of the company headquarters.  This value must be predefined on the COUNTRY table.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="postal_code" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The postal zip code of the company headquarters.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfXMrchHrCompDesc:ExtOfXMrchHrCompDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize XMrchHrCompDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar230">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 30 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="30"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar23">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 3 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2240">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 240 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="240"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2120">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 120 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="120"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

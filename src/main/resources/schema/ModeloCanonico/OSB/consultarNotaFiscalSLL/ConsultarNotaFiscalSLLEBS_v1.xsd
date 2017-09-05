@@ -1,0 +1,25 @@
+<xsd:schema targetNamespace="http://www.cea.com.br/OSB/consultarNotaFiscalSLL/v1" elementFormDefault="qualified" attributeFormDefault="qualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.cea.com.br/OSB/consultarNotaFiscalSLL/v1" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="ConsultarNotaFiscalSLLEBO_v1.xsd"/>	
+
+	<xsd:element name="ConsultarDadosNFRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="1" maxOccurs="1" name="pNiNf" type="int"/>
+				<xsd:element minOccurs="0" maxOccurs="1" name="pCdIdi" type="string"/>
+				<xsd:element name="meta_informacao" type="ebo:MetaInfType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>			
+					
+
+	<xsd:element name="ConsultarDadosNFResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<!-- xsd:element ref="xsd:schema" / -->
+				<xsd:any/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+</xsd:schema>

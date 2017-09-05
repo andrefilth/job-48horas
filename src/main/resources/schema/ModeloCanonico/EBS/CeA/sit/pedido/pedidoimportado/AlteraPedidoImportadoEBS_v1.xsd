@@ -1,0 +1,23 @@
+<xsd:schema targetNamespace="http://www.cea.com.br/EBS/CEA/sit/pedido/pedidoimportado" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="AlteraPedidoImportadoEBO_v1.xsd"/>
+
+	<xsd:element name="ConsultarPedidoImportadoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="PedidoImportadoFromComex" type="ebo:PedidoImportadoFromComexType"/>
+				<xsd:element name="MensagemResposta" type="ebo:MensagemRespostaType"/>
+	 		</xsd:sequence>
+	 	</xsd:complexType>
+	</xsd:element>
+	
+	
+	<xsd:element name="ConsultarPedidoImportadoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="numeroPedido" type="xsd:int"/>
+				<xsd:element name="codigoAcaoITG" type="xsd:int"/>
+			</xsd:sequence>
+		</xsd:complexType>
+		</xsd:element>
+</xsd:schema>

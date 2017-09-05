@@ -1,0 +1,36 @@
+<xsd:schema 
+targetNamespace="http://www.cea.com.br/OSB/enviarEmailParaFornecedor/v1" 
+elementFormDefault="unqualified" attributeFormDefault="unqualified"
+version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" 
+xmlns:tns="http://www.cea.com.br/OSB/enviarEmailParaFornecedor/v1"
+xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="EnviarEmailParaFornecedorEBO_v1.xsd"/>
+		
+	<element name="EnviarEmailParaFornecedorResponse">
+		<xsd:complexType>
+			<sequence>
+				<element name="result" type="string"/>
+			</sequence>
+		</xsd:complexType>	
+	</element>
+
+	<element name="EnviarEmailParaFornecedorRequest">
+		<xsd:complexType>
+			<sequence>
+				<element name="codigo_fornecedor" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+				<element name="de" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<element name="cc" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="true"/>
+				<element name="bcc" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="true"/>
+				<element name="assunto" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<element name="corpo" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>				
+				
+				<element name="meta_informacao" type="ebo:MetaInfType" minOccurs="1" maxOccurs="1"/>
+			</sequence>
+		</xsd:complexType>
+	</element>
+
+	<xsd:element name="FornecedorNaoEncontradoFault" type="ebo:BusinessFaultType"/>
+	<xsd:element name="TechnicalFault" type="ebo:TechnicalFaultType"/>
+
+</xsd:schema>

@@ -1,0 +1,42 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/ItemBOMRef/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/ItemBOMRef/v1" xmlns:ExtOfItemBOMRef="http://www.oracle.com/retail/integration/custom/bo/ExtOfItemBOMRef/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfItemBOMRef/v1" schemaLocation="../../../../custom/bo/ExtOfItemBOMRef/v1/ExtOfItemBOMRef.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="ItemBOMRef">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="pack_no" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>mapped to AS_ITM_RTL_STR,RK_ITEM_SUPPLIER,RK_ITEM_SUPP_COUNTRY,CO_CLN_ITM,AS_ITM as well. Not Yet Available</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="item" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>mapped to AS_ITM_RTL_STR, RK_ITEM_SUPPLIER, RK_ITEM_SUPP_COUNTRY, CO_CLN_ITM, AS_ITM as well. Not Yet Available</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfItemBOMRef:ExtOfItemBOMRef">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize ItemBOMRef.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar225">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 25 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

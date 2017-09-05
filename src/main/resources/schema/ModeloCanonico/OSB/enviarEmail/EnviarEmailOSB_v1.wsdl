@@ -1,0 +1,50 @@
+<definitions name="EnviarEmailAgendado" targetNamespace="http://www.cea.com.br/OSB/enviarEmail/v1" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.cea.com.br/OSB/enviarEmail/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.cea.com.br/OSB/enviarEmail/v1" schemaLocation="EnviarEmailOSB_v1.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</types>
+
+	<message name="EnviarEmailRequestMsg">
+		<part name="request" element="tns:EnviarEmailRequest"/>
+	</message>
+	<message name="EnviarEmailResponseMsg">
+		<part name="response" element="tns:EnviarEmailResponse"/>
+	</message>
+	
+	<message name="TechnicalFaultMsg">
+		<part name="TechnicalFault" element="tns:TechnicalFault"/>
+	</message>	
+
+	<portType name="EnviarEmailPortType">
+		<operation name="enviarEmail">
+			<input message="tns:EnviarEmailRequestMsg"/>
+			<output message="tns:EnviarEmailResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+		</operation>
+	</portType>
+
+	<binding name="EnviarEmailBinding" type="tns:EnviarEmailPortType">
+		<soap12:binding transport="http://www.w3.org/2003/05/soap/bindings/HTTP/" style="document"/>
+		<operation name="enviarEmail">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>			
+		</operation>
+	</binding>
+
+	<service name="EnviarEmailService">
+		<port name="EnviarEmailPort" binding="tns:EnviarEmailBinding">
+			<soap12:address location="http://localhost:8080/EnviarEmailService"/>
+		</port>
+	</service>	
+
+</definitions>

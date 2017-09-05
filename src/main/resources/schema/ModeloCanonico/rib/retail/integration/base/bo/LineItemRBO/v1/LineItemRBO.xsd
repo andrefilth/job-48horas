@@ -1,0 +1,577 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/LineItemRBO/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/LineItemRBO/v1" xmlns:InformTaxRBO="http://www.oracle.com/retail/integration/base/bo/InformTaxRBO/v1" xmlns:NameValPairRBO="http://www.oracle.com/retail/integration/base/bo/NameValPairRBO/v1" xmlns:PrdItemRBO="http://www.oracle.com/retail/integration/base/bo/PrdItemRBO/v1" xmlns:SvcItemRBO="http://www.oracle.com/retail/integration/base/bo/SvcItemRBO/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>
+			This is root element of this document which
+			contains name
+			space definitions for the document elements.
+		</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/base/bo/NameValPairRBO/v1" schemaLocation="../../NameValPairRBO/v1/NameValPairRBO.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				It's a referenced element. For detailed
+				description,
+				please refer referenced element doc.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:import namespace="http://www.oracle.com/retail/integration/base/bo/InformTaxRBO/v1" schemaLocation="../../InformTaxRBO/v1/InformTaxRBO.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				It's a referenced element. For detailed
+				description,
+				please refer referenced element doc.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:import namespace="http://www.oracle.com/retail/integration/base/bo/PrdItemRBO/v1" schemaLocation="../../PrdItemRBO/v1/PrdItemRBO.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				It's a referenced element. For detailed
+				description,
+				please refer referenced element doc.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:import namespace="http://www.oracle.com/retail/integration/base/bo/SvcItemRBO/v1" schemaLocation="../../SvcItemRBO/v1/SvcItemRBO.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				It's a referenced element. For detailed
+				description,
+				please refer referenced element doc.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="LineItemRBO">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				Represents the line items in a fiscal
+				document.Each
+				FiscalDocument may have 1 to many
+				LineItemRBO's.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="document_line_id" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates Unique ID of the item of the
+							fiscal document
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="1" name="item_id" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							It's a referenced element. For detailed
+							description, please refer referenced element
+							doc..
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="item_tran_code" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the item transaction code.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="1" name="item_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the item type.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="quantity" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates quantity of items.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="unit_of_measure" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates unit of measurement of the item.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="quantity_in_eaches" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates unit of measurement of the item.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="origin_doc_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates origin fiscal document date
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="pack_item_id" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates pack item id.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="total_cost" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates total cost of the item.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="unit_cost" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates unit cost of the item.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="src_taxpayer_type" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the source taxpayer type.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="orig_fiscal_doc_number" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the orginal fiscal document
+							number.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="orig_fiscal_doc_series" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the original fiscal document
+							serial number.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="dim_object" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Specific object whose dimensions are specified in this record.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="length" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Length of dim_object measured in units specified in lwh_uom.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="width" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Width of dim_object measured in units specified in lwh_uom.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="lwh_uom" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Unit of measurement for length, width and height.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="weight" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Weight of dim_object measured in units specified in weight_uom.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="net_weight" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Net weight of the dim_object (weight without packaging) measured in units specified in weight_uom.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="weight_uom" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Unit of measurement for weight.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="liquid_volume" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Liquid volume, or capacity, of dim_object measured in units specified in colume_uom. Liquid volumes are only convertible to other liquid volumes.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="liquid_volume_uom" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Unit of measurement for liquid volume.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="freight" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Item Freight Value
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="insurance" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Item Value of Insurance
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="discount" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Discount Value applied for the item
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="commision" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Item Commission Value
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="freight_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Type of Freight. Valid
+							values are 'F'(Full on board) and 'C'(Cost inclusive of freight). 
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="other_expenses" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Value of Other Expenses
+							applicable for the item
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="origin_fiscal_code_opr" type="varchar212">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the original fiscal code of
+							operation.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="deduced_fiscal_code_opr" type="varchar212">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates deduced fiscal code of
+							operation.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="deduce_cfop_code" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicated the deduce transaction code.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="icms_cst_code" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the ICMS CST Code.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="pis_cst_code" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the PIS CST Code.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="cofins_cst_code" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the COFINS CST Code.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="deduce_icms_cst_code" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates to deduce the ICMS CST Code.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="deduce_pis_cst_code" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates to deduce the PIS CST Code.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="deduce_cofins_cst_code" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates to deduce the COFINS CST Code.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="recoverable_icmsst" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the recoverable ICMSST amount.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="item_cost_contains_cofins" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Inform whether the COFINS is already
+							includes in the item cost.Possible values
+							are 'Y' and 'N'. 'Y' if
+							COFINS is included
+							in the item cost 'N' if COFINS is not
+							includes
+							in the item cost.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="recoverable_base_icmsst" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the ICMSST base recoverable
+							amount.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="item_cost_contains_pis" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates if PIS is already included in
+							item
+							cost.Possible values are 'Y' and 'N'. 'Y' if
+							PIS is included
+							in the item cost 'N' if PIS
+							is not includes in the item cost.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="item_cost_contains_icms" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates if ICMS is already included in
+							item cost.Possible values are 'Y' or 'N'.
+							'Y' if PIS is included
+							in the item cost 'N'
+							if PIS is not includes in the item cost.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ipi_cst_code" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							This column captures tributary Situation of IPI.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ipi_clenq" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							This column indicates Class for IPI.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="imported_item_first_exit" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							This column indicates Class for IPI.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="imported_item_retail_src" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							This column indicates Class for IPI.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="imported_item_retail_dest" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							This column indicates Class for IPI.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>                
+                <xs:element name="non_taxable_expenses" minOccurs="0" type="number20_4">
+					    <retailDoc:annotation>
+						    <retailDoc:documentation>
+								    This column captures the non-taxable expenses.
+						    </retailDoc:documentation>
+					    </retailDoc:annotation>
+				</xs:element>               
+                <xs:element minOccurs="0" ref="PrdItemRBO:PrdItemRBO">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							It's a referenced element. For detailed
+							description, please refer referenced element
+							doc.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" ref="SvcItemRBO:SvcItemRBO">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							It's a referenced element. For detailed
+							description, please refer referenced element
+							doc.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="InformTaxRBO:InformTaxRBO">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							It's a referenced element. For detailed
+							description, please refer referenced element
+							doc.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="NameValPairRBO:NameValPairRBO">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Represents 1 to many Name Value Pair objects.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a string of max length of
+				1
+				characters.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar210">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a string of max length of
+				10
+				characters.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar23">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a string of max length of
+				3
+				characters.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar26">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a string of max length of
+				6
+				characters.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar24">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a string of max length of
+				4
+				characters.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number12_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a number of digits count
+				12 and
+				fraction digit count of 4.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="20"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number20_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a number of digits count
+				20 and
+				fraction digit count of 4.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="20"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar225">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a string of max length of
+				25
+				characters.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar212">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a string of max length of
+				12
+				characters.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="12"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar24000">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a string of max length of
+				4000
+				characters.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="4000"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2250">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a string of max length of
+				250
+				characters.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="250"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

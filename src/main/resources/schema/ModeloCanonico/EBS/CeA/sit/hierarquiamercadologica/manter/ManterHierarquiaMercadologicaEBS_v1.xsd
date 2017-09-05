@@ -1,0 +1,265 @@
+<xsd:schema targetNamespace="http://www.cea.com.br/EBS/CEA/hierarquiamercadologica/manter/v1" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.cea.com.br/EBS/CEA/hierarquiamercadologica/manter/v1" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v2" xmlns:ebo1="http://www.cea.com.br/EBO/CEA/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="ManterHierarquiaMercadologicaEBO_v1.xsd"/>
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v2" schemaLocation="../../../../../EBO/CeA/v2/commons/MetaInformacaoEBO_v2.xsd"/>
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="../../../../../EBO/CeA/v1/commons/MensagemRespostaEBO_v1.xsd"/>
+
+	<xsd:import namespace="http://www.oracle.com/retail/integration/base/bo/MrchHrDivDesc/v1" schemaLocation="../../../../../rib/retail/integration/base/bo/MrchHrDivDesc/v1/MrchHrDivDesc.xsd"/>
+	<xsd:import namespace="http://www.oracle.com/retail/integration/base/bo/MrchHrDivRef/v1" schemaLocation="../../../../../rib/retail/integration/base/bo/MrchHrDivRef/v1/MrchHrDivRef.xsd"/>
+
+	<xsd:import namespace="http://www.oracle.com/retail/integration/base/bo/MrchHrGrpDesc/v1" schemaLocation="../../../../../rib/retail/integration/base/bo/MrchHrGrpDesc/v1/MrchHrGrpDesc.xsd"/>
+	<xsd:import namespace="http://www.oracle.com/retail/integration/base/bo/MrchHrGrpRef/v1" schemaLocation="../../../../../rib/retail/integration/base/bo/MrchHrGrpRef/v1/MrchHrGrpRef.xsd"/>
+
+
+	<xsd:import namespace="http://www.oracle.com/retail/integration/base/bo/MrchHrDeptDesc/v1" schemaLocation="../../../../../rib/retail/integration/base/bo/MrchHrDeptDesc/v1/MrchHrDeptDesc.xsd"/>
+	<xsd:import namespace="http://www.oracle.com/retail/integration/base/bo/MrchHrDeptRef/v1" schemaLocation="../../../../../rib/retail/integration/base/bo/MrchHrDeptRef/v1/MrchHrDeptRef.xsd"/>
+
+
+	<xsd:import namespace="http://www.oracle.com/retail/integration/base/bo/MrchHrClsDesc/v1" schemaLocation="../../../../../rib/retail/integration/base/bo/MrchHrClsDesc/v1/MrchHrClsDesc.xsd"/>
+	<xsd:import namespace="http://www.oracle.com/retail/integration/base/bo/MrchHrClsRef/v1" schemaLocation="../../../../../rib/retail/integration/base/bo/MrchHrClsRef/v1/MrchHrClsRef.xsd"/>
+
+
+	<xsd:import namespace="http://www.oracle.com/retail/integration/base/bo/MrchHrSclsDesc/v1" schemaLocation="../../../../../rib/retail/integration/base/bo/MrchHrSclsDesc/v1/MrchHrSclsDesc.xsd"/>
+	<xsd:import namespace="http://www.oracle.com/retail/integration/base/bo/MrchHrSclsRef/v1" schemaLocation="../../../../../rib/retail/integration/base/bo/MrchHrSclsRef/v1/MrchHrSclsRef.xsd"/>
+
+	<xsd:element name="ManterDivisaoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="tipoMensagem" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="mensagem" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:any minOccurs="1" maxOccurs="1"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="metaInformacao" type="ebo:MetaInformacaoType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ManterDivisaoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ebo1:MensagemResposta" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>	
+	
+	<xsd:element name="RemoverDivisaoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="tipoMensagem" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="mensagem" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:any minOccurs="1" maxOccurs="1"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="metaInformacao" type="ebo:MetaInformacaoType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="RemoverDivisaoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ebo1:MensagemResposta" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>	
+	
+	<xsd:element name="ManterDepartamentoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="tipoMensagem" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="mensagem" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:any minOccurs="1" maxOccurs="1"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="metaInformacao" type="ebo:MetaInformacaoType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ManterDepartamentoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ebo1:MensagemResposta" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>		
+
+	<xsd:element name="RemoverDepartamentoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="tipoMensagem" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="mensagem" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:any minOccurs="1" maxOccurs="1"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="metaInformacao" type="ebo:MetaInformacaoType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="RemoverDepartamentoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ebo1:MensagemResposta" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>		
+
+	<xsd:element name="ManterSubdepartamentoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="tipoMensagem" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="mensagem" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:any minOccurs="1" maxOccurs="1"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="metaInformacao" type="ebo:MetaInformacaoType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ManterSubdepartamentoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ebo1:MensagemResposta" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>	
+
+	<xsd:element name="RemoverSubdepartamentoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="tipoMensagem" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="mensagem" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:any minOccurs="1" maxOccurs="1"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="metaInformacao" type="ebo:MetaInformacaoType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="RemoverSubdepartamentoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ebo1:MensagemResposta" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>	
+
+	<xsd:element name="ManterClassificacaoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="tipoMensagem" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="mensagem" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:any minOccurs="1" maxOccurs="1"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="metaInformacao" type="ebo:MetaInformacaoType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ManterClassificacaoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ebo1:MensagemResposta" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>	
+
+	<xsd:element name="RemoverClassificacaoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="tipoMensagem" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="mensagem" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:any minOccurs="1" maxOccurs="1"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="metaInformacao" type="ebo:MetaInformacaoType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="RemoverClassificacaoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ebo1:MensagemResposta" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>	
+
+	<xsd:element name="ManterClassificacaoCodigoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="tipoMensagem" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="mensagem" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:any minOccurs="1" maxOccurs="1"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="metaInformacao" type="ebo:MetaInformacaoType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ManterClassificacaoCodigoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ebo1:MensagemResposta" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>	
+
+	<xsd:element name="RemoverClassificacaoCodigoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="tipoMensagem" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="mensagem" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:any minOccurs="1" maxOccurs="1"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="metaInformacao" type="ebo:MetaInformacaoType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="RemoverClassificacaoCodigoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ebo1:MensagemResposta" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>	
+
+</xsd:schema>

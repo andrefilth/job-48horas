@@ -1,0 +1,112 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/LocOfSupplierDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/LocOfSupplierDesc/v1" xmlns:BrSupplierDesc="http://www.oracle.com/retail/integration/localization/bo/BrSupplierDesc/v1" xmlns:InSupplierDesc="http://www.oracle.com/retail/integration/localization/bo/InSupplierDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/localization/bo/InSupplierDesc/v1" schemaLocation="../../../../localization/bo/InSupplierDesc/v1/InSupplierDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+	<xs:import namespace="http://www.oracle.com/retail/integration/localization/bo/BrSupplierDesc/v1" schemaLocation="../../../../localization/bo/BrSupplierDesc/v1/BrSupplierDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+	<xs:element name="LocOfSupplierDesc">
+    	<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="InSupplierDesc:InSupplierDesc">
+                   <retailDoc:annotation>
+	               		<retailDoc:documentation>India Localization.</retailDoc:documentation>
+                   	</retailDoc:annotation>
+            	</xs:element>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="BrSupplierDesc:BrSupplierDesc">
+                   <retailDoc:annotation>
+	                	<retailDoc:documentation>Brazil Localization.</retailDoc:documentation>
+                   </retailDoc:annotation>
+            	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="LocOfSupAttr">
+    	<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="InSupplierDesc:InSupAttr">
+                   <retailDoc:annotation>
+	               		<retailDoc:documentation>India Localization.</retailDoc:documentation>
+                   	</retailDoc:annotation>
+            	</xs:element>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="BrSupplierDesc:BrSupAttr">
+                   <retailDoc:annotation>
+	                	<retailDoc:documentation>Brazil Localization.</retailDoc:documentation>
+                   </retailDoc:annotation>
+            	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="LocOfSupSite">
+    	<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="InSupplierDesc:InSupSite">
+                   <retailDoc:annotation>
+	               		<retailDoc:documentation>India Localization.</retailDoc:documentation>
+                   	</retailDoc:annotation>
+            	</xs:element>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="BrSupplierDesc:BrSupSite">
+                   <retailDoc:annotation>
+	                	<retailDoc:documentation>Brazil Localization.</retailDoc:documentation>
+                   </retailDoc:annotation>
+            	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="LocOfSupSiteOrgUnit">
+    	<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="InSupplierDesc:InSupSiteOrgUnit">
+                   <retailDoc:annotation>
+	               		<retailDoc:documentation>India Localization.</retailDoc:documentation>
+                   	</retailDoc:annotation>
+            	</xs:element>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="BrSupplierDesc:BrSupSiteOrgUnit">
+                   <retailDoc:annotation>
+	                	<retailDoc:documentation>Brazil Localization.</retailDoc:documentation>
+                   </retailDoc:annotation>
+            	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="LocOfSupSiteAddr">
+    	<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="InSupplierDesc:InSupSiteAddr">
+                   <retailDoc:annotation>
+	               		<retailDoc:documentation>India Localization.</retailDoc:documentation>
+                   	</retailDoc:annotation>
+            	</xs:element>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="BrSupplierDesc:BrSupSiteAddr">
+                   <retailDoc:annotation>
+	                	<retailDoc:documentation>Brazil Localization.</retailDoc:documentation>
+                   </retailDoc:annotation>
+            	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="LocOfAddr">
+    	<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="InSupplierDesc:InAddr">
+                   <retailDoc:annotation>
+	               		<retailDoc:documentation>India Localization.</retailDoc:documentation>
+                   	</retailDoc:annotation>
+            	</xs:element>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="BrSupplierDesc:BrAddr">
+                   <retailDoc:annotation>
+	                	<retailDoc:documentation>Brazil Localization.</retailDoc:documentation>
+                   </retailDoc:annotation>
+            	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

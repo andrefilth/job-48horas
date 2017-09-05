@@ -1,0 +1,32 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/BookTsfColRBO/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/BookTsfColRBO/v1" xmlns:BookTsfRBO="http://www.oracle.com/retail/integration/base/bo/BookTsfRBO/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This object holds a collection of
+			BookTsfRBO rows.
+		</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/base/bo/BookTsfRBO/v1" schemaLocation="../../BookTsfRBO/v1/BookTsfRBO.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed
+				description, please refer referenced element doc.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="BookTsfColRBO">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This object holds a collection of
+				BookTsfRBO rows.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="BookTsfRBO:BookTsfRBO">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>It's a referenced element. For
+							detailed description, please refer referenced element doc.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

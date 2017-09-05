@@ -1,0 +1,33 @@
+<xs:schema version="1.0" targetNamespace="http://www.cea.com.br/EBS/CEA/sit/agendamentofiscal" xmlns:ns1="http://www.cea.com.br/EBO/CEA/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="AgendamentoFiscalEBO_v1.xsd"/>
+  <xs:element name="MantemAgendamentoFiscalToDB2Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="AgendamentoFiscalToDB2" type="ns1:ManterAgendamentoFiscalDB2Type"/>
+        <xs:element name="NomeAcao" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MantemAgendamentoFiscalToDB2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="MensagemResposta" type="ns1:MensagemRespostaType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+	<xs:element name="consultaNumeroDanfeRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="numeroRequisicao" type="xs:string" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="localizacao" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="consultaNumeroDanfeResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="numeroDanfe" type="xs:decimal" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>  
+</xs:schema>

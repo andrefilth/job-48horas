@@ -1,0 +1,532 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/FiscDocTaxRBO/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/FiscDocTaxRBO/v1" xmlns:LineItemTaxRBO="http://www.oracle.com/retail/integration/base/bo/LineItemTaxRBO/v1" xmlns:TaxDetRBO="http://www.oracle.com/retail/integration/base/bo/TaxDetRBO/v1" xmlns:NameValPairRBO="http://www.oracle.com/retail/integration/base/bo/NameValPairRBO/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:FreightRBO="http://www.oracle.com/retail/integration/base/bo/FreightRBO/v1">
+    <retailDoc:annotation>
+        <retailDoc:documentation>
+			sThis is root element of this document which
+			contains name
+			space definitions for the document elements.
+		</retailDoc:documentation>
+    </retailDoc:annotation>
+	<xs:import schemaLocation="../../TaxDetRBO/v1/TaxDetRBO.xsd" namespace="http://www.oracle.com/retail/integration/base/bo/TaxDetRBO/v1">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				It's a referenced element. For detailed
+				description,
+				please refer referenced element doc.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+	<xs:import schemaLocation="../../LineItemTaxRBO/v1/LineItemTaxRBO.xsd" namespace="http://www.oracle.com/retail/integration/base/bo/LineItemTaxRBO/v1">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				It's a referenced element. For detailed
+				description,
+				please refer referenced element doc.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+	<xs:import schemaLocation="../../NameValPairRBO/v1/NameValPairRBO.xsd" namespace="http://www.oracle.com/retail/integration/base/bo/NameValPairRBO/v1">
+		<retailDoc:annotation>
+			<retailDoc:documentation>
+				It's a referenced element. For detailed
+				description,
+				please refer referenced element doc.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+	</xs:import>
+	<xs:import schemaLocation="../../FreightRBO/v1/FreightRBO.xsd" namespace="http://www.oracle.com/retail/integration/base/bo/FreightRBO/v1">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				It's a referenced element. For detailed
+				description,
+				please refer referenced element doc.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="FiscDocTaxRBO">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				Represents the document which may represent
+				a Nota
+				Fiscal, Purchase Order,Transfer Order or any other
+				Transaction
+				which has Tax implication.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+				<xs:element name="document_number" minOccurs="1" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Fiscal document
+							number.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="1" name="fiscal_document_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Fiscal Document Date.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="src_entity_code" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Legal Entity Code
+							for the source location.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="src_entity_type" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Entity Type
+							of the source location.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="src_addr_city_id" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the City Id or Code
+							of the source location.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="src_federal_tax_reg_id" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Federal Tax Registration
+							Number of the source location.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="SrcEcoClassCd">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the National economic
+							classification code of the source location.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element ref="SrcTaxContributor" minOccurs="0" maxOccurs="unbounded">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Description is not available.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="SrcDiffTaxRegime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Tax Regime of a Supplier (Source Scenario) which will enable to have a 
+							reduction in tax basis amount.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="src_is_income_range_eligible" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates whether the Supplier's income range (Source Scenario) is 
+							eligible for a reduction in tax basis. Possible values 
+							are "Y" or "N"  
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="src_is_distr_a_manufacturer" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							(Source Scenario) Indicates whether the Distributor is a Manufacturer also. Possible values 
+							are "Y" or "N"  
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="src_icms_simples_rate" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							(Source Scenario) Indicates the ICMS rate of a supplier participating in SIMPLES regime. 
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="src_is_rural_producer" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates whether the Source is a Rural
+							Producer or not.Possible values are "Y" or
+							"N"
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="src_is_simples_contributor" type="varchar21" minOccurs="0">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates If the company is part of the
+							'SIMPLES' regime.Possible values are 'Y' or
+							'N'
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="SrcNameValPair">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Represents 1 to many Name Value Pair objects.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="dst_entity_code" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Legal Entity Code
+							of the destination location.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="dst_entity_type" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Entity Type
+							of the destination location.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="dst_addr_city_id" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the City Id or Code
+							of the destination location.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="dst_federal_tax_reg_id" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Federal Tax Registration
+							Number of the destination location.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="DstEcoClassCd">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the National economic
+							classification code of the
+							destination location.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="DstDiffTaxRegime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Tax Regime of a Supplier (Destination Scenario) which will enable to have a 
+							reduction in tax basis amount.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="dst_is_income_range_eligible" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							(Destination Scenario)Indicates whether the Supplier's income range is 
+							eligible for a reduction in tax basis. Possible values 
+							are "Y" or "N"  
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="dst_is_distr_a_manufacturer" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							(Destination Scenario)Indicates whether the Distributor is a Manufacturer also. Possible values 
+							are "Y" or "N"  
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="dst_icms_simples_rate" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							(Destination Scenario) Indicates the ICMS rate of a supplier participating in SIMPLES regime. 
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element ref="DstTaxContributor" minOccurs="0" maxOccurs="unbounded">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Description is not available.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="DstNameValPair">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Represents 1 to many Name Value Pair objects.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="disc_merch_cost" type="number20_4" minOccurs="0">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the discounted merchandise cost.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="total_cost" type="number20_4" minOccurs="0">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the total cost of the items.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="total_services_cost" type="number20_4" minOccurs="0">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the total services cost of the items.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="calculation_status" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Mastersaf response status.
+							W - Warning, E - Error, S - Success, I - With Inconclusive Rules
+							AI - With Warning and Inconclusive Rules
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="LineItemTaxRBO:LineItemTaxRBO">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Represents 1 to many LineItemTaxRBO.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="Messages">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Description is not available.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="TaxDetRBO:TaxDetRBO">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Represents 1 to many TaxDetRBO.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="FreightRBO:FreightRBO">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Represents 1 to many FreightRBO.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SrcEcoClassCd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="value" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description not available
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="DstEcoClassCd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="value" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description not available
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SrcNameValPair">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="NameValPairRBO:NameValPairRBO">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description not available
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="DstNameValPair">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="NameValPairRBO:NameValPairRBO">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description not available
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SrcTaxContributor">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="value" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description not available
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="DstTaxContributor">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="value" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description not available
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SrcDiffTaxRegime">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description not available
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="value" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description not available
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="DstDiffTaxRegime">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description not available
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="value" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description not available
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Messages">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="value" type="varchar24000">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description not available.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of
+				1 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar26">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of
+				6 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar210">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of
+				10 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar225">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of
+				25 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2250">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of
+				250 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="250"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar24000">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of
+				4000 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="4000"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number20_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count
+				20 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="20"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

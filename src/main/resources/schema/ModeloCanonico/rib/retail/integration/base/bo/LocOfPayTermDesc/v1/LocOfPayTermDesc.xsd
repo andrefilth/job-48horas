@@ -1,0 +1,48 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/LocOfPayTermDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/LocOfPayTermDesc/v1" xmlns:BrPayTermDesc="http://www.oracle.com/retail/integration/localization/bo/BrPayTermDesc/v1" xmlns:InPayTermDesc="http://www.oracle.com/retail/integration/localization/bo/InPayTermDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/localization/bo/InPayTermDesc/v1" schemaLocation="../../../../localization/bo/InPayTermDesc/v1/InPayTermDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+	<xs:import namespace="http://www.oracle.com/retail/integration/localization/bo/BrPayTermDesc/v1" schemaLocation="../../../../localization/bo/BrPayTermDesc/v1/BrPayTermDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+	<xs:element name="LocOfPayTermDtl">
+    	<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="InPayTermDesc:InPayTermDtl">
+                   <retailDoc:annotation>
+	               		<retailDoc:documentation>India Localization.</retailDoc:documentation>
+                   	</retailDoc:annotation>
+            	</xs:element>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="BrPayTermDesc:BrPayTermDtl">
+                   <retailDoc:annotation>
+	                	<retailDoc:documentation>Brazil Localization.</retailDoc:documentation>
+                   </retailDoc:annotation>
+            	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="LocOfPayTermDesc">
+    	<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="InPayTermDesc:InPayTermDesc">
+                   <retailDoc:annotation>
+	               		<retailDoc:documentation>India Localization.</retailDoc:documentation>
+                   	</retailDoc:annotation>
+            	</xs:element>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="BrPayTermDesc:BrPayTermDesc">
+                   <retailDoc:annotation>
+	                	<retailDoc:documentation>Brazil Localization.</retailDoc:documentation>
+                   </retailDoc:annotation>
+            	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

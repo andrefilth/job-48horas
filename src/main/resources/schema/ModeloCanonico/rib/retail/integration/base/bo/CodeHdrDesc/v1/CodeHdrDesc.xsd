@@ -1,0 +1,50 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/CodeHdrDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/CodeHdrDesc/v1" xmlns:ExtOfCodeHdrDesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfCodeHdrDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfCodeHdrDesc/v1" schemaLocation="../../../../custom/bo/ExtOfCodeHdrDesc/v1/ExtOfCodeHdrDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="CodeHdrDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="code_type" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This field contains the code tpe which will serve as a grouping mechansim for the multiple codes stored on the CODE_DETAIL table.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="code_type_desc" type="varchar2120">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This field will contain the description of the code type.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfCodeHdrDesc:ExtOfCodeHdrDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize CodeHdrDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar2120">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 120 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="120"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar24">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 4 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

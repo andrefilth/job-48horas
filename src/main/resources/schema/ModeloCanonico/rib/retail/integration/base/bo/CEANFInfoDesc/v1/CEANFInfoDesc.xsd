@@ -1,0 +1,28 @@
+<xs:schema elementFormDefault="qualified"
+    targetNamespace="http://www.oracle.com/retail/integration/base/bo/CEANFInfoDesc/v1"
+    version="1.0"
+    xmlns="http://www.oracle.com/retail/integration/base/bo/CEANFInfoDesc/v1"
+    xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:element name="CEANFInfoDesc">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nfe_access_key" type="varchar244">
+			        <retailDoc:annotation>
+			            <retailDoc:documentation>Access key provided by fiscal partners solution.</retailDoc:documentation>
+			        </retailDoc:annotation>
+			    </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+     <xs:simpleType name="varchar244">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 44 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="44"/>
+        </xs:restriction>
+     </xs:simpleType>
+</xs:schema>

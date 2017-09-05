@@ -1,0 +1,31 @@
+<xsd:schema targetNamespace="http://www.cea.com.br/EBS/CEA/sit/recebimento" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns:tns="http://www.cea.com.br/EBS/CEA/sit/recebimento" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="RecebimentoEBO_v1.xsd"/>
+
+	 
+	 <xsd:element name="RecebimentoFromDB2Request">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="NumeroDocumentoFiscal" type="xsd:int" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="SistemOrigem" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="NumeroPedido" type="xsd:int" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="NumeroRecebimentoPedido" type="xsd:int" minOccurs="1" maxOccurs="1" nillable="false"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="RecebimentoFromDB2Response">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="RecebimentoFromDB2">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Recebimento" type="ebo:RecebimentoFromDB2Type" minOccurs="1" maxOccurs="unbounded" nillable="false"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+	 			<xsd:element name="MensagemResposta" type="ebo:MensagemRespostaType"/>	 
+	 		</xsd:sequence>
+	 	</xsd:complexType>
+	 </xsd:element>
+		
+</xsd:schema>

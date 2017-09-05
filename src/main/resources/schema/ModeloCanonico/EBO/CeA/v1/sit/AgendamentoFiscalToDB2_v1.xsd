@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xsd:schema targetNamespace="http://www.cea.com.br/EBO/CEA/v1"
+	elementFormDefault="unqualified" attributeFormDefault="unqualified"
+	version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.cea.com.br/EBO/CEA/v1"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	
+  <xsd:complexType name="ManterAgendamentoFiscalDB2Type">
+   		<xsd:sequence>
+			<element name="nuRqs" type="string" minOccurs="0" nillable="true" />
+			<element name="nuDanfe" type="string" minOccurs="0" nillable="true" />
+			<element name="cdTipRqs" type="string" minOccurs="0" nillable="true" />
+			<element name="nuAgdFis" type="int" minOccurs="0" nillable="true" />
+			<element name="dtIncReg" type="dateTime" minOccurs="0" nillable="true" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

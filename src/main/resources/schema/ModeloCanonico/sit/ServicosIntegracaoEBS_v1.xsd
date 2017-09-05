@@ -1,0 +1,74 @@
+<xs:schema targetNamespace="http://www.cea.com.br/sit" xmlns:tns="http://www.cea.com.br/sit" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1">
+	
+	<xs:import schemaLocation="../EBO/CeA/v1/commons/MensagemRespostaEBO_v1.xsd" namespace="http://www.cea.com.br/EBO/CEA/v1"/>
+
+	<xs:complexType name="ParametroStageDataType">
+		<xs:sequence>
+			<xs:element name="NomeParametro" type="xs:string" minOccurs="1"/>
+			<xs:element name="ValorParametro" minOccurs="1" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ParametroStageDataTypeList">
+		<xs:sequence>
+			<xs:element name="ParametroStageData" type="tns:ParametroStageDataType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="StageDataType">
+		<xs:sequence>
+			<xs:element name="IdentificadorStage" type="xs:int" minOccurs="1"/>
+			<xs:element name="NomeSistemaOrigem" type="xs:string" minOccurs="1"/>
+			<xs:element name="NomeIntegracao" minOccurs="1" type="xs:string"/>
+			<xs:element name="NomeAcao" minOccurs="1" type="xs:string"/>
+			<xs:element name="Parametros" minOccurs="1" type="tns:ParametroStageDataTypeList" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="RoteamentoRequestType">
+		<xs:sequence>
+			<xs:element name="IndicadorRetentativa" type="xs:string" minOccurs="1"/>
+			<xs:element name="TextoConteudoMensagem" type="xs:string" minOccurs="1"/>
+			<xs:element name="NomeDestino" type="xs:string" minOccurs="1"/>
+			<xs:element name="NomeOrigem" type="xs:string" minOccurs="1"/>
+			<xs:element name="NomeIntegracao" type="xs:string" minOccurs="1"/>
+			<xs:element name="IdentificadorIntegracao" type="xs:string" minOccurs="0"/>
+			<xs:element name="NomeAcao" type="xs:string" minOccurs="1"/>
+			<xs:element name="TextoEndpointEnriquecimento" type="xs:string" minOccurs="1"/>
+			<xs:element name="TextoEndpointPersistencia" type="xs:string" minOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ProcessamentoPubRequestType">
+		<xs:sequence>
+			<xs:element name="TextoConteudoMensagem" type="xs:string" minOccurs="1"/>
+			<xs:element name="NomeAcao" type="xs:string" minOccurs="1"/>			
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="ProcessamentoPubResponseType">
+		<xs:sequence>
+			<xs:element ref="ebo:MensagemResposta" minOccurs="1"/>			
+			<xs:element name="TextoConteudoMensagem" minOccurs="0" type="xs:string"/>
+			<xs:element name="IdentificadorIntegracao" minOccurs="0" type="xs:string"/>	
+			<xs:element name="DescartarMensagem" minOccurs="0" type="xs:string"/>	
+		</xs:sequence>
+	</xs:complexType>
+      
+	<xs:complexType name="ProcessamentoSubRequestType">
+        <xs:sequence>
+           	<xs:element name="TextoConteudoMensagem" type="xs:string" minOccurs="1"/>
+           	<xs:element name="NomeOrigem" type="xs:string" minOccurs="1"/>
+           	<xs:element name="NomeAcao" type="xs:string" minOccurs="1"/>
+           	<xs:element name="IdentificadorIntegracao" type="xs:string" minOccurs="0"/>
+   		</xs:sequence>
+   	</xs:complexType>
+   	        
+	<xs:element name="StageData" type="tns:StageDataType"/>
+	<xs:element name="RoteamentoPubRequest" type="tns:RoteamentoRequestType"/>
+	<xs:element name="RoteamentoPubResponse" type="ebo:MensagemRespostaType"/>
+	<xs:element name="ProcessamentoPubRequest" type="tns:ProcessamentoPubRequestType"/>
+	<xs:element name="ProcessamentoPubResponse" type="tns:ProcessamentoPubResponseType"/>
+	<xs:element name="RoteamentoSubRequest" type="tns:RoteamentoRequestType"/>
+	<xs:element name="RoteamentoSubResponse" type="ebo:MensagemRespostaType"/>
+	<xs:element name="ProcessamentoSubRequest" type="tns:ProcessamentoSubRequestType"/>
+	<xs:element name="ProcessamentoSubResponse" type="ebo:MensagemRespostaType"/>
+</xs:schema>

@@ -1,0 +1,175 @@
+package br.com.cea.transporte.batch.repository;
+
+public class QuerysRepository {
+
+
+	public static final String CONSULTAR_PARAMETRO_JOB = "	SELECT    	"
+			+ "          PARAM.CD_PARAMETRO   			as id			"
+			+ "        , PARAM.NO_PARAMETRO			as nome	    		"
+			+ "		, PARAM.VL_PARAMETRO   			as periodo 			"
+			+ "		, PARAM.DT_CREACION   			as dataCriacao 		"
+			+ "		, PARAM.DT_MODIFICATION   		as dataModificacao 	"
+			+ "		, PARAM.CD_USU   				as codigoUsuario 	"
+			+ "		, PARAM.DESCRIPCION   			as descricao	 	"
+			+ "	FROM 													"
+			+ "	 PROD.RF039T_PARAMETROS_CITA PARAM 						"
+			+ "		WHERE CD_PARAMETRO=?								";
+
+	public static final String CONSULTAR_PARAMETRO_JOB_ID = "	   SELECT  	"
+			+ "			 PARAM.VL_PARAMETRO   			as periodo 			"
+			+ "	   FROM 													"
+			+ "	    PROD.RF039T_PARAMETROS_CITA PARAM 						"
+			+ "		  WHERE NO_PARAMETRO=?					    ";
+
+
+	
+
+	public static final String CONSULTAR_INSPECTION_NUMERO_PEDIDO =   "  SELECT "
+																	+ "   ni_ped      as numeroPedido       "
+																	+ " , cd_tip_amst as codigoStatus       "
+																	+ " , cd_sit_amst as codigoSituacao     "
+																	+ "  FROM                               "
+																	+ "    prod.pf000t_pedido               "
+																	+ "     WHERE  ni_ped IN (:lista_citas) ";
+	
+	public static final String CONSULTAS_CITAS_FINAL =      " SELECT"  																																		
+														   +"     rf031t.cd_cita                     	AS id						"                             
+														   +"   , rf031t.cd_local_entrega            	AS codigoLocalEntrega		"             
+														   +"   , rf031t.cd_estatus                  	AS status					"                         
+														   +"   , rf031t.cd_pedido                   	AS codigoPedido				"                   
+														   +"   , rf031t.dt_creacion                 	AS dataCriacao				"                    
+														   +"   , rf031t.dt_finalizacion             	AS dataFinalizacao			"                
+														   +"   , rf031t.cd_rampa                    	AS codigoRampa				"                    
+														   +"   , rf031t.sr_inspecion                	AS inspecao					"                       
+														   +"   , rf031t.nm_del_chofer               	AS nomeMotorista			"                  
+														   +"   , rf031t.placa                       	AS numeroPlaca				"                    
+														   +"   , rf031t.cd_for                      	AS codigoFornecedor			"               
+														   +"   , rf031t.dt_movimentacion            	AS dataMovimento			"                  
+														   +"   , rf031t.cd_usu                      	AS codigoUsuario			"                  
+														   +"   , rf031t.dt_pri_programacion         	AS dataPrimeiraProgramacao  "        
+														   +"   , rf031t.dt_ult_programacion        	AS dataUltimaProgramacao    "                         
+														   +"   , rf031t.tp_distrib_item_cita        	AS tipoItemCita		    	"
+														   +"   , CASE WHEN rf058t.tp_operacion = 1 								"
+														   +"	THEN 'APROBADO' ELSE 'REPROBADO' END    AS tipoOperacao				"                              
+														   +"   , NVL(rf060t.ds_estatus,'NO APLICA') 	AS statusSourceInspection   "
+														   +"   , CASE WHEN pf000t.cd_tip_amst = 'Y' 								"
+														   +"		   THEN 'APROBADO'										"
+														   +"          WHEN NVL(pf000t.cd_tip_amst,'*') <> 'Y' 						"
+														   +"		   AND NVL(pf000t.cd_sit_amst,-1)  IN ('1', '3', '4')			"
+														   + "		   THEN 'APROBADO'												"
+														   +"          ELSE 'REPROBADO' END           	AS statusMostra				"
+														   +"FROM																	"                                                                                                                                                                                                                                                              
+														   +"        prod.rf030t_estatus_cita  rf030t								"
+														   +"      , prod.rf031t_cita_entrega  rf031t  								"
+														   + " 		LEFT OUTER JOIN prod.rf058t_aprobacion_factura rf058t 			"
+														   +" 			    ON rf058t.ni_ped = rf031t.cd_pedido						"
+														   +"    LEFT OUTER JOIN prod.rf062t_registro_inspeccion rf062t 			"
+														   +"				ON rf062t.ni_ped = rf031t.cd_pedido						"
+														   +"    LEFT OUTER JOIN prod.rf060t_estatus_reg_inspeccion rf060t 			"
+														   + "              ON rf060t.cd_estatus = rf062t.cd_estatus				"
+														   +"      , prod.rf032t_cita_nacional rf032t								"
+														   +"      , prod.pf000t_pedido        pf000t								"
+														   +"WHERE																	"	 
+														   +"      TIMESTAMPDIFF(8,TRUNC(rf031t.dt_pri_programacion)-CURRENT_DATE)  "
+														   +"		BETWEEN 0 AND :data_final  										"
+														   +"       AND rf032t.cd_cita = rf031t.cd_cita							    "
+														   +"		AND rf031t.cd_estatus = rf030t.cd_estatus 					    "
+														   +"		AND rf030t.ds_estatus = 'PRE PROGRAMADO'                        "
+														   +"       AND pf000t.ni_ped = rf031t.cd_pedido                            ";
+
+	public static final String ATUALIZAR_STATUS_CITAS = "  UPDATE prod.rf031t_cita_entrega  			"
+													   +" SET  cd_estatus = ?							"
+													   +"    , cd_usu = ?								"
+													   +"	 , dt_movimentacion = CURRENT_TIMESTAMP		"
+													   +" WHERE  cd_cita = ?							";
+
+	public static final String CONSULTAR_HISTORICO_CITAS =    "		SELECT "
+															 +" 		  RF057.CD_CITA_HIST    			as id	"
+															 +" 		, RF057.CD_CITA 					as idCitas "
+															 +" 		, RF057.CD_LOCAL_ENTREGA 			as codigoLocalEntrega "
+															 +" 		, RF057.CD_ESTATUS 					as status "
+															 +" 		, RF057.CD_PEDIDO 					as codigoPedido "
+															 +" 		, RF057.DT_CREACION 				as dataCriacao "
+															 +" 		, RF057.DT_FINALIZACION 			as dataFinalizacao "
+															 +" 		, RF057.CD_RAMPA 					as codigoRampa "
+															 +" 		, RF057.SR_INSPECION 				as inspecao "
+															 +" 		, RF057.NM_DEL_CHOFER 				as nomeMotorista "
+															 +" 		, RF057.PLACA 						as numeroPlaca "
+															 +" 		, RF057.CD_FOR 						as codigoFornecedor "
+															 +" 		, RF057.DT_MOVIMENTACION 			as dataMovimento "
+															 +" 		, RF057.CD_USU 						as codigoUsuario "
+															 +" 		, RF057.DT_PRI_PROGRAMACION 		as dataPrimeiraProgramacao "
+															 +" 		, RF057.DT_ULT_PROGRAMACION 		as dataUltimaProgramacao "
+															 +" 		, RF057.TP_DISTRIB_ITEM_CITA 		as tipoItemCita "
+															 +" 		, RF057.DT_CITA_ATUALIZACION 		as dataCitaAtualizacao "
+															 +" 		, RF057.CD_MOTIVO_CANCELACION 		as codigoMotivoCancelamento"
+															 +" 		, RF057.CD_MOTIVO_RECHACO 			as codigoMotivoRechado "
+															 +" 		, RF057.OB_CANCELACION 				as ObservacaoCancelamento "
+															 +" 		, RF057.OB_RECHACO 					as ObservacaoRechado "
+															 +"		FROM PROD.RF057T_CITA_ENTREGA_HIST RF05"
+															 +" 		INNER JOIN PROD.RF031T_CITA_ENTREGA RF031 "
+															 +" 				ON RF057.CD_CITA = RF031.CD_CITA "
+															 +" 	WHERE RF057.CD_PEDIDO IN (:lista_citas) ";
+	
+	public static final String ATUALIZAR_CITAS_HISTORICO = "  UPDATE prod.rf031t_cita_entrega  			"
+														   +" SET cd_estatus in 							"
+														   +" (select cd_estatus 							"
+														   +"		from prod.rf030t_estatus_cita  rf030t 	"
+														   +"			where rf030t.ds_estatus = ?)		"
+														   +" WHERE  cd_cita = ?							";
+	
+	public static final String INSERIR_HISTORICO_CITAS_ENTREGAS = "    INSERT INTO prod.rf057t_cita_entrega_hist (	  										    "
+																	+"		cd_cita	, cd_local_entrega	, cd_estatus	 , cd_pedido		, dt_creacion   " 
+																	+"	  , dt_finalizacion  , cd_rampa	, sr_inspecion	 , nm_del_chofer , placa            " 
+																	+"	  , cd_for		     , dt_movimentacion	, cd_usu , dt_pri_programacion              " 
+																	+"	  , dt_ult_programacion	, tp_distrib_item_cita	 , dt_cita_atualizacion)            " 
+																	+" SELECT cd_cita	, cd_local_entrega	, cd_estatus	, cd_pedido		, dt_creacion   " 
+																	+"	 , dt_finalizacion	, cd_rampa	, sr_inspecion	, nm_del_chofer	, placa             " 
+																	+"	 , cd_for			, dt_movimentacion , cd_usu , dt_pri_programacion               " 
+																	+"	 , dt_ult_programacion	,tp_distrib_item_cita, CURRENT_TIMESTAMP                    " 
+																	+" FROM   prod.rf031t_cita_entrega                                                           " 
+																	+" WHERE  cd_cita = ?			                                                        ";
+
+	public static final String ATUALIZAR_STATUS_FATURA = "	UPDATE prod.rf058t_aprobacion_factura "
+													   + "	SET tp_operacion = ?"
+													   + ", cd_usuario_aprob = ?" 
+													   + ", dt_operacion = CURRENT_TIMESTAMP "
+													   + " WHERE  ni_ped = ?";
+
+	public static final String CONSULTAR_CITAS_SKU_PEDIDO =  " SELECT										"
+															+"       CD_CITA_SKU     as id                  "
+															+"     , NI_PED          as numeroPedido        "
+															+"     , CD_CITA         as idCita              "
+															+"     , CD_PACK_PED     as codigoPackPedido    "
+															+"     , NI_SKU          as numeroSku           "
+															+"     , QT_CAJAS        as quantidadeCaixas    "
+															+"     , QT_SKU_CAJAS    as quantidadePorCaixas "
+															+"     , QT_PCA_SKU      as quantidadePcaCaixas "
+															+" FROM                                         "
+															+"    PROD.RF055T_CITA_SKU_PED                  "
+															+"   where NI_PED =:codigo_pedido               "
+															+"    and CD_CITA =:id                          ";
+
+	public static final String CONSULTAR_CITAS_PACK_PEDIDO = "SELECT											"
+															+"       CD_CITA_PACK  as id                    "
+															+"     , NI_PED        as numeroPedido          "
+															+"     , CD_CITA       as idCita                "
+															+"     , CD_PACK_PED   as codigoPackPedido      "
+															+"     , QT_CAJAS      as quantidadeCaixas      "
+															+"     , QT_PACK_CAJAS as quantidadePorCaixas  "
+															+"     , PC_RESTO      as resto                 "
+															+"FROM                                          "
+															+"    PROD.RF056T_CITA_PACK_PED  				"
+															+" where NI_PED =:codigo_pedido  				"
+															+" and CD_CITA =:id               				";
+
+	public static final String INSERIR_HISTORICO_FATURA = "INSERT INTO PROD.rf059t_aprobacion_factura_hist											    "
+															+"(cd_aprob_factura, ni_ped, cd_factura, tp_operacion, ct_piezas, vl_costo_total,           "
+															+" cd_usuario_aprob, dt_operacion)                                                          "
+															+"SELECT cd_aprob_factura, ni_ped, cd_factura, tp_operacion, ct_piezas, vl_costo_total,     "
+															+"       cd_usuario_aprob, dt_operacion                                                     "
+															+"FROM   PROD.rf058t_aprobacion_factura                                                     "
+															+"WHERE  ni_ped = ?																			";
+															
+}
+

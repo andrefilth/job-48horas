@@ -1,0 +1,188 @@
+<definitions name="UtilizarCartaoPresente" targetNamespace="http://www.cea.com.br/EBS/CEA/cartaopresente/utilizar/v1" xmlns:tns="http://www.cea.com.br/EBS/CEA/cartaopresente/utilizar/v1" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.cea.com.br/EBS/CEA/cartaopresente/utilizar/v1" schemaLocation="UtilizarCartaoPresenteEBS_v1.xsd"/>
+			<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="../../../../EBO/CeA/v1/fault/BusinessFaultEBO_v1.xsd"/>
+			<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="../../../../EBO/CeA/v1/fault/TechnicalFaultEBO_v1.xsd"/>
+		</xsd:schema>
+	</types>
+	
+	<!-- Operacao 1 - Ativar Cartao Presente -->
+	<message name="AtivarRequestMsg">
+		<part name="request" element="tns:AtivarRequest"/>
+	</message>
+	<message name="AtivarResponseMsg">
+		<part name="response" element="tns:AtivarResponse"/>
+	</message>
+	
+	<!-- Operacao 2 - Recarga de Cartao Presente -->
+	<message name="RecarregarRequestMsg">
+		<part name="request" element="tns:RecarregarRequest"/>
+	</message>
+	<message name="RecarregarResponseMsg">
+		<part name="response" element="tns:RecarregarResponse"/>
+	</message>
+	
+	<!-- Operacao 3 - Utilizar Cartao Presente para pagamento em compras -->
+	<message name="EfetivarPagamentoRequestMsg">
+		<part name="request" element="tns:EfetivarPagamentoRequest"/>
+	</message>
+	<message name="EfetivarPagamentoResponseMsg">
+		<part name="response" element="tns:EfetivarPagamentoResponse"/>
+	</message>
+	
+	<!-- Operacao 4 - Cancelamento de Operaçao com Cartao Presente -->
+	<message name="CancelarOperacaoRequestMsg">
+		<part name="request" element="tns:CancelarOperacaoRequest"/>
+	</message>
+	<message name="CancelarOperacaoResponseMsg">
+		<part name="response" element="tns:CancelarOperacaoResponse"/>
+	</message>
+	
+	<!-- Operacao 5 - Bloquear Cartao Presente -->
+	<message name="BloquearRequestMsg">
+		<part name="request" element="tns:BloquearRequest"/>
+	</message>
+	<message name="BloquearResponseMsg">
+		<part name="response" element="tns:BloquearResponse"/>
+	</message>
+	
+	<!-- Faults -->
+	<message name="TechnicalFaultMsg">
+		<part name="TechnicalFault" element="ebo:TechnicalFault"/>
+	</message>
+	<message name="BusinessFaultMsg">
+		<part name="BusinessFault" element="ebo:BusinessFault"/>
+	</message>	
+	
+	<portType name="UtilizarCartaoPresentePortType">
+		
+		<operation name="ativar">
+			<input message="tns:AtivarRequestMsg"/>
+			<output message="tns:AtivarResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+		
+		<operation name="recarregar">
+			<input message="tns:RecarregarRequestMsg"/>
+			<output message="tns:RecarregarResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+		
+		<operation name="efetivarPagamento">
+			<input message="tns:EfetivarPagamentoRequestMsg"/>
+			<output message="tns:EfetivarPagamentoResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+		
+		<operation name="cancelarOperacao">
+			<input message="tns:CancelarOperacaoRequestMsg"/>
+			<output message="tns:CancelarOperacaoResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+		
+		<operation name="bloquear">
+			<input message="tns:BloquearRequestMsg"/>
+			<output message="tns:BloquearResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+	</portType>
+
+	<binding name="UtilizarCartaoPresenteBinding" type="tns:UtilizarCartaoPresentePortType">
+	
+		<soap12:binding transport="http://www.w3.org/2003/05/soap/bindings/HTTP/" style="document"/>
+		
+		<operation name="ativar">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+		
+		<operation name="recarregar">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>	
+		
+		<operation name="efetivarPagamento">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+		
+		<operation name="cancelarOperacao">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+		
+		<operation name="bloquear">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+	</binding>
+
+	<service name="UtilizarCartaoPresenteService">
+		<port name="UtilizarCartaoPresentePort" binding="tns:UtilizarCartaoPresenteBinding">
+			<soap12:address location="http://localhost:8080/cartaopresentews/service"/>
+		</port>
+	</service>
+
+</definitions>

@@ -1,0 +1,209 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/GiftRegUpdDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/GiftRegUpdDesc/v1" xmlns:ExtOfGiftRegUpdDesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfGiftRegUpdDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfGiftRegUpdDesc/v1" schemaLocation="../../../../custom/bo/ExtOfGiftRegUpdDesc/v1/ExtOfGiftRegUpdDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="GiftRegUpdDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="banner_id" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="registry_type" type="varchar235">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="registry_nbr" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bill_to_first_name" type="xs:string">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bill_to_last_name" type="xs:string">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bill_to_addr_line1" type="xs:string">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bill_to_addr_line2" type="xs:string">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bill_to_city" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bill_to_state" type="xs:string">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bill_to_postal_code" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bill_to_day_phone" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bill_to_evening_phone" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="purchased_sku" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="purchase_price" type="number18">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="trans_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="qty_purchased" type="number12">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="order_no" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="order_type" type="varchar29">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="order_source" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="order_line_nbr" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="operation" type="varchar24001">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfGiftRegUpdDesc:ExtOfGiftRegUpdDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize GiftRegUpdDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="number12">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 12.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar225">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 25 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar230">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 30 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="30"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar210">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 10 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number18">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 18.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="18"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar24001">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 4001 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="4001"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar235">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 35 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="35"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 1 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar29">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 9 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="9"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.cea.com.br/EBO/CEA/v1"
+ elementFormDefault="unqualified" 
+ attributeFormDefault="unqualified" 
+ version="1.0" 
+ xmlns="http://www.w3.org/2001/XMLSchema"
+  xmlns:tns="http://www.cea.com.br/EBO/CEA/v1" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:complexType name="SGUFromOracleRISType">
+		<xsd:sequence>
+			<xsd:element name="CodigoUsuario" type="int" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="NomeUsuario" type="string" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="TipoUsuario" type="string" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="SituacaoBloqueioUsuario" type="string" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="Email" type="string" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="DataAtualizacao" type="dateTime" minOccurs="1" maxOccurs="1" nillable="false" />		    
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

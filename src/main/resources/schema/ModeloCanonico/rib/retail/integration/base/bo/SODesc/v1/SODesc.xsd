@@ -1,0 +1,818 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/SODesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/SODesc/v1" xmlns:ExtOfSODesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfSODesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfSODesc/v1" schemaLocation="../../../../custom/bo/ExtOfSODesc/v1/ExtOfSODesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="SODtlTcktDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="distro_nbr" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="document_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="item_id" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="dest_id" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="component_item_id" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="retail_price" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="selling_uom" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfSODesc:ExtOfSODtlTcktDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize SODtlTcktDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SODtlDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="dest_id" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>mapped to TR_LTM_ICD_MR.ID_STR_RT as well, Not Yet Available</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="item_id" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>mapped to TR_LTM_ICD_MR.ID_ITM as well. Not Yet Available</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="requested_unit_qty" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>mapped to TR_LTM_ICD_MR.QU_ITM as well.Not Yet Available</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="retail_price" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="selling_uom" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ticket_type" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="priority" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="store_ord_mult" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="expedite_flag" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="order_line_nbr" type="number3">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="amount1" type="number16_2">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="amount2" type="number16_2">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="amount3" type="number16_2">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="amount4" type="number16_2">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="amount5" type="number16_2">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="amount6" type="number16_2">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="tax_percent" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="item_status" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="component_ticketing_distro_nbr" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="in_store_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="total" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="gift_cost" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="shipping" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="promotion" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="sub_total" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="tax" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="order_detail_uda1" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="order_detail_uda2" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="order_detail_uda3" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="order_detail_uda4" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="order_detail_uda5" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="SODtlTcktDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfSODesc:ExtOfSODtlDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize SODtlDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SODesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="distro_nbr" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>mapped to DO_CTL_INV.ID_ICD as well.Not Yet Available</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="document_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="dc_dest_id" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>mapped to DO_CTL_INV.ID_PRTY_TO_ICD as well. Not Yet Available</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="order_type" type="varchar29">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="pick_not_before_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not Yet Available</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="pick_not_after_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not Yet Available</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="priority" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="event_code" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="event_description" type="varchar21000">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="carrier_code" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="carrier_service_code" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="route" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ship_address_desc" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ship_address1" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ship_address2" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ship_address3" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ship_address4" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ship_address5" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ship_city" type="varchar2120">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ship_state" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ship_zip" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ship_country_id" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bill_address_desc" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bill_address1" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bill_address2" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bill_address3" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bill_address4" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bill_address5" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bill_city" type="varchar2120">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bill_state" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bill_zip" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bill_country_id" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="break_by_distro" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="rollback_allocation" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="cartonization" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="consumer_direct" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="message" type="varchar22000">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="chute_type" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="po_nbr" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="parent_customer_order" type="varchar220">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="pick_complete" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="order_line_costs" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="container_type" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="amount1" type="number16_2">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="amount2" type="number16_2">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="amount3" type="number16_2">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="amount4" type="number16_2">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="amount5" type="number16_2">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="amount6" type="number16_2">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="sub_total" type="number12">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="gift_cost_total" type="number12">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="promotion_total" type="number12">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="total" type="number12">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="tax_total" type="number12">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="shipping_total" type="number12">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="order_uda1" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="order_uda2" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="order_uda3" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="order_uda4" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="order_uda5" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="order_uda6" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="order_uda7" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="order_uda8" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="order_uda9" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="order_uda10" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="dl_comment" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ship_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="SODtlDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="not_after_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="distro_parent_nbr" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="exp_dc_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="approval_id" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="approval_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="from_loc_tsf_entity" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="to_loc_tsf_entity" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="inv_type" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="so_status" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="delivery_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="delivery_slot_id" type="varchar215">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Delivery Slot Id.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="delivery_slot_desc" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Delivery slot description.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfSODesc:ExtOfSODesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize SODesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="number3">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 3.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number12">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 12.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="12"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar225">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 25 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number12_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 12 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21000">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 1000 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1000"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number16_2">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 16 and fraction digit count of 2.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="16"/>
+            <xs:fractionDigits value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar210">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 10 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="varchar215">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 10 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="15"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2240">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 240 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="240"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar220">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 20 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar230">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 30 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="30"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar23">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 3 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2120">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 120 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="120"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar26">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 6 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar24">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 4 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar22000">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 2000 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="2000"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number20_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 20 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="20"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number10">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 10.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 1 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar29">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 9 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="9"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

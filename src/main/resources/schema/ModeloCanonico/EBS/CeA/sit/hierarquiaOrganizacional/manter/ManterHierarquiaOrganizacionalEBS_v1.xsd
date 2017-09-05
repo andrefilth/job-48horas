@@ -1,0 +1,200 @@
+<xsd:schema targetNamespace="http://www.cea.com.br/EBS/CEA/hierarquiaOrganizacional/manter/v1" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.cea.com.br/EBS/CEA/hierarquiaOrganizacional/manter/v1" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v2" xmlns:ebo1="http://www.cea.com.br/EBO/CEA/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v2" schemaLocation="../../../../../EBO/CeA/v2/commons/MetaInformacaoEBO_v2.xsd"/>
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="../../../../../EBO/CeA/v1/commons/MensagemRespostaEBO_v1.xsd"/>
+	<xsd:import namespace="http://www.oracle.com/retail/integration/base/bo/CEAOrgHrDesc/v1" schemaLocation="../../../../../rib/retail/integration/base/bo/CEAOrgHrDesc/v1/CEAOrgHrDesc.xsd"/>
+	<xsd:import namespace="http://www.oracle.com/retail/integration/base/bo/CEAOrgHrRef/v1" schemaLocation="../../../../../rib/retail/integration/base/bo/CEAOrgHrRef/v1/CEAOrgHrRef.xsd"/>
+
+	<xsd:element name="ManterNegocioEmpresaRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="tipoMensagem" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="mensagem" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:any minOccurs="1" maxOccurs="1"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="metaInformacao" type="ebo:MetaInformacaoType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ManterNegocioEmpresaResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ebo1:MensagemResposta" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>	
+	
+	<xsd:element name="ManterRegiaoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="tipoMensagem" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="mensagem" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:any minOccurs="1" maxOccurs="1"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="metaInformacao" type="ebo:MetaInformacaoType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ManterRegiaoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ebo1:MensagemResposta" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ManterEstadoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="tipoMensagem" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="mensagem" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:any minOccurs="1" maxOccurs="1"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="metaInformacao" type="ebo:MetaInformacaoType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ManterEstadoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ebo1:MensagemResposta" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="ManterDistritoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="tipoMensagem" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="mensagem" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:any minOccurs="1" maxOccurs="1"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="metaInformacao" type="ebo:MetaInformacaoType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ManterDistritoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ebo1:MensagemResposta" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>		
+
+	<xsd:element name="RemoverNegocioEmpresaRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="tipoMensagem" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="mensagem" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:any minOccurs="1" maxOccurs="1"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="metaInformacao" type="ebo:MetaInformacaoType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="RemoverNegocioEmpresaResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ebo1:MensagemResposta" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>	
+	
+	<xsd:element name="RemoverRegiaoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="tipoMensagem" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="mensagem" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:any minOccurs="1" maxOccurs="1"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="metaInformacao" type="ebo:MetaInformacaoType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="RemoverRegiaoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ebo1:MensagemResposta" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="RemoverEstadoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="tipoMensagem" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="mensagem" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:any minOccurs="1" maxOccurs="1"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="metaInformacao" type="ebo:MetaInformacaoType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="RemoverEstadoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ebo1:MensagemResposta" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="RemoverDistritoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="tipoMensagem" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="mensagem" minOccurs="1" maxOccurs="1">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:any minOccurs="1" maxOccurs="1"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="metaInformacao" type="ebo:MetaInformacaoType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="RemoverDistritoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ebo1:MensagemResposta" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+</xsd:schema>

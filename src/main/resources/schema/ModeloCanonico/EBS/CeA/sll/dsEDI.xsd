@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:mstns="http://tempuri.org/dsEDI.xsd" xmlns="http://tempuri.org/dsEDI.xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://tempuri.org/dsEDI.xsd" id="dsEDI" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element msdata:IsDataSet="true" msdata:UseCurrentLocale="true" name="dsEDI">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ValidaNF">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="NI_SEQ" type="xs:int" />
+              <xs:element minOccurs="0" name="CD_FL" type="xs:int" />
+              <xs:element minOccurs="0" name="MN_FL" type="xs:string" />
+              <xs:element minOccurs="0" name="CD_FOR" type="xs:string" />
+              <xs:element minOccurs="0" name="NU_NF" type="xs:int" />
+              <xs:element minOccurs="0" name="NU_SER_NF" type="xs:string" />
+              <xs:element minOccurs="0" name="NU_PED" type="xs:int" />
+              <xs:element minOccurs="0" name="DT_EMS" type="xs:dateTime" />
+              <xs:element minOccurs="0" name="QT_ITEM" type="xs:int" />
+              <xs:element minOccurs="0" name="VL_TOT_BASE" type="xs:decimal" />
+              <xs:element minOccurs="0" name="VL_TOT_ICMS" type="xs:decimal" />
+              <xs:element minOccurs="0" name="VL_TOT_IPI" type="xs:decimal" />
+              <xs:element minOccurs="0" name="VL_TOT_PRD" type="xs:decimal" />
+              <xs:element minOccurs="0" name="VL_TOT_NF" type="xs:decimal" />
+              <xs:element minOccurs="0" name="IN_PED_OK" type="xs:string" />
+              <xs:element minOccurs="0" name="IN_NF_OK" type="xs:string" />
+              <xs:element minOccurs="0" name="IN_NF_GRV" type="xs:string" />
+              <xs:element minOccurs="0" name="TX_OBS" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

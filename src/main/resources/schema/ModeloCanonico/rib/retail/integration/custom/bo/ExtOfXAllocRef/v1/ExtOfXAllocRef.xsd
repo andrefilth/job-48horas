@@ -1,0 +1,30 @@
+<xs:schema elementFormDefault="qualified"
+    targetNamespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfXAllocRef/v1"
+    version="1.0"
+    xmlns="http://www.oracle.com/retail/integration/custom/bo/ExtOfXAllocRef/v1"
+    xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="ExtOfXAllocDtlRef">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ExtOfXAllocRef">
+        <xs:complexType>
+            <xs:sequence>
+                <retailDoc:element name="oral_alloc_no" type="number15">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the Oracle Allocation id number for this allocation</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </retailDoc:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="number15">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 15</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="15"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

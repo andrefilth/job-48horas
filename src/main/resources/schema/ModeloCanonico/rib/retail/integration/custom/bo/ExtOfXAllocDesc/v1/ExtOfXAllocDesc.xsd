@@ -1,0 +1,50 @@
+<xs:schema elementFormDefault="qualified"
+    targetNamespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfXAllocDesc/v1"
+    version="1.0"
+    xmlns="http://www.oracle.com/retail/integration/custom/bo/ExtOfXAllocDesc/v1"
+    xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="ExtOfXAllocDtl">
+        <xs:complexType>
+            <xs:sequence>
+                <retailDoc:element name="qty_cancelled" type="number12_4">
+					          <retailDoc:annotation>
+						            <retailDoc:documentation>Contains cancelled quantity for this detail</retailDoc:documentation>
+					          </retailDoc:annotation>
+				        </retailDoc:element>
+				    </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ExtOfXAlloc">
+        <xs:complexType>
+            <xs:sequence>
+                <retailDoc:element name="oral_alloc_no" type="number15">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the Oracle Allocation id number for this allocation</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </retailDoc:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ExtOfXAllocDesc">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="number15">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 15</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="15"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number12_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 12 and fraction digit count of 4.</retailDoc:documentation>
+			  </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

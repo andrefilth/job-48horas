@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.cea.com.br/EBO/CEA/v1"
+	xmlns:tns="http://www.cea.com.br/EBO/CEA/v1"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="unqualified" attributeFormDefault="unqualified"
+	version="1.0">
+
+	<xsd:complexType name="FaultType">
+		<xsd:sequence>
+			<xsd:element name="host" type="xsd:string"
+				minOccurs="0" maxOccurs="1" nillable="false" />
+			<xsd:element name="timestamp" type="xsd:string"
+				minOccurs="0" maxOccurs="1" nillable="false" />		
+			<xsd:element name="codigo" type="xsd:string" minOccurs="1"
+				maxOccurs="1" nillable="false" />
+			<xsd:element name="mensagem" type="xsd:string" minOccurs="1"
+				maxOccurs="1" nillable="false" />
+			<xsd:element name="instrucao" type="xsd:string"
+				minOccurs="0" maxOccurs="1" nillable="false" />
+			<xsd:element name="detalhe" type="xsd:string" minOccurs="0"
+				maxOccurs="1" nillable="true" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

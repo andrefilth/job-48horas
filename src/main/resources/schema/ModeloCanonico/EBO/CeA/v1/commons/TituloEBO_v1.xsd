@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.cea.com.br/EBO/CEA/v1"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:email="http://www.cea.com.br/EBO/CEA/v1">
+
+	<complexType name="TituloType">
+		<annotation>
+			<documentation>
+			    Representa um Titulo
+		    </documentation>
+		</annotation>
+		<sequence>
+			<element name="dataVencimento" type="string"></element>
+			<element name="seuNumero" type="string"></element>
+			<element name="valor" type="string"></element>
+		</sequence>
+	</complexType>
+	
+</schema>

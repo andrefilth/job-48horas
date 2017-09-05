@@ -1,0 +1,43 @@
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by andre (MiZE) -->
+<retailDoc:schema xmlns="http://www.oracle.com/retail/integration/custom/bo/ExtOfASNOutDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfASNOutDesc/v1" elementFormDefault="qualified" version="1.0">
+	<retailDoc:element name="ExtOfASNOutItem">
+		<retailDoc:complexType>
+			<retailDoc:sequence/>
+		</retailDoc:complexType>
+	</retailDoc:element>
+	<retailDoc:element name="ExtOfASNOutCtn">
+		<retailDoc:complexType>
+			<retailDoc:sequence/>
+		</retailDoc:complexType>
+	</retailDoc:element>
+	<retailDoc:element name="ExtOfASNOutDistro">
+		<retailDoc:complexType>
+			<retailDoc:sequence>
+				<retailDoc:element name="alloc_no" minOccurs="0" type="number10">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Number of the original allocation, if the pack is reconfigured in the Logistic side.</retailDoc:documentation>
+					</retailDoc:annotation>
+				</retailDoc:element>
+				<retailDoc:element name="dc_ship_date" minOccurs="0" type="xs:dateTime">
+					<retailDoc:annotation>
+						<retailDoc:documentation></retailDoc:documentation>
+					</retailDoc:annotation>
+				</retailDoc:element>
+				
+			</retailDoc:sequence>
+		</retailDoc:complexType>
+	</retailDoc:element>
+	<retailDoc:element name="ExtOfASNOutDesc">
+		<retailDoc:complexType>
+			<retailDoc:sequence/>
+		</retailDoc:complexType>
+	</retailDoc:element>
+	<retailDoc:simpleType name="number10">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a number of digits count 12 and fraction digit count of 2.</retailDoc:documentation>
+		</retailDoc:annotation>
+		<retailDoc:restriction base="xs:decimal">
+			<retailDoc:totalDigits value="10"/>
+		</retailDoc:restriction>
+	</retailDoc:simpleType>
+</retailDoc:schema>

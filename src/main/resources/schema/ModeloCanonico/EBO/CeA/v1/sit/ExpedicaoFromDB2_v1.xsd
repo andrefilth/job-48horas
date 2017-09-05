@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.cea.com.br/EBO/CEA/v1"
+	elementFormDefault="unqualified" attributeFormDefault="unqualified"
+	version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.cea.com.br/EBO/CEA/v1"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:complexType name="ExpedicaoFromDB2Type">
+		<xsd:sequence>
+			<xsd:element name="LocaDestino" type="decimal" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="LocaOrigem" type="decimal" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="NumeroASN" type="int" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="DataExpedicao" type="dateTime" minOccurs="1" maxOccurs="1" nillable="true" />
+			<xsd:element name="Comentarios" type="string" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="Distribuicoes"  minOccurs="1" maxOccurs="unbounded" nillable="false">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="NumeroDistribuicao" type="int" minOccurs="1" maxOccurs="1" nillable="false" />
+						<xsd:element name="TipoDistribuicao" type="string" minOccurs="1" maxOccurs="1" nillable="false" />
+						<xsd:element name="DCDataExpedicao" type="dateTime" nillable="true" />
+						<xsd:element name="NumeroAlocacao" type="int" nillable="true"/>
+						<xsd:element name="Containers"  minOccurs="1" maxOccurs="unbounded" nillable="false">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="IDContainer" type="int" minOccurs="1" maxOccurs="1" nillable="false" />
+									<xsd:element name="Itens"  minOccurs="1" maxOccurs="unbounded" nillable="false">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="CodigoItem" type="string" minOccurs="1" maxOccurs="1" nillable="false" />
+												<xsd:element name="QuantidadeItem" type="int" minOccurs="1" maxOccurs="1" nillable="false" />
+												<xsd:element name="OrigemEstoque" type="string" minOccurs="1" maxOccurs="1" nillable="false" />
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>			
+		</xsd:sequence>
+	</xsd:complexType>	
+</xsd:schema>

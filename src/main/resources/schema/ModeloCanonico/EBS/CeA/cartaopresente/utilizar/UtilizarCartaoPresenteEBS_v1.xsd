@@ -1,0 +1,122 @@
+<xsd:schema targetNamespace="http://www.cea.com.br/EBS/CEA/cartaopresente/utilizar/v1" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.cea.com.br/EBO/CEA/v1" xmlns:ns2="http://www.cea.com.br/EBO/CEA/v2" xmlns:tns="http://www.cea.com.br/EBO/CEA/cartaopresente/v1">
+	
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/cartaopresente/v1" schemaLocation="UtilizarCartaoPresenteEBO_v1.xsd"/>
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v2" schemaLocation="../../../../EBO/CeA/v2/commons/MetaInformacaoEBO_v2.xsd"/>
+	
+	<!-- Operacao 1 - Ativar Cartao Presente -->
+	<xsd:element name="AtivarRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Cliente" type="tns:ClienteType" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="NumeroCartao" type="tns:CartaoPresenteType" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="ValorCarga" type="decimal" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="IdentificadorParceiro" type="int" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="MetaInformacao" type="ns2:MetaInformacaoType" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="AtivarResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="NumeroCartao" type="tns:CartaoPresenteType" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="Status" type="tns:StatusCartaoPresenteType" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="ValorSaldo" type="decimal" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="IDTransacao" type="long" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>	
+	
+	<!-- Operacao 2 - Recarga de Cartao Presente -->
+	<xsd:element name="RecarregarRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Cliente" type="tns:ClienteType" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="NumeroCartao" type="tns:CartaoPresenteType" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="ValorCarga" type="decimal" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="IdentificadorParceiro" type="int" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="MetaInformacao" type="ns2:MetaInformacaoType" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="RecarregarResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="NumeroCartao" type="tns:CartaoPresenteType" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="Status" type="tns:StatusCartaoPresenteType" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="ValorSaldo" type="decimal" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="IDTransacao" type="long" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<!-- Operacao 3 - Utilizar Cartao Presente para pagamento em compras -->
+	<xsd:element name="EfetivarPagamentoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="NumeroCartao" type="tns:CartaoPresenteType" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="ValorPagamento" type="decimal" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="IdentificadorParceiro" type="int" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="MetaInformacao" type="ns2:MetaInformacaoType" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="EfetivarPagamentoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="NumeroCartao" type="tns:CartaoPresenteType" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="Status" type="tns:StatusCartaoPresenteType" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="ValorPagamento" type="decimal" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="ValorSaldo" type="decimal" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="IDTransacao" type="long" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<!-- Operacao 4 - Cancelamento de Operaçao com Cartao Presente -->
+	<xsd:element name="CancelarOperacaoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="NumeroCartao" type="tns:CartaoPresenteType" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="IDTransacao" type="long" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="IdentificadorParceiro" type="int" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="Observacao" type="string" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="MetaInformacao" type="ns2:MetaInformacaoType" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="CancelarOperacaoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="NumeroCartao" type="tns:CartaoPresenteType" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="Status" type="tns:StatusCartaoPresenteType" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="ValorSaldo" type="decimal" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="IDTransacaoCancelamento" type="long" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<!-- Operacao 5 - Bloquear Cartao Presente -->
+	<xsd:element name="BloquearRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="NumeroCartao" type="tns:CartaoPresenteType" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="IdentificadorParceiro" type="int" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="MetaInformacao" type="ns2:MetaInformacaoType" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="BloquearResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="NumeroCartao" type="tns:CartaoPresenteType" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="Status" type="tns:StatusCartaoPresenteType" minOccurs="1" maxOccurs="1" nillable="false"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+</xsd:schema>

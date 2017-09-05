@@ -1,0 +1,24 @@
+<definitions name="EnviarEmailAgendado" targetNamespace="http://www.cea.com.br/BPEL/enviarEmailParaFornecedor/v1" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.cea.com.br/BPEL/enviarEmailParaFornecedor/v1" xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.cea.com.br/BPEL/enviarEmailParaFornecedor/v1" schemaLocation="EnviarEmailParaFornecedorBpel_v1.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</types>
+
+	<message name="EnviarEmailParaFornecedorRequestMsg">
+		<part name="payload" element="tns:EnviarEmailParaFornecedorRequest"/>
+	</message>
+	<message name="EnviarEmailParaFornecedorResponseMsg">
+		<part name="payload" element="tns:EnviarEmailParaFornecedorResponse"/>
+	</message>
+
+	<message name="FornecedorNaoEncontradoFaultMsg">
+		<part name="FornecedorNaoEncontradoFault" element="tns:FornecedorNaoEncontradoFault"/>
+	</message>	
+
+	<message name="TechnicalFaultMsg">
+		<part name="TechnicalFault" element="tns:TechnicalFault"/>
+	</message>	
+	
+</definitions>

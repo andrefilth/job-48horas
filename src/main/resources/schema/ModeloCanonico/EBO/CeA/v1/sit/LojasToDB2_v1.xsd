@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.cea.com.br/EBO/CEA/v1"
+	elementFormDefault="unqualified" attributeFormDefault="unqualified"
+	version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.cea.com.br/EBO/CEA/v1"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:complexType name="ManterLojaDB2Type">
+		<xsd:sequence>
+			<element name="CodigoFilial" type="int" minOccurs="0" nillable="true" />
+			<element name="NomeFilial" type="string" minOccurs="0" nillable="true" />
+			<element name="IdentificadorFilial" type="string" minOccurs="0" nillable="true" />
+			<element name="TipoFilial" type="string" minOccurs="0" nillable="true" />
+			<element name="DataInauguracao" type="dateTime" minOccurs="0" nillable="true" />
+			<element name="DataFechamento" type="dateTime" minOccurs="0" nillable="true" />			
+			<element name="CNPJFilial" type="string" minOccurs="0" nillable="true" />
+			<element name="InscricaoEstadual" type="string" minOccurs="0" nillable="true" />
+			<element name="Pais" type="string" minOccurs="0" nillable="true" />
+			<element name="InscricaoMunicipal" type="string" minOccurs="0" nillable="true" />
+			<element name="UF" type="string" minOccurs="0" nillable="true" />
+			<element name="Endereco" type="string" minOccurs="0" nillable="true" />
+			<element name="Bairro" type="string" minOccurs="0" nillable="true" />
+			<element name="Cidade" type="string" minOccurs="0" nillable="true" />
+			<element name="CEP" type="string" minOccurs="0" nillable="true" />
+			<element name="Regiao" type="string" minOccurs="0" nillable="true" />
+			<element name="Email" type="string" minOccurs="0" nillable="true" />
+			<element name="GerenteFilial" type="string" minOccurs="0" nillable="true" />
+			<element name="AreaDeVenda" type="string" minOccurs="0" nillable="true" />
+			<element name="TamanhoFilial" type="int" minOccurs="0" nillable="true" />
+			<element name="TamanhoRFS" type="int" minOccurs="0" nillable="true" />
+			<element name="Clima" type="int" minOccurs="0" nillable="true" />
+			<element name="DDDTelefoneFilial" type="string" minOccurs="0" nillable="true" />
+			<element name="NumeroTelefoneFilial" type="string" minOccurs="0" nillable="true" />
+			<element name="RegionalLoja" type="decimal" minOccurs="0" nillable="true" />
+			<element name="GrupoLoja" type="decimal" minOccurs="0" nillable="true" />
+			<element name="GrupoLojaRFS" type="int" minOccurs="0" nillable="true" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="ExcluirLojaDB2Type">
+		<xsd:sequence>
+			<element name="CodigoFilial" type="int" minOccurs="0" nillable="true" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.cea.com.br/EBO/CEA/v1"
+	elementFormDefault="unqualified" attributeFormDefault="unqualified"
+	version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.cea.com.br/EBO/CEA/v1"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:complexType name="ManterItemToDB2Type">
+		<xsd:sequence>
+		   <element name="Cabecalho"  minOccurs="0" maxOccurs="1" nillable="true">
+		   	<complexType>
+					<sequence>
+						<element name="Item" type="string" minOccurs="0" nillable="true" />
+						<element name="ItemPai" type="string" minOccurs="0" nillable="true" />
+						<element name="Descricao" type="string" minOccurs="0" nillable="true" />
+						<element name="DescricaoSecudanrio" type="string" minOccurs="0" nillable="true" />
+						<element name="DescricaoCurta" type="string" minOccurs="0" nillable="true" />
+						<element name="TipoNumeracaoItem" type="string" minOccurs="0" nillable="true" />
+						<element name="LevelItem" type="int" minOccurs="0" nillable="true" />
+						<element name="LevelTransacional" type="int" minOccurs="0" nillable="true" />
+						<element name="IndicadorPack" type="string" minOccurs="0" nillable="true" />						
+						<element name="Diferenciador1Tipo" type="string" minOccurs="0" nillable="true" />
+						<element name="Diferenciador1" type="string" minOccurs="0" nillable="true" />						
+						<element name="Diferenciador2Tipo" type="string" minOccurs="0" nillable="true" />
+						<element name="Diferenciador2" type="string" minOccurs="0" nillable="true" />												
+						<element name="Fornecedor" type="int" minOccurs="0" nillable="true" />
+						<element name="Departamento" type="int" minOccurs="0" nillable="true" />
+						<element name="Classificacao" type="int" minOccurs="0" nillable="true" />
+						<element name="ClassificacaoCodigo" type="int" minOccurs="0" nillable="true" />
+						<element name="PrecoVenda" type="decimal" minOccurs="0" nillable="true" />
+						<element name="PrevisaoDemanda" type="string" minOccurs="0" nillable="true" />
+						<element name="Comentarios" type="string" minOccurs="0" nillable="true" />
+						<element name="NCM" type="string" minOccurs="0" nillable="true" />
+						<element name="NCMCharCode" type="string" minOccurs="0" nillable="true" />
+						<element name="OrigemMercadoria" type="string" minOccurs="0" nillable="true" />
+						<element name="UnidadeMedidaPadrao" type="string" minOccurs="0" nillable="true" />
+						<element name="CampoFlexivel"  minOccurs="0" maxOccurs="unbounded" nillable="true">
+							<complexType>
+					            <sequence>
+									<element minOccurs="0" name="group_id" type="int" nillable="true"/>
+									<element minOccurs="0" name="varchar2_1" type="string" nillable="true"/>
+									<element minOccurs="0" name="varchar2_2" type="string" nillable="true"/>
+									<element minOccurs="0" name="varchar2_3" type="string" nillable="true"/>
+									<element minOccurs="0" name="varchar2_4" type="string" nillable="true"/>
+									<element minOccurs="0" name="varchar2_5" type="string" nillable="true"/>
+									<element minOccurs="0" name="varchar2_6" type="string" nillable="true"/>
+									<element minOccurs="0" name="varchar2_7" type="string" nillable="true"/>
+									<element minOccurs="0" name="varchar2_8" type="string" nillable="true"/>
+									<element minOccurs="0" name="varchar2_9" type="string" nillable="true"/>
+									<element minOccurs="0" name="varchar2_10" type="string" nillable="true"/>
+									<element minOccurs="0" name="number_11" type="decimal" nillable="true"/>
+									<element minOccurs="0" name="number_12" type="decimal" nillable="true"/>
+									<element minOccurs="0" name="number_13" type="decimal" nillable="true"/>
+									<element minOccurs="0" name="number_14" type="decimal" nillable="true"/>
+									<element minOccurs="0" name="number_15" type="decimal" nillable="true"/>
+									<element minOccurs="0" name="number_16" type="decimal" nillable="true"/>
+									<element minOccurs="0" name="number_17" type="decimal" nillable="true"/>
+									<element minOccurs="0" name="number_18" type="decimal" nillable="true"/>
+									<element minOccurs="0" name="number_19" type="decimal" nillable="true"/>
+									<element minOccurs="0" name="number_20" type="decimal" nillable="true"/>
+									<element minOccurs="0" name="date_21" type="dateTime" nillable="true"/>
+									<element minOccurs="0" name="date_22" type="dateTime" nillable="true"/>
+								</sequence>
+					        </complexType>
+						</element>
+					</sequence>
+				</complexType>
+		   </element>
+		   
+		    <element name="Imagem"  minOccurs="0" maxOccurs="unbounded" nillable="true">
+				<complexType>
+					<sequence>
+						<element name="Item" type="string" minOccurs="0" nillable="true" />
+						<element name="Nome" type="string" minOccurs="0" nillable="true" />
+						<element name="Endereco" type="string" minOccurs="0" nillable="true" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="BOM"  minOccurs="0" maxOccurs="unbounded" nillable="true">
+				<complexType>
+					<sequence>
+						<element name="Item" type="string" minOccurs="0" nillable="true" />
+						<element name="ItemComponente" type="string" minOccurs="0" nillable="true" />
+						<element name="Quantidade" type="int" minOccurs="0" nillable="true" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="UPC"  minOccurs="0" maxOccurs="unbounded" nillable="true">
+				<complexType>
+					<sequence>
+						<element name="Item" type="string" minOccurs="0" nillable="true" />
+						<element name="ItemPai" type="string" minOccurs="0" nillable="true" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="Etiqueta"  minOccurs="0" maxOccurs="unbounded" nillable="true">
+				<complexType>
+					<sequence>
+						<element name="Item" type="string" minOccurs="0" nillable="true" />
+						<element name="TipoEtiqueta" type="string" minOccurs="0" nillable="true" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="ISCDim"  minOccurs="0" maxOccurs="unbounded" nillable="true">
+				<complexType>
+					<sequence>
+						<element name="Item" type="string" minOccurs="0" nillable="true" />
+						<element name="Altura" type="decimal" minOccurs="0" nillable="true" />
+						<element name="Largura" type="decimal" minOccurs="0" nillable="true" />
+						<element name="Profundidade" type="decimal" minOccurs="0" nillable="true" />
+						<element name="Peso" type="decimal" minOccurs="0" nillable="true" />
+						<element name="Cubagem" type="decimal" minOccurs="0" nillable="true" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="UDALOV"  minOccurs="0" maxOccurs="unbounded" nillable="true">
+				<complexType>
+					<sequence>
+						<element name="Item" type="string" minOccurs="0" nillable="true" />
+						<element name="IdentificadorUDA" type="string" minOccurs="0" nillable="true" />
+						<element name="ValorUDA" type="string" minOccurs="0" nillable="true" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="UDAFF"  minOccurs="0" maxOccurs="unbounded" nillable="true">
+				<complexType>
+					<sequence>
+						<element name="Item" type="string" minOccurs="0" nillable="true" />
+						<element name="IdentificadorUDA" type="string" minOccurs="0" nillable="true" />
+						<element name="TextoUDA" type="string" minOccurs="0" nillable="true" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="UDADate"  minOccurs="0" maxOccurs="unbounded" nillable="true">
+				<complexType>
+					<sequence>
+						<element name="Item" type="string" minOccurs="0" nillable="true" />
+						<element name="IdentificadorUDA" type="string" minOccurs="0" nillable="true" />
+						<element name="DataUDA" type="dateTime" minOccurs="0" nillable="true" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="Temporada"  minOccurs="0" maxOccurs="unbounded" nillable="true">
+				<complexType>
+					<sequence>
+						<element name="Item" type="string" minOccurs="0" nillable="true" />
+						<element name="IdentificadorTemporada" type="int" minOccurs="0" nillable="true" />
+						<element name="IdentificadorFase" type="int" minOccurs="0" nillable="true" />
+						<element name="SequencialFase" type="int" minOccurs="0" nillable="true" />
+						<element name="DiffId" type="string" minOccurs="0" nillable="true" />
+					</sequence>
+				</complexType>
+			</element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RemoveItemToDB2Type">
+		<xsd:sequence>
+			<element name="Item" type="string" minOccurs="0" nillable="true" />
+			<element name="SCDim"  minOccurs="0" maxOccurs="1" nillable="true">
+				<complexType>
+					<sequence>
+						<element name="Fornecedor" type="string" minOccurs="0" nillable="true" />
+						<element name="PaisOrigem" type="string" minOccurs="0" nillable="true" />
+						<element name="Dimensao" type="string" minOccurs="0" nillable="true" />
+					</sequence>
+				</complexType>
+			</element>
+			 <element name="Image"  minOccurs="0" maxOccurs="1" nillable="true">
+				<complexType>
+					<sequence>
+						<element name="NomeImagem" type="string" minOccurs="0" nillable="true" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="UPC"  minOccurs="0" maxOccurs="1" nillable="true">
+				<complexType>
+					<sequence>
+						<element name="UPC" type="string" minOccurs="0" nillable="true" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="BOM"  minOccurs="0" maxOccurs="1" nillable="true">
+				<complexType>
+					<sequence>
+						<element name="Pack" type="string" minOccurs="0" nillable="true" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="Etiqueta"  minOccurs="0" maxOccurs="unbounded" nillable="true">
+				<complexType>
+					<sequence>
+						<element name="TipoEtiqueta" type="string" minOccurs="0" nillable="true" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="UDALOV"  minOccurs="0" maxOccurs="1" nillable="true">
+				<complexType>
+					<sequence>
+						<element name="IdentificadorUDA" type="int" minOccurs="0" nillable="true" />
+						<element name="ValorUDA" type="int" minOccurs="0" nillable="true" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="UDAFF"  minOccurs="0" maxOccurs="1" nillable="true">
+				<complexType>
+					<sequence>
+						<element name="IdentificadorUDA" type="int" minOccurs="0" nillable="true" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="UDADate"  minOccurs="0" maxOccurs="1" nillable="true">
+				<complexType>
+					<sequence>
+						<element name="IdentificadorUDA" type="int" minOccurs="0" nillable="true" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="Temporada"  minOccurs="0" maxOccurs="unbounded" nillable="true">
+				<complexType>
+					<sequence>
+						<element name="IdentificadorTemporada" type="int" minOccurs="0" nillable="true" />
+						<element name="IdentificadorFase" type="int" minOccurs="0" nillable="true" />
+						<element name="SequencialFase" type="int" minOccurs="0" nillable="true" />
+					</sequence>
+				</complexType>
+			</element>
+	</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

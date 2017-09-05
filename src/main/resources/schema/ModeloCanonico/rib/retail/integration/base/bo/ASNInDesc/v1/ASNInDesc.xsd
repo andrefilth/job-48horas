@@ -1,0 +1,506 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/ASNInDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/ASNInDesc/v1" xmlns:ExtOfASNInDesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfASNInDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfASNInDesc/v1" schemaLocation="../../../../custom/bo/ExtOfASNInDesc/v1/ExtOfASNInDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="ASNInItem">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="final_location" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Required if the order's pre_mark_ind is 'Y'.  Validated against the ALLOC_DETAIL table.  There needs to be at least one allocation with the same ORDER_NO that is in the ASNIn message, and the same TO_LOC as the final_location.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="item_id" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Unique identifier for the item.  Either vpn, item_id, or ref_item must be specified in the message.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="unit_qty" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the number of items expected to be received based on the supplier's ASN for this Item/Shipment combination.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="priority_level" type="number1">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="vpn" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Used to find the Retek item number, found on the ITEM_SUPPLIER table.  Either vpn, item_id, or ref_item must be specified in the message.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="order_line_nbr" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used in RWMS.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="lot_nbr" type="varchar212">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used in RWMS.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ref_item" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains a reference item to the item field.  Either vpn, item_id, or ref_item must be specified in the message.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="distro_nbr" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="distro_doc_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used in RWMS.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="container_qty" type="number6">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="comments" type="varchar22000">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfASNInDesc:ExtOfASNInItem">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize ASNInItem.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ASNInCtn">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="final_location" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This will be the final destination of the carton.  For a cross-dock order this will be the allocation location, otherwise it will be the direct to order location.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="container_id" type="varchar220">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="container_weight" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="container_length" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="container_width" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="container_height" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="container_cube" type="number12_2">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="expedite_flag" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="in_store_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="rma_nbr" type="varchar220">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="tracking_nbr" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used in RWMS</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="freight_charge" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="master_container_id" type="varchar220">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used in RWMS</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" ref="ASNInItem">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="comments" type="varchar22000">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfASNInDesc:ExtOfASNInCtn">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize ASNInCtn.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ASNInPO">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="po_nbr" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Identifies the order number which relates to the goods delivered in the shipment.  Validated against the ORDHEAD table, and also the SHIPMENT table if the message applies to an existing shipment.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="doc_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="not_after_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="comments" type="varchar22000">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="ASNInCtn">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="ASNInItem">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfASNInDesc:ExtOfASNInPO">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize ASNInPO.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ASNInDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="to_location" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used in RWMS</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="from_location" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used in RWMS</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="asn_nbr" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="asn_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This field is used to determine the ship origin.  If asn_type is 'C', ship_origin will be set to '6' (ASN UCC-128) upon insert to the SHIPMENT table.  Otherwise, SHIP_ORIGIN is defaulted to '0' (ASN Shipment).</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="container_qty" type="number6">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bol_nbr" type="varchar217">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Holds the transaction sequence number on the input message from the receiving PO or transfer process.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="shipment_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used in RWMS.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="est_arr_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This field contains the estimated arrival date of a vendor PO shipment.  It is updated by EDIUP856.  It is used for vendor/lead time analysis.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ship_address1" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used in RWMS.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ship_address2" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used in RWMS.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ship_address3" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used in RWMS.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ship_address4" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used in RWMS.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ship_address5" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used in RWMS.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ship_city" type="varchar2120">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used in RWMS.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ship_state" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used in RWMS.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ship_zip" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used in RWMS.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ship_country_id" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used in RWMS.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="trailer_nbr" type="varchar212">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used in RWMS.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="seal_nbr" type="varchar212">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used in RWMS.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="carrier_code" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="vendor_nbr" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This element is used to validate the order number(s) in ASNInPO (ASNInPO.po_nbr).  The order number must be in the table ORDHEAD, in either the ORDER_NO column or VENDOR_ORDER_NO column.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ship_pay_method" type="varchar22">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Used to validate the order number(s) in ASNInPO (ASNInPO.po_nbr).  The ship_pay_method in the message must match the value of the order's SHIP_PAY_METHOD in RMS (ORDHEAD table.)  If the message field is blank, the ORDHEAD value must be NULL.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" ref="ASNInPO">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="comments" type="varchar22000">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfASNInDesc:ExtOfASNInDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize ASNInDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar225">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 25 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number12_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 12 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number12_2">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 12 and fraction digit count of 2.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar210">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 10 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2240">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 240 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="240"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar22">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 2 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar220">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 20 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar217">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 17 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="17"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar230">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 30 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="30"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number6">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 6.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar23">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 3 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2120">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 120 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="120"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar212">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 12 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="12"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar24">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 4 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar22000">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 2000 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="2000"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number20_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 20 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="20"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number1">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 1.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 1 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.cea.com.br/EBO/CEA/v1" xmlns:tns="http://www.cea.com.br/EBO/CEA/v1"
+	elementFormDefault="qualified">
+
+	<!-- Request para criar/atualizar usuario -->
+	<xsd:element name="UsuarioServiceDeskType">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element minOccurs="0" name="SiglaContato" nillable="true"
+					type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Sigla do contato do usuário</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="IdFuncionario"
+					nillable="true" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Identificador do funcionário</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="NomeCompleto" nillable="true"
+					type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Nome completo do usuário</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="IdServiceDesk"
+					nillable="true" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Identificador do usuário no Service Desk</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="Empresa" nillable="true"
+					type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Nome da empresa</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="Email" nillable="true"
+					type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>E-mail do usuário</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="Cargo" nillable="true"
+					type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Cargo do usuário</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="Departamento" nillable="true"
+					type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Departamento do usuário</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="SiglaGerente" nillable="true"
+					type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Sigla do gerente do usuário</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="CodigoLocalidade"
+					nillable="true" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Código da Localidade/Loja</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="TelefoneComercial"
+					nillable="true" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Telefone comercial do usuário</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="Ramal" nillable="true"
+					type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Ramal do usuário</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="CodigoFornecedor"
+					nillable="true" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Código do Fornecedor</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="NomeFornecedor"
+					nillable="true" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Nome do Fornecedor</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="LoginFornecedor"
+					nillable="true" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Login do Fornecedor</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="Tipo" nillable="true"
+					type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Tipo do usuário</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="Ativo" nillable="true"
+					type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Flag que indica se usuário está ativo. Valores permitidos: S - Ativo e N - Inativo.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element minOccurs="0" name="TipoContato" nillable="true"
+					type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>Tipo do Contato do usuário</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

@@ -1,0 +1,19 @@
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by abc111222333 (Dump) -->
+<retailDoc:schema xmlns="http://www.oracle.com/retail/integration/custom/bo/ExtOfAllocRef/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfAllocRef/v1" elementFormDefault="qualified" version="1.0">
+	<retailDoc:element name="ExtOfAllocDtlRef">
+		<retailDoc:complexType>
+			<retailDoc:sequence/>
+		</retailDoc:complexType>
+	</retailDoc:element>
+	<retailDoc:element name="ExtOfAllocRef">
+		<retailDoc:complexType>
+			<retailDoc:sequence>
+				<retailDoc:element name="Oral_alloc_no">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the Oracle Allocation id for this allocation</retailDoc:documentation>
+					</retailDoc:annotation>
+				</retailDoc:element>
+			</retailDoc:sequence>
+		</retailDoc:complexType>
+	</retailDoc:element>
+</retailDoc:schema>

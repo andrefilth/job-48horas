@@ -1,0 +1,15 @@
+<definitions name="EnviarEmailAgendado" targetNamespace="http://www.cea.com.br/BPEL/enviarEmail/v1" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.cea.com.br/BPEL/enviarEmail/v1" xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.cea.com.br/BPEL/enviarEmail/v1" schemaLocation="EnviarEmailBpel_v1.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</types>
+
+	<message name="EnviarEmailRequestMsg">
+		<part name="payload" element="tns:EnviarEmailRequest"/>
+	</message>
+	<message name="EnviarEmailResponseMsg">
+		<part name="payload" element="tns:EnviarEmailResponse"/>
+	</message>
+</definitions>

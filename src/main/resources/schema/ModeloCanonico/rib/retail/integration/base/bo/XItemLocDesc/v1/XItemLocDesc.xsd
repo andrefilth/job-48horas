@@ -1,0 +1,387 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/XItemLocDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/XItemLocDesc/v1" xmlns:ExtOfXItemLocDesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfXItemLocDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfXItemLocDesc/v1" schemaLocation="../../../../custom/bo/ExtOfXItemLocDesc/v1/ExtOfXItemLocDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="XItemLocTrt">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="launch_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The date the item should first be sold at the location.  Value will be downloaded to the POS.  No internal processing occurs from this field.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="qty_key_options" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Determines whether the qty key on a POS should be used for this item at the location.  Valid values are in the code_type 'RPO'.  Current values include 'R - required', 'P - Prohibited', and 'O - Optional'.  Additional values can be added to the code type</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="manual_price_entry" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Determines whether the price can/should be entered manually on a POS for this item at the location.  Valid values are in the code_type 'RPO'.  Current values include 'R - required', 'P - Prohibited', and 'O - Optional'.  Additional values can be added.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="deposit_code" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates whether a deposit is associated with this item at the location.  Values are in the code_type 'DEPO'.  The only processing in RMS is downloading it to the POS</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="food_stamp_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates whether the item is approved for food stamps at the location.  This value will be downloaded to the POS.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="wic_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates whether the item is approved for WIC at the location.  This value will be downloaded to the POS.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="proportional_tare_pct" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>For items sold by weight, this is the proportion of the total weight of a unit of an item that is packaging.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="fixed_tare_value" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Holds the weight of the packaging in items sold by weight at the location; i.e. if the tare item is bulk candy, this is weight of the bag and twist tie).  The only processing RMS does is to download it to POS.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="fixed_tare_uom" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Holds the unit of measure value associated with the tare value.  The only processing RMS does involving the fixed tare value and UOM is downloading it to the POS.  Fixed tare is not subtracted from items sold by weight when sales are uploaded to RMS, etc</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="reward_eligible_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Holds whether the item is legally valid for various types of bonus point/award programs at the location.  This value will be downloaded to the POS.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="natl_brand_comp_item" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Holds the nationally branded item to which you would like to compare the current item.  This nationally branded item must exist as an item in RMS (i.e. on the item_master table).</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="return_policy" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The return policy for the item at the location.  Valid values are in the code_type 'RETP'.  This value will be downloaded to the POS.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="stop_sale_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates that sale of the item should be stopped immediately at the location (i.e. in case of recall etc).  This value will be downloaded to the POS.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="elect_mkt_clubs" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Code for the marketing clubs to which the item belongs at the location.  Valid values are in the code_type 'MTKC'.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="report_code" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Code to determine which reports the location should run.  Values are in the code type 'REPC'.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="req_shelf_life_on_selection" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Holds the required shelf life for an item on selection in days.  This field is not required.  No RMS processing is based on the value in this field.  It is clients responsibility to communicate this value to external systems that may need it.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="req_shelf_life_on_receipt" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Holds the required shelf life for an item on receipt in days.  This field is not required.  No RMS processing is based on the value in this field.  It is clients responsibility to communicate this value to external systems that may need it for processing</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ib_shelf_life" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The Investment Buy-specific shelf life for the item/location</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="store_reorderable_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>A code (Y or N) to indicate whether the store may re-order the item.  Will default to N. No RMS processing is based on the value in this field.  It is clients responsibility to communicate this value to external systems.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="rack_size" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates the rack size that should be used for the item.  Valid values for the field are in the code_type 'RACK'.  No RMS processing is based on the value in this field.  It is clients responsibility to communicate to external systems.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="full_pallet_item" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>A code (Y or N) to indicate whether a store must reorder an item in full pallets only. Will default to N.  No RMS processing is based on the value in this field.  It is clients responsibility to communicate to external systems.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="in_store_market_basket" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The in store market basket code for this item/location.  Valid values for the field are in the code_type 'STMB'.  No RMS processing is based on the value in this field.  It is clients responsibility to communicate this value to external systems.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="storage_location" type="varchar27">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Holds the current storage location or bin number for the item at the location.  No RMS processing is based on the value in this field.  It is clients responsibility to communicate this value to external systems that may need it for processing.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="alt_storage_location" type="varchar27">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Holds the preferred alternate storage location or bin number for the item at the location.  No RMS processing is based on the value in this field.  It is clients responsibility to communicate this value to external systems that may need it for processing</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="returnable_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This field will contain a value of 'Y'es when the item can be returned to the location</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="refundable_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This field will contain a value of 'Y'es when the item is refundable at the location.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="back_order_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This field will contain a value of 'Y'es when the item can be back ordered to the location</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="create_datetime" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The the time and date of record creation.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="last_update_id" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The user id of the last user to update the record.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="last_update_datetime" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The time and date of the last update of the record.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfXItemLocDesc:ExtOfXItemLocTrt">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize XItemLocTrt.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="XItemLocDtl">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="hier_value" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The same value as in the hier_level field.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="primary_supp" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The primary supplier for the item at the location.  If not populated on a create message this will default from the primary supplier on the ITEM_SUPPLIER table.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="primary_cntry" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The primary country for the item at the location.  If not populated on a create message this will default from the primary country on the ITEM_SUPP_COUNTRY table.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="local_item_desc" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Local description for the item at the location.  If not populated on the message this will default from the ITEM_MASTER table.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="status" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The status of the item at the location.  This value must be 'A' (active) on a create message.  On a modify messge it can be 'I' (inactive), 'C' (discontinued), or 'D' (deleted).</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="store_ord_mult" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The unit type of the item shipped from the warehouse to the location.  Valid values are C (cases), I (inners), and E (eaches).  Eaches will default if left null on a create message.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="receive_as_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The unit in which the warehouse will receive goods.  Valid values are E (eaches) and P (pack).  This field only applies to buyer packs.  If the item is not a buyer pack this field should be null.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="taxable_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates if the item is taxable at the location.  Valid values are 'Y' and 'N'.  If not populated on the message it will default to 'Y'.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ti" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Number of shipping units (cases) that make up one tier of a pallet.  Multiply TI x HI to get total number of cases for a pallet.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="hi" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Number of tiers that make up a complete pallet (height).  Multiply TI x HI to get total number of cases for a pallet.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="daily_waste_pct" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Average percentage lost from inventory on a daily basis due to natural wastage.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="local_short_desc" type="varchar2120">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The local short description of the item.  Will default to the item's short description.  Will be downloaded to the POS.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" ref="XItemLocTrt">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Child node.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfXItemLocDesc:ExtOfXItemLocDtl">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize XItemLocDtl.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="XItemLocDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="item" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The identifier for the item.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="hier_level" type="varchar22">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The level of the organizational hierarchy to which the hier_value field pertains.  Valid values are CH (chain), AR (area), RE (region), DI (district), S (store), and W (warehouse).</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" ref="XItemLocDtl">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Child node.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfXItemLocDesc:ExtOfXItemLocDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize XItemLocDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="number12_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 12 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar225">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 25 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar230">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 30 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="30"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar23">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 3 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar26">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 6 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar22">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 2 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar24">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 4 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2120">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 120 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="120"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar27">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 7 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="7"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number10">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 10.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 1 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2250">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 250 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="250"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

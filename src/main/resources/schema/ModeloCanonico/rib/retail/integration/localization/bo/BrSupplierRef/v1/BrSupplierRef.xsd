@@ -1,0 +1,43 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/localization/bo/BrSupplierRef/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/localization/bo/BrSupplierRef/v1" xmlns:EOfBrSupplierRef="http://www.oracle.com/retail/integration/custom/bo/EOfBrSupplierRef/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/EOfBrSupplierRef/v1" schemaLocation="../../../../custom/bo/EOfBrSupplierRef/v1/EOfBrSupplierRef.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+	<xs:element name="BrSupplierRef">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrSupplierRef:EOfBrSupplierRef">
+               		<retailDoc:annotation>
+                 		<retailDoc:documentation>Provide an extension hook to customize SupplierRef
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="BrSupplierSite">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrSupplierRef:EOfBrSupplierSite">
+               		<retailDoc:annotation>
+                 		<retailDoc:documentation>Provide an extension hook to customize SupplierSite
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="BrSupplierSiteAddr">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrSupplierRef:EOfBrSupplierSiteAddr">
+               		<retailDoc:annotation>
+                 		<retailDoc:documentation>Provide an extension hook to customize SupplierSiteAddr
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+</xs:schema>

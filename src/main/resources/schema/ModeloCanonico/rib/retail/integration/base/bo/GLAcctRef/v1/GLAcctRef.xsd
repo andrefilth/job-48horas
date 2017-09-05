@@ -1,0 +1,201 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/GLAcctRef/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/GLAcctRef/v1" xmlns:ExtOfGLAcctRef="http://www.oracle.com/retail/integration/custom/bo/ExtOfGLAcctRef/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which 
+			contains name space definitions for the document 
+			elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfGLAcctRef/v1" schemaLocation="../../../../custom/bo/ExtOfGLAcctRef/v1/ExtOfGLAcctRef.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed 
+				description, please refer referenced element 
+				doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="GLAcctRef">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not 
+				available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="requesting_system" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not 
+							available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="set_of_books_id" type="number15">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not 
+							available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="CCID" type="number15">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not 
+							available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="segment1" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not 
+							available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="segment2" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not 
+							available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="segment3" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not 
+							available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="segment4" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not 
+							available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="segment5" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not 
+							available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="segment6" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not 
+							available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="segment7" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not 
+							available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="segment8" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not 
+							available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="segment9" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not 
+							available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="segment10" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not 
+							available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="segment11" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not 
+							available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="segment12" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not 
+							available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="segment13" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not 
+							available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="segment14" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not 
+							available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="segment15" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not 
+							available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="segment16" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not 
+							available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="segment17" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not 
+							available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="segment18" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not 
+							available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="segment19" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not 
+							available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="segment20" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not 
+							available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="account_status" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not 
+							available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfGLAcctRef:ExtOfGLAcctRef">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to 
+							customize AllocDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="number15">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits 
+				count 15.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="15"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar225">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length 
+				of 25 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar230">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length 
+				of 30 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="30"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

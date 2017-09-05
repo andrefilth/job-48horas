@@ -1,0 +1,223 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/DSDDealsDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/DSDDealsDesc/v1" xmlns:ExtOfDSDDealsDesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfDSDDealsDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfDSDDealsDesc/v1" schemaLocation="../../../../custom/bo/ExtOfDSDDealsDesc/v1/ExtOfDSDDealsDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="DSDDeals">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="order_no" type="number8">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used by SIM</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="supplier" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used by SIM</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="store" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This field contains the location that the shipment will be delivered to.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="dept" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used by SIM</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="currency_code" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used by SIM</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="paid_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates if the invoice has already been paid. Valid values are 'Y' (invoice has already been paid) or 'N' (invoice should be paid in AP system)</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ext_ref_no" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used by SIM</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="proof_of_delivery_no" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Proof of delivery or service number, given at the time of receipt at the store. This field will be populated when the invoice is interfaced through ReSA.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="payment_ref_no" type="varchar216">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Reference number attached to the invoice payment, used when the invoice is paid from the POS system and interfaced through ReSA.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="payment_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Date that the invoice was paid from the POS system.  This field will be populated when the invoice is interfaced through ReSA.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="deals_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Specifies whether deals will be applied to the generated order.  If set to 'Y', the procedure APPLY_DEALS_TO_ORDER will be called.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="shipment" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The corresponding shipment for the order that was applied by the deal.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="invc_id" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the invoice number for the purchase order of this deal.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="invc_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Inidcates whether an invoice was created for this receipt by the supplier.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="vdate" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used by SIM</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="qty_sum" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used by SIM</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="cost_sum" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Total merchandise cost for the invoice. This field will be held in the invoice currency.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="ext_receipt_no" type="varchar217">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfDSDDealsDesc:ExtOfDSDDeals">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize DSDDeals.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="DSDDealsDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="DSDDeals">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used by SIM</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfDSDDealsDesc:ExtOfDSDDealsDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize DSDDealsDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="number12_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 12 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar230">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 30 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="30"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar23">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 3 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar210">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 10 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar217">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 17 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="17"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar216">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 16 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="16"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number20_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 20 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="20"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number8">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 8.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="8"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number10">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 10.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 1 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

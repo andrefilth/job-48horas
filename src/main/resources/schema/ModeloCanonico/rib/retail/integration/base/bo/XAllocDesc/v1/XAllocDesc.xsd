@@ -1,0 +1,164 @@
+<retailDoc:schema targetNamespace="http://www.oracle.com/retail/integration/base/bo/XAllocDesc/v1" elementFormDefault="qualified" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/XAllocDesc/v1" xmlns:ExtOfXAllocDesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfXAllocDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<retailDoc:annotation>
+		<retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+	</retailDoc:annotation>
+	<retailDoc:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfXAllocDesc/v1" schemaLocation="../../../../custom/bo/ExtOfXAllocDesc/v1/ExtOfXAllocDesc.xsd">
+		<retailDoc:annotation>
+			<retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+		</retailDoc:annotation>
+	</retailDoc:import>
+	<retailDoc:element name="XAllocDtl">
+		<retailDoc:annotation>
+			<retailDoc:documentation>Description is not available.</retailDoc:documentation>
+		</retailDoc:annotation>
+		<retailDoc:complexType>
+			<retailDoc:sequence>
+				<retailDoc:element name="to_loc" type="number10">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the to location of the allocation.  This must be an active store previously defined in RMS.</retailDoc:documentation>
+					</retailDoc:annotation>
+				</retailDoc:element>
+				<retailDoc:element name="to_loc_type" type="varchar21">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the location type of the to location.  Since only stores can be allocated to, this value should always be 'S'.</retailDoc:documentation>
+					</retailDoc:annotation>
+				</retailDoc:element>
+				<retailDoc:element name="qty_allocated" type="number12_4">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the allocated quantity of the item to the to location.  When the allocation is being created this value must be a positive integer.  If this value is being modified, it will contain the quantity adjusted (positive or negative), rather than an override value.</retailDoc:documentation>
+					</retailDoc:annotation>
+				</retailDoc:element>
+				<retailDoc:element ref="ExtOfXAllocDesc:ExtOfXAllocDtl" minOccurs="0">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Provide an extension hook to customize XAllocDtl.</retailDoc:documentation>
+					</retailDoc:annotation>
+				</retailDoc:element>
+			</retailDoc:sequence>
+		</retailDoc:complexType>
+	</retailDoc:element>
+	<retailDoc:element name="XAlloc">
+		<retailDoc:annotation>
+			<retailDoc:documentation>Description is not available.</retailDoc:documentation>
+		</retailDoc:annotation>
+		<retailDoc:complexType>
+			<retailDoc:sequence>
+				<retailDoc:element name="alloc_no" type="number10">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the unique identifier of the Allocation.  This field is not editable once the allocation is created in RMS.  This should fall within the range of RMS ids already designated for allocations.</retailDoc:documentation>
+					</retailDoc:annotation>
+				</retailDoc:element>
+				<retailDoc:element name="alloc_desc" type="varchar2300">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the user defined description of the Allocation.  This field is always editable.</retailDoc:documentation>
+					</retailDoc:annotation>
+				</retailDoc:element>
+				<retailDoc:element name="order_no" type="number8" minOccurs="0">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the purchase order with which the allocation is associated in order to perform a cross-dock allocation.  This field is not editable once the allocation has been created in RMS.</retailDoc:documentation>
+					</retailDoc:annotation>
+				</retailDoc:element>
+				<retailDoc:element name="item" type="varchar225">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the transaction level item that is being allocated.  This field is not editable once the allocation has been created in RMS.</retailDoc:documentation>
+					</retailDoc:annotation>
+				</retailDoc:element>
+				<retailDoc:element name="from_loc" type="number10">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the location that is the source of the allocation.  This must be a valid stockholding store or warehouse predefined in RMS. This field is not editable once the allocation has been created in RMS.</retailDoc:documentation>
+					</retailDoc:annotation>
+				</retailDoc:element>
+				<retailDoc:element name="release_date" type="xs:dateTime" minOccurs="0">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the earliest date on which the warehouse should ship the allocation.  This field is editable assuming that the warehouse has not yet started processing on the Allocation.  This date cannot be in the past.</retailDoc:documentation>
+					</retailDoc:annotation>
+				</retailDoc:element>
+				<retailDoc:element ref="XAllocDtl" minOccurs="0" maxOccurs="unbounded">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Description is not available.</retailDoc:documentation>
+					</retailDoc:annotation>
+				</retailDoc:element>
+				<retailDoc:element ref="ExtOfXAllocDesc:ExtOfXAlloc" minOccurs="0">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Provide an extension hook to customize XAlloc.</retailDoc:documentation>
+					</retailDoc:annotation>
+				</retailDoc:element>
+			</retailDoc:sequence>
+		</retailDoc:complexType>
+	</retailDoc:element>
+	<retailDoc:element name="XAllocDesc">
+		<retailDoc:annotation>
+			<retailDoc:documentation>Description is not available.</retailDoc:documentation>
+		</retailDoc:annotation>
+		<retailDoc:complexType>
+			<retailDoc:sequence>
+				<retailDoc:element ref="XAlloc" maxOccurs="unbounded">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Description is not available.</retailDoc:documentation>
+					</retailDoc:annotation>
+				</retailDoc:element>
+				<retailDoc:element ref="ExtOfXAllocDesc:ExtOfXAllocDesc" minOccurs="0">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Provide an extension hook to customize XAlloc.</retailDoc:documentation>
+					</retailDoc:annotation>
+				</retailDoc:element>
+			</retailDoc:sequence>
+		</retailDoc:complexType>
+	</retailDoc:element>
+	<retailDoc:simpleType name="number12_4">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a number of digits count 12 and fraction digit count of 4.</retailDoc:documentation>
+		</retailDoc:annotation>
+		<retailDoc:restriction base="xs:decimal">
+			<retailDoc:totalDigits value="12"/>
+			<retailDoc:fractionDigits value="4"/>
+		</retailDoc:restriction>
+	</retailDoc:simpleType>
+	<retailDoc:simpleType name="varchar225">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max length of 25 characters.</retailDoc:documentation>
+		</retailDoc:annotation>
+		<retailDoc:restriction base="xs:string">
+			<retailDoc:maxLength value="25"/>
+		</retailDoc:restriction>
+	</retailDoc:simpleType>
+	<retailDoc:simpleType name="varchar210">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max length of 10 characters.</retailDoc:documentation>
+		</retailDoc:annotation>
+		<retailDoc:restriction base="xs:string">
+			<retailDoc:maxLength value="10"/>
+		</retailDoc:restriction>
+	</retailDoc:simpleType>
+	<retailDoc:simpleType name="varchar2300">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max length of 300 characters.</retailDoc:documentation>
+		</retailDoc:annotation>
+		<retailDoc:restriction base="xs:string">
+			<retailDoc:maxLength value="300"/>
+		</retailDoc:restriction>
+	</retailDoc:simpleType>
+	<retailDoc:simpleType name="number10">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a number of digits count 10.</retailDoc:documentation>
+		</retailDoc:annotation>
+		<retailDoc:restriction base="xs:long">
+			<retailDoc:totalDigits value="10"/>
+		</retailDoc:restriction>
+	</retailDoc:simpleType>
+	<retailDoc:simpleType name="number8">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a number of digits count 8.</retailDoc:documentation>
+		</retailDoc:annotation>
+		<retailDoc:restriction base="xs:long">
+			<retailDoc:totalDigits value="8"/>
+		</retailDoc:restriction>
+	</retailDoc:simpleType>
+	<retailDoc:simpleType name="varchar21">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max length of 1 characters.</retailDoc:documentation>
+		</retailDoc:annotation>
+		<retailDoc:restriction base="xs:string">
+			<retailDoc:maxLength value="1"/>
+		</retailDoc:restriction>
+	</retailDoc:simpleType>
+</retailDoc:schema>

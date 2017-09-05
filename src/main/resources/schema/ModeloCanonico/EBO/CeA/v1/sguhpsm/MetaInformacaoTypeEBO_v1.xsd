@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.cea.com.br/EBO/CEA/v1" 
+            xmlns:tns="http://www.cea.com.br/EBO/CEA/v1"
+            elementFormDefault="qualified">
+			
+     <!-- Meta Informacao -->
+     <xsd:element name="MetaInfType">
+      <xsd:complexType>
+       <xsd:sequence>
+        <xsd:element name="IdentificardorTransacao" type="xsd:string" minOccurs="0">
+          <xsd:annotation>
+            <xsd:documentation>
+              Número sequencial que identifica uma requisição do serviço.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="CodigoAplicacaoOrigem" type="xsd:string" minOccurs="0">
+          <xsd:annotation>
+            <xsd:documentation>
+              Código ou Nome da aplicação origem que está consumindo o serviço.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="CodigoOperacaoOrigem" type="xsd:string" minOccurs="0">
+          <xsd:annotation>
+            <xsd:documentation>
+              Código ou nome da operação que está consumindo o serviço
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="EndereçoAplicacaoOrigem" type="xsd:string" minOccurs="0">
+          <xsd:annotation>
+            <xsd:documentation>
+              Endereço da aplicação que invocou o serviço.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="IdentificadorUsuarioOrigem" type="xsd:string" minOccurs="0">
+          <xsd:annotation>
+            <xsd:documentation>
+              Código do usuário (login) que consumiu o serviço.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+       </xsd:sequence>
+      </xsd:complexType>
+     </xsd:element>
+</xsd:schema>

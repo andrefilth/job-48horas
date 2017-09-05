@@ -1,0 +1,204 @@
+<xs:schema
+	xmlns="http://www.oracle.com/retail/integration/base/bo/FreightRBO/v1"
+	xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified"
+	targetNamespace="http://www.oracle.com/retail/integration/base/bo/FreightRBO/v1"
+	version="1.0">
+	<retailDoc:annotation>
+		<retailDoc:documentation>
+			This is root element of this document which
+			contains name
+			space definitions for the document elements.
+		</retailDoc:documentation>
+	</retailDoc:annotation>
+	<xs:element name="FreightRBO">
+		<retailDoc:annotation>
+			<retailDoc:documentation>
+				Contains Freight related Details
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="item_code" type="varchar225" >
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates the item code of the item.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element name="document_number"  type="varchar225">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates the Fiscal document
+							number.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element  name="item_value_percentage" type="number12_4">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates the percentage of the item value from the fiscal document total
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="pis_taxable_basis_amount" type="number20_4">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates PIS taxable base value of the item.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="pis_rec_value" type="number20_4">
+						<retailDoc:annotation>
+							<retailDoc:documentation>
+								Indicates PIS recovery value.
+							</retailDoc:documentation>
+						</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="cofins_taxable_basis_amount" type="number20_4">
+						<retailDoc:annotation>
+							<retailDoc:documentation>
+								Indicates COFINS taxable base value of the item.
+							</retailDoc:documentation>
+						</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="cofins_rec_value" type="number20_4">
+						<retailDoc:annotation>
+							<retailDoc:documentation>
+								Indicates COFINS recovery value.
+							</retailDoc:documentation>
+						</retailDoc:annotation>
+				</xs:element>
+				<xs:element name="item_utilization" type="varchar25" >
+						<retailDoc:annotation>
+							<retailDoc:documentation>
+								Indicates the utilization of the item.
+							</retailDoc:documentation>
+						</retailDoc:annotation>
+				</xs:element>
+				<xs:element name="fiscal_classification_code" type="varchar225">
+						<retailDoc:annotation>
+							<retailDoc:documentation>
+								Indicates the Fiscal classification
+								code issued by the government and has tax implication.
+								For e.g: NCM in Brazil.
+							</retailDoc:documentation>
+						</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="SourceTaxRegime">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates the Tax Regime of a Supplier.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="DestTaxRegime">
+						<retailDoc:annotation>
+							<retailDoc:documentation>
+								Indicates the Tax Regime of a Location.
+							</retailDoc:documentation>
+						</retailDoc:annotation>
+				</xs:element>
+
+				<xs:element name="nature_of_operation" type="varchar225" >
+						<retailDoc:annotation>
+							<retailDoc:documentation>
+								Indicates the nature of operation.
+							</retailDoc:documentation>
+						</retailDoc:annotation>
+				</xs:element>
+				<xs:element name="source_country_id" type="varchar225" >
+						<retailDoc:annotation>
+							<retailDoc:documentation>
+								Indicates the source country id.
+							</retailDoc:documentation>
+						</retailDoc:annotation>
+				</xs:element>
+				<xs:element name="dest_country_id" type="varchar225" >
+						<retailDoc:annotation>
+							<retailDoc:documentation>
+								Indicates the destination country id.
+							</retailDoc:documentation>
+						</retailDoc:annotation>
+				</xs:element>
+				<xs:element  name="item_tran_code" type="varchar225">
+						<retailDoc:annotation>
+							<retailDoc:documentation>
+								Indicates the item transaction code.
+							</retailDoc:documentation>
+						</retailDoc:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="SourceTaxRegime">
+		<retailDoc:annotation>
+			<retailDoc:documentation>Description not available
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" name="value" type="varchar225">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Description not available
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="DestTaxRegime">
+		<retailDoc:annotation>
+			<retailDoc:documentation>Description not available
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" name="value" type="varchar225">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Description not available
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="varchar225">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max length of
+				25 characters.</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="25" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="varchar25">
+			<retailDoc:annotation>
+				<retailDoc:documentation>This type can hold a string of max length of
+					25 characters.</retailDoc:documentation>
+			</retailDoc:annotation>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="5" />
+			</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="number20_4">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a number of digits count
+				20 and fraction digit count of 4.</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="20" />
+			<xs:fractionDigits value="4" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="number12_4">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a number of digits count
+				12 and fraction digit count of 4.</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="12" />
+			<xs:fractionDigits value="4" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

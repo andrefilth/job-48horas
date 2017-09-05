@@ -1,0 +1,60 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/XMrchHrRclsRef/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/XMrchHrRclsRef/v1" xmlns:ExtOfXMrchHrRclsRef="http://www.oracle.com/retail/integration/custom/bo/ExtOfXMrchHrRclsRef/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfXMrchHrRclsRef/v1" schemaLocation="../../../../custom/bo/ExtOfXMrchHrRclsRef/v1/ExtOfXMrchHrRclsRef.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="XMrchHrRclsRef">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="merch_hier_level" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates the level of the merchandise hierarchy. Valid values are V (division), G (group), D (department), C (class), and S (subclass).</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="merch_hier_id" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the merchandise hierarchy ID.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="merch_hier_parent_id" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The parent of the hierarchy identified in the merch_hier_id field.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="merch_hier_grandparent_id" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The grandparent of the hierarchy identified in the merch_hier_id field. This column will only be populated if the merch_hier_level = subclass. In this case, the column will contain the dept number.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfXMrchHrRclsRef:ExtOfXMrchHrRclsRef">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize XMrchHrRclsRef.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="number4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 1 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

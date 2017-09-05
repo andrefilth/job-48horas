@@ -1,0 +1,68 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/MrchHrClsDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/MrchHrClsDesc/v1" xmlns:ExtOfMrchHrClsDesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfMrchHrClsDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfMrchHrClsDesc/v1" schemaLocation="../../../../custom/bo/ExtOfMrchHrClsDesc/v1/ExtOfMrchHrClsDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="MrchHrClsDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="class" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the number which uniquely identifies the class within the system.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="class_name" type="varchar2120">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the name of the class which, along with the class number, identifies the class.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="class_vat_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This field determines if retail is displayed and held with or with out vat.  This field is only editable when vat is turned on in the system and defined at the class level, when that is the case the field can vary between 'Y' and 'N' by class.  When vat is turned on in the system and not defined at the class level, this field defaults to 'Y'. When vat is turned off in the system, this field defaults to 'N'.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="dept" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the number of the department of which the class is a member.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfMrchHrClsDesc:ExtOfMrchHrClsDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize MrchHrClsDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar2120">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 120 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="120"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 1 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

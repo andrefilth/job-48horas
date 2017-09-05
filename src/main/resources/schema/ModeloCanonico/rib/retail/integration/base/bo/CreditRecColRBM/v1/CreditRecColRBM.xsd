@@ -1,0 +1,37 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/CreditRecColRBM/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/CreditRecColRBM/v1" xmlns:CreditRecRBO="http://www.oracle.com/retail/integration/base/bo/CreditRecRBO/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<retailDoc:annotation>
+		<retailDoc:documentation>
+			This is root element of this document which
+			contains name
+			space definitions for the document elements.
+		</retailDoc:documentation>
+	</retailDoc:annotation>
+	<xs:import namespace="http://www.oracle.com/retail/integration/base/bo/CreditRecRBO/v1" schemaLocation="../../CreditRecRBO/v1/CreditRecRBO.xsd">
+		<retailDoc:annotation>
+			<retailDoc:documentation>
+				It's a referenced element. For detailed
+				description,
+				please refer referenced element doc.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+	</xs:import>
+	<xs:element name="CreditRecColRBM">
+		<retailDoc:annotation>
+			<retailDoc:documentation>
+				Contains collection of Credit Records used for bulk update of Recovery of ST tables in external Tax provider
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" minOccurs="1" ref="CreditRecRBO:CreditRecRBO">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							It's a referenced element. For detailed
+							description, please refer referenced element doc.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,37 @@
+<xsd:schema targetNamespace="http://www.cea.com.br/EBS/CEA/sit/item" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns:tns="http://www.cea.com.br/EBS/CEA/sit/item" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="ItemEBO_v1.xsd"/>
+
+	<xsd:element name="ManterItemToDB2Request">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ItemToDB2" type="ebo:ManterItemToDB2Type"/>
+				<xsd:element name="NomeAcao" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ManterItemToDB2Response">
+		<xsd:complexType>
+			<xsd:sequence>
+	 			<xsd:element name="MensagemResposta" type="ebo:MensagemRespostaType"/>	 
+	 		</xsd:sequence>
+	 	</xsd:complexType>
+	 </xsd:element>
+	 
+	 <xsd:element name="RemoveItemToDB2Request">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="ItemToDB2" type="ebo:RemoveItemToDB2Type"/>
+				<xsd:element name="NomeAcao" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="RemoveItemToDB2Response">
+		<xsd:complexType>
+			<xsd:sequence>
+	 			<xsd:element name="MensagemResposta" type="ebo:MensagemRespostaType"/>	 
+	 		</xsd:sequence>
+	 	</xsd:complexType>
+	 </xsd:element>
+		
+</xsd:schema>

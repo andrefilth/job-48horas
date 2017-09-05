@@ -1,0 +1,25 @@
+<xsd:schema targetNamespace="http://www.cea.com.br/BPEL/enviarEmail/v1" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.cea.com.br/BPEL/enviarEmail/v1" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="EnviarEmailEBO_v1.xsd"/>
+		
+	<element name="EnviarEmailResponse">
+		<xsd:complexType>
+			<sequence>
+				<element name="result" type="string"/>
+			</sequence>
+		</xsd:complexType>	
+	</element>
+
+	<element name="EnviarEmailRequest">
+		<xsd:complexType>
+			<sequence>
+				<element name="data_programada_envio" type="dateTime" nillable="true"/>
+				<element name="email" type="ebo:EmailType" minOccurs="1" maxOccurs="1"/>
+				<element name="meta_informacao" type="ebo:MetaInfType" minOccurs="1" maxOccurs="1"/>
+			</sequence>
+		</xsd:complexType>
+	</element>
+
+	<xsd:element name="TechnicalFault" type="ebo:TechnicalFaultType"/>
+
+</xsd:schema>

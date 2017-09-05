@@ -1,0 +1,173 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/MrchHrDeptDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/MrchHrDeptDesc/v1" xmlns:ExtOfMrchHrDeptDesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfMrchHrDeptDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfMrchHrDeptDesc/v1" schemaLocation="../../../../custom/bo/ExtOfMrchHrDeptDesc/v1/ExtOfMrchHrDeptDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="MrchHrDeptDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="dept" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the number which uniquely identifies the department.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="dept_name" type="varchar2120">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used by SIM</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="buyer" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the number which uniquely identifies the buyer for that department.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="purchase_type" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains a code which indicates whether items in this department are normal merchandise or consignment stock.  Valid values are:0 = Normal Merchandise1 = Consignment Stock.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="total_market_amt" type="number24_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the total market amount that is expected for the department.  The field can be used for analytics or reporting.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="merch" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the number which uniquely describes the merchandiser for that department.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="group_no" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the number of the group in which the department exists.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bud_mkup" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the Budgeted Markup percentage.  This term is synonymous with the term Markup Percent of Cost.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="profit_calc_type" type="number1">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains a number which indicates whether profit will be calculated by Direct Cost or by Retail Inventory.  Valid values are:1 = Direct Cost, 2 = Retail Inventory</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="markup_calc_type" type="varchar22">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the code letter which determines how markup is calculated in this department.  Valid values are:C = Cost, R = Retail</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="otb_calc_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the code letter which determines how OTB is calculated in this department.  Valid values are:C = Cost, R = Retail</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="max_avg_counter" type="number5">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>A maximum average counter will hold the maximum count of days with acceptable data to include in an avarage for items within the department. Although not required on the table, if the RPM_ind column is 'Y' (yes) on the system_options table, then this field will be required when maintaining departments online.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="avg_tolerance_pct" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>A tolerance percentage value used in averaging for items within this value. This value will set up a range for appropriate data and constrain outliers. This column will hold 70% as 70 - not 0.70. Although not required on the table, if the RPM_ind column</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bud_int" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the Budgeted Intake percentage.  Budgeted Intake is the percent of total take that is income and is synonymous with the term Markup Percent of Retail.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="dept_vat_incl_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This indicator will be be used only to default to the class level indicator when classes are initially set up for the department and will only be available when the system level class vat option is on.  When vat is turned on in the system and not defined at the class level, this field defaults to 'Y'. When vat is turned off in the system, this field defaults to 'N'.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfMrchHrDeptDesc:ExtOfMrchHrDeptDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize MrchHrDeptDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="number12_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 12 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2120">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 120 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="120"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar26">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 6 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar22">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 2 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number24_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 24 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="24"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number5">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 5.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="5"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 1 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number1">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 1.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

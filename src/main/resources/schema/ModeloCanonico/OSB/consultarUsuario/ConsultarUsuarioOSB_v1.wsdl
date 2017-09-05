@@ -1,0 +1,133 @@
+<definitions name="ConsultarUsuario" targetNamespace="http://www.cea.com.br/OSB/consultarUsuario/v1" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.cea.com.br/OSB/consultarUsuario/v1" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.cea.com.br/OSB/consultarUsuario/v1" schemaLocation="ConsultarUsuarioEBS_v1.xsd">
+			</xsd:import>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="ConsultarUsuarioEBO_v1.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</types>
+
+<!-- By Group -->
+	<message name="ConsultarUsuarioByGroupRequestMsg">
+		<part name="request" element="tns:ConsultarUsuarioByGroupRequest"/>
+	</message>
+	<message name="ConsultarUsuarioByGroupResponseMsg">
+		<part name="response" element="tns:ConsultarUsuarioByGroupResponse"/>
+	</message>
+	<message name="GrupoNaoEncontradoFaultMsg">
+		<part name="GrupoNaoEncontradoFault" element="tns:GrupoNaoEncontradoFault"/>
+	</message>
+
+
+<!-- By SamAccountName -->
+	<message name="ConsultarUsuarioBySamAccountNameRequestMsg">
+		<part name="request" element="tns:ConsultarUsuarioBySamAccountNameRequest"/>
+	</message>
+	<message name="ConsultarUsuarioBySamAccountNameResponseMsg">
+		<part name="response" element="tns:ConsultarUsuarioBySamAccountNameResponse"/>
+	</message>
+	<message name="UsuarioNaoEncontradoFaultMsg">
+		<part name="UsuarioNaoEncontradoFault" element="tns:UsuarioNaoEncontradoFault"/>
+	</message>
+
+<!-- By Name -->
+	<message name="ListarUsuarioByNameRequestMsg">
+		<part name="request" element="tns:ListarUsuarioByNameRequest"/>
+	</message>
+	<message name="ListarUsuarioByNameResponseMsg">
+		<part name="response" element="tns:ListarUsuarioByNameResponse"/>
+	</message>
+
+
+
+	<message name="TechnicalFaultMsg">
+		<part name="TechnicalFault" element="ebo:TechnicalFault"/>
+	</message>
+	
+	<portType name="ConsultarUsuarioPortType">
+
+		<operation name="consultarUsuarioBySamAccount">
+			<input message="tns:ConsultarUsuarioBySamAccountNameRequestMsg"/>
+			<output message="tns:ConsultarUsuarioBySamAccountNameResponseMsg"/>
+			<fault name="UsuarioNaoEncontradoFault" message="tns:UsuarioNaoEncontradoFaultMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+		</operation>
+		
+		<operation name="consultarUsuarioByGroup">
+			<input message="tns:ConsultarUsuarioByGroupRequestMsg"/>
+			<output message="tns:ConsultarUsuarioByGroupResponseMsg"/>
+			<fault name="GrupoNaoEncontradoFault" message="tns:GrupoNaoEncontradoFaultMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+		</operation>
+		
+		<operation name="listarUsuarioByName">
+			<input message="tns:ListarUsuarioByNameRequestMsg"/>
+			<output message="tns:ListarUsuarioByNameResponseMsg"/>
+			<fault name="UsuarioNaoEncontradoFault" message="tns:UsuarioNaoEncontradoFaultMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+		</operation>
+				
+	</portType>
+
+	<binding name="ConsultarUsuarioBinding" type="tns:ConsultarUsuarioPortType">
+		<soap12:binding transport="http://www.w3.org/2003/05/soap/bindings/HTTP/" style="document"/>
+		<operation name="consultarUsuarioBySamAccount">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="UsuarioNaoEncontradoFault">
+				<soap12:fault name="UsuarioNaoEncontradoFault" use="literal"/>
+			</fault>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+		</operation>
+		
+		<operation name="consultarUsuarioByGroup">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="GrupoNaoEncontradoFault">
+				<soap12:fault name="GrupoNaoEncontradoFault" use="literal"/>
+			</fault>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+		</operation>
+		
+		<operation name="listarUsuarioByName">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="UsuarioNaoEncontradoFault">
+				<soap12:fault name="UsuarioNaoEncontradoFault" use="literal"/>
+			</fault>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+		</operation>				
+	</binding>
+
+	<service name="ConsultarUsuarioService">
+		<port name="ConsultarUsuarioPort" binding="tns:ConsultarUsuarioBinding">
+			<soap12:address location="http://localhost:7001/consultarUsuario"/>
+		</port>
+	</service>
+
+</definitions>

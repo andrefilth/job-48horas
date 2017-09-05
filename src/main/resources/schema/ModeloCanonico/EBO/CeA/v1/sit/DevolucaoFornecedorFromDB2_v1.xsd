@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.cea.com.br/EBO/CEA/v1"
+ elementFormDefault="unqualified" 
+ attributeFormDefault="unqualified" 
+ version="1.0" 
+ xmlns="http://www.w3.org/2001/XMLSchema"
+  xmlns:tns="http://www.cea.com.br/EBO/CEA/v1" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:complexType name="DevolucaoFornecedorFromDB2Type">
+		<xsd:sequence>
+			<xsd:element name="IdentificadorDevolucao" type="int" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="LocalDevolucao" type="int" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="CodigoFornecedor" type="int" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="TipoEstoqueOrigem" type="string" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="DataCriacaoDevolucao" type="dateTime" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="CodigoMotivoDevolucao" type="string" minOccurs="1" maxOccurs="1" nillable="false" />			
+		    <xsd:element name="Item"  minOccurs="1" maxOccurs="unbounded" nillable="false">
+		    	<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="CodigoItem" type="string" minOccurs="1" maxOccurs="1" nillable="false" />						
+						<xsd:element name="Quantidade" type="int" minOccurs="1" maxOccurs="1" nillable="false" />						
+						<xsd:element name="TipoEstoqueOrigem" type="string" minOccurs="1" maxOccurs="1" nillable="false" />
+						<xsd:element name="CodigoMotivoDevolucao" type="string" minOccurs="1" maxOccurs="1" nillable="false" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

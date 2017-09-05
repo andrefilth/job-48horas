@@ -1,0 +1,74 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/XMrchHrDivDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/XMrchHrDivDesc/v1" xmlns:ExtOfXMrchHrDivDesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfXMrchHrDivDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfXMrchHrDivDesc/v1" schemaLocation="../../../../custom/bo/ExtOfXMrchHrDivDesc/v1/ExtOfXMrchHrDivDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="XMrchHrDivDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="division" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The unique identifier of the division.  This field cannot be modified.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="div_name" type="varchar2120">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The name of the division.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="merch" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The number of the merchant associated with the division.  This value must be predefined on the MERCHANT table.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="buyer" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The number of the buyer associated with the division.  This value must be predefined on the BUYER table.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="total_market_amt" type="number24_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The total market amount that is expected for the division.  If this field is not null it must be at least 1000.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfXMrchHrDivDesc:ExtOfXMrchHrDivDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize XMrchHrDivDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar2120">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 120 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="120"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number24_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 24 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="24"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.cea.com.br/EBO/CEA/v2"
+	elementFormDefault="qualified" 
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.cea.com.br/EBO/CEA/v2">
+
+	<xsd:simpleType name="PaisComercialType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[
+				PaisComercial - é um país em que a C&A possui relações comerciais.
+
+				Atualmente temos os seguintes paises:
+				MEXICO , BRASIL
+
+				]]>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="MEXICO" />
+			<xsd:enumeration value="BRASIL" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="CnpjType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[
+				Cadastro Nacional da Pessoa Jurídica (CNPJ) - é um
+				número único que identifica uma pessoa jurídica junto à
+				Receita Federal brasileira (órgão do Ministério da
+				Fazenda), necessário para que a pessoa jurídica tenha
+				capacidade de fazer contratos e processar ou ser
+				processada. O CNPJ veio substituir o CGC, Cadastro Geral
+				de Contribuintes.
+
+				Um número típico de CNPJ tem o formato:
+				03.847.655/0001-98 onde os oito primeiros números formam
+				a "raiz" - que identifica a empresa, os quatro seguintes
+				formam o "sufixo" que identifica uma unidade de atuação
+				de empresa, ou seja, um endereço de atividade da pessoa
+				jurídica, e os dois últimos formam o "dígito
+				verificador" que é resultado de uma equação com os doze
+				números anteriores. Deste modo, o número acima
+				exemplificado identifica a matriz da empresa.
+				
+				Exemplo de CNPJ: 10432524000147
+				]]>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-9]{0,14}" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="CpfType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[
+				Cadastro de Pessoas Físicas (CPF) - é o registro de um
+				cidadão na Receita Federal brasileira no qual devem
+				estar todos os contribuintes (pessoas físicas
+				brasileiras ou estrangeiras com negócios no Brasil). O
+				CPF armazena informações fornecidas pelo próprio
+				contribuinte e por outros sistemas da Receita Federal.
+				
+				Exemplo de CPF: 22233344405
+				]]>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-9]{0,11}" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="RgType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[
+				Registro Geral (RG) - é o documento nacional de
+				identificação civil no Brasil. É conhecido popularmente
+				por cédula de identidade, carteira de identidade ou
+				simplesmente RG .
+
+				Sua emissão é de responsabilidade dos governos
+				estaduais, entretanto a cédula de identidade tem
+				validade em todo território nacional.
+				
+				Exemplo de RG: 123.456.789-0
+				]]>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="numero" type="xsd:string" minOccurs="0"
+				maxOccurs="1" nillable="true" />
+			<xsd:element name="orgao-emissor" type="xsd:string"
+				minOccurs="0" maxOccurs="1" nillable="true" />
+			<xsd:element name="uf" type="tns:UfType" minOccurs="0"
+				maxOccurs="1" nillable="true" />
+			<xsd:element name="data-emissao" type="xsd:date"
+				minOccurs="0" maxOccurs="1" nillable="true" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="RneType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[
+				Registro Nacional de Estrangeiros (RNE) - é o documento nacional 
+				que atesta a identidade de indivíduos não brasileiros com 
+				residência temporária ou permanente no território da federação. 
+				
+				Também conhecido pela sua sigla, RNE, este documento pessoal foi 
+				durante muitas décadas conhecido como modelo 19. 
+				Aos cidadãos portugueses amparados pelo Estatuto de Igualdade 
+				emite-se uma cédula de identidade igual à dos cidadãos 
+				brasileiros.
+				
+				Hoje o registro dos estrangeiros e a emissão dos respectivos 
+				documentos de identificação são de responsabilidade da 
+				Polícia Federal.
+				
+				Exemplo de RNE: V.201.675-B
+				]]>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="numero" type="xsd:string" minOccurs="0"
+				maxOccurs="1" nillable="true" />
+			<xsd:element name="orgao-emissor" type="xsd:string"
+				minOccurs="0" maxOccurs="1" nillable="true" />
+			<xsd:element name="uf" type="tns:UfType" minOccurs="0"
+				maxOccurs="1" nillable="true" />
+			<xsd:element name="data-emissao" type="xsd:date"
+				minOccurs="0" maxOccurs="1" nillable="true" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:simpleType name="EnderecoEmailType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[
+				E-mail (Eletronic Mail) - é um método que permite
+				compor, enviar e receber mensagens através de sistemas
+				eletrônicos de comunicação. O termo e-mail é aplicado
+				tanto aos sistemas que utilizam a Internet e são
+				baseados no protocolo SMTP, como aqueles sistemas
+				conhecidos como intranets, que permitem a troca de
+				mensagens dentro de uma empresa ou organização e são,
+				normalmente, baseados em protocolos proprietários.
+				
+				Exemplo de e-mail: nome@dominio.com.br
+				]]>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern
+				value="\w+([-_+.]\w+)*[-_+.]*@\w+([-.]\w+)*\.\w+([-.]\w+)*" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="CepType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[
+				Código de Endereçamento Postal (CEP) ou Código Postal -
+				é um código desenvolvido pelas administrações postais, e
+				criado no sentido de facilitar o encaminhamento e a
+				entrega das correspondências. Cada administração postal
+				é livre de criar o código que melhor se adapte à
+				realidade postal e administrativa do seu país.
+
+				O sistema de código postal brasileiro, o CEP (Código de
+				Endereçamento Postal), foi criado em 1972, com cinco
+				dígitos. Em 1992, com o aumento do volume de
+				correspondência, passou ao formato 00000-000, dividido
+				em dois grupos, sendo o primeiro de 5 dígitos e o
+				segundo de 3, separados por um hífen. A única empresa
+				que atua em todos os municípios do país é a empresa
+				estatal Correios.
+
+				Exemplo de endereçamento: 05425140
+				]]>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-9]{0,8}" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="EstadoCivilType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[
+				Estado Civil - é a situação de uma pessoa em relação ao
+				matrimônio ou à sociedade conjugal.
+
+				De acordo com as leis brasileiras, os possíveis estados
+				civis são:
+
+				SOLTEIRO(A) - quem nunca se casou ou que teve o
+				casamento anulado
+
+				CASADO(A) - quem contraiu matrimônio, independente do
+				regime de bens adotado
+
+				SEPARADO(A) judicialmente - quem não vive mais com o
+				cônjuge (vive em separação física dele), mas que ainda
+				não obteve o divórcio
+
+				DIVORCIADO(A) - após a homologação do divórcio pela
+				justiça
+
+				VIÚVO(A) - pessoa cujo cônjuge faleceu
+
+				UNIÃO ESTÁVEL - condição de convivência considerada como
+				entidade familiar não registrada (como o casamento),
+				onde são exigidos o atendimento de quatro requisitos
+				fundamentais: que a convivência seja duradoura, seja
+				pública, seja contínua, e que a união tenha o objetivo
+				de constituir família (Lei 9.278/96).
+				
+				NÃO INFORMADO - usar para os sistemas em que este atributo é obrigaório
+				e não se possue a informação.
+				
+				Exemplo de Estado Civil: SOLTEIRO
+				]]>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="SOLTEIRO" />
+			<xsd:enumeration value="CASADO" />
+			<xsd:enumeration value="SEPARADO" />
+			<xsd:enumeration value="DIVORCIADO" />
+			<xsd:enumeration value="VIUVO" />
+			<xsd:enumeration value="UNIAO_ESTAVEL" />
+			<xsd:enumeration value="NAO_INFORMADO" />			
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="SexoType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[
+				Corresponde ao gênero do indivíduo que pode ser:
+
+				M - Masculino
+
+				F - Feminino
+				
+				Exemplo de Sexo: M
+				]]>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="M" />
+			<xsd:enumeration value="F" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="TelefoneType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[
+				Número de Telefone, corresponde a um número de telefone
+				incluindo o código de área (DDD).
+				
+				Exemplo de Telefone: 11987654321, 1121341234
+				]]>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-9]{10,11}" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<simpleType name="TipoPessoaType">
+		<annotation>
+			<documentation>
+				<![CDATA[
+				Corresponde ao tipo de pessoa, que pode ser:
+
+				PF - Pessoa Física 
+
+				PJ - Pessoa Jurídica
+				
+				Exemplo de Tipo de Pessoa: PF
+				]]>
+			</documentation>
+		</annotation>
+		<restriction base="xsd:string">
+			<enumeration value="PF" />
+			<enumeration value="PJ" />
+		</restriction>
+	</simpleType>
+
+	<xsd:simpleType name="UfType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[
+				Unidade da Federação (UF) - é o nome atribuído a cada um
+				dos 26 estados brasileiros e ao Distrito Federal.
+
+				AC - Acre
+
+				AL - Alagoas
+
+				AM - Amazonas
+
+				AP - Amapá
+
+				BA - Bahia
+
+				CE - Ceará
+
+				DF - Distrito Federal
+
+				ES - Espírito Santo
+
+				GO - Goiás
+
+				MA - Maranhão
+
+				MG - Minas Gerais
+
+				MS - Mato Grosso do Sul
+
+				MT - Mato Grosso
+
+				PA - Pará
+
+				PB - Paraíba
+
+				PE - Pernambuco
+
+				PI - Piauí
+
+				PR - Paraná
+
+				RJ - Rio de Janeiro
+
+				RN - Rio Grande do Norte
+
+				RO - Rondônia
+
+				RR - Roraima
+
+				RS - Rio Grande do Sul
+
+				SC - Santa Catarina
+
+				SE - Sergipe
+
+				SP - São Paulo
+
+				TO - Tocantins
+				
+				Exemplo de UF: SP 
+				]]>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="AC" />
+			<xsd:enumeration value="AL" />
+			<xsd:enumeration value="AP" />
+			<xsd:enumeration value="AM" />
+			<xsd:enumeration value="BA" />
+			<xsd:enumeration value="CE" />
+			<xsd:enumeration value="ES" />
+			<xsd:enumeration value="GO" />
+			<xsd:enumeration value="MA" />
+			<xsd:enumeration value="MT" />
+			<xsd:enumeration value="MS" />
+			<xsd:enumeration value="MG" />
+			<xsd:enumeration value="PA" />
+			<xsd:enumeration value="PB" />
+			<xsd:enumeration value="PR" />
+			<xsd:enumeration value="PE" />
+			<xsd:enumeration value="PI" />
+			<xsd:enumeration value="RJ" />
+			<xsd:enumeration value="RN" />
+			<xsd:enumeration value="RS" />
+			<xsd:enumeration value="RO" />
+			<xsd:enumeration value="RR" />
+			<xsd:enumeration value="SC" />
+			<xsd:enumeration value="SP" />
+			<xsd:enumeration value="SE" />
+			<xsd:enumeration value="TO" />
+			<xsd:enumeration value="DF" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+</schema>

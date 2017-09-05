@@ -1,0 +1,55 @@
+<xsd:schema targetNamespace="http://www.cea.com.br/EBS/CEA/sit/alocacao" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns:tns="http://www.cea.com.br/EBS/CEA/sit/alocacao" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="AlocacaoEBO_v1.xsd"/>
+
+	<xsd:element name="MantemAlocacaoToDB2Request">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="AlocacaoToDB2" type="ebo:MantemAlocacaoToDB2Type"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="MantemAlocacaoToDB2Response">
+		<xsd:complexType>
+			<xsd:sequence>
+	 			<xsd:element name="MensagemResposta" type="ebo:MensagemRespostaType"/>	 
+	 		</xsd:sequence>
+	 	</xsd:complexType>
+	 </xsd:element>
+	 
+	 <xsd:element name="RemoveAlocacaoToDB2Request">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="AlocacaoToDB2" type="ebo:RemoveAlocacaoToDB2Type"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="RemoveAlocacaoToDB2Response">
+		<xsd:complexType>
+			<xsd:sequence>
+	 			<xsd:element name="MensagemResposta" type="ebo:MensagemRespostaType"/>	 
+	 		</xsd:sequence>
+	 	</xsd:complexType>
+	 </xsd:element>
+	 
+	 <xsd:element name="AlocacaoFromDB2Request">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="IdentificadorIntegracao" type="xsd:decimal"/>
+				<xsd:element name="CodigoPedido" type="xsd:decimal"/>
+				<xsd:element name="NumeroAlocacao" type="xsd:decimal"/>
+				<xsd:element name="NomeAcao" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="IndicadorCancelamento" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="AlocacaoFromDB2Response">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="AlocacaoFromDB2" type="ebo:AlocacaoFromDB2Type"/>
+	 			<xsd:element name="MensagemResposta" type="ebo:MensagemRespostaType"/>	 
+	 		</xsd:sequence>
+	 	</xsd:complexType>
+	 </xsd:element>
+		
+</xsd:schema>

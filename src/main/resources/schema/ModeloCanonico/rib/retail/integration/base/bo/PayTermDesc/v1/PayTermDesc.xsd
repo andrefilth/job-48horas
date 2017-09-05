@@ -1,0 +1,241 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/PayTermDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/PayTermDesc/v1" xmlns:ExtOfPayTermDesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfPayTermDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfPayTermDesc/v1" schemaLocation="../../../../custom/bo/ExtOfPayTermDesc/v1/ExtOfPayTermDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="PayTermDtl">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="due_days" type="number3">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The number of days until payment is due.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="due_max_amount" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Maximum payment amount due by a certain date.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="due_dom" type="number2">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Day of month used to calculate due date.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="discdays" type="number3">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Number of days in which payment must be made to get the discount.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="percent" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Percentage used to calculate discount available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="disc_dom" type="number2">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Day of month used to calculate discount date.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="disc_mm_fwd" type="number3">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Number of months ahead to calculate discount date.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="fixed_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Fixed due date.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="enabled_flag" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates whether the Payment terms are valid or invalid within the respective application. The values would be either (Y)es or (N)o.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="start_date_active" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Start date terms are in effect.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="end_date_active" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>End date terms are in effect.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="terms_seq" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Sequence for the discount percent and part of unique identifier for the detail line.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="due_mm_fwd" type="number3">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Number of months ahead to calculate due date.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="cutoff_day" type="number2">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Day of month after which the following month will be used for calculations.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfPayTermDesc:ExtOfPayTermDtl">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize PayTermDtl.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PayTermDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="terms_xref_key" type="varchar232">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="terms" type="varchar215">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Unique id for this payment term.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="terms_code" type="varchar250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The alpha value which acts as the Term code in Oracle Financials.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="terms_desc" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description of the payment terms.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="due_days" type="number3">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="enabled_flag" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="start_date_active" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="end_date_active" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="discdays" type="number3">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="percent" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="PayTermDtl">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Child node.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="rank" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Unique rank to rate invoice payment terms against PO terms</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfPayTermDesc:ExtOfPayTermDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize PayTermDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="number12_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 12 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number3">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 3.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2240">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 240 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="240"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar215">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 15 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="15"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number2">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 2.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar250">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 50 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number10">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 10.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 1 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar232">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 32 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="32"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

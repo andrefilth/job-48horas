@@ -1,0 +1,27 @@
+<xsd:schema targetNamespace="http://www.cea.com.br/EBS/CEA/cartaopresente/extrato/v1" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://www.cea.com.br/EBO/CEA/v1" xmlns:ns2="http://www.cea.com.br/EBO/CEA/v2" xmlns:tns="http://www.cea.com.br/EBO/CEA/cartaopresente/v1">
+	
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/cartaopresente/v1" schemaLocation="ConsultarExtratoCartaoPresenteEBO_v1.xsd"/>
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v2" schemaLocation="../../../../EBO/CeA/v2/commons/MetaInformacaoEBO_v2.xsd"/>
+
+	<xsd:element name="ConsultarExtratoRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="NumeroCartao" type="tns:CartaoPresenteType" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="IdentificadorParceiro" type="int" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="MetaInformacao" type="ns2:MetaInformacaoType" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="ConsultarExtratoResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="NumeroCartao" type="tns:CartaoPresenteType" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="Status" type="tns:StatusCartaoPresenteType" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="ValorSaldo" type="decimal" minOccurs="0" maxOccurs="1"/>
+				<xsd:element name="ExtratoList" type="tns:ExtratoListType" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+</xsd:schema>

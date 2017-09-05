@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.cea.com.br/EBO/CEA/v1"
+ elementFormDefault="unqualified" 
+ attributeFormDefault="unqualified" 
+ version="1.0" 
+ xmlns="http://www.w3.org/2001/XMLSchema"
+  xmlns:tns="http://www.cea.com.br/EBO/CEA/v1" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:complexType name="AjusteInventarioFromDB2Type">
+		<xsd:sequence>
+			<xsd:element name="LocalAjuste" type="int" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="DataCriacaoAjuste" type="dateTime" minOccurs="1" maxOccurs="1" nillable="false" />
+		    <xsd:element name="Item"  minOccurs="1" maxOccurs="unbounded" nillable="false">
+		    	<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="CodigoItem" type="string" minOccurs="1" maxOccurs="1" nillable="false" />
+						<xsd:element name="CodigoMotivoAjuste" type="int" minOccurs="1" maxOccurs="1" nillable="false" />
+						<xsd:element name="Quantidade" type="int" minOccurs="1" maxOccurs="1" nillable="false" />
+						<xsd:element name="TipoEstoqueOrigem" type="string" minOccurs="1" maxOccurs="1" nillable="false" />
+						<xsd:element name="TipoEstoqueDestino" type="string" minOccurs="1" maxOccurs="1" nillable="false" />
+						<xsd:element name="CodigoUsuario" type="string" minOccurs="1" maxOccurs="1" nillable="false" />
+						<xsd:element name="IdentificadorTransacao" type="string" minOccurs="1" maxOccurs="1" nillable="false" />
+						<xsd:element name="TransacaoTipo" type="string" minOccurs="1" maxOccurs="1" nillable="false" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

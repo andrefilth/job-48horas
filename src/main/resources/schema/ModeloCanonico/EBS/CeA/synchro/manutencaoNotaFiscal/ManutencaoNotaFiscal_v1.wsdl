@@ -1,0 +1,142 @@
+<definitions name="AtualizarNotaFiscalEBSv1" targetNamespace="http://www.cea.com.br/EBS/CEA/manutencaonotafiscal/v1" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.cea.com.br/EBS/CEA/manutencaonotafiscal/v1" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.cea.com.br/EBS/CEA/manutencaonotafiscal/v1" schemaLocation="ManutencaoNotaFiscalEBS_v1.xsd">
+			</xsd:import>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="ManutencaoNotaFiscalEBO_v1.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</types>
+
+	<message name="EmissaoNotaFiscalRequestMsg">
+		<part name="request" element="tns:EmissaoNotaFiscalRequest"/>
+	</message>
+	
+	<message name="EmissaoNotaFiscalResponseMsg">
+		<part name="response" element="tns:EmissaoNotaFiscalResponse"/>
+	</message>
+	
+	<message name="ConsultarNotaFiscalRequestMsg">
+		<part name="request" element="tns:ConsultarNotaFiscalRequest"/>
+	</message>
+	
+	<message name="ConsultarNotaFiscalResponseMsg">
+		<part name="response" element="tns:ConsultarNotaFiscalResponse"/>
+	</message>
+	
+	<message name="CancelarNotaFiscalRequestMsg">
+		<part name="request" element="tns:CancelarNotaFiscalRequest"/>
+	</message>
+	
+	<message name="CancelarNotaFiscalResponseMsg">
+		<part name="response" element="tns:CancelarNotaFiscalResponse"/>
+	</message>
+	
+	<message name="NotaFiscalNaoEncontradaFaultMsg">
+		<part name="NotaFiscalNaoEncontradaFault" element="ebo:NotaFiscalNaoEncontradaFault"/>
+	</message>
+	
+	<message name="TechnicalFaultMsg">
+		<part name="TechnicalFault" element="ebo:TechnicalFault"/>
+	</message>
+	
+	<message name="ParametroInvalidoFaultMsg">
+		<part name="ParametroInvalidoFault" element="ebo:ParametroInvalidoFault"/>
+	</message>
+
+	<portType name="ManutencaoNotaFiscalPortType">
+		<operation name="emissaoNotaFiscal">
+			<input message="tns:EmissaoNotaFiscalRequestMsg"/>
+			<output message="tns:EmissaoNotaFiscalResponseMsg"/>
+			<fault name="NotaFiscalNaoEncontradaFault" message="tns:NotaFiscalNaoEncontradaFaultMsg"/>
+			<fault name="ParametroInvalidoFault" message="tns:ParametroInvalidoFaultMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+		</operation>
+	
+		<operation name="cancelarNotaFiscal">
+			<input message="tns:CancelarNotaFiscalRequestMsg"/>
+			<output message="tns:CancelarNotaFiscalResponseMsg"/>
+			<fault name="NotaFiscalNaoEncontradaFault" message="tns:NotaFiscalNaoEncontradaFaultMsg"/>
+			<fault name="ParametroInvalidoFault" message="tns:ParametroInvalidoFaultMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+		</operation>
+		
+		<operation name="consultarNotaFiscal">
+			<input message="tns:ConsultarNotaFiscalRequestMsg"/>
+			<output message="tns:ConsultarNotaFiscalResponseMsg"/>
+			<fault name="NotaFiscalNaoEncontradaFault" message="tns:NotaFiscalNaoEncontradaFaultMsg"/>
+			<fault name="ParametroInvalidoFault" message="tns:ParametroInvalidoFaultMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+		</operation>
+	</portType>
+
+	<binding name="ManutencaoNotaFiscalBinding" type="tns:ManutencaoNotaFiscalPortType">
+		<soap12:binding transport="http://www.w3.org/2003/05/soap/bindings/HTTP/" style="document"/>
+		<operation name="emissaoNotaFiscal">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="ParametroInvalidoFault">
+				<soap12:fault name="ParametroInvalidoFault" use="literal"/>
+			</fault>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="NotaFiscalNaoEncontradaFault">
+				<soap12:fault name="NotaFiscalNaoEncontradaFault" use="literal"/>
+			</fault>
+		</operation>
+		
+		<operation name="cancelarNotaFiscal">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="ParametroInvalidoFault">
+				<soap12:fault name="ParametroInvalidoFault" use="literal"/>
+			</fault>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="NotaFiscalNaoEncontradaFault">
+				<soap12:fault name="NotaFiscalNaoEncontradaFault" use="literal"/>
+			</fault>
+		</operation>
+		
+		<operation name="consultarNotaFiscal">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="ParametroInvalidoFault">
+				<soap12:fault name="ParametroInvalidoFault" use="literal"/>
+			</fault>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="NotaFiscalNaoEncontradaFault">
+				<soap12:fault name="NotaFiscalNaoEncontradaFault" use="literal"/>
+			</fault>
+		</operation>
+	</binding>
+
+	<service name="ManutencaoNotaFiscalService">
+		<port name="ManutencaoNotaFiscalPort" binding="tns:ManutencaoNotaFiscalBinding">
+			<soap12:address location="http://treinamento02:7000/ModeloImplementacao-JAXWS/service"/>
+		</port>
+	</service>
+
+</definitions>

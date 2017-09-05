@@ -1,0 +1,79 @@
+<xs:schema elementFormDefault="qualified"
+    targetNamespace="http://www.oracle.com/retail/integration/base/bo/CEAApptRef/v1"
+    version="1.0"
+    xmlns="http://www.oracle.com/retail/integration/base/bo/CEAApptRef/v1"
+    xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which 
+			contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:element name="CEAApptRef">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Root element for appointment.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="dc_dest_id" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>A unique identifier for the warehouse.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="appt_nbr" type="number9">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Unique identifier for receiving a group of items.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="appt_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates whether the appointment is a 3 - PO, 4 - ASN.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="asn_nbr" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Advance ship notice number for appt_type = 4
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar210">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length 
+				of 10 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="number9">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits 
+				count 9.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="9"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length 
+				of 1 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="varchar230">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length 
+				of 30 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="30"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

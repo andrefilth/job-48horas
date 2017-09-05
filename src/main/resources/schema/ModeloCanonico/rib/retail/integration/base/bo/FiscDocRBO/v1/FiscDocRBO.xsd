@@ -1,0 +1,545 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/FiscDocRBO/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/FiscDocRBO/v1" xmlns:LineItemRBO="http://www.oracle.com/retail/integration/base/bo/LineItemRBO/v1" xmlns:FiscEntityRBO="http://www.oracle.com/retail/integration/base/bo/FiscEntityRBO/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:NameValPairRBO="http://www.oracle.com/retail/integration/base/bo/NameValPairRBO/v1" xmlns:InformTaxRBO="http://www.oracle.com/retail/integration/base/bo/InformTaxRBO/v1" xmlns:FreightRBO="http://www.oracle.com/retail/integration/base/bo/FreightRBO/v1">
+    <retailDoc:annotation>
+        <retailDoc:documentation>
+			sThis is root element of this document which
+			contains name
+			space definitions for the document elements.
+		</retailDoc:documentation>
+    </retailDoc:annotation>
+	<xs:import schemaLocation="../../NameValPairRBO/v1/NameValPairRBO.xsd" namespace="http://www.oracle.com/retail/integration/base/bo/NameValPairRBO/v1">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				It's a referenced element. For detailed
+				description,
+				please refer referenced element doc.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+		<xs:import schemaLocation="../../InformTaxRBO/v1/InformTaxRBO.xsd" namespace="http://www.oracle.com/retail/integration/base/bo/InformTaxRBO/v1">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				It's a referenced element. For detailed
+				description,
+				please refer referenced element doc.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+	<xs:import schemaLocation="../../FiscEntityRBO/v1/FiscEntityRBO.xsd" namespace="http://www.oracle.com/retail/integration/base/bo/FiscEntityRBO/v1">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				It's a referenced element. For detailed
+				description,
+				please refer referenced element doc.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+	<xs:import schemaLocation="../../LineItemRBO/v1/LineItemRBO.xsd" namespace="http://www.oracle.com/retail/integration/base/bo/LineItemRBO/v1">
+		<retailDoc:annotation>
+			<retailDoc:documentation>
+				It's a referenced element. For detailed
+				description,
+				please refer referenced element doc.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+	</xs:import>
+	<xs:import schemaLocation="../../FreightRBO/v1/FreightRBO.xsd" namespace="http://www.oracle.com/retail/integration/base/bo/FreightRBO/v1">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				It's a referenced element. For detailed
+				description,
+				please refer referenced element doc.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="FiscDocRBO">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				Represents the document which may represent
+				a Nota
+				Fiscal, Purchase Order,Transfer Order or any other
+				Transaction
+				which has Tax implication.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="ToEntity">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							It's a referenced element. For detailed
+							description, please refer referenced element
+							doc.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="FromEntity">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							It's a referenced element. For detailed
+							description, please refer referenced element
+							doc.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="LineItemRBO:LineItemRBO">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Represents 1 to many DocumentLineItems.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="NameValPairRBO:NameValPairRBO">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Represents 1 to many Name Value Pair objects.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="due_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Date received/payment and
+							expense.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="1" name="fiscal_document_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Fiscal Document Date.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="document_type" type="varchar22">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Type of the fiscal document: FT - Factura
+							CT
+							- Freight ST - Freight Services RP - RPA PS
+							- Service NF AV - NF
+							detached RC - Receipt
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="gross_weight" type="number12_4" minOccurs="0">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the total gross weight of all items.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="net_weight" type="number12_4" minOccurs="0">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the total net weight of the items.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="operation_type" type="varchar21" minOccurs="0">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the type of Operation: E -
+							within
+							same state I - inter states X -
+							international
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="freight" type="number20_4" minOccurs="0">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Item Freight Value
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="insurance" type="number20_4" minOccurs="0">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Item Value of Insurance
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="discount" type="number20_4" minOccurs="0">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Discount Value applied for
+							the
+							item
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="commision" type="number20_4" minOccurs="0">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Item Commission Value
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="freight_type" type="varchar21" minOccurs="0">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Type of Freight. Valid
+							values are 'F'(Full on board) and 'C'(Cost inclusive of freight). 
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="other_expenses" type="number20_4" minOccurs="0">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Value of Other Expenses
+							applicable for the item
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="total_cost" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Total value of products of
+							the
+							fiscal document .
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="tax_amount" type="number20_4" minOccurs="0">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the tax amount for an item.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="tax_basis_amount" type="number20_4" minOccurs="0">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the tax basic amount
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="tax_code" type="varchar225" minOccurs="0">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the tax code applied to an
+							item.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="receipt_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Receipt date. Date of the
+							physical receiving..
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="1" name="transaction_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Type of operation considering the
+							perspective of who is including the
+							document. If the NF was issued
+							by the
+							supplier as an outbound NF, for the retailer
+							the type of
+							operation will be inbound
+							('Entry') Inform I - Entry and O - Exit.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="is_supplier_issuer" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Flag to indicate the issuer of the NF.
+							Possible values are 'Y' or 'N'
+							'Y' if the NF was issued by third
+							party
+							(supplier).
+							'N' if the NF was issued by the location.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="no_history_tracked" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates a flag when the NF will be
+							recorded in the Recovery of ST Historical
+							Data.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="process_inconclusive_rules" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates a flag if the response from the tax engine 
+							should contain information about inconclusive rules 
+							if any
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="approximation_mode" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Flag to indicate the approximation mode to be applied by 
+							the tax engine.
+							Possible values are 'R' and 'T'
+							'R' implies Rounding
+							'T' implies Truncation
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="decimal_precision" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Value to indicate the decimal precision
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="calculation_status" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Mastersaf response status.
+							W - Warning, E - Error, S - Success, I - With Inconclusive Rules
+							AI - With Warning and Inconclusive Rules
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="enable_log" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates whether to generate the log
+							during
+							the calculation.Possible values are 'Y' or
+							'N'. Should be
+							turned on for small payloads
+							only for debugging.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="calc_process_type" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Type of calculation in case there will be
+							the simulation of sales for recovery tax
+							calculation (credit tax
+							calculation).Possible values are REC =
+							simulate sale TAX = normal
+							calculation
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="nature_of_operation" minOccurs="0" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Nature of Operation where the
+							NOP code
+							will be informed..
+									</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="ignore_tax_calc_list" minOccurs="0" type="varchar2500">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicate the list of taxCode for which
+							calculation should not happen...
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="document_series" minOccurs="1" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Series of Fiscal
+							document.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="document_number" minOccurs="1" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the Fiscal document
+							number.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="InformTaxRBO:InformTaxRBO">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Represents 1 to many InformTaxRBO.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="FreightRBO:FreightRBO">
+				     <retailDoc:annotation>
+						<retailDoc:documentation>
+								Represents 1 to many FreightRBO.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element name="tsf_purchase_type" minOccurs="0" type="varchar21">
+					  <retailDoc:annotation>
+						  <retailDoc:documentation>
+								Indicates whether last purchase price(Y) or WAC(N) as valid value on transfer NF.
+ 								Possible values are 'Y' or 'N'.
+								'Y' if last purchase price is used.
+								'N' if WAC is used.
+						  </retailDoc:documentation>
+					  </retailDoc:annotation>
+				</xs:element>	
+        <xs:element name="non_taxable_expenses" minOccurs="0" type="number20_4">
+					    <retailDoc:annotation>
+						    <retailDoc:documentation>
+								    This column captures the non-taxable expenses.
+						    </retailDoc:documentation>
+					    </retailDoc:annotation>
+				</xs:element>			
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ToEntity">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				Represents array of ToEntity which
+				may
+				be
+				a Supplier,Retail,Store or Warehouse in a
+				context of retail
+				transaction.
+						</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" ref="FiscEntityRBO:FiscEntityRBO">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Represents a Business Entity
+							like a
+							Supplier,Retailer,Transporter..
+									</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="FromEntity">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				Represents array of FromEntity which may be
+				a
+				Supplier,Retail,Store or Warehouse in a
+				context of retail
+				transaction.
+						</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" ref="FiscEntityRBO:FiscEntityRBO">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Represents a Business Entity
+							like a
+							Supplier,Retailer,Transporter.
+									</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar2500">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of
+				500 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="500"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of
+				1 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar225">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of
+				25 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar22">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of
+				2 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number20_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count
+				20 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="20"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number12_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count
+				12 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number1">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a 
+				number from 0 to 9</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21000">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of
+				1000 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1000"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar210">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of
+				10 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar23">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of
+				3 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar24000">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of
+				4000 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="4000"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

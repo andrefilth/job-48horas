@@ -1,0 +1,1213 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/XItemDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/XItemDesc/v1" xmlns:XItmSupCtyMfrDesc="http://www.oracle.com/retail/integration/base/bo/XItmSupCtyMfrDesc/v1" xmlns:ExtOfXItemDesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfXItemDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/base/bo/XItmSupCtyMfrDesc/v1" schemaLocation="../../XItmSupCtyMfrDesc/v1/XItmSupCtyMfrDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+	<xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfXItemDesc/v1" schemaLocation="../../../../custom/bo/ExtOfXItemDesc/v1/ExtOfXItemDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="XItemVATDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="vat_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates if the VAT rate is used for purchasing or selling.  Valid values are C (cost) and R (retail).</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="vat_region" type="number6">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The identifier for the VAT region.  This value must be predefined on the VAT_REGION table.  This node is optional, if it is included this field is required.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="vat_code" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The identifier for the VAT code.  This node is optional, if it is included in the message this field is required.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="active_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The date that the VAT rate became active for the item/VAT region combination.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfXItemDesc:ExtOfXItemVATDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize XItemVATDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="XISCLocDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="hier_id" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The specific location id for this Item Supplier Country Loc message. Corresponds with the value used in the iscloc_hier_level field.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="unit_cost" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The unit cost for the item at the item\supplier\country\loc level in the supplier's currency.  This field will be used for creating new records, not updating existing records.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="primary_loc_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates if the location is the primary location for the item\supplier\country.  Valid values are Y (yes) and N (no).</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="pickup_lead_time" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="round_lvl" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This column will be used to determine how order quantities will be rounded to Case, Layer and Pallet.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="round_to_case_pct" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The Case Rounding Threshold value. Used to determine whether to round partial case quantities up or down.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="round_to_layer_pct" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The Layer Rounding Threshold value.  Used to determine whether to round partial Layer quantities up or down.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="round_to_pallet_pct" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The Pallet Rounding Threshold value.  Used to determine whether to round partial Pallet quantities up or down.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfXItemDesc:ExtOfXISCLocDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize XISCLocDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="XItemUDADtl">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="uda_id" type="number5">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This entire node is not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="display_type" type="varchar22">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="uda_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="uda_value" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="uda_text" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="create_datetime" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="last_update_datetime" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="last_update_id" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfXItemDesc:ExtOfXItemUDADtl">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize XItemUDADtl.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="XItemImage">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="image_name" type="varchar2120">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This entire node is not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="image_addr" type="varchar2255">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="image_desc" type="varchar240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" name="create_datetime" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" name="last_update_datetime" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="last_update_id" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfXItemDesc:ExtOfXItemImage">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize XItemImage.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="XItemSeason">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="season_id" type="number3">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This entire node is not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="phase_id" type="number3">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="item_season_seq_no" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="diff_id" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="create_datetime" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="last_update_datetime" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="last_update_id" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="color" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfXItemDesc:ExtOfXItemSeason">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize XItemSeason.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="XIZPDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="hier_id" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The specific hierarchy id for this Item Zone Price message. Corresponds with value used in izp_hier_level field.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="base_retail_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="selling_unit_retail" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The selling unit retail value in the currency and the selling UOM on the message.  This field cannot be modified.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="selling_uom" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The selling unit of measure for the item's single unit retail.  This field cannot be modified.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="multi_selling_uom" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The selling unit of measure for the item's multi unit retail.  This field cannot be modified.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="country_id" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="currency_code" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The code of the currency the retail value and zones are in.  Item\zone\price records will only be created for stores with the same currency as the retail value on the message.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="multi_units" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The multi units for the item\zone.  This field cannot be modified.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="multi_unit_retail" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The multi unit retail in the currency and the multi unit UOM specified on the message.  This field cannot be modified.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfXItemDesc:ExtOfXIZPDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize XIZPDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="XISCDimDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="dim_object" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This entire node is not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="tare_weight" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="tare_type" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="lwh_uom" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="length" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="width" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="dim_height" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="liquid_volume" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="liquid_volume_uom" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="stat_cube" type="varchar212">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="weight_uom" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="weight" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="net_weight" type="varchar212">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="presentation_method" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfXItemDesc:ExtOfXISCDimDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize XISCDimDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="XItemBOMDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="component_item" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The component item within the pack.  This value must be predefined on ITEM_MASTER.  It will only be populated if the item on the message is a pack item.  This value cannot be modified.  Only transaction level items can be pack components.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="pack_qty" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The quantity of the component item.  This value cannot be modified.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfXItemDesc:ExtOfXItemBOMDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize XItemBOMDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="XItemSupCtyDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="origin_country_id" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The identifier for the country where the item is sourced.  This value must be predefined on the COUNTRY table.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="primary_country_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This indicates if the country is the primary country for the item\supplier.  Valid values are Y (yes) and N (no).</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="unit_cost" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The current corporate unit cost for the item in the supplier's currency.  This field will only be used to establish the item\supplier\country unit cost; it cannot be modified.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="XISCLocDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Child node.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="lead_time" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="pickup_lead_time" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="min_order_qty" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="max_order_qty" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="supp_hier_lvl_1" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="supp_hier_lvl_2" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="supp_hier_lvl_3" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="default_uop" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="supp_pack_size" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="inner_pack_size" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ti" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="hi" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="XISCDimDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Child node that is not used..</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfXItemDesc:ExtOfXItemSupCtyDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize XItemSupCtyDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="XItemSupDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="supplier" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The identifier of the supplier who sources the item.  This value must be predefined on the SUPS table.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="primary_supp_ind" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates if the supplier is the primary supplier for the item.  Valid values are Y (yes) and N (no).</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="vpn" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The vendor product number associated with the item.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="supp_label" type="varchar215">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The supplier label for the item.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="XItemSupCtyDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Child node.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="consignment_rate" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="supp_discontinue_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="direct_ship_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="pallet_name" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="case_name" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="inner_name" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element maxOccurs="unbounded" minOccurs="0" ref="XItmSupCtyMfrDesc:XItmSupCtyMfrDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfXItemDesc:ExtOfXItemSupDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize XItemSupDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="XItemDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="item" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The unique identifier of the main item on the message.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="item_parent" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The item at the level above this item. This value must be predefined as an item on the ITEM_MASTER table.  The item parent cannot be modified.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="item_grandparent" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The item two levels above this item. This value must be predefined as an item on the ITEM_MASTER table.  The item grandparent cannot be modified.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="pack_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates if the item is a pack item.  Valid values are Y (yes) and N (no).  This value cannot be modified.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="item_level" type="number1">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The level of the item.  Valid values are 1 (single level or pack item), 2 (child item), and 3 (grandchild item).  This value cannot be modified.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="tran_level" type="number1">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The transaction level of the item.  Valid values are 1, 2, and 3.  If this is a transaction item this will equal the item level.  If the item is a pack this will equal 1.  This value cannot be modified.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="diff_1" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>A differentiator id which differentiates a transaction level item from its parent item.  If the item on the message is a parent this field may hold a differentiator group id.  This value must be predefined on the DIFF_IDS or DIFF_GROUP_HEAD table.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="diff_2" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>See description for diff_1.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="diff_3" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>See description for diff_1.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="diff_4" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>See description for diff_1.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="dept" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The number of the department to which this item belongs.  This value must be predefined on the DEPS table.  It cannot be modified.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="class" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The number of the class to which the item belongs.  This value must be predefined on the CLASS table.  It cannot be modified.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="subclass" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The number of the subclass to which the item belongs.  This value must be predefined on the SUBCLASS table.  It cannot be modified.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="item_desc" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The long description of the item.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="iscloc_hier_level" type="varchar22">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The level of the organizational hierarchy used to create item\supplier\country\location relationships.  Valid values are CH (chain), AR (area), RE (region), DI (district), S (store), W (warehouse).</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="izp_hier_level" type="varchar22">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The level of the organizational hierarchy used to create item\zone\price relationships.  Valid values are CH (chain), AR (area), RE (region), DI (district), S (store), and W (warehouse).  This value should be null if the item is a non sellable pack.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="short_desc" type="varchar2120">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The short description of the item.  If this field is not populated it will default from the long description.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="retail_zone_group_id" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The zone group on the price_zone_group table to which this item belongs. It is required except for non sellable packs.  This value cannot be modified.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="cost_zone_group_id" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The cost zone from the cost_zone_group table to which the item belongs. This should be null if landed cost is not being used in the system or the item is an orderable buyer pack.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="standard_uom" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The unit of measure at which the item is tracked at the corporate level.  This will be defaulted to EA (eaches) if not populated on the message.  It cannot be modified.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="store_ord_mult" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The unit type of merchandise shipped from the warehouse to the store for this item.  Valid values are C (cases), I (inners), and E (eaches).</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="forecast_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates whether the item is forecastable.  Valid value are Y (yes) and N (no).  This value should be N if the item is a pack.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="simple_pack_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates if the item is a simple pack.  This field is required if the item is a pack.  Valid values are Y (yes) and N (no).  This value cannot be modified.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="contains_inner_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This should be Y (yes) if the item is a pack and at least one component item is a pack; otherwise it should be N (no).</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="sellable_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>If the item is a pack, this value indicates if the pack can be sold as a unique unit.  Valid values are Y (yes) and N (no).  This value cannot be modified.  It should be Y for a non-pack item.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="orderable_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>If the item is a pack, this field indicates if it can be placed on orders.  Valid values are Y (yes) and N (no).  This field cannot be modified.  It should be Y for a non-pack item.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="pack_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>If the item is a pack, this field will indicate what type of pack it is.  Valid values are B (buyer) and V (vendor).  This field cannot be modified.  If the item is not a pack this value should be null.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="order_as_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>If the item is an orderable buyer pack, this indicates how it will be ordered.  Valid values are E (eaches) and P (pack).  This field cannot be modified.  If the item is not a pack, this should be null.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="comments" type="varchar22000">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Comments associated with the item.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="create_datetime" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Date/time stamp of when the record was created.  This date/time will be used in export processing.  This value should only be populated on insert  - it should never be updated.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="XItemSupDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Child node.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="XItemBOMDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Child node.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="XItemVATDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Child node.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="XIZPDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Child node.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="XItemUDADtl">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Child node that is not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="XItemSeason">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Child node that is not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="XItemImage">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Child node that is not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="status" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="uom_conv_factor" type="number20_10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="package_size" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="handling_temp" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="handling_sensitivity" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="mfg_rec_retail" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="waste_type" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="waste_pct" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="item_number_type" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This type can hold a number of digits count umber_type.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="catch_weight_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="const_dimen_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="gift_wrap_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ship_alone_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ext_source_system" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="size_group1" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="size_group2" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="size1" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="size2" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="color" type="varchar224">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="system_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="upc_supplement" type="number5">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="upc_type" type="varchar25">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="primary_upc_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="primary_repl_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="item_aggregate_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="diff_1_aggregate_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="diff_2_aggregate_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="diff_3_aggregate_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="diff_4_aggregate_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not used.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="perishable_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates if an item is perishable.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="notional_pack_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates in SIM if a sellable simple pack needs to be broken down to its component item.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="soh_inquiry_at_pack_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates in SIM if a notional simple pack item's inventory should be displayed in packs.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfXItemDesc:ExtOfXItemDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize XItemDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar225">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 25 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number3">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 3.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar210">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 10 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar27">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 7 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="7"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number5">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 5.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="5"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number6">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 6.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar212">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 12 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="12"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2300">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 300 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="300"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number10">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 10.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number1">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 1.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 1 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2250">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 250 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="250"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number12">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 12.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number12_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 12 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar22">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 2 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2120">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 120 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="120"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar220">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 20 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2100">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 100 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2255">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 255 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="255"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar230">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 30 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="30"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar23">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 3 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar215">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 15 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="15"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar26">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 6 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar24">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 4 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar22000">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 2000 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="2000"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar240">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 40 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="40"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number20">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 20.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number20_10">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 20 and fraction digit count of 10.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="20"/>
+            <xs:fractionDigits value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number20_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 20 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="20"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar224">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 24 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="24"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar25">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 5 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="5"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

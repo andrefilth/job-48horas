@@ -1,0 +1,21 @@
+<retailDoc:schema xmlns="http://www.oracle.com/retail/integration/custom/bo/ExtOfVendorHdrDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfVendorHdrDesc/v1" elementFormDefault="qualified" version="1.0">
+	<retailDoc:element name="ExtOfVendorHdrDesc">
+		<retailDoc:complexType>
+			<retailDoc:sequence>
+				<retailDoc:element name="strategic_ind" type="varchar21" minOccurs="0">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Specifies whether or not DSD shipments can be created for the supplier.</retailDoc:documentation>
+					</retailDoc:annotation>
+				</retailDoc:element>
+			</retailDoc:sequence>
+		</retailDoc:complexType>
+	</retailDoc:element>
+	<retailDoc:simpleType name="varchar21">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max length of 1 characters.</retailDoc:documentation>
+		</retailDoc:annotation>
+		<retailDoc:restriction base="xs:string">
+			<retailDoc:maxLength value="1"/>
+		</retailDoc:restriction>
+	</retailDoc:simpleType>
+</retailDoc:schema>

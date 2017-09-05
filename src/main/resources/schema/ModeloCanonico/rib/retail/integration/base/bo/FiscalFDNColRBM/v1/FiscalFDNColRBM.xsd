@@ -1,0 +1,55 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/FiscalFDNColRBM/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/FiscalFDNColRBM/v1" xmlns:FiscalFDNRBO="http://www.oracle.com/retail/integration/base/bo/FiscalFDNRBO/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>
+			This is root element of this document which
+			contains name
+			space definitions for the document elements.
+		</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/base/bo/FiscalFDNRBO/v1" schemaLocation="../../FiscalFDNRBO/v1/FiscalFDNRBO.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				It's a referenced element. For detailed
+				description,
+				please refer referenced element doc.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="FiscalFDNColRBM">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				Contains collection of FiscalFDNDataRBO type
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="FiscalFDNRBO:FiscalFDNRBO">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							It's a referenced element. For detailed
+							description, please refer referenced element
+							doc.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" name="total_fdn_count" type="number9">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicate the total number of rows of foundation data that will be
+							retrieved for a particular cutoff date
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="number9">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a 
+				number from 0 to 999999999</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="9"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,60 @@
+<xsd:schema targetNamespace="http://www.cea.com.br/EBS/CEA/ad/consultarUsuario/v1" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.cea.com.br/EBS/CEA/ad/consultarUsuario/v1" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="ConsultarUsuarioEBO_v1.xsd"/>
+<!-- Consulta By Group -->
+	<xsd:element name="ConsultarUsuarioByGroupRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="grupo-id" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="meta_informacao" type="ebo:MetaInfType" minOccurs="1" maxOccurs="1"/>					
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ConsultarUsuarioByGroupResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="user" type="ebo:UserType" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>	
+
+
+
+<!-- Consulta By SamAccount -->
+	<xsd:element name="ConsultarUsuarioBySamAccountNameRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="samaccountname" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="meta_informacao" type="ebo:MetaInfType" minOccurs="1" maxOccurs="1"/>					
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="ConsultarUsuarioBySamAccountNameResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="user" type="ebo:UserType" minOccurs="1" maxOccurs="1" nillable="false"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+<!-- Consulta By Name -->
+	<xsd:element name="ListarUsuarioByNameRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="name" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="meta_informacao" type="ebo:MetaInfType" minOccurs="1" maxOccurs="1"/>					
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="ListarUsuarioByNameResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="user" type="ebo:UserType" minOccurs="0" maxOccurs="unbounded" nillable="false"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>	
+
+</xsd:schema>

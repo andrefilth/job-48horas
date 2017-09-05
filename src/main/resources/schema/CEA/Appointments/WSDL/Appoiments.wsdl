@@ -1,0 +1,131 @@
+<wsdl:definitions name="IntegrationAppoinments"
+	targetNamespace="http://www.cea.com.mx/Appointments/CRUD/v1" xmlns:tns="http://www.cea.com.mx/Appointments/CRUD/v1"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+	<wsdl:types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.cea.com.mx/Appointments/CRUD/v1"
+				schemaLocation="../XSD/appointments.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="AppointmentFromDB2RequestMsg">
+		<wsdl:part name="request" element="tns:AppointmentCreateFromDB2" />
+	</wsdl:message>
+	<wsdl:message name="AppointmentFromDB2ResponseMsg">
+		<wsdl:part name="response" element="tns:AppointmentFromDB2Response" />
+	</wsdl:message>
+
+
+	<wsdl:message name="AppointmentModifyFromDB2RequestMsg">
+		<wsdl:part name="request" element="tns:AppointmentModifyFromDB2" />
+	</wsdl:message>
+	<wsdl:message name="AppointmentModifyFromDB2ResponseMsg">
+		<wsdl:part name="response" element="tns:AppointmentFromDB2Response" />
+	</wsdl:message>
+
+
+
+	<wsdl:message name="AppointmentRemoveFromDB2RequestMsg">
+		<wsdl:part name="request" element="tns:AppointmentRemoveFromDB2Request" />
+	</wsdl:message>
+
+	<wsdl:message name="AppointmentFromDB2FaultMsg">
+		<wsdl:part name="AppointmentFromDB2Fault" element="tns:AppointmentFromDB2Fault" />
+	</wsdl:message>
+
+	<wsdl:message name="TechnicalFaultMsg">
+		<wsdl:part name="TechnicalFault" element="tns:TechnicalFault" />
+	</wsdl:message>
+
+
+	<wsdl:portType name="appointmentPortType">
+		<wsdl:operation name="createAppointment">
+			<wsdl:input message="tns:AppointmentFromDB2RequestMsg" />
+			<wsdl:output message="tns:AppointmentFromDB2ResponseMsg" />
+			<wsdl:fault name="AppointmentFromDB2FaultMsg" message="tns:AppointmentFromDB2FaultMsg" />
+			<wsdl:fault name="TechnicalFault" message="tns:TechnicalFaultMsg" />
+		</wsdl:operation>
+
+		<wsdl:operation name="modifyAppointment">
+			<wsdl:input message="tns:AppointmentModifyFromDB2RequestMsg" />
+			<wsdl:output message="tns:AppointmentModifyFromDB2ResponseMsg" />
+			<wsdl:fault name="AppointmentFromDB2FaultMsg" message="tns:AppointmentFromDB2FaultMsg" />
+			<wsdl:fault name="TechnicalFault" message="tns:TechnicalFaultMsg" />
+		</wsdl:operation>
+
+		<wsdl:operation name="removeAppointment">
+			<wsdl:input message="tns:AppointmentRemoveFromDB2RequestMsg" />
+			<wsdl:output message="tns:AppointmentFromDB2ResponseMsg" />
+			<wsdl:fault name="AppointmentFromDB2FaultMsg" message="tns:AppointmentFromDB2FaultMsg" />
+			<wsdl:fault name="TechnicalFault" message="tns:TechnicalFaultMsg" />
+		</wsdl:operation>
+
+	</wsdl:portType>
+
+
+
+	<wsdl:binding name="AppointmentFromDB2Binding" type="tns:appointmentPortType">
+		<soap12:binding transport="http://www.w3.org/2003/05/soap/bindings/HTTP/"
+			style="document" />
+		<wsdl:operation name="createAppointment">
+			<soap12:operation soapAction="createAppointment" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="AppointmentFromDB2FaultMsg">
+				<soap12:fault name="AppointmentFromDB2Fault" use="literal" />
+			</wsdl:fault>
+			<wsdl:fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="modifyAppointment">
+			<soap12:operation soapAction="modifyAppointment" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="AppointmentFromDB2FaultMsg">
+				<soap12:fault name="AppointmentFromDB2Fault" use="literal" />
+			</wsdl:fault>
+			<wsdl:fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+
+		<wsdl:operation name="removeAppointment">
+			<soap12:operation soapAction="removeAppointment" />
+			<wsdl:input>
+				<soap12:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal" />
+			</wsdl:output>
+			<wsdl:fault name="AppointmentFromDB2FaultMsg">
+				<soap12:fault name="AppointmentFromDB2Fault" use="literal" />
+			</wsdl:fault>
+			<wsdl:fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal" />
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+
+
+
+
+
+	<wsdl:service name="AppointmentFromDB2Service">
+		<wsdl:port name="AppointmentFromDB2Port" binding="tns:AppointmentFromDB2Binding">
+			<soap12:address location="http://localhost:8080/Appointments/CRUD/v1" />
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

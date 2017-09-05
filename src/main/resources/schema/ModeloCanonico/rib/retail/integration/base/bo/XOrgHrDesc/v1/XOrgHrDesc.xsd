@@ -1,0 +1,124 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/XOrgHrDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/XOrgHrDesc/v1" xmlns:ExtOfXOrgHrDesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfXOrgHrDesc/v1" xmlns:XOrgHrLocTrt="http://www.oracle.com/retail/integration/base/bo/XOrgHrLocTrt/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation> This is root element of this document which 
+			contains name space definitions for the document elements. 
+			</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/base/bo/XOrgHrLocTrt/v1" schemaLocation="../../XOrgHrLocTrt/v1/XOrgHrLocTrt.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation> It's a referenced element. For detailed 
+				description, please refer referenced element doc. 
+				</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfXOrgHrDesc/v1" schemaLocation="../../../../custom/bo/ExtOfXOrgHrDesc/v1/ExtOfXOrgHrDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation> It's a referenced element. For detailed 
+				description, please refer referenced element doc. 
+				</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="XOrgHrDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation> Description is not available. 
+				</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="hier_value" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> The identifier of the 
+							hierarchy value. This value must be unique among 
+							other values of the same hierarchy level. It cannot 
+							be modified. </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="hier_desc" type="varchar2120">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> The description of the 
+							hierarchy value. </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="hier_level" type="varchar22">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Value is restricted by 
+							message type. The value will indicate either CH 
+							(chain), AR (area), RE (region), or DI (district). 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="parent_id" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> The identifier of the 
+							hierarchy value's parent hierarchy value. This 
+							value must be predefined on either the CHAIN, AREA 
+							or REGION table. </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="mgr_name" type="varchar2120">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> The manager name of the 
+							hierarchy value. </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="currency_code" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> The code which identifies the 
+							currency under which the hierarchy value operates. 
+							This value must be predefined on the CURRENCIES 
+							table. </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="XOrgHrLocTrt:XOrgHrLocTrt">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> It's a referenced element. 
+							For detailed description, please refer referenced 
+							element doc. </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfXOrgHrDesc:ExtOfXOrgHrDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Provide an extension hook to 
+							customize XOrgHrDesc. </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar23">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 3 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2120">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 120 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="120"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar22">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 2 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number10">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a number of digits 
+				count 10. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

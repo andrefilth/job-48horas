@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.cea.com.br/EBO/CEA/v1"
+	elementFormDefault="qualified" 
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.cea.com.br/EBO/CEA/v1">
+
+	<xsd:simpleType name="AmbienteType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[
+				Informacoes de ambiente em que a aplicação será executada
+				Atualmente temos os seguintes paises:
+				MEXICO , BRASIL
+
+				]]>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="MEXICO" />
+			<xsd:enumeration value="BRASIL" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+</schema>

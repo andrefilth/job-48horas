@@ -1,0 +1,116 @@
+<definitions name="ManterPromocoes" targetNamespace="http://www.cea.com.br/EBS/CEA/promocoes/manter/promocoes/v1" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.cea.com.br/EBS/CEA/promocoes/manter/promocoes/v1" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ 
+	<types>
+		<xsd:schema><xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="ManterPromocoesEBO_v1.xsd"/></xsd:schema>
+		<xsd:schema><xsd:import namespace="http://www.cea.com.br/EBS/CEA/promocoes/manter/promocoes/v1" schemaLocation="ManterPromocoesEBS_v1.xsd"/></xsd:schema>
+	</types>
+<!-- By Group -->
+	<message name="ManterPromocoesRequestMsg">
+		<part name="request" element="tns:ManterPromocoesRequest"/>
+	</message>
+	<message name="ManterPromocoesResponseMsg">
+		<part name="response" element="tns:ManterPromocoesResponse"/>
+	</message>
+	
+	<message name="AlterarPromocoesRequestMsg">
+		<part name="request" element="tns:AlterarPromocoesRequest"/>
+	</message>
+	<message name="AlterarPromocoesResponseMsg">
+		<part name="response" element="tns:AlterarPromocoesResponse"/>
+	</message>
+
+	<message name="RemoverPromocoesRequestMsg">
+		<part name="request" element="tns:RemoverPromocoesRequest"/>
+	</message>
+	<message name="RemoverPromocoesResponseMsg">
+		<part name="response" element="tns:RemoverPromocoesResponse"/>
+	</message>
+	
+	<message name="TechnicalFaultMsg">
+		<part name="TechnicalFault" element="ebo:TechnicalFault"/>
+	</message>
+	<message name="BusinessFaultMsg">
+		<part name="BusinessFault" element="ebo:BusinessFault"/>
+	</message>
+	
+	<portType name="ManterPromocoesPortType">
+		<operation name="manterPromocoes">
+			<input message="tns:ManterPromocoesRequestMsg"/>
+			<output message="tns:ManterPromocoesResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+		
+		<operation name="alterarPromocoes">
+			<input message="tns:AlterarPromocoesRequestMsg"/>
+			<output message="tns:AlterarPromocoesResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+
+		<operation name="removerPromocoes">
+			<input message="tns:RemoverPromocoesRequestMsg"/>
+			<output message="tns:RemoverPromocoesResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+	</portType>
+
+	<binding name="ManterPromocoesBinding" type="tns:ManterPromocoesPortType">
+		<soap12:binding transport="http://www.w3.org/2003/05/soap/bindings/HTTP/" style="document"/>
+		<operation name="manterPromocoes">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+		
+		<operation name="alterarPromocoes">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+		
+		<operation name="removerPromocoes">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+		</binding>
+		
+	<service name="ManterPromocoesService">
+		<port name="ManterPromocoesPort" binding="tns:ManterPromocoesBinding">
+			<soap12:address location="http://localhost:7001/wsintegracaoprecos/service/manterPromocoesV1"/>
+		</port>
+	</service>
+
+</definitions>

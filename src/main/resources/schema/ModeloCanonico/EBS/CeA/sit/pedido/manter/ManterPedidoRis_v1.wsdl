@@ -1,0 +1,126 @@
+<definitions name="ManterPedidoRis" targetNamespace="http://www.cea.com.br/EBS/CEA/pedidoris/manter/v1" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.cea.com.br/EBS/CEA/pedidoris/manter/v1" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ 
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="ManterPedidoRisEBO_v1.xsd">
+			</xsd:import>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import namespace="http://www.cea.com.br/EBS/CEA/pedidoris/manter/v1" schemaLocation="ManterPedidoRisEBS_v1.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</types>
+<!-- By Group -->
+	<message name="ManterPedidoRequestMsg">
+		<part name="request" element="tns:ManterPedidoRequest"/>
+	</message>
+	<message name="ManterPedidoResponseMsg">
+		<part name="response" element="tns:ManterPedidoResponse"/>
+	</message>
+
+	<message name="CancelarPedidoRequestMsg">
+		<part name="request" element="tns:CancelarPedidoRequest"/>
+	</message>
+	<message name="CancelarPedidoResponseMsg">
+		<part name="response" element="tns:CancelarPedidoResponse"/>
+	</message>
+
+	<message name="AtualizarPedidoDraftRequestMsg">
+		<part name="request" element="tns:AtualizarPedidoDraftRequest"/>
+	</message>
+	<message name="AtualizarPedidoDraftResponseMsg">
+		<part name="response" element="tns:AtualizarPedidoDraftResponse"/>
+	</message>
+
+	<message name="TechnicalFaultMsg">
+		<part name="TechnicalFault" element="ebo:TechnicalFault"/>
+	</message>
+	<message name="BusinessFaultMsg">
+		<part name="BusinessFault" element="ebo:BusinessFault"/>
+	</message>	
+
+	
+	<portType name="ManterPedidoRisPortType">
+
+		<operation name="manterPedido">
+			<input message="tns:ManterPedidoRequestMsg"/>
+			<output message="tns:ManterPedidoResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+
+		<operation name="cancelarPedido">
+			<input message="tns:CancelarPedidoRequestMsg"/>
+			<output message="tns:CancelarPedidoResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+
+		<operation name="atualizarPedidoDraft">
+			<input message="tns:AtualizarPedidoDraftRequestMsg"/>
+			<output message="tns:AtualizarPedidoDraftResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+
+	</portType>
+
+	<binding name="ManterPedidoRisBinding" type="tns:ManterPedidoRisPortType">
+		<soap12:binding transport="http://www.w3.org/2003/05/soap/bindings/HTTP/" style="document"/>
+		<operation name="manterPedido">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>	
+		
+		<operation name="cancelarPedido">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>	
+		
+		<operation name="atualizarPedidoDraft">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>	
+		
+	</binding>
+
+	<service name="ManterPedidoRisService">
+		<port name="ManterPedidoRisPort" binding="tns:ManterPedidoRisBinding">
+			<soap12:address location="http://localhost:7001/wsintegracaopedidoris/service/manterPedidoRisV1"/>
+		</port>
+	</service>
+
+</definitions>

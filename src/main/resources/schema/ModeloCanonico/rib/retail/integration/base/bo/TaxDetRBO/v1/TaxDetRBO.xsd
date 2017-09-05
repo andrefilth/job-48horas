@@ -1,0 +1,190 @@
+<xs:schema elementFormDefault="qualified"
+    targetNamespace="http://www.oracle.com/retail/integration/base/bo/TaxDetRBO/v1"
+    version="1.0"
+    xmlns="http://www.oracle.com/retail/integration/base/bo/TaxDetRBO/v1"
+    xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>
+			This is the root element of this document which
+			contains name
+			space definitions for the document elements.
+		</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:element name="TaxDetRBO">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				Represents the tax details item associated to the
+				item on the Nota Fiscal, Purchase Order,Transfer Order
+				or any other Transaction which has Tax implication.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="legal_message" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the legal message associated to the tax detail.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="tax_amount" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the tax amount for an item.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="tax_basis_amount" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the tax basis amount
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="modified_tax_basis_amount" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the tax basis amount
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="unit_tax_amount" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the unit tax amount.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="unit_tax_uom" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the unit of measure of the unit tax amount.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="tax_rate_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the tax rate type. Possible
+							Values are
+							P - Percentage
+							F - Fixed Value
+							A - Amount/Per Unit
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="tax_code" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the tax code applied to an
+							item.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="tax_rate" type="number20_10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the tax rate applied to an item.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="recoverable_amt" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the value of recoverable tax
+							amount for an item.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="recovered_amt" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the value of recovered tax
+							amount for an item.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="reg_pct_margin_value" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the value of the regulated percent
+							margin value amount for an item.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="regulated_price" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates the value of regulated price
+							for an item.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+		    <xs:element minOccurs="0" name="icms_redu_basis_rate" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							This field indicates the reduction basis rate.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of
+				1 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar225">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of
+				25 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2250">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of
+				250 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="250"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number20_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count
+				20 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="20"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number20_10">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count
+				20 and fraction digit count of 10.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="20"/>
+            <xs:fractionDigits value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number12_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count
+				12 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

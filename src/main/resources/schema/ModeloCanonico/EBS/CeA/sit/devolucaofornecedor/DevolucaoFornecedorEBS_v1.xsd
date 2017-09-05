@@ -1,0 +1,23 @@
+<xsd:schema targetNamespace="http://www.cea.com.br/EBS/CEA/sit/devolucaofornecedor" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="DevolucaoFornecedorEBO_v1.xsd"/>
+
+	<xsd:element name="DevolucaoFornecedorFromDB2Request">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="IdentificadorDevolucao" type="xsd:int" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="CodigoSistemOrigem" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="CodigoAcao" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="DevolucaoFornecedorFromDB2Response">
+		<xsd:complexType>
+			<xsd:sequence>
+	 			<xsd:element name="DevolucaoFornecedorFromDB2" type="ebo:DevolucaoFornecedorFromDB2Type"/>
+	 			<xsd:element name="MensagemResposta" type="ebo:MensagemRespostaType"/>	 
+	 		</xsd:sequence>
+	 	</xsd:complexType>
+	 </xsd:element>
+		
+</xsd:schema>

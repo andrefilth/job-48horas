@@ -1,0 +1,453 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/TsfDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/TsfDesc/v1" xmlns:ExtOfTsfDesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfTsfDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfTsfDesc/v1" schemaLocation="../../../../custom/bo/ExtOfTsfDesc/v1/ExtOfTsfDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="TsfDtlTckt">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="comp_item" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Alphanumeric value that identifies the item within the pack.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="comp_price" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This field is generated from a call to PRICING_ATTRIB_SQL.GET_RETAIL with comp_item as the input.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="comp_selling_uom" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This field is generated from a call to PRICING_ATTRIB_SQL.GET_RETAIL with comp_item as the input.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfTsfDesc:ExtOfTsfDtlTckt">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize TsfDtlTckt.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="TsfDtl">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="item" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Unique alphanumeric value that identifies the item.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="tsf_qty" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The total quantity of the item reserved at the from location for this transfer.  This field is set back to zero each time the stock is either merged into a 'Combined Transfer' or shipped.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="price" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This field is generated from a call to PRICING_ATTRIB_SQL.GET_RETAIL with item as the input.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="selling_uom" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This field is generated from a call to PRICING_ATTRIB_SQL.GET_RETAIL with item as the input.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="priority" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This field is currently defaulted to 1.  It is reserved for future use.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="expedite_flag" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>If TSFHEAD.FREIGHT_CODE is 'E', expedite_flag is 'Y'.  Otherwise, expedite_flag is 'N'.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="store_ord_mult" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The multiple in which the item needs to be shipped from a warehouse to the location.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="tsf_po_link_no" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>A reference number to link the item on the transfer to any purchase orders that have been created to allow the from location (i.e. warehouse) on the transfer to fulfill the transfer quantity to the to location (i.e store) on the transfer.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ticket_type_id" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The ticket type associated with the item.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="TsfDtlTckt">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Child Node - see layout below.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="inv_status" type="number2">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfTsfDesc:ExtOfTsfDtl">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize TsfDtl.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="TsfDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="tsf_no" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The number that uniquely identifies the transfer.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="doc_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Defaulted to 'T' for RMS transfers.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="physical_from_loc" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Physical location that the from_loc belongs to.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="from_loc_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Type of location in the location field.  Valid values are: S = Store W = Warehouse</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="from_loc" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The location number of the transfer from location.  This field will contain either a store or warehouse number based on the from_loc_type field.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="physical_to_loc" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Physical location that the to_loc belongs to.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="to_loc_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Type of location in the location field.  Valid values are: S = Store W = Warehouse</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="to_loc" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The location number of the transfer to location.  This field will contain either a store or warehouse number based on the to_loc_type field.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="tsf_type" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>A code for the type of the transfer, such as SR - Store Requisition CO - Customer Order RV - RTV CF - Confirmation NS - Non-Salable AD - Administrative MR - Manual Requisitions PL - PO-Linked Transfer.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="pick_not_before_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The date the transfer was approved.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="pick_not_after_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This is a calculated date.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="default_order_type" type="varchar29">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This is the default order type associated with transfers..  RWMS uses this value to determine how to distribute stock orders.  Valid values (e.g. Automatic, Manual, etc.) are on the order_types table.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="priority" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Reserved for future use; currently defaulted to 1.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="break_by_distro" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Set to 'Y' if the deliver_type for the transfer's customer is 'S'.  Otherwise, set to N.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="delivery_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The earliest date that the transfer can be delivered to the store.  This will be populated if the transfer type is PO-Linked.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="cust_name" type="varchar240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The name of the customer.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="deliver_add1" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The delivery address for the customer/order relationship.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="deliver_add2" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains an optional second line of the delivery address for the customer/order relationship.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="deliver_city" type="varchar2120">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the city in which the customer order will be delivered.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="deliver_state" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the state in which the customer order will be delivered.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="deliver_post" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the postal code in which the customer order will be delivered.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="deliver_country_id" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the country in which the customer order will be delivered.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="message" type="varchar22000">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Any comments associated with the transfer.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="TsfDtl">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Child node - see layout below.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="tsf_parent_no" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Transfer parent number</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="exp_dc_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Date the inventory is expected to arrive at the DC.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="approval_id" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The ID of the user who approved the transfer</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="approval_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Date the transfer was approved</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="from_loc_tsf_entity" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Transfer entity of the from location</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="to_loc_tsf_entity" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Transfer entity of the to location</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="inv_type" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Type of inventory</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="tsf_status" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Status of the transfer.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="not_after_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The last day delivery of the transfer will be accepted</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="context_type" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Can be used to indicate the transfer reason or category, e.g. 'promotion'.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="context_value" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Further info to indicate the reason or category for the transfer.  For instance, if context_type was 'promotion', this could be the promotion number.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="delivery_slot_id" type="varchar215">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Delivery Slot Id.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="delivery_slot_desc" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Delivery slot description.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfTsfDesc:ExtOfTsfDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize TsfDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="number12_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 12 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar225">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 25 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar210">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 10 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="varchar215">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 10 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="15"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2240">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 240 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="240"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar230">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 30 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="30"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar23">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 3 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2120">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 120 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="120"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar26">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 6 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number2">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 2.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar24">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 4 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar22000">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 2000 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="2000"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar240">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 40 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="40"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number20_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 20 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="20"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number10">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 10.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 1 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar29">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 9 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="9"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

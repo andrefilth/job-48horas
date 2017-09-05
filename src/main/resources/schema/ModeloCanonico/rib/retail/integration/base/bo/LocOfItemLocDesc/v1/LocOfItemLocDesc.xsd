@@ -1,0 +1,80 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/LocOfItemLocDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/LocOfItemLocDesc/v1" xmlns:BrItemLocDesc="http://www.oracle.com/retail/integration/localization/bo/BrItemLocDesc/v1" xmlns:InItemLocDesc="http://www.oracle.com/retail/integration/localization/bo/InItemLocDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/localization/bo/InItemLocDesc/v1" schemaLocation="../../../../localization/bo/InItemLocDesc/v1/InItemLocDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+	<xs:import namespace="http://www.oracle.com/retail/integration/localization/bo/BrItemLocDesc/v1" schemaLocation="../../../../localization/bo/BrItemLocDesc/v1/BrItemLocDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+	<xs:element name="LocOfItemLocVirt">
+    	<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="InItemLocDesc:InItemLocVirt">
+                   <retailDoc:annotation>
+	               		<retailDoc:documentation>India Localization.</retailDoc:documentation>
+                   	</retailDoc:annotation>
+            	</xs:element>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="BrItemLocDesc:BrItemLocVirt">
+                   <retailDoc:annotation>
+	                	<retailDoc:documentation>Brazil Localization.</retailDoc:documentation>
+                   </retailDoc:annotation>
+            	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="LocOfItemLocVirtRepl">
+    	<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="InItemLocDesc:InItemLocVirtRepl">
+                   <retailDoc:annotation>
+	               		<retailDoc:documentation>India Localization.</retailDoc:documentation>
+                   	</retailDoc:annotation>
+            	</xs:element>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="BrItemLocDesc:BrItemLocVirtRepl">
+                   <retailDoc:annotation>
+	                	<retailDoc:documentation>Brazil Localization.</retailDoc:documentation>
+                   </retailDoc:annotation>
+            	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="LocOfItemLocPhys">
+    	<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="InItemLocDesc:InItemLocPhys">
+                   <retailDoc:annotation>
+	               		<retailDoc:documentation>India Localization.</retailDoc:documentation>
+                   	</retailDoc:annotation>
+            	</xs:element>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="BrItemLocDesc:BrItemLocPhys">
+                   <retailDoc:annotation>
+	                	<retailDoc:documentation>Brazil Localization.</retailDoc:documentation>
+                   </retailDoc:annotation>
+            	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="LocOfItemLocDesc">
+    	<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="InItemLocDesc:InItemLocDesc">
+                   <retailDoc:annotation>
+	               		<retailDoc:documentation>India Localization.</retailDoc:documentation>
+                   	</retailDoc:annotation>
+            	</xs:element>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="BrItemLocDesc:BrItemLocDesc">
+                   <retailDoc:annotation>
+	                	<retailDoc:documentation>Brazil Localization.</retailDoc:documentation>
+                   </retailDoc:annotation>
+            	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

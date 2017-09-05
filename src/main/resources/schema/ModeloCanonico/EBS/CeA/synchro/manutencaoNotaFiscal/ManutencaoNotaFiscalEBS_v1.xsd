@@ -1,0 +1,66 @@
+<xsd:schema targetNamespace="http://www.cea.com.br/EBS/CEA/manutencaonotafiscal/v1" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.cea.com.br/EBS/CEA/manutencaonotafiscal/v1" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="ManutencaoNotaFiscalEBO_v1.xsd"/>
+
+	<xsd:element name="EmissaoNotaFiscalRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="codigo-filial" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="usuario" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="transferencias-estoque" type="ebo:ArrayOfEstoqueType" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element name="meta-informacao" type="ebo:MetaInfType" minOccurs="1" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="EmissaoNotaFiscalResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="sucesso" type="xsd:int"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="CancelarNotaFiscalRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<!-- xsd:element name="codigo-filial" type="xsd:string"
+					minOccurs="1" maxOccurs="1" /-->
+				<xsd:element name="documento-fiscal" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<!-- xsd:element name="data-movimento" type="xsd:string"
+					minOccurs="0" maxOccurs="1" /-->
+					<xsd:element name="meta-informacao" type="ebo:MetaInfType" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="CancelarNotaFiscalResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="sucesso" type="xsd:boolean"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="ConsultarNotaFiscalRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="codigo-filial" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="documento-fiscal" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<xsd:element name="data-movimento" type="xsd:date" minOccurs="0" maxOccurs="1"/>
+					<xsd:element name="meta-informacao" type="ebo:MetaInfType" minOccurs="0" maxOccurs="1"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ConsultarNotaFiscalResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="sucesso" type="xsd:boolean"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+
+
+</xsd:schema>

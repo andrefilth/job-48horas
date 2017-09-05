@@ -1,0 +1,402 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/PrmPrcChgDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/PrmPrcChgDesc/v1" xmlns:ExtOfPrmPrcChgDesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfPrmPrcChgDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfPrmPrcChgDesc/v1" schemaLocation="../../../../custom/bo/ExtOfPrmPrcChgDesc/v1/ExtOfPrmPrcChgDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="PrmPrcChgThrDtl">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="threshold_value" type="number20">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Threshold Interval Value</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="prm_chg_value" type="number20">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Threshold Change Value</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="prm_chg_uom" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Threshold Change Selling UOM</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfPrmPrcChgDesc:ExtOfPrmPrcChgThrDtl">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize PrmPrcChgThrDtl.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PrmPrcChgGetItem">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="item" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Get Item</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfPrmPrcChgDesc:ExtOfPrmPrcChgGetItem">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize PrmPrcChgGetItem.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PrmPrcChgSmp">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="item" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Item number</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="promo_selling_retail" type="number20">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Simple Promotion selling retail</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="promo_selling_uom" type="xs:string">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Simple promotion selling UOM</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="prm_chg_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Simple Promotion change type</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="prm_chg_value" type="number20">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Simple Promotion change value</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="prm_chg_uom" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Simple Promotion change selling UOM</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfPrmPrcChgDesc:ExtOfPrmPrcChgSmp">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize PrmPrcChgSmp.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PrmPrcChgBuyItem">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="item" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Buy Item</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfPrmPrcChgDesc:ExtOfPrmPrcChgBuyItem">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize PrmPrcChgBuyItem.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PrmPrcChgBuyGet">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="prm_chg_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Buy Get discount change type</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="prm_chg_value" type="number20">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Buy Get Discount Change Value</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="prm_chg_uom" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Buy Get Change Selling UOM</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="buy_qty" type="number20">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Buy quantity</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="all_ind" type="number1">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Buy All Indicator</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" ref="PrmPrcChgGetItem">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" ref="PrmPrcChgBuyItem">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfPrmPrcChgDesc:ExtOfPrmPrcChgBuyGet">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize PrmPrcChgBuyGet.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PrmPrcChgThr">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="item" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Item number</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="threshold_id" type="number6">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Threshold Id</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="threshold_name" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Threshold Name</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="qualification_type" type="number1">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Threshold Qualification Type</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="threshold_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Threshold Type</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="prm_chg_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Threshold Discount Change Type</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" ref="PrmPrcChgThrDtl">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfPrmPrcChgDesc:ExtOfPrmPrcChgThr">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize PrmPrcChgThr.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PrmPrcChgDtl">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="promo_id" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Promotion Id</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="promo_name" type="varchar240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Promotion Name</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="promo_description" type="varchar2160">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Promotion Description</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="promo_comp_id" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Promotion Component Id</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="promo_comp_desc" type="varchar240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Promotion Component Description</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="promo_comp_detail_id" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Promotion Component Detail Id</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="apply_order" type="number1">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The order that this promotion component detail to be applied in case there is more than one promotion component details in one day for an item/location</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="start_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Start date of the promotion component detail</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="end_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>End date of the promotion component detail</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="PrmPrcChgSmp">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="PrmPrcChgThr">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="PrmPrcChgBuyGet">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfPrmPrcChgDesc:ExtOfPrmPrcChgDtl">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize PrmPrcChgDtl.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PrmPrcChgDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="location" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Unique identifier that indicates a Location (Store or Warehouse)</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="loc_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Identifier that indicates whether a location is a Store ('S') or a Warehouse  ('W')</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" ref="PrmPrcChgDtl">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfPrmPrcChgDesc:ExtOfPrmPrcChgDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize PrmPrcChgDtl.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar225">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 25 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar230">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 30 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="30"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number6">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 6.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2160">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 160 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="160"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar24">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 4 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar240">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 40 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="40"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number20">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 20.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number10">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 10.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number1">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 1.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 1 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

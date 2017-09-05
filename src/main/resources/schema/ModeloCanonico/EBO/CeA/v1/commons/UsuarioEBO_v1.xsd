@@ -1,0 +1,169 @@
+<schema targetNamespace="http://www.cea.com.br/EBO/CEA/v1" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.cea.com.br/EBO/CEA/v1">
+
+	<include schemaLocation="DataTypesEBOv1.xsd"/>
+
+	<simpleType name="DomainType">
+		<annotation>
+			<documentation>
+               
+                   Enumeration utilizado para filtrar o domínio.
+                   O mesmo possui 2 valores onde:
+                   FUNCIONARIO - valor atribuído para funcionários C&amp;A
+                   FORNECEDOR - valor atribuído para fornecedores
+               
+			</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="FUNCIONARIO"/>
+			<enumeration value="FORNECEDOR"/>
+		</restriction>
+	</simpleType>
+
+
+
+	<complexType name="UserType">
+		<annotation>
+			<documentation>
+				Essa entidade possui as informações do usuario
+			</documentation>
+		</annotation>
+		<sequence>
+			<element name="uid" type="string" minOccurs="1" maxOccurs="1">
+				<annotation>
+					<documentation>
+						O uid, user ID, representa o login do usuario no AD.
+					</documentation>
+				</annotation>
+			</element>
+
+			<element name="address" type="string" minOccurs="1" maxOccurs="1">
+				<annotation>
+					<documentation>
+						O address representa o identificador do usuario.
+						Esse valor é unico por usuario
+					</documentation>
+				</annotation>
+			</element>
+
+
+			<element name="nome" type="string" minOccurs="1" maxOccurs="1">
+				<annotation>
+					<documentation>
+						Representa o nome do usuario registrado no AD
+					</documentation>
+				</annotation>
+
+			</element>
+
+			<element name="nome_completo" type="string" minOccurs="1" maxOccurs="1">
+				<annotation>
+					<documentation>
+						Nome completo do usuario
+					</documentation>
+				</annotation>
+
+			</element>
+
+			<element name="departamento" type="string" minOccurs="0" maxOccurs="1">
+				<annotation>
+					<documentation>
+						Nome do departamento em que o usuario esta
+						registrado no AD
+					</documentation>
+				</annotation>
+
+			</element>
+			<element name="superior_imediato" type="string" minOccurs="0" maxOccurs="1">
+				<annotation>
+					<documentation>
+						ID do superior imediato.
+					</documentation>
+				</annotation>
+			</element>
+
+			<element name="email" type="tns:EnderecoEmailType" minOccurs="0" maxOccurs="1">
+				<annotation>
+					<documentation>
+						Email do usuario
+					</documentation>
+				</annotation>
+			</element>
+
+			<element name="grupos" type="tns:RoleType" minOccurs="0" maxOccurs="unbounded">
+				<annotation>
+					<documentation>
+						Grupos que o usuario esta associado
+					</documentation>
+				</annotation>
+			</element>
+
+			<element name="account" type="tns:UserAccountType" minOccurs="1" maxOccurs="1">
+				<annotation>
+					<documentation>
+						Grupos que o usuario esta associado
+					</documentation>
+				</annotation>
+			</element>
+
+		</sequence>
+	</complexType>
+
+	<complexType name="UserAccountType">
+		<sequence>
+			<element name="data_criacao" type="dateTime" minOccurs="0" maxOccurs="1">
+				<annotation>
+					<documentation>
+						Data em que a conta foi criada
+					</documentation>
+				</annotation>
+			</element>
+			<element name="data_modificacao" type="dateTime" minOccurs="0" maxOccurs="1">
+				<annotation>
+					<documentation>
+						Data da modificação da conta do usuario
+					</documentation>
+				</annotation>
+			</element>
+			<element name="account_locked" type="boolean" minOccurs="0" maxOccurs="1">
+				<annotation>
+					<documentation>
+						Indica se a conta do usuario esta bloqueada
+					</documentation>
+				</annotation>
+			</element>
+
+		</sequence>
+	</complexType>
+
+	<complexType name="RoleType">
+		<annotation>
+			<documentation>
+				Representa um grupo que pode ser associado a usuario
+			</documentation>
+		</annotation>
+		<sequence>
+			<element name="rid" type="string" minOccurs="1" maxOccurs="1">
+				<annotation>
+					<documentation>
+						Nome da ROLE/GRUPO registrado no AD
+					</documentation>
+				</annotation>
+			</element>
+			<element name="address" type="string" minOccurs="1" maxOccurs="1">
+				<annotation>
+					<documentation>
+						Endereço da ROLE registrado no AD
+					</documentation>
+				</annotation>
+			</element>
+			<element name="descricao" type="string" minOccurs="0" maxOccurs="1">
+				<annotation>
+					<documentation>
+						Descricao
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+
+</schema>

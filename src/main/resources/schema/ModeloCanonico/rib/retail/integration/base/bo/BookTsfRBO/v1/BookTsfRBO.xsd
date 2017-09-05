@@ -1,0 +1,105 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/BookTsfRBO/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/BookTsfRBO/v1" xmlns:BookTsfDtlRBO="http://www.oracle.com/retail/integration/base/bo/BookTsfDtlRBO/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This object holds book transfer header and detail information.
+		</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/base/bo/BookTsfDtlRBO/v1" schemaLocation="../../BookTsfDtlRBO/v1/BookTsfDtlRBO.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed
+				description, please refer referenced element doc.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="BookTsfRBO">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="tsf_no" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Contains the RMS transfer number that uniquely identifies
+							the transfer record.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ext_tsf_no" type="varchar214">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Contains the transfer number or customer order number from
+							the external application.  This is required for the Book Tranasfer
+							create service.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="from_loc" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Contains the location number that the stock will be
+							sourced from.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="from_loc_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Contains the location type of the from location.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="to_loc" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Contains the location number that the stock will be
+							transferred to.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="to_loc_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Contains the location type of the to location.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="BookTsfDtlRBO:BookTsfDtlRBO">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>It's a referenced element. For
+							detailed description, please refer referenced element doc.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar214">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a string of max length of 14
+				characters.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="14"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a string of max length of 1
+				character.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number10">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a number of digits count 10.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

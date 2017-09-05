@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.cea.com.br/EBO/CEA/v1"
+	elementFormDefault="unqualified" attributeFormDefault="unqualified"
+	version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.cea.com.br/EBO/CEA/v1"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:complexType name="MantemAlocacaoToDB2Type">
+		<xsd:sequence>
+		<xsd:element name="CABECALHO" minOccurs="1" maxOccurs="1"	nillable="false">
+				<xsd:complexType>
+					<xsd:sequence>
+			<element name="ALLOC_NO" type="long" minOccurs="0" nillable="true" />
+			<element name="DOC_TYPE" minOccurs="0" nillable="true">
+				<simpleType>
+					<restriction base="string">
+						<maxLength value="1" />
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="PHYSICAL_WH" type="long" minOccurs="0"	nillable="true" />
+			<element name="WH" type="long" minOccurs="0" nillable="true" />
+			<element name="ITEM" minOccurs="0" nillable="true">
+				<simpleType>
+					<restriction base="string">
+						<maxLength value="25" />
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="PICK_NO_BEFORE_DATE" type="dateTime"	minOccurs="0" nillable="true" />
+			<element name="PICK_NOT_AFTER_DATE" type="dateTime"	minOccurs="0" nillable="true" />
+			<element name="ORDER_TYPE" minOccurs="0" nillable="true">
+				<simpleType>
+					<restriction base="string">
+						<maxLength value="9" />
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="ORDER_NO" type="string" minOccurs="0"
+				nillable="true" />
+			<element name="ORDER_DOC_TYPE" minOccurs="0" nillable="true">
+				<simpleType>
+					<restriction base="string">
+						<maxLength value="1" />
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="EVENT" minOccurs="0" nillable="true">
+				<simpleType>
+					<restriction base="string">
+						<maxLength value="6" />
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="EVENT_DESCRIPTION" minOccurs="0" nillable="true">
+				<simpleType>
+					<restriction base="string">
+						<maxLength value="1000" />
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="PRIORITY" type="int" minOccurs="0" nillable="true" />
+			<element name="TICKET_TYPE_ID" minOccurs="0" nillable="true">
+				<simpleType>
+					<restriction base="string">
+						<maxLength value="4" />
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="CONTEXT_TYPE" minOccurs="0" nillable="true">
+				<simpleType>
+					<restriction base="string">
+						<maxLength value="6" />
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="CONTEXT_VALUE" minOccurs="0" nillable="true">
+				<simpleType>
+					<restriction base="string">
+						<maxLength value="25" />
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="ORAL_ALLOC_NO" type="long" minOccurs="0"
+				nillable="true" />
+		   <xsd:element name="Locais" minOccurs="1" maxOccurs="unbounded"	nillable="false">
+				<xsd:complexType>
+					<xsd:sequence>
+						<element name="ALLOC_NO" type="long" minOccurs="0"	nillable="true" />
+						<element name="PHYSICAL_TO_LOC" type="long" minOccurs="0" nillable="true" />
+						<element name="LOC_TYPE" minOccurs="0" nillable="true">
+							<simpleType>
+								<restriction base="string">
+									<maxLength value="1" />
+								</restriction>
+							</simpleType>
+						</element>
+						<element name="QTY_ALLOCATED" type="decimal" minOccurs="0"	nillable="true" />
+						<element name="IN_STORE_DATE" type="dateTime" minOccurs="0"	nillable="true" />
+						<element name="RUSH_FLAG" minOccurs="0" nillable="true">
+							<simpleType>
+								<restriction base="string">
+									<maxLength value="1" />
+								</restriction>
+							</simpleType>
+						</element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			</xsd:sequence>
+			</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="NOMEACAO" minOccurs="1" nillable="true">
+				<simpleType>
+					<restriction base="string">
+						<maxLength value="25" />
+					</restriction>
+				</simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RemoveAlocacaoToDB2Type">
+		<xsd:sequence>
+			<element name="ALLOC_NO" type="long" minOccurs="0" nillable="true" />
+	</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

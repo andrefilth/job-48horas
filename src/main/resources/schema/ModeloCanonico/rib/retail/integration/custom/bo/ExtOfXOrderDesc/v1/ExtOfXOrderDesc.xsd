@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema 
+xmlns="http://www.oracle.com/retail/integration/custom/bo/ExtOfXOrderDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfXOrderDesc/v1" elementFormDefault="qualified" version="1.0">
+		<retailDoc:element name="ExtOfXOrderDtlGrade">
+			<retailDoc:complexType>
+				<retailDoc:sequence>
+					<retailDoc:element name="grade_item" type="varchar225">
+						<retailDoc:annotation>
+							<retailDoc:documentation>SKU item that belongs to the "Grade"</retailDoc:documentation>
+						</retailDoc:annotation>
+					</retailDoc:element>
+					<retailDoc:element name="grade_qty" type="number10">
+						<retailDoc:annotation>
+							<retailDoc:documentation>Quantity of the item (SKU) inside the "Grade"</retailDoc:documentation>
+						</retailDoc:annotation>
+					</retailDoc:element>
+					<retailDoc:element name="grade_unit_retail" type="number20_4">
+						<retailDoc:annotation>
+							<retailDoc:documentation>Retail Price for the SKU inside the "Grade"</retailDoc:documentation>
+						</retailDoc:annotation>
+					</retailDoc:element>
+					<retailDoc:element name="grade_unit_cost" type="number20_4">
+						<retailDoc:annotation>
+							<retailDoc:documentation>Unit Cost for the SKU inside the "Grade"</retailDoc:documentation>
+						</retailDoc:annotation>
+					</retailDoc:element>
+				</retailDoc:sequence>
+			</retailDoc:complexType>
+		</retailDoc:element>
+		<retailDoc:element name="ExtOfXOrderDtlClust">
+			<retailDoc:annotation>
+				<retailDoc:documentation>List of cluster associated to the PO detail line</retailDoc:documentation>
+			</retailDoc:annotation>
+			<retailDoc:complexType>
+				<retailDoc:sequence>
+					<retailDoc:element name="cluster_id" type="varchar2120">
+						<retailDoc:annotation>
+							<retailDoc:documentation>Cluster ID</retailDoc:documentation>
+						</retailDoc:annotation>
+					</retailDoc:element>
+				</retailDoc:sequence>
+			</retailDoc:complexType>
+		</retailDoc:element>
+		<retailDoc:element name="ExtOfXOrderDtl">
+			<retailDoc:annotation>
+				<retailDoc:documentation>Extension of the PO detail section</retailDoc:documentation>
+			</retailDoc:annotation>
+			<retailDoc:complexType>
+				<retailDoc:sequence>
+					<retailDoc:element name="dtl_unit_retail" type="number20_4" minOccurs="0">
+						<retailDoc:annotation>
+							<retailDoc:documentation>Retail Price for the SKU.Used for the SCE system.</retailDoc:documentation>
+						</retailDoc:annotation>
+					</retailDoc:element>
+					<xs:element maxOccurs="unbounded" minOccurs="0" ref="ExtOfXOrderDtlGrade">
+						<retailDoc:annotation>
+							<retailDoc:documentation>Description is not available.</retailDoc:documentation>
+						</retailDoc:annotation>
+					</xs:element>
+					<retailDoc:element name="allocation_method" type="varchar250" minOccurs="0">
+						<retailDoc:annotation>
+							<retailDoc:documentation>Allocation Method to use for this PO</retailDoc:documentation>
+						</retailDoc:annotation>
+					</retailDoc:element>
+					<xs:element maxOccurs="unbounded" minOccurs="0" ref="ExtOfXOrderDtlClust">
+						<retailDoc:annotation>
+							<retailDoc:documentation>Description is not available.</retailDoc:documentation>
+						</retailDoc:annotation>
+					</xs:element>
+				</retailDoc:sequence>
+			</retailDoc:complexType>
+		</retailDoc:element>
+		<retailDoc:element name="ExtOfXOrderDesc">
+			<retailDoc:annotation>
+				<retailDoc:documentation>Extension of the PO header section</retailDoc:documentation>
+			</retailDoc:annotation>
+			<retailDoc:complexType>
+				<retailDoc:sequence>
+					<retailDoc:element name="source_system" type="varchar23">
+						<retailDoc:annotation>
+							<retailDoc:documentation>Source system may be: RIS, NOS or SCE</retailDoc:documentation>
+						</retailDoc:annotation>
+					</retailDoc:element>
+					<retailDoc:element name="po_type" type="varchar24" minOccurs="0">
+						<retailDoc:annotation>
+							<retailDoc:documentation>PO Type. If 9010 National, if 9020 Import</retailDoc:documentation>
+						</retailDoc:annotation>
+					</retailDoc:element>
+					<retailDoc:element name="coord_type" type="varchar21" minOccurs="0">
+						<retailDoc:annotation>
+							<retailDoc:documentation>Identify if the PO is coord or not. Y or N</retailDoc:documentation>
+						</retailDoc:annotation>
+					</retailDoc:element>
+					<retailDoc:element name="appoint_date" type="xs:dateTime" minOccurs="0">
+						<retailDoc:annotation>
+							<retailDoc:documentation>Date for wich the PO is expected to be received at the WH. Used for the new Allocations Report</retailDoc:documentation>
+						</retailDoc:annotation>
+					</retailDoc:element>
+				</retailDoc:sequence>
+			</retailDoc:complexType>
+		</retailDoc:element>
+		<xs:simpleType name="varchar225">
+			<retailDoc:annotation>
+				<retailDoc:documentation>This type can hold a string of max length of 25 characters.</retailDoc:documentation>
+			</retailDoc:annotation>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="25"/>
+			</xs:restriction>
+		</xs:simpleType>
+		<xs:simpleType name="varchar250">
+			<retailDoc:annotation>
+				<retailDoc:documentation>This type can hold a string of max length of 50 characters.</retailDoc:documentation>
+			</retailDoc:annotation>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="50"/>
+			</xs:restriction>
+		</xs:simpleType>
+		<xs:simpleType name="number20_4">
+			<retailDoc:annotation>
+				<retailDoc:documentation>This type can hold a number of digits count 20 and fraction digit count of 4.</retailDoc:documentation>
+			</retailDoc:annotation>
+			<xs:restriction base="xs:decimal">
+				<xs:totalDigits value="20"/>
+				<xs:fractionDigits value="4"/>
+			</xs:restriction>
+		</xs:simpleType>
+		<xs:simpleType name="varchar23">
+			<retailDoc:annotation>
+				<retailDoc:documentation>This type can hold a string of max length of 3 characters.</retailDoc:documentation>
+			</retailDoc:annotation>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="3"/>
+			</xs:restriction>
+		</xs:simpleType>
+		<xs:simpleType name="varchar24">
+			<retailDoc:annotation>
+				<retailDoc:documentation>This type can hold a string of max length of 4 characters.</retailDoc:documentation>
+			</retailDoc:annotation>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="4"/>
+			</xs:restriction>
+		</xs:simpleType>
+		<xs:simpleType name="varchar21">
+			<retailDoc:annotation>
+				<retailDoc:documentation>This type can hold a string of max length of 4 characters.</retailDoc:documentation>
+			</retailDoc:annotation>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="1"/>
+			</xs:restriction>
+		</xs:simpleType>
+		<xs:simpleType name="varchar2120">
+			<retailDoc:annotation>
+				<retailDoc:documentation>This type can hold a string of max length of 4 characters.</retailDoc:documentation>
+			</retailDoc:annotation>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="120"/>
+			</xs:restriction>
+		</xs:simpleType>
+		<xs:simpleType name="varchar22">
+			<retailDoc:annotation>
+				<retailDoc:documentation>This type can hold a string of max length of 2 characters.</retailDoc:documentation>
+			</retailDoc:annotation>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="2"/>
+			</xs:restriction>
+		</xs:simpleType>
+		<xs:simpleType name="number4">
+			<retailDoc:annotation>
+				<retailDoc:documentation>This type can hold a number of digits count 4</retailDoc:documentation>
+			</retailDoc:annotation>
+			<xs:restriction base="xs:long">
+				<xs:totalDigits value="4"/>
+			</xs:restriction>
+		</xs:simpleType>
+		<xs:simpleType name="number10">
+			<retailDoc:annotation>
+				<retailDoc:documentation>This type can hold a number of digits count 10</retailDoc:documentation>
+			</retailDoc:annotation>
+			<xs:restriction base="xs:long">
+				<xs:totalDigits value="10"/>
+			</xs:restriction>
+		</xs:simpleType>
+
+</xs:schema>

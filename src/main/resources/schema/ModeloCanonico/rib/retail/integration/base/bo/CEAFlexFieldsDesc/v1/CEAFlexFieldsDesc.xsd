@@ -1,0 +1,158 @@
+<xs:schema elementFormDefault="qualified"
+    targetNamespace="http://www.oracle.com/retail/integration/base/bo/CEAFlexFieldsDesc/v1"
+    version="1.0"
+    xmlns="http://www.oracle.com/retail/integration/base/bo/CEAFlexFieldsDesc/v1"
+    xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<retailDoc:annotation>
+        <retailDoc:documentation>Generic element for flexfields solution use.</retailDoc:documentation>
+	</retailDoc:annotation>
+    <xs:element name="CEAFlexFieldsDesc">
+		<retailDoc:annotation>
+            <retailDoc:documentation>Root element</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+				<xs:element name="group_id" type="number8">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CFAS group id</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="varchar2_1" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CFAS text value 1</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="varchar2_2" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CFAS text value 2</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="varchar2_3" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CFAS text value 3</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="varchar2_4" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CFAS text value 4</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="varchar2_5" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CFAS text value 5</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="varchar2_6" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CFAS text value 6</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="varchar2_7" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CFAS text value 7</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="varchar2_8" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CFAS text value 8</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="varchar2_9" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CFAS text value 9</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="varchar2_10" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CFAS text value 10</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="number_11" type="number30_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CFAS number value 1</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="number_12" type="number30_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CFAS number value 2</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="number_13" type="number30_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CFAS number value 3</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="number_14" type="number30_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CFAS number value 4</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="number_15" type="number30_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CFAS number value 5</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="number_16" type="number30_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CFAS number value 6</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="number_17" type="number30_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CFAS number value 7</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="number_18" type="number30_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CFAS number value 8</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="number_19" type="number30_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CFAS number value 9</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="number_20" type="number30_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CFAS number value 10</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="date_21" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CFAS date value 1.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="date_22" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CFAS date value 2.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+			</xs:sequence>
+        </xs:complexType>
+    </xs:element>
+	<xs:simpleType name="number8">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 8.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="8"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="number30_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="30"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="varchar2250">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 250 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="250"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

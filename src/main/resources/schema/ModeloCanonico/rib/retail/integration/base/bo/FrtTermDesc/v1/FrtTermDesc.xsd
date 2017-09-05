@@ -1,0 +1,73 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/FrtTermDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/FrtTermDesc/v1" xmlns:ExtOfFrtTermDesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfFrtTermDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfFrtTermDesc/v1" schemaLocation="../../../../custom/bo/ExtOfFrtTermDesc/v1/ExtOfFrtTermDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="FrtTermDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="freight_terms" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains a number that uniquely identifies the freight terms.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="term_desc" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains a description of the freight terms used in the system.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="enabled_flag" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates whether the freight terms are valid or invalid within the respective application. Valid values are 'Y'es or 'N'o.  NOTE:  if interface is from Oracle Financials, the Check_Enabled logic will be bypassed which means field would not be required.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="start_date_active" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates the date for assigning an active date to the Freight Terms.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="end_date_active" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates the date for assigning an inactive date to the Freight Terms.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfFrtTermDesc:ExtOfFrtTermDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize FrtTermDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar230">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 30 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="30"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2240">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 240 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="240"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 1 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

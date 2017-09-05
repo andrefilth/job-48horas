@@ -1,0 +1,60 @@
+<definitions name="EnviarEmailParaFornecedor" targetNamespace="http://www.cea.com.br/OSB/enviarEmailParaFornecedor/v1" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.cea.com.br/OSB/enviarEmailParaFornecedor/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.cea.com.br/OSB/enviarEmailParaFornecedor/v1" schemaLocation="EnviarEmailParaFornecedorOSB_v1.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</types>
+
+	<message name="EnviarEmailParaFornecedorRequestMsg">
+		<part name="request" element="tns:EnviarEmailParaFornecedorRequest"/>
+	</message>
+	<message name="EnviarEmailParaFornecedorResponseMsg">
+		<part name="response" element="tns:EnviarEmailParaFornecedorResponse"/>
+	</message>
+	
+	<message name="FornecedorNaoEncontradoFaultMsg">
+		<part name="FornecedorNaoEncontradoFault" element="tns:FornecedorNaoEncontradoFault"/>
+	</message>	
+
+	<message name="TechnicalFaultMsg">
+		<part name="TechnicalFault" element="tns:TechnicalFault"/>
+	</message>	
+
+	<portType name="EnviarEmailParaFornecedorPortType">
+		<operation name="enviarEmail">
+			<input message="tns:EnviarEmailParaFornecedorRequestMsg"/>
+			<output message="tns:EnviarEmailParaFornecedorResponseMsg"/>
+			<fault name="FornecedorNaoEncontradoFault" message="tns:FornecedorNaoEncontradoFaultMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			
+			
+		</operation>
+	</portType>
+
+	<binding name="EnviarEmailParaFornecedorBinding" type="tns:EnviarEmailParaFornecedorPortType">
+		<soap12:binding transport="http://www.w3.org/2003/05/soap/bindings/HTTP/" style="document"/>
+		<operation name="enviarEmail">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="FornecedorNaoEncontradoFault">
+				<soap12:fault name="FornecedorNaoEncontradoFault" use="literal"/>
+			</fault>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>			
+		</operation>
+	</binding>
+
+	<service name="EnviarEmailParaFornecedorService">
+		<port name="EnviarEmailParaFornecedorPort" binding="tns:EnviarEmailParaFornecedorBinding">
+			<soap12:address location="http://localhost:8080/EnviarEmailParaFornecedorService"/>
+		</port>
+	</service>	
+
+</definitions>

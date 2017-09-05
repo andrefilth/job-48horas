@@ -1,0 +1,339 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/CEAItemLocDesc/v1" version="1.1" xmlns="http://www.oracle.com/retail/integration/base/bo/CEAItemLocDesc/v1" xmlns:ExtOfItemLocDesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfItemLocDesc/v1" xmlns:LocOfItemLocDesc="http://www.oracle.com/retail/integration/base/bo/LocOfItemLocDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfItemLocDesc/v1" schemaLocation="../../../../custom/bo/ExtOfItemLocDesc/v1/ExtOfItemLocDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:import namespace="http://www.oracle.com/retail/integration/base/bo/LocOfItemLocDesc/v1" schemaLocation="../../LocOfItemLocDesc/v1/LocOfItemLocDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="CEAItemLocVirt">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="loc" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Location where the item is to be found. This field may contain a store or a warehouse.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="loc_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Type of location in the "loc" field. Valid values are 'S' (store) and 'W' (warehouse).</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="local_item_desc" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NA</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="local_short_desc" type="varchar2120">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not Yet Available</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="status" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Current status of the item at the store (valid values are 'A' (active), 'I' (inactive), 'C' (discontinued) and 'D' (deleted).</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="primary_supp" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not Yet Available</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="primary_cntry" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the origin country which will be considered the primary country for the item/location.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="receive_as_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Determines whether the stock on hand for a pack component item or the buyer pack itself will be updated when a buyer pack is received at a warehouse. Valid values are 'E'ach or 'P'ack.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="taxable_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates whether the item is taxable at the store. Valid values are 'Y' (yes) and 'N' (No).</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="source_method" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Determines the source method for a requested item at a store. Valid values: 'W'(warehouse) and 'S'(supplier), default value is 'S'.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="source_wh" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>If the source_method is 'W', this field contains the source warehouse for fulfilling item requests at a store.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="unit_retail" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Unit retail of the item in the selling Unit of Measure. Only published for create not modify.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="selling_unit_retail" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Selling unit retail in selling unit of measure. Only published for create, not update</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="selling_uom" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Selling Unit of measure. Only published for Create not update.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="store_price_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not Yet Available</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="purchase_type" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Purchase Type</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="uin_type" type="varchar26">
+					<retailDoc:annotation>
+                        <retailDoc:documentation>This attribute will contain the type of the unique identification number (UIN) used to identify instances of the item at the location.  Valid values for this attribute should be user-definable on the RMS code tables. This attribute should be nullable.</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="uin_label" type="varchar26">
+					<retailDoc:annotation>
+                        <retailDoc:documentation>This attribute will contain the label for the UIN when displayed in SIM.  Valid values should be user-definable on the RMS code tables. This attribute should be nullable but a value is required when a UIN Type is specified.</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="capture_time" type="varchar26">
+					<retailDoc:annotation>
+                        <retailDoc:documentation>This attribute will indicate when the UIN should be captured for an item during transaction processing.  There are 2 valid values for this field which should be stored on the RMS code tables: Sale and Store Receiving.  This attribute should be nullable.</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="ext_uin_ind" type="varchar21">
+					<retailDoc:annotation>
+                        <retailDoc:documentation>This Yes/No indicator indicates if UIN is being generated in the external system (e.g. SIM).  This value will always be N (no) when the Capture Time attribute is set to Sale. </retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="clearance_ind" type="varchar21">
+					<retailDoc:annotation>
+                        <retailDoc:documentation>This S/N indicator indicates if /Indication of remarcation of price. </retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+                <xs:element minOccurs="0" name="create_datetime" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the create date and time.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="sellable_ind" type="varchar21">
+					<retailDoc:annotation>
+                        <retailDoc:documentation>This S/N indicator indicates if item is sellable. </retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfItemLocDesc:ExtOfItemLocVirt">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize ItemLocVirt.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="LocOfItemLocDesc:LocOfItemLocVirt">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to localize ItemLocVirt.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ItemLocVirtRepl">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="loc" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Location that is on replenishment. Will hold only virtual warehouse in the multi-channel environment.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="loc_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the type of the location on replenishment.  Valid values include 'S'tore, 'W'arehouse.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="primary_repl_supplier" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the numeric identifier of the supplier from which the specified location will source the replenishment demand for the specified item location.  Used for items on Direct to Store/Warehouse or Cross-docked replenishment.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="repl_method" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the character code for the algorithm that will be used to calculate the recommended order quantity for the item location.  Valid values include 'C'onstant, 'M'in/Max, 'F'loating point,  'T'ime Supply, 'D'ynamic, 'SO' Store Orders.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="reject_store_order_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains an indicator that determines if uploaded store orders should be rejected.  If the indicator is 'N', then store orders for all need dates are valid.  If 'Y', store orders with needs date on or after the NEXT_DELIVERY_DATE are valid."</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="next_delivery_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the next delivery date calculated for the next review cycle.  If, for the next review cycle, an order will be created that is calculated to arrive on Thursday, this field will be updated with Thursday's date.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="multiple_runs_per_day_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates if the item-location is replenished multiple times per day.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfItemLocDesc:ExtOfItemLocVirtRepl">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize ItemLocVirtRepl.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="LocOfItemLocDesc:LocOfItemLocVirtRepl">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to localize ItemLocVirtRepl.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ItemLocPhys">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="physical_loc" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>If the loc_type is 'W', this is the physical warehouse that is assigned to the virtual wh where the item is located.   If the loc_type is an 'S' then this is the store where the item is located.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="CEAItemLocVirt">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="ItemLocVirtRepl">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfItemLocDesc:ExtOfItemLocPhys">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize ItemLocPhys.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="LocOfItemLocDesc:LocOfItemLocPhys">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to localize ItemLocPhys.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CEAItemLocDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="item" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not Yet Available</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" ref="ItemLocPhys">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfItemLocDesc:ExtOfItemLocDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize ItemLocPhys.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="LocOfItemLocDesc:LocOfItemLocDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to localize ItemLocPhys.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar2250">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 250 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="250"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar225">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 25 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar23">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 3 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2120">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 120 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="120"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar26">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 6 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar24">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 4 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number20_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 20 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="20"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number10">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 10.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 1 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

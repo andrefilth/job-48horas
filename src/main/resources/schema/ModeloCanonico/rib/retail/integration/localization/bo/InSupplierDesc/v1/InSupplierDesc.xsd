@@ -1,0 +1,79 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/localization/bo/InSupplierDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/localization/bo/InSupplierDesc/v1" xmlns:EOfInSupplierDesc="http://www.oracle.com/retail/integration/custom/bo/EOfInSupplierDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/EOfInSupplierDesc/v1" schemaLocation="../../../../custom/bo/EOfInSupplierDesc/v1/EOfInSupplierDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+	<xs:element name="InSupplierDesc">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfInSupplierDesc:EOfInSupplierDesc">
+               		<retailDoc:annotation>
+                 		<retailDoc:documentation>Provide an extension hook to customize SupplierDesc
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="InSupAttr">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfInSupplierDesc:EOfInSupAttr">
+               		<retailDoc:annotation>
+                 		<retailDoc:documentation>Provide an extension hook to customize SupAttr
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="InSupSite">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfInSupplierDesc:EOfInSupSite">
+               		<retailDoc:annotation>
+                 		<retailDoc:documentation>Provide an extension hook to customize SupSite
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="InSupSiteOrgUnit">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfInSupplierDesc:EOfInSupSiteOrgUnit">
+               		<retailDoc:annotation>
+                 		<retailDoc:documentation>Provide an extension hook to customize SupSiteOrgUnit
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="InSupSiteAddr">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfInSupplierDesc:EOfInSupSiteAddr">
+               		<retailDoc:annotation>
+                 		<retailDoc:documentation>Provide an extension hook to customize SupSiteAddr
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="InAddr">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfInSupplierDesc:EOfInAddr">
+               		<retailDoc:annotation>
+                 		<retailDoc:documentation>Provide an extension hook to customize Addr
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+</xs:schema>

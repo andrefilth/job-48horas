@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:mstns="http://tempuri.org/dsSLL.xsd" xmlns="http://tempuri.org/dsSLL.xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://tempuri.org/dsSLL.xsd" id="dsSLL" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element msdata:IsDataSet="true" msdata:UseCurrentLocale="true" name="dsSLL">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="LL001T">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NI_NF" type="xs:int" />
+              <xs:element name="NI_TIP_NF" type="xs:int" />
+              <xs:element name="NI_ORI_NF" type="xs:int" />
+              <xs:element name="NI_SIT_NF" type="xs:int" />
+              <xs:element minOccurs="0" name="NU_PED" type="xs:int" />
+              <xs:element minOccurs="0" name="NU_CPA" type="xs:int" />
+              <xs:element minOccurs="0" name="NU_NF" type="xs:int" />
+              <xs:element minOccurs="0" name="NU_SER_NF" type="xs:string" />
+              <xs:element name="CD_FL" type="xs:int" />
+              <xs:element name="CD_FL_ETG" type="xs:int" />
+              <xs:element name="CD_FOR" type="xs:string" />
+              <xs:element name="CD_CFOP" type="xs:string" />
+              <xs:element name="DT_EMS" type="xs:dateTime" />
+              <xs:element name="VL_BASE_CLC_ICMS" type="xs:decimal" />
+              <xs:element name="VL_TOT_ICMS" type="xs:decimal" />
+              <xs:element name="VL_TOT_DCT" type="xs:decimal" />
+              <xs:element name="VL_TOT_PRD" type="xs:decimal" />
+              <xs:element name="VL_TOT_PIS" type="xs:decimal" />
+              <xs:element name="VL_TOT_COFINS" type="xs:decimal" />
+              <xs:element name="VL_TOT_NF" type="xs:decimal" />
+              <xs:element name="VL_ICMS_DIFD" type="xs:decimal" />
+              <xs:element minOccurs="0" name="NI_NF_ORI" type="xs:int" />
+              <xs:element minOccurs="0" name="CD_TIP_DVL" type="xs:string" />
+              <xs:element name="VL_TOT_IPI" type="xs:decimal" />
+              <xs:element minOccurs="0" name="MN_FL" type="xs:string" />
+              <xs:element minOccurs="0" name="NO_FOR" type="xs:string" />
+              <xs:element minOccurs="0" name="CD_CNPJ" type="xs:decimal" />
+              <xs:element minOccurs="0" name="NO_SIT_NF" type="xs:string" />
+              <xs:element minOccurs="0" name="NO_TIP_NF" type="xs:string" />
+              <xs:element minOccurs="0" name="VL_BASE_ICMS_SBT_TBT" type="xs:decimal" />
+              <xs:element minOccurs="0" name="VL_ICMS_SBT_TBT" type="xs:decimal" />
+              <xs:element minOccurs="0" name="VL_FRT" type="xs:decimal" />
+              <xs:element minOccurs="0" name="CD_FAR" type="xs:string" />
+              <xs:element minOccurs="0" default="0" name="VL_TOT_IVA" type="xs:decimal" />
+              <xs:element minOccurs="0" default="0" name="VL_TOT_IEPS" type="xs:decimal" />
+              <xs:element minOccurs="0" name="CD_RFC" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="LL002T">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NI_NF" type="xs:int" />
+              <xs:element name="NU_ITEM_NF" type="xs:int" />
+              <xs:element minOccurs="0" name="NO_DS_PRD" type="xs:string" />
+              <xs:element minOccurs="0" name="SL_ABV_PRD" type="xs:string" />
+              <xs:element name="NI_TIP_PRD" type="xs:int" />
+              <xs:element minOccurs="0" default="0" name="NU_PRD_NCM" type="xs:int" />
+              <xs:element name="NU_EAN" type="xs:string" />
+              <xs:element minOccurs="0" name="NOP_ENT" type="xs:string" />
+              <xs:element minOccurs="0" name="NOP_SAI" type="xs:string" />
+              <xs:element name="NI_MDL" type="xs:int" />
+              <xs:element name="NI_SKU" type="xs:int" />
+              <xs:element default="0" name="QT_ITEM" type="xs:int" />
+              <xs:element default="0" name="VL_UNI" type="xs:decimal" />
+              <xs:element name="PC_ICMS" type="xs:decimal" />
+              <xs:element name="PC_IPI" type="xs:decimal" />
+              <xs:element default="0" name="VL_PIS" type="xs:decimal" />
+              <xs:element default="0" name="VL_COFINS" type="xs:decimal" />
+              <xs:element default="0" name="VL_DCT" type="xs:decimal" />
+              <xs:element minOccurs="0" name="PC_ICMS_DIF" type="xs:decimal" />
+              <xs:element minOccurs="0" name="FT_RED" type="xs:decimal" />
+              <xs:element msdata:ReadOnly="true" msdata:Expression="(VL_UNI * QT_ITEM) - VL_DCT - VL_DCT_ITEM" minOccurs="0" name="SUB_TOT" type="xs:decimal" />
+              <xs:element msdata:ReadOnly="true" msdata:Expression="(SUB_TOT * FT_RED)" minOccurs="0" name="BS_ICMS" type="xs:decimal" />
+              <xs:element msdata:ReadOnly="true" msdata:Expression="(BS_ICMS * (PC_ICMS/100))" minOccurs="0" name="VL_ICMS" type="xs:decimal" />
+              <xs:element msdata:ReadOnly="true" msdata:Expression="(BS_ICMS * ((PC_ICMS/100) - (PC_ICMS_DIF/100)))" minOccurs="0" name="VL_ICMS_DIF" type="xs:decimal" />
+              <xs:element msdata:ReadOnly="true" msdata:Expression="(SUB_TOT * (PC_IPI/100))" minOccurs="0" name="VL_IPI" type="xs:decimal" />
+              <xs:element minOccurs="0" name="IN_ST" type="xs:short" />
+              <xs:element minOccurs="0" name="AL_MVA" type="xs:decimal" />
+              <xs:element msdata:ReadOnly="true" msdata:Expression="(BS_ICMS * (1 + (AL_MVA/100))) * FT_RED_ST * IN_ST" minOccurs="0" name="BS_ICMS_ST" type="xs:decimal" />
+              <xs:element msdata:ReadOnly="true" msdata:Expression="((BS_ICMS_ST * (ICMS_PDR / 100)) - (FT_RED_ST * (ICMS_PDR /100) * SUB_TOT)) * IN_ST" minOccurs="0" name="VL_ICMS_ST_RED" type="xs:decimal" />
+              <xs:element minOccurs="0" default="1" name="FT_RED_ST" type="xs:decimal" />
+              <xs:element minOccurs="0" name="ICMS_PDR" type="xs:decimal" />
+              <xs:element minOccurs="0" name="PC_IVA" type="xs:decimal" />
+              <xs:element msdata:ReadOnly="true" msdata:Expression="SUB_TOT * PC_IVA/100" minOccurs="0" default="0" name="VL_IVA" type="xs:decimal" />
+              <xs:element minOccurs="0" name="PC_IEPS" type="xs:decimal" />
+              <xs:element minOccurs="0" name="VL_IEPS" type="xs:decimal" />
+              <xs:element msdata:ReadOnly="true" msdata:Expression="((BS_ICMS_ST * (ICMS_PDR / 100)) - VL_ICMS) * IN_ST" minOccurs="0" name="VL_ICMS_ST" type="xs:decimal" />
+              <xs:element minOccurs="0" default="0" name="VL_DCT_ITEM" type="xs:decimal" />
+              <xs:element minOccurs="0" default="0" name="AL_PIS" type="xs:decimal" />
+              <xs:element minOccurs="0" default="0" name="AL_COFINS" type="xs:decimal" />
+              <xs:element msdata:ReadOnly="true" msdata:Expression="((BS_ICMS_ST * ICMS_PDR/100) - (BS_ICMS * 0.0275))  * IN_ST_DIF" minOccurs="0" name="VL_ICMS_ST_DIF" type="xs:decimal" />
+              <xs:element minOccurs="0" default="0" name="IN_ST_DIF" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="LL000TLL011T">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="NU_SER" type="xs:string" />
+              <xs:element minOccurs="0" default="0" name="NI_SIT_SER" type="xs:int" />
+              <xs:element minOccurs="0" default="0" name="CD_FL" type="xs:int" />
+              <xs:element minOccurs="0" name="NU_EAN" type="xs:string" />
+              <xs:element minOccurs="0" default="0" name="NI_MDL" type="xs:int" />
+              <xs:element minOccurs="0" default="0" name="NI_SKU" type="xs:int" />
+              <xs:element minOccurs="0" default="0" name="NI_PED" type="xs:int" />
+              <xs:element minOccurs="0" default="0" name="NI_OPD" type="xs:int" />
+              <xs:element minOccurs="0" default="0" name="NI_MTV_SAI" type="xs:int" />
+              <xs:element minOccurs="0" default="0" name="NI_MOV_SER" type="xs:int" />
+              <xs:element minOccurs="0" default="0" name="NI_NF" type="xs:int" />
+              <xs:element minOccurs="0" default="0" name="CD_SEQ_CLT" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Retorno">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="NU_SER_ENV" type="xs:string" />
+              <xs:element msdata:Caption="NO_MDL_FOR" minOccurs="0" name="NO_MDL_RET" type="xs:string" />
+              <xs:element minOccurs="0" name="NU_PRD_NCM" type="xs:int" />
+              <xs:element minOccurs="0" name="CD_CLS" type="xs:int" />
+              <xs:element minOccurs="0" name="VL_DCT" type="xs:decimal" />
+              <xs:element minOccurs="0" name="PC_IPI" type="xs:decimal" />
+              <xs:element minOccurs="0" name="PC_ICMS" type="xs:decimal" />
+              <xs:element msdata:Caption="NI_NF_FOR" minOccurs="0" name="NI_NF_RET" type="xs:int" />
+              <xs:element minOccurs="0" name="NI_PED" type="xs:int" />
+              <xs:element minOccurs="0" name="QT_ITEM" type="xs:int" />
+              <xs:element minOccurs="0" name="VL_UNI" type="xs:decimal" />
+              <xs:element minOccurs="0" name="NO_DS_PRD" type="xs:string" />
+              <xs:element minOccurs="0" name="SL_ABV_PRD" type="xs:string" />
+              <xs:element minOccurs="0" name="NI_SKU" type="xs:int" />
+              <xs:element minOccurs="0" name="NI_MDL" type="xs:int" />
+              <xs:element msdata:Caption="NI_NF_ORI" minOccurs="0" name="NI_NF_ENV" type="xs:int" />
+              <xs:element minOccurs="0" name="CD_FOR" type="xs:string" />
+              <xs:element minOccurs="0" name="CD_FL" type="xs:int" />
+              <xs:element minOccurs="0" name="CD_TIP_PRD" type="xs:int" />
+              <xs:element msdata:Caption="NU_NF_FOR" minOccurs="0" name="NU_NF_RET" type="xs:int" />
+              <xs:element msdata:Caption="NU_SER_PARA" minOccurs="0" name="NU_SER_RET" type="xs:string" />
+              <xs:element msdata:Caption="NU_NF_ORI" minOccurs="0" name="NU_NF_ENV" type="xs:int" />
+              <xs:element minOccurs="0" name="NU_EAN" type="xs:string" />
+              <xs:element msdata:Caption="CD_MDL_FOR" minOccurs="0" name="CD_MDL_RET" type="xs:string" />
+              <xs:element minOccurs="0" default="0" name="BS_ICMS" type="xs:decimal" />
+              <xs:element minOccurs="0" default="0" name="VL_ICMS" type="xs:decimal" />
+              <xs:element minOccurs="0" name="NI_OPD" type="xs:int" />
+              <xs:element minOccurs="0" default="0" name="PC_IVA" type="xs:decimal" />
+              <xs:element minOccurs="0" default="0" name="VL_IVA" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique msdata:PrimaryKey="true" name="Constraint1">
+      <xs:selector xpath=".//mstns:LL001T" />
+      <xs:field xpath="mstns:NI_NF" />
+    </xs:unique>
+    <xs:unique msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true" name="LL002T_Constraint1">
+      <xs:selector xpath=".//mstns:LL002T" />
+      <xs:field xpath="mstns:NI_NF" />
+      <xs:field xpath="mstns:NI_MDL" />
+      <xs:field xpath="mstns:NI_SKU" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="LL001T_LL002T" msdata:parent="LL001T" msdata:child="LL002T" msdata:parentkey="NI_NF" msdata:childkey="NI_NF" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" />
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="LL001T_LL002T" msdata:parent="LL001T" msdata:child="LL002T" msdata:parentkey="NI_NF" msdata:childkey="NI_NF" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>

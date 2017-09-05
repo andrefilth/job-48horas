@@ -1,0 +1,54 @@
+<xs:schema elementFormDefault="qualified"
+    targetNamespace="http://www.oracle.com/retail/integration/base/bo/CustOrdTsfRef/v1"
+    version="1.0"
+    xmlns="http://www.oracle.com/retail/integration/base/bo/CustOrdTsfRef/v1"
+    xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This object holds customer order reference.
+		</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:element name="CustOrdTsfRef">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This object holds customer order reference.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="cust_ord_number" type="varchar214">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Contains the the customer order number 
+							from the external application.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="tsf_no" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Contains the RMS transfer number that uniquely identifies the transfer.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar214">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max
+				length of 14 characters.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="14"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number10">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a number of digits count 10.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

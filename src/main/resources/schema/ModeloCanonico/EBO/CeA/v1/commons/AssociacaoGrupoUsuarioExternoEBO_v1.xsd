@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.cea.com.br/EBO/CEA/v1"
+		elementFormDefault="qualified" 
+		xmlns="http://www.w3.org/2001/XMLSchema"
+		xmlns:email="http://www.cea.com.br/EBO/CEA/v1">
+
+    <!-- <include schemaLocation="TituloEBO_v1.xsd"></include> -->
+    
+    <complexType name="AssociaGrupoUsuarioExternoType">
+    
+		<annotation>
+			<documentation>
+			    Essa entidade possui informações da Associações de Grupo com um determinado (Usuário/Fornecedor)
+		    </documentation>
+		</annotation>
+		
+		<sequence>
+				<element name="codigoFornecedor" type="string"  minOccurs="1" maxOccurs="1"  />
+				<element name="codigoGrupoAcesso" type="string" minOccurs="1" maxOccurs="unbounded"  />
+				<element name="nomeRespAtlz" type="string" minOccurs="1" maxOccurs="1"  />
+		</sequence>
+		
+	</complexType>
+
+</schema>

@@ -1,0 +1,685 @@
+<xs:schema targetNamespace="http://www.cea.com.br/EBO/CEA/v1"
+	elementFormDefault="unqualified" attributeFormDefault="unqualified"
+	version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.cea.com.br/EBO/CEA/v1"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:annotation>
+        <xs:documentation>This is root element of this document which contains name space definitions for the document elements.</xs:documentation>
+    </xs:annotation>
+    <xs:element name="ListGroup">
+        <xs:annotation>
+            <xs:documentation>Description is not available.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="listgroup_id" type="tns:number10">
+                    <xs:annotation>
+                        <xs:documentation>NA</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="1" ref="tns:ListDtl">
+                    <xs:annotation>
+                        <xs:documentation>Description is not available.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ListDtl">
+        <xs:annotation>
+            <xs:documentation>Description is not available.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="listdtl_id" type="tns:number10">
+                    <xs:annotation>
+                        <xs:documentation>NA</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0"
+                    name="reward_application" type="tns:number1">
+                    <xs:annotation>
+                        <xs:documentation>NA</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0"
+                    name="description" type="tns:varchar2160">
+                    <xs:annotation>
+                        <xs:documentation>null</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:DiscountLadder">
+                    <xs:annotation>
+                        <xs:documentation>Description is not available.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="1" ref="tns:ItemList">
+                    <xs:annotation>
+                        <xs:documentation>Description is not available.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="LocationList">
+        <xs:annotation>
+            <xs:documentation>Description is not available.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="location" type="tns:number10">
+                    <xs:annotation>
+                        <xs:documentation>NA</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="loc_type" type="tns:varchar22">
+                    <xs:annotation>
+                        <xs:documentation>null</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PromotionDesc">
+        <xs:annotation>
+            <xs:documentation>Description is not available.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="promo_id" type="tns:number10">
+                    <xs:annotation>
+                        <xs:documentation>Promotion ID</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="promo_display_id" type="tns:number10">
+                    <xs:annotation>
+                        <xs:documentation>Promotion Display ID</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0"
+                    name="promo_name" type="tns:varchar2160">
+                    <xs:annotation>
+                        <xs:documentation>Promotion Header Name</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0"
+                    name="promo_description" type="tns:varchar2640">
+                    <xs:annotation>
+                        <xs:documentation>Promotion Header Description</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="promo_comp_id" type="tns:number10">
+                    <xs:annotation>
+                        <xs:documentation>Promotion Component Id</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                 <xs:element name="comp_display_id" type="tns:varchar210">
+                    <xs:annotation>
+                        <xs:documentation>Promotion Component Id</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0"
+                    name="promo_comp_desc" type="tns:varchar2160">
+                    <xs:annotation>
+                        <xs:documentation>Promotion Component Name</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="promo_comp_type" type="tns:number2">
+                    <xs:annotation>
+                        <xs:documentation>Promotion Component Type</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="promo_dtl_id" type="tns:number10">
+                    <xs:annotation>
+                        <xs:documentation>Promotion Component Detail Id</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="promo_dtl_display_id" type="tns:varchar210">
+                    <xs:annotation>
+                        <xs:documentation>Promotion Component Detail Id</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="apply_order" type="tns:number6">
+                    <xs:annotation>
+                        <xs:documentation>Application Order of the Promotion</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="start_date" type="xs:dateTime">
+                    <xs:annotation>
+                        <xs:documentation>Start Date of Promotion Component Detail</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" name="end_date" type="xs:dateTime">
+                    <xs:annotation>
+                        <xs:documentation>End Date of Promotion Component Detail</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0"
+                    name="exception_parent_id" type="tns:number10">
+                    <xs:annotation>
+                        <xs:documentation>NA</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" name="secondary_ind" type="tns:number1">
+                    <xs:annotation>
+                        <xs:documentation>Order of priority</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="apply_to_code" type="tns:number1">
+                    <xs:annotation>
+                        <xs:documentation>Indicates the type of products that are elegible for the promotion</xs:documentation>
+                    </xs:annotation>
+                </xs:element>				
+                <xs:element name="attribute_1" type="tns:varchar2160">
+                    <xs:annotation>
+                        <xs:documentation></xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                 <xs:element name="attribute_2" type="tns:varchar2160">
+                    <xs:annotation>
+                        <xs:documentation></xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                 <xs:element name="attribute_3" type="tns:varchar2160">
+                    <xs:annotation>
+                        <xs:documentation></xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="1" ref="tns:LocationList">
+                    <xs:annotation>
+                        <xs:documentation>Description is not available.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="1" ref="tns:ListGroup">
+                    <xs:annotation>
+                        <xs:documentation>Description is not available.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:ItemLocSimpleRet">
+                    <xs:annotation>
+                        <xs:documentation>Description is not available.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" maxOccurs="1" name="customer_type_id" type="tns:number10" >
+				    <xs:annotation>
+                        <xs:documentation>Customer Type.</xs:documentation>
+                    </xs:annotation>
+				</xs:element>	
+				<xs:element minOccurs="0" maxOccurs="1" name="total_det" type="tns:number10" >
+				    <xs:annotation>
+                        <xs:documentation>Customer Type.</xs:documentation>
+                    </xs:annotation>
+				</xs:element>	
+				<xs:element maxOccurs="unbounded" minOccurs="0" ref="tns:CreditDetail">
+                    <xs:annotation>
+                        <xs:documentation>Description is not available.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="1" ref="tns:PromoComponent">
+                    <xs:annotation>
+                        <xs:documentation>Enriquecimento de promocao vindo da tabela CEA_RPM_PROMO_COMP.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="1" ref="tns:PromoComponentRest">
+                    <xs:annotation>
+                        <xs:documentation>Indica outras restrições promocionais, tais como sorteios realizados pelo PDV, primeiras X vendas com desconto, etc.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="1" ref="tns:PromoComponentRewards">
+                    <xs:annotation>
+                        <xs:documentation>Indica outras recompensas promocionais (porcentagem, valor, plano de crédito) em outros meios que não um produto.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>							
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PromoComponent">
+        <xs:annotation>
+            <xs:documentation>Enriquecimento customizado tabela CEA_RPM_PROMO_COMP</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="voucher_promo" type="tns:number1">
+                    <xs:annotation>
+                        <xs:documentation>Tipo de promocao (0 - Venda, 1 - Perfil).</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="conditioned" type="tns:number1">
+                    <xs:annotation>
+                        <xs:documentation>
+                        	É o indicador de promocao condicionada. 
+
+							0 -  Sem condição
+							
+							1 -  Vipada
+							
+							2 -  Pagamento no mesmo dia
+							
+							3 -  Sorteio
+						</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="employee_participation" type="tns:number1">
+                    <xs:annotation>
+                        <xs:documentation>
+							1 = sim, o tipo de promoção identificado admite a sobreposição com desconto para associado.
+							0 = não, o desconto para associado não incide sobre o valor do produto com esse tipo de promoção.
+						</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="payment_type" minOccurs="0" type="tns:number10">
+                    <xs:annotation>
+                        <xs:documentation>
+                        	É o indicador de associacao na forma de pagamento. Pode ter apenas dois estados, por isso é chamado de flag (bandeira) porque denota a possibilidade de dois estados possíveis (hasteada ou não hasteada) para a mesma coisa.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="condition_mode" type="tns:number10">
+                    <xs:annotation>
+                        <xs:documentation>Condicao da promocao.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="relate_campaign" type="tns:number10">
+                    <xs:annotation>
+                        <xs:documentation>Campanha do Relate.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="financial_promo_code_id" minOccurs="0" type="tns:number3">
+                    <xs:annotation>
+                        <xs:documentation>Codigo de promocao financeira.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="PromoComponentRest">
+        <xs:annotation>
+            <xs:documentation>Indica outras restrições promocionais, tais como sorteios realizados pelo PDV, primeiras X vendas com desconto, etc.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="REWARDS_BY_RAFFLE" type="tns:number1">
+                    <xs:annotation>
+                        <xs:documentation>Indica que a componente da promoção deverá obedecer a um critério de sorteio, portanto não serão aplicadas em todas as vendas.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="RAFFLE_FREQUENCY" type="tns:number10">
+                    <xs:annotation>
+                        <xs:documentation>Indica a quantidade de cupons que serão sorteados durante a promoção. Exemplo: o PDV sorteará um prémio a cada X cupons</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+				<xs:element name="PROMO_LIMIT" type="tns:number1">
+                    <xs:annotation>
+                        <xs:documentation>Indica que a componente possui uma restrição de quantidade de uso, sendo que ao atingir o seu limite, a promoção não irá se aplicar mais.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+				<xs:element name="MAX_PROMO_NUMBER" type="tns:number10">
+                    <xs:annotation>
+                        <xs:documentation>Define o limite máximo de vendas promocionais que esta componente poderá ter. Exemplo: As primeiras X vendas têm desconto em porcentagem ou em valor</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element> 
+    <xs:element name="PromoComponentRewards">
+        <xs:annotation>
+            <xs:documentation>Indica outras recompensas promocionais (porcentagem, valor, plano de crédito) em outros meios que não um produto.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+             	<xs:element name="PROMO_REWARD_ID" type="tns:number10">
+                    <xs:annotation>
+                        <xs:documentation>Indica que a recompensa irá se aplicar como um bônus/crédito ao invés de ser aplicado um desconto em um produto.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="REWARD_WITHOUT_PRODUCT" type="tns:number1">
+                    <xs:annotation>
+                        <xs:documentation>Indica que a recompensa irá se aplicar como um bônus/crédito ao invés de ser aplicado um desconto em um produto.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="REWARD_DESCRIPTION" type="tns:varchar21000">
+                    <xs:annotation>
+                        <xs:documentation>Uma descrição breve sobre o tipo de bônus oferecido, por exemplo um vale brinde, gift-card ou um vale desconto.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+				<xs:element name="REWARD_MODE" type="tns:number1">
+                    <xs:annotation>
+                        <xs:documentation>Indica como será dada a recompensa ao cliente</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+				<xs:element name="BONUS_TYPE" type="tns:number1">
+                    <xs:annotation>
+                        <xs:documentation>O bônus poderá ser aplicar em valor, quantidade ou em porcentagem do valor de compra. Pode ser porcentagem ou um valor</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+				<xs:element name="BONUS_VALUE" type="tns:number10">
+                    <xs:annotation>
+                        <xs:documentation>Este valor dependerá do tipo de bônus que será oferecido. Por exemplo 5% de desconto.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+				</xs:sequence>
+        </xs:complexType>
+    </xs:element>    	    
+	<xs:element name="DiscountLadder">
+        <xs:annotation>
+            <xs:documentation>Description is not available.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="1" minOccurs="0" name="disc_ladder_id" type="tns:number10">
+                    <xs:annotation>
+                        <xs:documentation>promo_dtl_disc_ladder_id</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" name="chg_type" type="tns:number2">
+                    <xs:annotation>
+                        <xs:documentation>Change Type</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" name="chg_amt" type="tns:number20_4">
+                    <xs:annotation>
+                        <xs:documentation>Change Amount</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0"
+                    name="chg_currency" type="tns:varchar23">
+                    <xs:annotation>
+                        <xs:documentation>NA</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0"
+                    name="chg_percent" type="tns:number20_4">
+                    <xs:annotation>
+                        <xs:documentation>Change Percent</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0"
+                    name="chg_selling_uom" type="tns:varchar24">
+                    <xs:annotation>
+                        <xs:documentation>Change Selling UOM</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" name="qual_type" type="tns:number2">
+                    <xs:annotation>
+                        <xs:documentation>NA</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0"
+                    name="qual_value" type="tns:number20_4">
+                    <xs:annotation>
+                        <xs:documentation>NA</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" maxOccurs="1"
+				    name="chg_duration" type="tns:number20_4" >
+					<xs:annotation>
+                        <xs:documentation>Change duration</xs:documentation>
+                    </xs:annotation>
+				</xs:element>	
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ItemList">
+        <xs:annotation>
+            <xs:documentation>Description is not available.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+             	<xs:element name="merch_node_id" type="tns:number10">
+                    <xs:annotation>
+                        <xs:documentation>Dept of product</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="merch_type" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>Tipo da hierarquia</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="dept" type="tns:number4">
+                    <xs:annotation>
+                        <xs:documentation>Dept of product</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="class" type="tns:number4">
+                    <xs:annotation>
+                        <xs:documentation>Class of product</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="class_cod" type="tns:number4">
+                    <xs:annotation>
+                        <xs:documentation>SubClass of product</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="model" type="tns:varchar225">
+                    <xs:annotation>
+                        <xs:documentation>Model of product</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+				<xs:element name="item_num" type="tns:varchar225">
+                    <xs:annotation>
+                        <xs:documentation>SKU of product</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="diff_id" type="tns:varchar210">
+                    <xs:annotation>
+                        <xs:documentation>SKU of product</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="ItemLocSimpleRet">
+        <xs:annotation>
+            <xs:documentation>Description is not available.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="item_num" type="tns:varchar225">
+                    <xs:annotation>
+                        <xs:documentation>Transaction Item Identifier</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="location" type="tns:number10">
+                    <xs:annotation>
+                        <xs:documentation>Store ID</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0"
+                    name="selling_retail" type="tns:number20_4">
+                    <xs:annotation>
+                        <xs:documentation>Selling retail of the item</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0"
+                    name="selling_uom" type="tns:varchar24">
+                    <xs:annotation>
+                        <xs:documentation>Selling UOM of the item</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="CreditDetail">
+        <xs:annotation>
+            <xs:documentation>Description is not available.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="creditDetail_id" type="tns:number10">
+                    <xs:annotation>
+                        <xs:documentation></xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="creditType" type="tns:varchar240">
+                    <xs:annotation>
+                        <xs:documentation></xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element  name="binNumberFrom" type="tns:number10">
+                    <xs:annotation>
+                        <xs:documentation></xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="binNumberTo" type="tns:number10">
+                    <xs:annotation>
+                        <xs:documentation></xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+				<xs:element name="commisionRate" type="tns:number10">
+                    <xs:annotation>
+                        <xs:documentation></xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+				<xs:element name="comments" type="tns:varchar2160">
+                    <xs:annotation>
+                        <xs:documentation></xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="number10">
+        <xs:annotation>
+            <xs:documentation>This type can hold a number of digits count 10.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number2">
+        <xs:annotation>
+            <xs:documentation>This type can hold a number of digits count 2.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number1">
+        <xs:annotation>
+            <xs:documentation>This type can hold a number of digits count 1.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number3">
+        <xs:annotation>
+            <xs:documentation>This type can hold a number of digits count 3.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+     <xs:simpleType name="number4">
+        <xs:annotation>
+            <xs:documentation>This type can hold a number of digits count 4.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar225">
+        <xs:annotation>
+            <xs:documentation>This type can hold a string of max length of 25 characters.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar22">
+        <xs:annotation>
+            <xs:documentation>This type can hold a string of max length of 2 characters.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar23">
+        <xs:annotation>
+            <xs:documentation>This type can hold a string of max length of 3 characters.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar24">
+        <xs:annotation>
+            <xs:documentation>This type can hold a string of max length of 4 characters.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+     <xs:simpleType name="varchar210">
+        <xs:annotation>
+            <xs:documentation>This type can hold a string of max length of 4 characters.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar230">
+        <xs:annotation>
+            <xs:documentation>This type can hold a string of max length of 30 characters.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="30"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2160">
+        <xs:annotation>
+            <xs:documentation>This type can hold a string of max length of 160 characters.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="160"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2120">
+        <xs:annotation>
+            <xs:documentation>This type can hold a string of max length of 120 characters.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="120"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2640">
+        <xs:annotation>
+            <xs:documentation>This type can hold a string of max length of 640 characters.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="640"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="varchar240">
+        <xs:annotation>
+            <xs:documentation>This type can hold a string of max length of 40 characters.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="40"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21000">
+        <xs:annotation>
+            <xs:documentation>This type can hold a string of max length of 1000 characters.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1000"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number20_4">
+        <xs:annotation>
+            <xs:documentation>This type can hold a number of digits count 20 and fraction digit count of 4.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="20"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number6">
+        <xs:annotation>
+            <xs:documentation>This type can hold a number of digits count 6.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

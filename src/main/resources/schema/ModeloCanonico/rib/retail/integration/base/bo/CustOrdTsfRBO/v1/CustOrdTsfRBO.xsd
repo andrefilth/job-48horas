@@ -1,0 +1,395 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/CustOrdTsfRBO/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/CustOrdTsfRBO/v1" xmlns:CustOrdTsfDtlRBO="http://www.oracle.com/retail/integration/base/bo/CustOrdTsfDtlRBO/v1" xmlns:LocOfCustOrdTsfRBO="http://www.oracle.com/retail/integration/base/bo/LocOfCustOrdTsfRBO/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<retailDoc:annotation>
+		<retailDoc:documentation>This object holds customer order information.
+		</retailDoc:documentation>
+	</retailDoc:annotation>	
+	<xs:import namespace="http://www.oracle.com/retail/integration/base/bo/LocOfCustOrdTsfRBO/v1" schemaLocation="../../LocOfCustOrdTsfRBO/v1/LocOfCustOrdTsfRBO.xsd">
+		<retailDoc:annotation>
+			<retailDoc:documentation>It's a referenced element. For detailed
+				description, please refer referenced element doc.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+	</xs:import>
+	<xs:import namespace="http://www.oracle.com/retail/integration/base/bo/CustOrdTsfDtlRBO/v1" schemaLocation="../../CustOrdTsfDtlRBO/v1/CustOrdTsfDtlRBO.xsd">
+		<retailDoc:annotation>
+			<retailDoc:documentation>It's a referenced element. For detailed
+				description, please refer referenced element doc.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+	</xs:import>
+	<xs:element name="CustOrdTsfRBO">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This object holds customer order information.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="cust_ord_number" type="varchar214">
+					<retailDoc:annotation>
+						<retailDoc:documentation> This will contain the customer order number 
+							from the external COM system. It maps to RMS's tsfhead.ext_ref_no.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="tsf_no" type="number10">
+					<retailDoc:annotation>
+						<retailDoc:documentation> This will contain the RMS transfer number
+                                          generated for the customer order from the external COM system.
+                                          It maps to RMS's tsfhead.tsf_no.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element name="from_loc" type="number10">
+					<retailDoc:annotation>
+						<retailDoc:documentation> This will contain the location 
+							that the stock will be sourced from.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element name="from_loc_type" type="varchar21">
+					<retailDoc:annotation>
+						<retailDoc:documentation> This will contain the location type 
+							of the from location.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element name="to_loc" type="number10">
+					<retailDoc:annotation>
+						<retailDoc:documentation> This will contain the location that 
+							the stock will be transferred to.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element name="to_loc_type" type="varchar21">
+					<retailDoc:annotation>
+						<retailDoc:documentation> This will contain the location type 
+							of the to location.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element name="customer_id" type="varchar210">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the code which uniquely identifies the customer.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="customer_name" type="varchar2120">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the name of the customer.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="customer_add_1" type="varchar2240">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the street address at which the customer is located.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="customer_add_2" type="varchar2240">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains an optional second line for the street address at 
+							which the customer is located.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="customer_add_3" type="varchar2240">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains an optional third line for the street address at 
+							which the customer is located.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="customer_add_4" type="varchar2240">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains an optional fourth line for the street address at 
+							which the customer is located.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="customer_add_5" type="varchar2240">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains an optional fifth line for the street address at 
+							which the customer is located.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="customer_city" type="varchar2120">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the city in which the customer is located.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="customer_state_province" type="varchar23">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the state or province in which the customer is located.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="customer_country_id" type="varchar23">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the country in which the customer is located.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="customer_post" type="varchar230">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the postal code for the location in which the 
+							customer is located.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="customer_day_phone" type="varchar220">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the daytime telephone number for the customer.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="customer_eve_phone" type="varchar220">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the evening telephone number for the customer.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="ship_to_name" type="varchar2120">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the name of the person to whom the customer order is
+							delivered.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="ship_to_add_1" type="varchar2240">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the delivery street address.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="ship_to_add_2" type="varchar2240">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains an optional second line for the delivery street address.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="ship_to_add_3" type="varchar2240">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains an optional third line for the delivery street address.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="ship_to_add_4" type="varchar2240">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains an optional fourth line for the delivery street address.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="ship_to_add_5" type="varchar2240">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains an optional fifth line for the delivery street address.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="ship_to_city" type="varchar2120">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the city in which the customer order will be delivered.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="ship_to_state_province" type="varchar23">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the state or province in which the customer order will be delivered.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="ship_to_country_id" type="varchar23">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the country in which the customer order will be delivered.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="ship_to_post" type="varchar230">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the postal code for which the customer order will be delivered.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="ship_to_day_phone" type="varchar220">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the daytime telephone number of the person to whom the 
+							customer order is delivered.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="ship_to_eve_phone" type="varchar220">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Contains the evening telephone number of the person to whom the
+							customer order is delivered.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>				
+				<xs:element minOccurs="0" name="delivery_type" type="varchar21">
+					<retailDoc:annotation>
+						<retailDoc:documentation>This field contains the type of delivery. Valid values are 'S'
+                                          for ship direct, 'C' for customer pickup. 
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="delivery_date" type="xs:dateTime">
+					<retailDoc:annotation>
+						<retailDoc:documentation> This will contain the delivery date of the transfer.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="schedule_dc_date" type="xs:dateTime">
+					<retailDoc:annotation>
+						<retailDoc:documentation> This will contain the date when the transfer is
+							scheduled to be shipped out.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="carrier" type="varchar24">
+					<retailDoc:annotation>
+						<retailDoc:documentation> This will contain carrier information of the transfer.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="delivery_charge" type="number20_4">
+					<retailDoc:annotation>
+						<retailDoc:documentation> This will will contain the delivery charge amount.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="delivery_charge_curr" type="varchar23">
+					<retailDoc:annotation>
+						<retailDoc:documentation> This will will contain the currency of the 
+							delivery charge value.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>				
+				<xs:element maxOccurs="unbounded" minOccurs="0" ref="CustOrdTsfDtlRBO:CustOrdTsfDtlRBO">
+					<retailDoc:annotation>
+						<retailDoc:documentation>It's a referenced element. For
+							detailed description, please refer referenced element doc.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element maxOccurs="unbounded" minOccurs="0" ref="LocOfCustOrdTsfRBO:LocOfCustOrdTsfRBO">
+					<retailDoc:annotation>
+						<retailDoc:documentation>Provide a localization hook to
+							customize CustOrdTsfRBO
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="varchar214">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max
+				length of 14 characters.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="14"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="number10">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a number of digits
+				count 10.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:long">
+			<xs:totalDigits value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="varchar21">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max
+				length of 1 character.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="varchar24">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max
+				length of 4 characters.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="varchar210">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max
+				length of 10 characters.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="varchar2120">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max
+				length of 120 characters.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="120"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="varchar2240">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max
+				length of 240 characters.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="240"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="varchar23">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max
+				length of 3 characters.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="varchar230">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max
+				length of 30 characters.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="30"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="varchar220">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max
+				length of 20 characters.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="number20_4">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a number of digits
+				count of 20 and decimal count of 4.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="20"/>
+			<xs:fractionDigits value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

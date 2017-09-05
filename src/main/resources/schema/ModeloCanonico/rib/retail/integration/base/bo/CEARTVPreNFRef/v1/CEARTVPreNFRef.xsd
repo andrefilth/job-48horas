@@ -1,0 +1,74 @@
+<xs:schema elementFormDefault="qualified"
+    targetNamespace="http://www.oracle.com/retail/integration/base/bo/CEARTVPreNFRef/v1"
+    version="1.0"
+    xmlns="http://www.oracle.com/retail/integration/base/bo/CEARTVPreNFRef/v1"
+    xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation> This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:element name="CEARTVPreNFRef">
+        <retailDoc:annotation>
+            <retailDoc:documentation> Description is not available. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="fiscal_doc_no" type="number15">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Numero do documento fiscal </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="series_no" type="varchar220">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Serie do documento fiscal </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>  
+                 <xs:element name="supplier" type="number8">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Codigo do fornecedor</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="access_key" type="varchar244">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Chave de Acesso da NF</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="number15">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a number of digits 
+				count 15. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="15"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar220">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 20 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number8">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a number of digits 
+				count 8. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="8"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar244">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 44 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="44"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

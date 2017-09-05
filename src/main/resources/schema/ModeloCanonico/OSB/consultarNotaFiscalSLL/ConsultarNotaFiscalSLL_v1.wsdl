@@ -1,0 +1,44 @@
+<definitions name="ConsultarNotaFiscalSLL_v1.wsdl" targetNamespace="http://www.cea.com.br/OSB/consultarNotaFiscalSLL/v1" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.cea.com.br/OSB/consultarNotaFiscalSLL/v1" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.cea.com.br/OSB/consultarNotaFiscalSLL/v1" schemaLocation="ConsultarNotaFiscalSLLEBS_v1.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</types>
+
+<!-- By ConsultarDadosNF -->
+	<message name="ConsultarDadosNFRequestMsg">
+		<part name="request" element="tns:ConsultarDadosNFRequest"/>
+	</message>
+	<message name="ConsultarDadosNFResponseMsg">
+		<part name="response" element="tns:ConsultarDadosNFResponse"/>
+	</message>
+	
+	<portType name="ConsultarNFPortType">
+		<operation name="consultarDadosNF">
+			<input message="tns:ConsultarDadosNFRequestMsg"/>
+			<output message="tns:ConsultarDadosNFResponseMsg"/>
+		</operation>
+	</portType>
+
+	<binding name="ConsultarNFBinding" type="tns:ConsultarNFPortType">
+		<soap12:binding transport="http://www.w3.org/2003/05/soap/bindings/HTTP/" style="document"/>
+		<operation name="consultarDadosNF">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+
+	<service name="ConsultarNFService">
+		<port name="ConsultarNFPort" binding="tns:ConsultarNFBinding">
+			<soap12:address location="http://localhost:7001/consultarNF"/>
+		</port>
+	</service>
+
+</definitions>

@@ -1,0 +1,1402 @@
+<wsdl:definitions targetNamespace="http://SLL/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://SLL/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+	
+	<wsdl:types>
+		<s:schema elementFormDefault="qualified" targetNamespace="http://SLL/">
+			<!-- s:import namespace="http://tempuri.org/dsEDI.xsd" / -->
+			<!-- s:import namespace="http://tempuri.org/dsSLL.xsd" / -->
+			<s:import schemaLocation="dsEDI.xsd" namespace="http://tempuri.org/dsEDI.xsd"/>
+			<s:import schemaLocation="dsSLL.xsd" namespace="http://tempuri.org/dsSLL.xsd"/>
+			<s:element name="ListarTiposNotas">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdIdi" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ListarTiposNotasResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="ListarTiposNotasResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ListarSituacaoNotas">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdIdi" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ListarSituacaoNotasResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="ListarSituacaoNotasResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="CadastrarNFOld">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="DSNF">
+							<s:complexType>
+								<s:sequence>
+									<!-- s:element ref="s:schema" / -->
+									<s:any/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdUsr" type="s:string"/>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdPais" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="CadastrarNFOldResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="CadastrarNFOldResult">
+							<s:complexType mixed="true">
+								<s:sequence>
+									<s:any/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="CadastrarNF">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="xmlNF">
+							<s:complexType mixed="true">
+								<s:sequence>
+									<s:any/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdUsr" type="s:string"/>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdPais" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="CadastrarNFResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="CadastrarNFResult">
+							<s:complexType mixed="true">
+								<s:sequence>
+									<s:any/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="CadastrarNFEDI">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="xmlNF">
+							<s:complexType mixed="true">
+								<s:sequence>
+									<s:any/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdFor" type="s:string"/>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdUsr" type="s:string"/>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdPais" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="CadastrarNFEDIResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="CadastrarNFEDIResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+								<s:attribute fixed="http://tempuri.org/dsEDI.xsd" name="namespace"/>
+								<s:attribute fixed="ValidaNFDataTable" name="tableTypeName"/>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="CadastrarNFRetorno">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="DSNFRet">
+							<s:complexType>
+								<s:sequence>
+									<s:any namespace="http://tempuri.org/dsSLL.xsd"/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdUsr" type="s:string"/>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdPais" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="CadastrarNFRetornoResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="CadastrarNFRetornoResult">
+							<s:complexType mixed="true">
+								<s:sequence>
+									<s:any/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="DadosNF">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="pNiNf" type="s:int"/>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdIdi" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="DadosNFResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="DadosNFResult">
+							<s:complexType>
+								<s:sequence>
+									<!-- s:element ref="s:schema" / -->
+									<s:any/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="LiberarNF">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="pNiNf" type="s:int"/>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdUsr" type="s:string"/>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdIdi" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="LiberarNFResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="LiberarNFResult">
+							<s:complexType mixed="true">
+								<s:sequence>
+									<s:any/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="VerificarNF">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="vNiNf" type="s:int"/>
+						<s:element minOccurs="1" maxOccurs="1" name="vCdFl" type="s:int"/>
+						<s:element minOccurs="0" maxOccurs="1" name="vCdFor" type="s:string"/>
+						<s:element minOccurs="1" maxOccurs="1" name="vNuNf" type="s:int"/>
+						<s:element minOccurs="0" maxOccurs="1" name="vNuFarSer" type="s:string"/>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdPais" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="VerificarNFResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="VerificarNFResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="CancelarNF">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="vNiNf" type="s:int"/>
+						<s:element minOccurs="1" maxOccurs="1" name="vClt" type="s:int"/>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdUsr" type="s:string"/>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdIdi" type="s:string"/>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdPais" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="CancelarNFResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="CancelarNFResult">
+							<s:complexType mixed="true">
+								<s:sequence>
+									<s:any/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="PesquisarNF">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="pNuNf" type="s:int"/>
+						<s:element minOccurs="0" maxOccurs="1" name="pNuSerNf" type="s:string"/>
+						<s:element minOccurs="1" maxOccurs="1" name="pCdGruLoj" type="s:int"/>
+						<s:element minOccurs="1" maxOccurs="1" name="pCdFl" type="s:int"/>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdFor" type="s:string"/>
+						<s:element minOccurs="0" maxOccurs="1" name="pDtEmsIni" type="s:string"/>
+						<s:element minOccurs="0" maxOccurs="1" name="pDtEmsFim" type="s:string"/>
+						<s:element minOccurs="0" maxOccurs="1" name="pDtRecIni" type="s:string"/>
+						<s:element minOccurs="0" maxOccurs="1" name="pDtRecFim" type="s:string"/>
+						<s:element minOccurs="1" maxOccurs="1" name="pNuPedIni" type="s:int"/>
+						<s:element minOccurs="1" maxOccurs="1" name="pNuPedFim" type="s:int"/>
+						<s:element minOccurs="1" maxOccurs="1" name="pTipNf" type="s:int"/>
+						<s:element minOccurs="1" maxOccurs="1" name="pSitNf" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="PesquisarNFResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="PesquisarNFResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ConsultaSerial">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="pNuSer" type="s:string"/>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdIdi" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ConsultaSerialResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="ConsultaSerialResult">
+							<s:complexType>
+								<s:sequence>
+									<!-- s:element ref="s:schema" / -->
+									<s:any/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ListarMotivosSaidas">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdIdi" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ListarMotivosSaidasResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="ListarMotivosSaidasResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ConsultaColetaAjuste">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="pCdFl" type="s:int"/>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdIdi" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ConsultaColetaAjusteResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="ConsultaColetaAjusteResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AjustarSerial">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="DSSer">
+							<s:complexType>
+								<s:sequence>
+									<!--  s:element ref="s:schema" / -->
+									<s:any/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="AjustarSerialResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="AjustarSerialResult">
+							<s:complexType mixed="true">
+								<s:sequence>
+									<s:any/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ProcessaSeriaisRetorno">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="pXmlRet">
+							<s:complexType mixed="true">
+								<s:sequence>
+									<s:any/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+						<s:element minOccurs="1" maxOccurs="1" name="pCdFl" type="s:int"/>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdFor" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ProcessaSeriaisRetornoResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="ProcessaSeriaisRetornoResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+								<s:attribute fixed="http://tempuri.org/dsSLL.xsd" name="namespace"/>
+								<s:attribute fixed="RetornoDataTable" name="tableTypeName"/>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ProcessaSeriaisRetornoSCE">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="dtSer">
+							<s:complexType>
+								<s:sequence>
+									<s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ProcessaSeriaisRetornoSCEResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="ProcessaSeriaisRetornoSCEResult">
+							<s:complexType>
+								<s:sequence>
+									<s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax"/>
+									<s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax"/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="GeraCargaOff">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="numNF" type="tns:ArrayOfAnyType"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="ArrayOfAnyType">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="GeraCargaOffResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="GeraCargaOffResult">
+							<s:complexType mixed="true">
+								<s:sequence>
+									<s:any/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ValidaSeriaisOff">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="xmlSeriais">
+							<s:complexType mixed="true">
+								<s:sequence>
+									<s:any/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+						<s:element minOccurs="0" maxOccurs="1" name="_origem" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="ValidaSeriaisOffResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="ValidaSeriaisOffResult">
+							<s:complexType mixed="true">
+								<s:sequence>
+									<s:any/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="CorrigeMov">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="pDs">
+							<s:complexType>
+								<s:sequence>
+									<!-- s:element ref="s:schema" / -->
+									<s:any/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdIdi" type="s:string"/>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdPais" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="CorrigeMovResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="CorrigeMovResult" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="CriaNumeroFaturaMX">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="loja" type="s:int"/>
+						<s:element minOccurs="1" maxOccurs="1" name="tipoDoc" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="CriaNumeroFaturaMXResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="CriaNumeroFaturaMXResult" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="CadastrarNFMX">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="DSNF">
+							<s:complexType>
+								<s:sequence>
+									<!-- s:element ref="s:schema" / -->
+									<s:any/>
+								</s:sequence>
+							</s:complexType>
+						</s:element>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdUsr" type="s:string"/>
+						<s:element minOccurs="0" maxOccurs="1" name="strUICultura" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:complexType name="ArrayOfString">
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string"/>
+				</s:sequence>
+			</s:complexType>
+			<s:element name="CadastrarNFMXResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="CadastrarNFMXResult" type="tns:ArrayOfString"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="VerificaNFMX">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="vCdFor" type="s:string"/>
+						<s:element minOccurs="0" maxOccurs="1" name="vCdFar" type="s:string"/>
+						<s:element minOccurs="1" maxOccurs="1" name="vCdFl" type="s:int"/>
+						<s:element minOccurs="1" maxOccurs="1" name="vNiNf" type="s:int"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="VerificaNFMXResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="VerificaNFMXResult" type="s:boolean"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="CancelarNFMX">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="vNiNf" type="s:int"/>
+						<s:element minOccurs="1" maxOccurs="1" name="vClt" type="s:int"/>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdUsr" type="s:string"/>
+						<s:element minOccurs="0" maxOccurs="1" name="cultura" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="CancelarNFMXResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="CancelarNFMXResult" type="tns:ArrayOfString"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="LiberarNFMX">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="1" maxOccurs="1" name="pNiNf" type="s:int"/>
+						<s:element minOccurs="1" maxOccurs="1" name="pNuRe" type="s:int"/>
+						<s:element minOccurs="0" maxOccurs="1" name="pCdUsr" type="s:string"/>
+						<s:element minOccurs="0" maxOccurs="1" name="culture" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+			<s:element name="LiberarNFMXResponse">
+				<s:complexType>
+					<s:sequence>
+						<s:element minOccurs="0" maxOccurs="1" name="LiberarNFMXResult" type="s:string"/>
+					</s:sequence>
+				</s:complexType>
+			</s:element>
+		</s:schema>
+	</wsdl:types>
+	<wsdl:message name="ListarTiposNotasSoapIn">
+		<wsdl:part name="parameters" element="tns:ListarTiposNotas"/>
+	</wsdl:message>
+	<wsdl:message name="ListarTiposNotasSoapOut">
+		<wsdl:part name="parameters" element="tns:ListarTiposNotasResponse"/>
+	</wsdl:message>
+	<wsdl:message name="ListarSituacaoNotasSoapIn">
+		<wsdl:part name="parameters" element="tns:ListarSituacaoNotas"/>
+	</wsdl:message>
+	<wsdl:message name="ListarSituacaoNotasSoapOut">
+		<wsdl:part name="parameters" element="tns:ListarSituacaoNotasResponse"/>
+	</wsdl:message>
+	<wsdl:message name="CadastrarNFOldSoapIn">
+		<wsdl:part name="parameters" element="tns:CadastrarNFOld"/>
+	</wsdl:message>
+	<wsdl:message name="CadastrarNFOldSoapOut">
+		<wsdl:part name="parameters" element="tns:CadastrarNFOldResponse"/>
+	</wsdl:message>
+	<wsdl:message name="CadastrarNFSoapIn">
+		<wsdl:part name="parameters" element="tns:CadastrarNF"/>
+	</wsdl:message>
+	<wsdl:message name="CadastrarNFSoapOut">
+		<wsdl:part name="parameters" element="tns:CadastrarNFResponse"/>
+	</wsdl:message>
+	<wsdl:message name="CadastrarNFEDISoapIn">
+		<wsdl:part name="parameters" element="tns:CadastrarNFEDI"/>
+	</wsdl:message>
+	<wsdl:message name="CadastrarNFEDISoapOut">
+		<wsdl:part name="parameters" element="tns:CadastrarNFEDIResponse"/>
+	</wsdl:message>
+	<wsdl:message name="CadastrarNFRetornoSoapIn">
+		<wsdl:part name="parameters" element="tns:CadastrarNFRetorno"/>
+	</wsdl:message>
+	<wsdl:message name="CadastrarNFRetornoSoapOut">
+		<wsdl:part name="parameters" element="tns:CadastrarNFRetornoResponse"/>
+	</wsdl:message>
+	<wsdl:message name="DadosNFSoapIn">
+		<wsdl:part name="parameters" element="tns:DadosNF"/>
+	</wsdl:message>
+	<wsdl:message name="DadosNFSoapOut">
+		<wsdl:part name="parameters" element="tns:DadosNFResponse"/>
+	</wsdl:message>
+	<wsdl:message name="LiberarNFSoapIn">
+		<wsdl:part name="parameters" element="tns:LiberarNF"/>
+	</wsdl:message>
+	<wsdl:message name="LiberarNFSoapOut">
+		<wsdl:part name="parameters" element="tns:LiberarNFResponse"/>
+	</wsdl:message>
+	<wsdl:message name="VerificarNFSoapIn">
+		<wsdl:part name="parameters" element="tns:VerificarNF"/>
+	</wsdl:message>
+	<wsdl:message name="VerificarNFSoapOut">
+		<wsdl:part name="parameters" element="tns:VerificarNFResponse"/>
+	</wsdl:message>
+	<wsdl:message name="CancelarNFSoapIn">
+		<wsdl:part name="parameters" element="tns:CancelarNF"/>
+	</wsdl:message>
+	<wsdl:message name="CancelarNFSoapOut">
+		<wsdl:part name="parameters" element="tns:CancelarNFResponse"/>
+	</wsdl:message>
+	<wsdl:message name="PesquisarNFSoapIn">
+		<wsdl:part name="parameters" element="tns:PesquisarNF"/>
+	</wsdl:message>
+	<wsdl:message name="PesquisarNFSoapOut">
+		<wsdl:part name="parameters" element="tns:PesquisarNFResponse"/>
+	</wsdl:message>
+	<wsdl:message name="ConsultaSerialSoapIn">
+		<wsdl:part name="parameters" element="tns:ConsultaSerial"/>
+	</wsdl:message>
+	<wsdl:message name="ConsultaSerialSoapOut">
+		<wsdl:part name="parameters" element="tns:ConsultaSerialResponse"/>
+	</wsdl:message>
+	<wsdl:message name="ListarMotivosSaidasSoapIn">
+		<wsdl:part name="parameters" element="tns:ListarMotivosSaidas"/>
+	</wsdl:message>
+	<wsdl:message name="ListarMotivosSaidasSoapOut">
+		<wsdl:part name="parameters" element="tns:ListarMotivosSaidasResponse"/>
+	</wsdl:message>
+	<wsdl:message name="ConsultaColetaAjusteSoapIn">
+		<wsdl:part name="parameters" element="tns:ConsultaColetaAjuste"/>
+	</wsdl:message>
+	<wsdl:message name="ConsultaColetaAjusteSoapOut">
+		<wsdl:part name="parameters" element="tns:ConsultaColetaAjusteResponse"/>
+	</wsdl:message>
+	<wsdl:message name="AjustarSerialSoapIn">
+		<wsdl:part name="parameters" element="tns:AjustarSerial"/>
+	</wsdl:message>
+	<wsdl:message name="AjustarSerialSoapOut">
+		<wsdl:part name="parameters" element="tns:AjustarSerialResponse"/>
+	</wsdl:message>
+	<wsdl:message name="ProcessaSeriaisRetornoSoapIn">
+		<wsdl:part name="parameters" element="tns:ProcessaSeriaisRetorno"/>
+	</wsdl:message>
+	<wsdl:message name="ProcessaSeriaisRetornoSoapOut">
+		<wsdl:part name="parameters" element="tns:ProcessaSeriaisRetornoResponse"/>
+	</wsdl:message>
+	<wsdl:message name="ProcessaSeriaisRetornoSCESoapIn">
+		<wsdl:part name="parameters" element="tns:ProcessaSeriaisRetornoSCE"/>
+	</wsdl:message>
+	<wsdl:message name="ProcessaSeriaisRetornoSCESoapOut">
+		<wsdl:part name="parameters" element="tns:ProcessaSeriaisRetornoSCEResponse"/>
+	</wsdl:message>
+	<wsdl:message name="GeraCargaOffSoapIn">
+		<wsdl:part name="parameters" element="tns:GeraCargaOff"/>
+	</wsdl:message>
+	<wsdl:message name="GeraCargaOffSoapOut">
+		<wsdl:part name="parameters" element="tns:GeraCargaOffResponse"/>
+	</wsdl:message>
+	<wsdl:message name="ValidaSeriaisOffSoapIn">
+		<wsdl:part name="parameters" element="tns:ValidaSeriaisOff"/>
+	</wsdl:message>
+	<wsdl:message name="ValidaSeriaisOffSoapOut">
+		<wsdl:part name="parameters" element="tns:ValidaSeriaisOffResponse"/>
+	</wsdl:message>
+	<wsdl:message name="CorrigeMovSoapIn">
+		<wsdl:part name="parameters" element="tns:CorrigeMov"/>
+	</wsdl:message>
+	<wsdl:message name="CorrigeMovSoapOut">
+		<wsdl:part name="parameters" element="tns:CorrigeMovResponse"/>
+	</wsdl:message>
+	<wsdl:message name="CriaNumeroFaturaMXSoapIn">
+		<wsdl:part name="parameters" element="tns:CriaNumeroFaturaMX"/>
+	</wsdl:message>
+	<wsdl:message name="CriaNumeroFaturaMXSoapOut">
+		<wsdl:part name="parameters" element="tns:CriaNumeroFaturaMXResponse"/>
+	</wsdl:message>
+	<wsdl:message name="CadastrarNFMXSoapIn">
+		<wsdl:part name="parameters" element="tns:CadastrarNFMX"/>
+	</wsdl:message>
+	<wsdl:message name="CadastrarNFMXSoapOut">
+		<wsdl:part name="parameters" element="tns:CadastrarNFMXResponse"/>
+	</wsdl:message>
+	<wsdl:message name="VerificaNFMXSoapIn">
+		<wsdl:part name="parameters" element="tns:VerificaNFMX"/>
+	</wsdl:message>
+	<wsdl:message name="VerificaNFMXSoapOut">
+		<wsdl:part name="parameters" element="tns:VerificaNFMXResponse"/>
+	</wsdl:message>
+	<wsdl:message name="CancelarNFMXSoapIn">
+		<wsdl:part name="parameters" element="tns:CancelarNFMX"/>
+	</wsdl:message>
+	<wsdl:message name="CancelarNFMXSoapOut">
+		<wsdl:part name="parameters" element="tns:CancelarNFMXResponse"/>
+	</wsdl:message>
+	<wsdl:message name="LiberarNFMXSoapIn">
+		<wsdl:part name="parameters" element="tns:LiberarNFMX"/>
+	</wsdl:message>
+	<wsdl:message name="LiberarNFMXSoapOut">
+		<wsdl:part name="parameters" element="tns:LiberarNFMXResponse"/>
+	</wsdl:message>
+	<wsdl:portType name="wsSLLSoap">
+		<wsdl:operation name="ListarTiposNotas">
+			<wsdl:documentation>
+				Lista os tipos de notas fiscais.
+			</wsdl:documentation>
+			<wsdl:input message="tns:ListarTiposNotasSoapIn"/>
+			<wsdl:output message="tns:ListarTiposNotasSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="ListarSituacaoNotas">
+			<wsdl:documentation>
+				Lista os tipos de notas fiscais.
+			</wsdl:documentation>
+			<wsdl:input message="tns:ListarSituacaoNotasSoapIn"/>
+			<wsdl:output message="tns:ListarSituacaoNotasSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="CadastrarNFOld">
+			<wsdl:documentation>
+				Cadastra nota fiscal no sistema.
+			</wsdl:documentation>
+			<wsdl:input message="tns:CadastrarNFOldSoapIn"/>
+			<wsdl:output message="tns:CadastrarNFOldSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="CadastrarNF">
+			<wsdl:documentation>
+				Cadastra nota fiscal no sistema.
+			</wsdl:documentation>
+			<wsdl:input message="tns:CadastrarNFSoapIn"/>
+			<wsdl:output message="tns:CadastrarNFSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="CadastrarNFEDI">
+			<wsdl:documentation>
+				Cadastra nota fiscal no sistema via EDI.
+			</wsdl:documentation>
+			<wsdl:input message="tns:CadastrarNFEDISoapIn"/>
+			<wsdl:output message="tns:CadastrarNFEDISoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="CadastrarNFRetorno">
+			<wsdl:documentation>
+				Cadastra nota de retorno de conserto fiscal no sistema.
+			</wsdl:documentation>
+			<wsdl:input message="tns:CadastrarNFRetornoSoapIn"/>
+			<wsdl:output message="tns:CadastrarNFRetornoSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="DadosNF">
+			<wsdl:documentation>
+				Busca todos os dados da nota fiscal.
+			</wsdl:documentation>
+			<wsdl:input message="tns:DadosNFSoapIn"/>
+			<wsdl:output message="tns:DadosNFSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="LiberarNF">
+			<wsdl:documentation>
+				Liberar nota fiscal para recebimento.
+			</wsdl:documentation>
+			<wsdl:input message="tns:LiberarNFSoapIn"/>
+			<wsdl:output message="tns:LiberarNFSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="VerificarNF">
+			<wsdl:documentation>
+				Verifica se a nota fiscal já está cadastrada no sistema.
+			</wsdl:documentation>
+			<wsdl:input message="tns:VerificarNFSoapIn"/>
+			<wsdl:output message="tns:VerificarNFSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="CancelarNF">
+			<wsdl:documentation>
+				Cancela nota fiscal.
+			</wsdl:documentation>
+			<wsdl:input message="tns:CancelarNFSoapIn"/>
+			<wsdl:output message="tns:CancelarNFSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="PesquisarNF">
+			<wsdl:documentation>
+				Pesquisar notas fiscais.
+			</wsdl:documentation>
+			<wsdl:input message="tns:PesquisarNFSoapIn"/>
+			<wsdl:output message="tns:PesquisarNFSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="ConsultaSerial">
+			<wsdl:documentation>
+				Busca todos os dados do serial.
+			</wsdl:documentation>
+			<wsdl:input message="tns:ConsultaSerialSoapIn"/>
+			<wsdl:output message="tns:ConsultaSerialSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="ListarMotivosSaidas">
+			<wsdl:documentation>
+				Lista os motivos de saida/ajuste.
+			</wsdl:documentation>
+			<wsdl:input message="tns:ListarMotivosSaidasSoapIn"/>
+			<wsdl:output message="tns:ListarMotivosSaidasSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="ConsultaColetaAjuste">
+			<wsdl:documentation>
+				Busca todos os seriais coletados para ajuste.
+			</wsdl:documentation>
+			<wsdl:input message="tns:ConsultaColetaAjusteSoapIn"/>
+			<wsdl:output message="tns:ConsultaColetaAjusteSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="AjustarSerial">
+			<wsdl:documentation>
+				Ajusta seriais selecionados para ajuste.
+			</wsdl:documentation>
+			<wsdl:input message="tns:AjustarSerialSoapIn"/>
+			<wsdl:output message="tns:AjustarSerialSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="ProcessaSeriaisRetorno">
+			<wsdl:documentation>
+				Processa Seriais de Retorno.
+			</wsdl:documentation>
+			<wsdl:input message="tns:ProcessaSeriaisRetornoSoapIn"/>
+			<wsdl:output message="tns:ProcessaSeriaisRetornoSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="ProcessaSeriaisRetornoSCE">
+			<wsdl:documentation>
+				Processa Seriais de Retorno SCE.
+			</wsdl:documentation>
+			<wsdl:input message="tns:ProcessaSeriaisRetornoSCESoapIn"/>
+			<wsdl:output message="tns:ProcessaSeriaisRetornoSCESoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="GeraCargaOff">
+			<wsdl:documentation>
+				Recebe array de notas fiscais para geração de carga de
+				arquivo.
+			</wsdl:documentation>
+			<wsdl:input message="tns:GeraCargaOffSoapIn"/>
+			<wsdl:output message="tns:GeraCargaOffSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="ValidaSeriaisOff">
+			<wsdl:documentation>
+				Consolida seriais recebidos pela carga off.
+			</wsdl:documentation>
+			<wsdl:input message="tns:ValidaSeriaisOffSoapIn"/>
+			<wsdl:output message="tns:ValidaSeriaisOffSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="CorrigeMov">
+			<wsdl:documentation>
+				Corrige Mov.
+			</wsdl:documentation>
+			<wsdl:input message="tns:CorrigeMovSoapIn"/>
+			<wsdl:output message="tns:CorrigeMovSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="CriaNumeroFaturaMX">
+			<wsdl:documentation>
+				Criação de Número de Fatura(México)
+			</wsdl:documentation>
+			<wsdl:input message="tns:CriaNumeroFaturaMXSoapIn"/>
+			<wsdl:output message="tns:CriaNumeroFaturaMXSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="CadastrarNFMX">
+			<wsdl:documentation>
+				Cadastro de Fatura(México)
+			</wsdl:documentation>
+			<wsdl:input message="tns:CadastrarNFMXSoapIn"/>
+			<wsdl:output message="tns:CadastrarNFMXSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="VerificaNFMX">
+			<wsdl:documentation>
+				Verifica existência de Factura
+			</wsdl:documentation>
+			<wsdl:input message="tns:VerificaNFMXSoapIn"/>
+			<wsdl:output message="tns:VerificaNFMXSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="CancelarNFMX">
+			<wsdl:documentation>
+				Cancela nota fiscal.
+			</wsdl:documentation>
+			<wsdl:input message="tns:CancelarNFMXSoapIn"/>
+			<wsdl:output message="tns:CancelarNFMXSoapOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="LiberarNFMX">
+			<wsdl:documentation>
+				Libera nota fiscal para recebimento.
+			</wsdl:documentation>
+			<wsdl:input message="tns:LiberarNFMXSoapIn"/>
+			<wsdl:output message="tns:LiberarNFMXSoapOut"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="wsSLLSoap" type="tns:wsSLLSoap">
+		<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="ListarTiposNotas">
+			<soap:operation soapAction="http://SLL/ListarTiposNotas" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ListarSituacaoNotas">
+			<soap:operation soapAction="http://SLL/ListarSituacaoNotas" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CadastrarNFOld">
+			<soap:operation soapAction="http://SLL/CadastrarNFOld" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CadastrarNF">
+			<soap:operation soapAction="http://SLL/CadastrarNF" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CadastrarNFEDI">
+			<soap:operation soapAction="http://SLL/CadastrarNFEDI" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CadastrarNFRetorno">
+			<soap:operation soapAction="http://SLL/CadastrarNFRetorno" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DadosNF">
+			<soap:operation soapAction="http://SLL/DadosNF" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="LiberarNF">
+			<soap:operation soapAction="http://SLL/LiberarNF" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="VerificarNF">
+			<soap:operation soapAction="http://SLL/VerificarNF" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CancelarNF">
+			<soap:operation soapAction="http://SLL/CancelarNF" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="PesquisarNF">
+			<soap:operation soapAction="http://SLL/PesquisarNF" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ConsultaSerial">
+			<soap:operation soapAction="http://SLL/ConsultaSerial" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ListarMotivosSaidas">
+			<soap:operation soapAction="http://SLL/ListarMotivosSaidas" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ConsultaColetaAjuste">
+			<soap:operation soapAction="http://SLL/ConsultaColetaAjuste" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AjustarSerial">
+			<soap:operation soapAction="http://SLL/AjustarSerial" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ProcessaSeriaisRetorno">
+			<soap:operation soapAction="http://SLL/ProcessaSeriaisRetorno" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ProcessaSeriaisRetornoSCE">
+			<soap:operation soapAction="http://SLL/ProcessaSeriaisRetornoSCE" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GeraCargaOff">
+			<soap:operation soapAction="http://SLL/GeraCargaOff" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ValidaSeriaisOff">
+			<soap:operation soapAction="http://SLL/ValidaSeriaisOff" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CorrigeMov">
+			<soap:operation soapAction="http://SLL/CorrigeMov" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CriaNumeroFaturaMX">
+			<soap:operation soapAction="http://SLL/CriaNumeroFaturaMX" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CadastrarNFMX">
+			<soap:operation soapAction="http://SLL/CadastrarNFMX" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="VerificaNFMX">
+			<soap:operation soapAction="http://SLL/VerificaNFMX" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CancelarNFMX">
+			<soap:operation soapAction="http://SLL/CancelarNFMX" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="LiberarNFMX">
+			<soap:operation soapAction="http://SLL/LiberarNFMX" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:binding name="wsSLLSoap12" type="tns:wsSLLSoap">
+		<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="ListarTiposNotas">
+			<soap12:operation soapAction="http://SLL/ListarTiposNotas" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ListarSituacaoNotas">
+			<soap12:operation soapAction="http://SLL/ListarSituacaoNotas" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CadastrarNFOld">
+			<soap12:operation soapAction="http://SLL/CadastrarNFOld" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CadastrarNF">
+			<soap12:operation soapAction="http://SLL/CadastrarNF" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CadastrarNFEDI">
+			<soap12:operation soapAction="http://SLL/CadastrarNFEDI" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CadastrarNFRetorno">
+			<soap12:operation soapAction="http://SLL/CadastrarNFRetorno" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="DadosNF">
+			<soap12:operation soapAction="http://SLL/DadosNF" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="LiberarNF">
+			<soap12:operation soapAction="http://SLL/LiberarNF" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="VerificarNF">
+			<soap12:operation soapAction="http://SLL/VerificarNF" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CancelarNF">
+			<soap12:operation soapAction="http://SLL/CancelarNF" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="PesquisarNF">
+			<soap12:operation soapAction="http://SLL/PesquisarNF" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ConsultaSerial">
+			<soap12:operation soapAction="http://SLL/ConsultaSerial" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ListarMotivosSaidas">
+			<soap12:operation soapAction="http://SLL/ListarMotivosSaidas" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ConsultaColetaAjuste">
+			<soap12:operation soapAction="http://SLL/ConsultaColetaAjuste" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="AjustarSerial">
+			<soap12:operation soapAction="http://SLL/AjustarSerial" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ProcessaSeriaisRetorno">
+			<soap12:operation soapAction="http://SLL/ProcessaSeriaisRetorno" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ProcessaSeriaisRetornoSCE">
+			<soap12:operation soapAction="http://SLL/ProcessaSeriaisRetornoSCE" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="GeraCargaOff">
+			<soap12:operation soapAction="http://SLL/GeraCargaOff" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="ValidaSeriaisOff">
+			<soap12:operation soapAction="http://SLL/ValidaSeriaisOff" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CorrigeMov">
+			<soap12:operation soapAction="http://SLL/CorrigeMov" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CriaNumeroFaturaMX">
+			<soap12:operation soapAction="http://SLL/CriaNumeroFaturaMX" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CadastrarNFMX">
+			<soap12:operation soapAction="http://SLL/CadastrarNFMX" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="VerificaNFMX">
+			<soap12:operation soapAction="http://SLL/VerificaNFMX" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CancelarNFMX">
+			<soap12:operation soapAction="http://SLL/CancelarNFMX" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="LiberarNFMX">
+			<soap12:operation soapAction="http://SLL/LiberarNFMX" style="document"/>
+			<wsdl:input>
+				<soap12:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap12:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="wsSLL">
+		<wsdl:port name="wsSLLSoap" binding="tns:wsSLLSoap">
+			<soap:address location="http://sllhomo/wssll.asmx"/>
+		</wsdl:port>
+		<wsdl:port name="wsSLLSoap12" binding="tns:wsSLLSoap12">
+			<soap12:address location="http://sllhomo/wssll.asmx"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

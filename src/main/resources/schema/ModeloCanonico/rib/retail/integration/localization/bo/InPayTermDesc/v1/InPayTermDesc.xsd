@@ -1,0 +1,31 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/localization/bo/InPayTermDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/localization/bo/InPayTermDesc/v1" xmlns:EOfInPayTermDesc="http://www.oracle.com/retail/integration/custom/bo/EOfInPayTermDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/EOfInPayTermDesc/v1" schemaLocation="../../../../custom/bo/EOfInPayTermDesc/v1/EOfInPayTermDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+	<xs:element name="InPayTermDtl">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfInPayTermDesc:EOfInPayTermDtl">
+               		<retailDoc:annotation>
+                 		<retailDoc:documentation>Provide an extension hook to customize PayTermDtl
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="InPayTermDesc">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfInPayTermDesc:EOfInPayTermDesc">
+               		<retailDoc:annotation>
+                 		<retailDoc:documentation>Provide an extension hook to customize PayTermDesc
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,561 @@
+<xs:schema elementFormDefault="qualified"
+    targetNamespace="http://www.oracle.com/retail/integration/base/bo/CEAApptDesc/v1"
+    version="1.0"
+    xmlns="http://www.oracle.com/retail/integration/base/bo/CEAApptDesc/v1"
+    xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which 
+			contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:element name="CEAApptDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Root element for appointment.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="dc_dest_id" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>A unique identifier for the warehouse.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="appt_nbr" type="number9">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Unique identifier for receiving a group of items.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="creation_ts" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>A timestamp representing the moment at which a data record is created
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="appt_start_ts" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>A timestamp representing the scheduled starting time and date of an appointment.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="user_est_duration" type="number3_1">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The amount of time (in hours) that a WMS user estimates will be required for an activity.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="appt_end_ts" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>A timestamp representing the scheduled ending date and time of an appointment
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="trailer_id" type="varchar212">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>A value which uniquely identifies a trailer.  May combine the carrier code of the trailer owner and the number displayed on the trailer.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="delivery_mode" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>A value which indicates the delivery mode of trailer that is scheduled for unloading. It may take one the following values 'C' - Cabide, 'D' - Dobrado.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="seal_nbr" type="varchar212">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Seal number of a trailer, specific for each load/manifest (either incoming or outgoing).
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="door_id" type="varchar212">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Receiving door identifier.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="appt_status" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Status of the Appointment.  Default 'SCHD'.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="user_id" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>User Identification
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="carrier_code" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>A code which uniquely identifies a carrier.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="asn_flag" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>A flag to indicate ASN appointment Y/N values.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="transshipment_flag" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates if the appointment is a from a transshipment.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="transshipment_nbr" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The number of the transshipment for this appointment.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="quarantine_xdock" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates whether the Quarantine WIP code may be applied to xdock cartons
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="perform_qa" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates whether QA is to be performed on the appointment. Default 'N'.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="perform_va" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates whether VA is to be performed on the appointment. Default 'N'.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="nsc_flag" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates whether the appointment is to be received via NSC receiving. Default 'N'.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="asset_confirm" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Asset Confirmation. 'START', 'DURING', 'END'
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="std_appt_id" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Not Used By RWMS.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="load_type" type="varchar220">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Load Type. 'RD' - Recebimento Dobrado, 'RC' - Recebimento em Cabide
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="labeled_receiving" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates if the reciving is labeled. Default 'Y'.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="schd_nbr" type="number8">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Fiscal Schedule Number from ORFM.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="appt_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates whether the appointment is a 3 - PO, 4 - ASN.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" ref="CEAApptAsnDtl">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates ASN information if appt_type = 4.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="CEAApptDtl">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Detail information for appt_type = 3.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="CEAApptAsnDtl">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Indicates ASN information if ApptDesc.appt_type = 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="asn_nbr" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Advance ship notice number
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="asn_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>ASN type to receive. 'C' = container,'P' = PO and 'T' = external finisher transfer or MLD allocation.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="container_qty" type="number6">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Number of containers of this unit.  Will be 1 normally, but greater than 1 to represent unlabeled containers. E.g. unit_qty= 100, container qty= 10 means 10 unlabeled 
+						(not in the container table) containers of casepack 10.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="unload_hours" type="number4_1">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The number of hours which the systems estimates would be required to unload 
+						( in receiving) the associated item. Default 0</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bol_nbr" type="varchar217">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The bill of lading number on the asn.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="system_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Flag to indicate if the ASN information was downloaded and therefore cannot be modified/deleted. Default N.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="edi_compliant" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Flag to indicate if the ASN information is to adhere to EDI standards. Default N.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>				
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="CEAApptAsnItem">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Detail information for appt_type = 4.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CEAApptAsnItem">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Detail information for ApptDesc.appt_type = 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="po_nbr" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Unique Purchase Order identifier or MLD Allocation number.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="distro_nbr" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>A number which uniquely identifies a distribution order. Default 'NONE'.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="dest_id" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>A number which uniquely identifies a destination to which the DC delivers goods
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="item_id" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Uniquely identifies the item.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="unit_qty" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Number of individual units.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ticket_type" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>A code that indicates the merchandise ticketing format. (Values defined in customer-generated 
+						documentation).</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="retail_price" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The retail selling price for a particular item allocated to a particular store
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="in_store_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>When this item is to be in the store.  Display only if non mld, used for long term 
+						and hold buffer processing if mld = 'Y'.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>			
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CEAApptDtl">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Detail information for ApptDesc.appt_type = 3.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="appt_line" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Appointment Line Item numbers; a number that is unique to a PO Line/casepack combination in an appointment, so each Appt Detail records in an appointment will have a different appt_line.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="po_nbr" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Unique Purchase Order identifier or MLD Allocation number.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="item_id" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Uniquely identifies the item.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="casepack" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The casepack quantity of an item (number of selling units in an individual container).
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="apptd_container_qty" type="number6">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Appointed # of containers to be received by appointment.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="unload_hours" type="number4_1">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The number of hours which the systems estimates would be required to unload ( in receiving) the associated item.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bulk_flag" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>A flag that indicates that merchandise should be handled in bulk form. Default 'N'
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="apptd_unit_qty" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Appointed # of units to be received by appointment.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="detail_source" type="varchar215">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Keeps track of the source where the detail was created. Default 'SRF'.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="qa_fpr" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicator as to whether the appointment line is marked for QA. Default 'N'.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="va_fpr" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicator as to whether the appointment line is marked for VA. Default 'N'.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar22">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length 
+				of 2 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number20_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 20 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="20"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number12_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 12 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar210">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length 
+				of 10 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar215">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length 
+				of 15 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="15"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar225">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length 
+				of 25 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar217">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length 
+				of 17 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="17"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="number9">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits 
+				count 9.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="9"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits 
+				count 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number4_1">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 4 and fraction digit count of 1.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="4"/>
+            <xs:fractionDigits value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="number3_1">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 3 and fraction digit count of 1.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="3"/>
+            <xs:fractionDigits value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar212">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length 
+				of 12 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="12"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length 
+				of 1 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="varchar24">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length 
+				of 4 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="varchar230">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length 
+				of 30 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="30"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number3">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits 
+				count 3.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number6">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits 
+				count 6.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="number8">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits 
+				count 8.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="8"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="varchar220">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length 
+				of 20 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="number10">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits 
+				count 10.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+	    <xs:simpleType name="varchar26">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length 
+				of 6 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

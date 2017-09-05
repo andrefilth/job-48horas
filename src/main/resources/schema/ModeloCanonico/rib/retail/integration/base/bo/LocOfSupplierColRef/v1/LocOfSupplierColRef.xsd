@@ -1,0 +1,32 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/LocOfSupplierColRef/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/LocOfSupplierColRef/v1" xmlns:BrSupplierColRef="http://www.oracle.com/retail/integration/localization/bo/BrSupplierColRef/v1" xmlns:InSupplierColRef="http://www.oracle.com/retail/integration/localization/bo/InSupplierColRef/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/localization/bo/InSupplierColRef/v1" schemaLocation="../../../../localization/bo/InSupplierColRef/v1/InSupplierColRef.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+	<xs:import namespace="http://www.oracle.com/retail/integration/localization/bo/BrSupplierColRef/v1" schemaLocation="../../../../localization/bo/BrSupplierColRef/v1/BrSupplierColRef.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+	<xs:element name="LocOfSupplierColRef">
+        <xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="InSupplierColRef:InSupplierColRef">
+                   <retailDoc:annotation>
+	                	<retailDoc:documentation>India Localization.</retailDoc:documentation>
+                   </retailDoc:annotation>
+            	</xs:element>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="BrSupplierColRef:BrSupplierColRef">
+                   <retailDoc:annotation>
+	                	<retailDoc:documentation>Brazil Localization.</retailDoc:documentation>
+                   </retailDoc:annotation>
+            	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

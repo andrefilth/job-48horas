@@ -1,0 +1,123 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/POScheduleDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/POScheduleDesc/v1" xmlns:ExtOfPOScheduleDesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfPOScheduleDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfPOScheduleDesc/v1" schemaLocation="../../../../custom/bo/ExtOfPOScheduleDesc/v1/ExtOfPOScheduleDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="POScheduleDtl">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Contains the POSchedule message detail information.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="item_id" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the Item Number.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="consolidate_qty" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the consolidated quantities of the item in PO.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="POSchedule">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Contains the POSchedule message information.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="requisition_nbr" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the PO number.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="requisition_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The requistion type will always be Purchase Order.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="POScheduleDtl">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the array of POSchedule Detail records.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="POScheduleDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Contains the POSchedule Header level information.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="schedule_nbr" type="number8">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the Inbound Schedule number created in RFM.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="physical_wh" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the Physical Warehouse number.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" ref="POSchedule">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Contains the array of POSchedule records.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" ref="ExtOfPOScheduleDesc:ExtOfPOScheduleDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="number12_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 12 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar225">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 25 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar210">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 10 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 1 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number8">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 8.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="8"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,85 @@
+<definitions targetNamespace="http://www.cea.com.br/EBO/CEA/ManterUsuarioServiceDesk/v1" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.cea.com.br/EBO/CEA/ManterUsuarioServiceDesk/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:usu="http://www.cea.com.br/EBO/CEA/v1" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns:ebo2="http://www.cea.com.br/EBO/CEA/v2">
+	<types>
+		<xsd:schema elementFormDefault="qualified" targetNamespace="http://www.cea.com.br/EBO/CEA/ManterUsuarioServiceDesk/v1">
+			<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="../../../../EBO/CeA/v1/sguhpsm/UsuarioServiceDeskTypeEBO_v1.xsd"/>
+			<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="../../../../EBO/CeA/v1/sguhpsm/UsuarioServiceDeskRespostaTypeEBO_v1.xsd"/>
+			<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v2" schemaLocation="../../../../EBO/CeA/v2/commons/MetaInformacaoEBO_v2.xsd"/>
+			<xsd:element name="criarUsuario">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element ref="usu:UsuarioServiceDeskType"/>
+						<xsd:element name="MetaInformacaoType" type="ebo2:MetaInformacaoType"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="atualizarUsuario">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element ref="usu:UsuarioServiceDeskType"/>
+						<xsd:element name="MetaInformacaoType" type="ebo2:MetaInformacaoType"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+	</types>
+
+	<!-- Mensagens -->
+	<message name="CriarUsuarioRequestMessage">
+		<part element="tns:criarUsuario" name="CriarUsuarioRequestPart"/>
+	</message>
+	<message name="CriarUsuarioResponseMessage">
+		<part element="ebo:UsuarioServiceDeskRespostaType" name="CriarUsuarioResponsePart"/>
+	</message>
+
+	<message name="AtualizarUsuarioRequestMessage">
+		<part element="tns:atualizarUsuario" name="AtualizarUsuarioRequestPart"/>
+	</message>
+	<message name="AtualizarUsuarioResponseMessage">
+		<part element="ebo:UsuarioServiceDeskRespostaType" name="AtualizarUsuarioResponsePart"/>
+	</message>
+
+	<!-- Port Type -->
+	<portType name="ManterUsuarioServiceDeskPortType">
+		<operation name="criarUsuario">
+			<documentation/>
+			<input message="tns:CriarUsuarioRequestMessage"/>
+			<output message="tns:CriarUsuarioResponseMessage"/>
+		</operation>
+		<operation name="atualizarUsuario">
+			<documentation/>
+			<input message="tns:AtualizarUsuarioRequestMessage"/>
+			<output message="tns:AtualizarUsuarioResponseMessage"/>
+		</operation>
+	</portType>
+
+	<!-- Binding -->
+	<binding name="ManterUsuarioServiceDeskBinding" type="tns:ManterUsuarioServiceDeskPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="criarUsuario">
+			<soap:operation soapAction="" style="document"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="atualizarUsuario">
+			<soap:operation soapAction="" style="document"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+
+	<!-- Serviço -->
+	<service name="ManterUsuarioService">
+		<port binding="tns:ManterUsuarioServiceDeskBinding" name="ManterUsuarioServiceDeskPort">
+			<soap:address location="http://localhost:7001/ManterUsuarioServiceDesk/v1"/>
+		</port>
+	</service>
+
+</definitions>

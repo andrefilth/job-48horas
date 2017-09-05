@@ -1,0 +1,509 @@
+<xs:schema elementFormDefault="qualified"
+    targetNamespace="http://www.oracle.com/retail/integration/base/bo/CEARTVPreNFDesc/v1"
+    version="1.0"
+    xmlns="http://www.oracle.com/retail/integration/base/bo/CEARTVPreNFDesc/v1"
+    xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation> This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:element name="CEARTVPreNFDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation> Description is not available. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="location_id" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Identificador do local (CD ou Loja)</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="location_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Tipo do local. 'S' Loja, 'W' Centro de Distribuicao. </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="fiscal_doc_no" type="number15">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Numero do documento fiscal </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="series_no" type="varchar220">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Serie do documento fiscal </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>  
+                 <xs:element minOccurs="0" name="subseries_no" type="varchar220">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Subserie do documento fiscal</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="type_id" type="number8">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Tipo do documento </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element> 
+                <xs:element name="requisition_type" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Tipo de requisicao. 'PO' - Pedido de Compra, 'TSF' - Transferencia</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="module" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Tipo do local emissor. 'SUPP' - Fornecedor 'LOC' - Filial </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="key_value_1" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Identificador do local emissor</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="key_value_2" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Location Type - 'S' - Loja - 'W' - Centro de Distribuicao</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="issue_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Data de emissao da NF</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="entry_or_exit_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Data de entrada ou saida do documento</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="exit_hour" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Hora de saida do documento</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="partner_type" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Tipo do Parceiro/Transportadora</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="partner_id" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Identificador do Parceiro/Transportadora</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="quantity" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Quantidade de itens na NF</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="unit_type" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Unidade de medida</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="freight_type" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicador do tipo de frete. 'CIF' = 1, 'FOB' = 2, Outros = 9</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="net_weight" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Peso Liquido</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="total_weight" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Peso Total</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="total_serv_value" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Valor total de Servicos</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="total_item_value" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Valor total dos itens</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="total_doc_value" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Valor total da NF</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="freight_cost" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Valor do Frete</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="insurance_cost" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Valor do seguro</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="other_expenses_cost" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Valor de outras despesas</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="discount_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Tipo do Desconto. 'P'ercentual ou 'V'alor</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="total_discount_value" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Valor do desconto</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="utilization_id" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Codigo da utilizacao</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="nf_cfop" type="varchar212">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CFOP da NF</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="nfe_access_key" type="varchar244">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Chave de Acesso da NF</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" ref="CEARTVPreNFTax">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Impostos do cabecalho da NF</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" ref="CEARTVPreNFDtl">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Itens da Nota</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CEARTVPreNFTax">
+        <xs:complexType>
+            <xs:sequence>
+				<xs:element name="vat_code" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Codigo do imposto. 'ICMS', 'ISS', 'IPI', etc</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="total_value" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Valor total do imposto</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="tax_basis" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Base de calculo do imposto</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CEARTVPreNFDtl">
+        <xs:complexType>
+            <xs:sequence>
+            	<xs:element name="location_id" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Identificador do local (CD ou Loja)</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            	<xs:element name="location_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Tipo do local. 'S' Loja, 'W' Centro de Distribuicao.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            	<xs:element name="line_no" type="number6">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Numero da linha da NF</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            	<xs:element minOccurs="0" name="requisition_no" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Codigo da requisicao. (Pedido de Compra ou transferencia)</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            	<xs:element minOccurs="0" name="item" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Codigo do Item</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            	<xs:element minOccurs="0" name="classification_id" type="varchar215">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>NCM do item</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            	<xs:element name="quantity" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Quantidade na linha do item</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            	<xs:element minOccurs="0" name="unit_cost" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Custo Unitario do item</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            	<xs:element minOccurs="0" name="total_cost" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Custo Total do item</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            	<xs:element minOccurs="0" name="freight_cost" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Custo do frete distribuido entre os itens</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            	<xs:element minOccurs="0" name="net_cost" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Custo Liquido (sem impostos).</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            	<xs:element minOccurs="0" name="discount_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Tipo do Desconto. 'P'ercentual ou 'V'alor</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            	<xs:element minOccurs="0" name="discount_value" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Valor do desconto</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            	<xs:element minOccurs="0" name="nf_cfop" type="varchar212">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>CFOP da linha da NF</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            	<xs:element minOccurs="0" name="pack_no" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Codigo do pack a que o item pertence</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            	<xs:element minOccurs="0" name="pack_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indica se o item e um pack ou não</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            	<xs:element minOccurs="0" name="icms_cst" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Codigo CST do ICMS</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            	<xs:element minOccurs="0" name="pis_cst" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Codigo CST do PIS</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            	<xs:element minOccurs="0" name="cofins_cst" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Codigo CST do COFINS</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            	<xs:element minOccurs="0" name="recoverable_base" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Base de calculo de ICMS-ST</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            	<xs:element minOccurs="0" name="recoverable_value" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Valor do ICMS-ST</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            	<xs:element minOccurs="0" name="vpn" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Codigo do produto do fornecedor</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            	<xs:element maxOccurs="unbounded" ref="CEARTVPreNFTaxDtl">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Impostos do item da NF</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CEARTVPreNFTaxDtl">
+        <xs:complexType>
+            <xs:sequence>
+				<xs:element name="vat_code" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Codigo do imposto. 'ICMS', 'ISS', 'IPI', etc</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="percentage_rate" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Percentual da aliquota do imposto</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="total_value" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Valor total do imposto para esta linha</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="tax_basis" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Base de calculo do imposto</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="tax_base_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Tipo de base de calculo do imposto. 'P'ercentual ou 'V'alor.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 1 character. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number10">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a number of digits 
+				count 10. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number15">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a number of digits 
+				count 15. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="15"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar220">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 20 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar215">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 15 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="15"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar225">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 25 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar23">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 3 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar230">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 30 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="30"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number6">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a number of digits 
+				count 6. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number8">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a number of digits 
+				count 8. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="8"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number20_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 20 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="20"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number12_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 12 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar26">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 6 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+     <xs:simpleType name="varchar24">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 4 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar244">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 44 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="44"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar212">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 12 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="12"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar210">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 10 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0" targetNamespace="http://www.cea.com.br/EBO/CEA/v1" xmlns:tns="http://www.cea.com.br/EBO/CEA/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  
+  <xs:element name="BusinessFault" type="tns:BusinessFaultType"/>
+  <xs:element name="EnvironmentConfigurationFault" type="tns:TechnicalFaultType"/>
+  <xs:element name="MensagemResposta" type="tns:MensagemRespostaType"/>
+  <xs:element name="TechnicalFault" type="tns:TechnicalFaultType"/>
+  <xs:complexType name="ManterAgendamentoFiscalDB2Type">
+    <xs:sequence>
+      <xs:element name="nuRqs" type="xs:string"/>
+      <xs:element name="nuDanfe" type="xs:string"/>
+      <xs:element name="cdTipRqs" type="xs:string"/>
+      <xs:element name="nuAgdFis" type="xs:int"/>
+      <xs:element name="dtIncReg" type="xs:anySimpleType"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TechnicalFaultType">
+    <xs:complexContent>
+      <xs:extension base="tns:FaultType">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FaultType">
+    <xs:sequence>
+      <xs:element name="host" type="xs:string"/>
+      <xs:element name="timestamp" type="xs:string"/>
+      <xs:element name="codigo" type="xs:string"/>
+      <xs:element name="mensagem" type="xs:string"/>
+      <xs:element name="instrucao" type="xs:string"/>
+      <xs:element name="detalhe" type="xs:string" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BusinessFaultType">
+    <xs:complexContent>
+      <xs:extension base="tns:FaultType">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MensagemRespostaType">
+    <xs:sequence>
+      <xs:element name="CodigoMensagem" type="xs:int" form="qualified"/>
+      <xs:element name="TextoMensagem" type="xs:string" form="qualified"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

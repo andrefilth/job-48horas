@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+	name="ConsultarSmart" targetNamespace="http://www.scua.com.br/consultarsmart/v1"
+	xmlns:tns="http://www.scua.com.br/consultarsmart/v1" xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<types>
+		<schema targetNamespace="http://www.scua.com.br/consultarsmart/v1"
+			xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema">
+			<xsd:element name="ConsultarSmartRequest">
+				<xsd:complexType>
+					<xsd:annotation>
+						<xsd:documentation>
+						<![CDATA[
+						- O número do smart é obrigatorio, sendo que deve ser inteiro.
+						]]>
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:sequence>
+						<xsd:element name="numero_smart" type="xsd:int"
+							minOccurs="1" maxOccurs="1" nillable="false" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="ConsultarSmartResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="status_processo" minOccurs="1"
+							maxOccurs="1" nillable="false">
+							<xsd:simpleType>
+								<xsd:annotation>
+									<xsd:documentation>
+										<![CDATA[
+										- Indica o status do processo do smart. Finalizado indica que o smart teve o processo concluido. 
+										]]>
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:restriction base="xsd:string">
+									<xsd:enumeration value="FINALIZADO" />
+									<xsd:enumeration value="NAO_FINALIZADO" />
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="status_homologacao" minOccurs="1"
+							maxOccurs="1" nillable="false">
+							<xsd:simpleType>
+								<xsd:annotation>
+									<xsd:documentation>
+									<![CDATA[
+									- Indica o status do smart, se esta homologado ou não. 
+									Todos os smarts que não possuem um processo de homologacao terão como resposta que esta homologado.  
+									]]>
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:restriction base="xsd:string">
+									<xsd:enumeration value="HOMOLOGADO" />
+									<xsd:enumeration value="NAO_HOMOLOGADO" />
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="tipo" minOccurs="1" maxOccurs="1"
+							nillable="false">
+							<xsd:simpleType>
+								<xsd:annotation>
+									<xsd:documentation>
+												<![CDATA[
+												- Retorna o tipo do smart
+												]]>
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:restriction base="xsd:string">
+									<xsd:enumeration value="INCIDENTES" />
+									<xsd:enumeration value="DEMANDA" />
+									<xsd:enumeration value="SERVICO" />
+									<xsd:enumeration value="SISTEMA" />
+								</xsd:restriction>
+							</xsd:simpleType>	
+						</xsd:element>
+						<xsd:element name="titulo" type="xsd:string"
+							minOccurs="1" maxOccurs="1" nillable="false" />
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="SmartNaoEncontradoFault">
+				<xsd:complexType>
+					<xsd:all>
+						<xsd:element name="errorMessage" type="xsd:string" />
+					</xsd:all>
+				</xsd:complexType>
+			</xsd:element>
+		</schema>
+	</types>
+
+	<message name="ConsultarSmartRequestMsg">
+		<part name="request" element="tns:ConsultarSmartRequest" />
+	</message>
+
+	<message name="ConsultarSmartResponseMsg">
+		<part name="response" element="tns:ConsultarSmartResponse" />
+	</message>
+
+	<message name="SmartNaoEncontradoFaultMsg">
+		<part name="SmartNaoEncontradoFault" element="tns:SmartNaoEncontradoFault" />
+	</message>
+
+	<portType name="ConsultarSmartPortType">
+
+		<operation name="consultarSmart">
+			<input message="tns:ConsultarSmartRequestMsg" />
+			<output message="tns:ConsultarSmartResponseMsg" />
+			<fault name="SmartNaoEncontradoFault" message="tns:SmartNaoEncontradoFaultMsg" />
+		</operation>
+	</portType>
+
+	<binding name="ConsultarSmartBinding" type="tns:ConsultarSmartPortType">
+		<soap12:binding transport="http://www.w3.org/2003/05/soap/bindings/HTTP/"
+			style="document" />
+		<operation name="consultarSmart">
+			<soap12:operation soapAction="" />
+			<input>
+				<soap12:body use="literal" />
+			</input>
+			<output>
+				<soap12:body use="literal" />
+			</output>
+			<fault name="SmartNaoEncontradoFault">
+				<soap12:fault name="SmartNaoEncontradoFault" use="literal" />
+			</fault>
+		</operation>
+	</binding>
+
+	<service name="ConsultarSmartService">
+		<port name="ConsultarSmartPort" binding="tns:ConsultarSmartBinding">
+			<soap12:address location="http://localhost:8080/webserviceScua/service" />
+		</port>
+	</service>
+
+</definitions>

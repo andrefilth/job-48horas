@@ -1,0 +1,123 @@
+<xsd:schema targetNamespace="http://www.cea.com.mx/Appointments/CRUD/v1" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.cea.com.mx/Appointments/CRUD/v1" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  
+
+        <xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="../../ModeloCanonico/EBO/CeA/v1/fault/TechnicalFaultEBO_v1.xsd"/>
+        <xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="../../ModeloCanonico/EBO/CeA/v1/fault/BusinessFaultEBO_v1.xsd"/>  
+		
+	<element name="AppointmentFromDB2Response">
+		<xsd:complexType>
+			<sequence>
+				<element name="Id" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+				<element name="Description" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+			</sequence>
+		</xsd:complexType>	
+	</element>
+        
+	
+		<xsd:complexType name="AppointmentFromDB2RequestType">
+			<sequence>
+				<element name="DcDestID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<element name="AppointmentNumber" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+				<element name="CreationTimestamp" type="xsd:dateTime" minOccurs="1" maxOccurs="1"/>
+				<element name="AppointmentStartTimestamp" type="xsd:dateTime" minOccurs="1" maxOccurs="1"/>
+				<element name="EstimatedDuration" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+				<element name="AppointmentEndTimestamp" type="xsd:dateTime" minOccurs="0" maxOccurs="1" nillable="false"/>				
+				<element name="TrailerID" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				<element name="DeliveryMode" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<element name="SealNumber" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				<element name="DoorID" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				<element name="AppointmentStatus" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<element name="UserID" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				<element name="CarrierCode" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				<element name="ASNFlag" type="xsd:boolean" minOccurs="1" maxOccurs="1"/>
+				<element name="TransshipmentFlag" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+				<element name="TransshipmentNumber" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+				<element name="flagQuarantineXDock" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+				<element name="flagPerformQA" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+				<element name="flagPerformVA" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+				<element name="flagNSC" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+				<element name="AssetConfirm" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				<element name="LoadType" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				<element name="LabeledReceiving" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+				<element name="ScheduledNumber" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<element name="AppointmentDetail" minOccurs="0" maxOccurs="unbounded" type="tns:AppoimentDetailType"/>
+				<element name="ASNDetail" type="tns:ASNDetailType" minOccurs="0" maxOccurs="unbounded"/>
+ 			</sequence>
+		</xsd:complexType>
+	
+
+
+	
+		<xsd:complexType name="ASNDetailType">
+			<sequence>
+				<element name="ASNNumber" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<element name="ASNType" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<element name="ContainerQty" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+				<element name="UnloadHours" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<element name="BOLNumber" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+				<element name="flagSystemInd" type="xsd:boolean" minOccurs="1" maxOccurs="1"/>				
+				<element name="flagEDICompliant" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+				
+				<element name="ASNItem" type="tns:ASNItemType" minOccurs="0" maxOccurs="unbounded"/>
+
+			</sequence>
+		</xsd:complexType>
+	
+
+        
+		<xsd:complexType name="ASNItemType">
+			<sequence>
+				<element name="PONumber" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<element name="DistroNumber" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<element name="DestinationID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<element name="ItemID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<element name="UnitQty" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<element name="TicketType" type="xsd:string" minOccurs="0" maxOccurs="1"/>				
+				<element name="RetailPrice" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+				<element name="InStoreDate" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+			</sequence>
+		</xsd:complexType>
+	
+
+       
+              <xsd:complexType name="AppoimentDetailType">
+                   <sequence>
+                    <element name="AppointmentLine" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+                    <element name="PONumber" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+                    <element name="ItemID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+                    <element name="Casepack" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+                    <element name="AppointedCotainerQty" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+                    <element name="UnloadHours" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+                    <element name="BulkFlag" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+                    <element name="AppointedUnitQty" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+                    <element name="DetailSource" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                    <element name="flagQAFRP" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+                    <element name="flagVAFRP" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+                </sequence>
+            </xsd:complexType>
+	
+        
+        
+        
+        <element name="AppointmentRemoveFromDB2Request">
+		<xsd:complexType>
+			<sequence>
+				<element name="DcDestID" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+				<element name="AppointmentNumber" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+				<element name="AppointmentDetail" type="tns:AppoimentDetailType" minOccurs="0" maxOccurs="unbounded"/>
+				<element name="ASNDetail" type="tns:ASNDetailType" minOccurs="0" maxOccurs="unbounded"/>
+ 			</sequence>
+		</xsd:complexType>
+	</element>
+        
+
+
+	<xsd:element name="AppointmentCreateFromDB2" type="tns:AppointmentFromDB2RequestType"/>
+	<xsd:element name="AppointmentModifyFromDB2" type="tns:AppointmentFromDB2RequestType"/>
+
+
+
+	<xsd:element name="AppointmentFromDB2Fault" type="ebo:BusinessFaultType"/>
+	<xsd:element name="TechnicalFault" type="ebo:TechnicalFaultType"/>
+
+</xsd:schema>

@@ -1,0 +1,273 @@
+<definitions name="ManterHierarquiaOrganizacional" targetNamespace="http://www.cea.com.br/EBS/CEA/hierarquiaOrganizacional/manter/v1" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.cea.com.br/EBS/CEA/hierarquiaOrganizacional/manter/v1" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ebo1="http://www.cea.com.br/EBO/CEA/v1">
+
+  
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="ManterHierarquiaOrganizacionalEBO_v1.xsd">
+			</xsd:import>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import namespace="http://www.cea.com.br/EBS/CEA/hierarquiaOrganizacional/manter/v1" schemaLocation="ManterHierarquiaOrganizacionalEBS_v1.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</types>
+
+	<message name="ManterNegocioEmpresaRequestMsg">
+		<part name="request" element="tns:ManterNegocioEmpresaRequest"/>
+	</message>
+	<message name="ManterNegocioEmpresaResponseMsg">
+		<part name="response" element="tns:ManterNegocioEmpresaResponse"/>
+	</message>
+
+	<message name="ManterRegiaoRequestMsg">
+		<part name="request" element="tns:ManterRegiaoRequest"/>
+	</message>
+	<message name="ManterRegiaoResponseMsg">
+		<part name="response" element="tns:ManterRegiaoResponse"/>
+	</message>
+	
+	<message name="ManterDistritoRequestMsg">
+		<part name="request" element="tns:ManterDistritoRequest"/>
+	</message>
+	<message name="ManterDistritoResponseMsg">
+		<part name="response" element="tns:ManterDistritoResponse"/>
+	</message>
+	
+	<message name="ManterEstadoRequestMsg">
+		<part name="request" element="tns:ManterEstadoRequest"/>
+	</message>
+	<message name="ManterEstadoResponseMsg">
+		<part name="response" element="tns:ManterEstadoResponse"/>
+	</message>
+	
+	<message name="RemoverNegocioEmpresaRequestMsg">
+		<part name="request" element="tns:RemoverNegocioEmpresaRequest"/>
+	</message>
+	<message name="RemoverNegocioEmpresaResponseMsg">
+		<part name="response" element="tns:RemoverNegocioEmpresaResponse"/>
+	</message>
+
+	<message name="RemoverRegiaoRequestMsg">
+		<part name="request" element="tns:RemoverRegiaoRequest"/>
+	</message>
+	<message name="RemoverRegiaoResponseMsg">
+		<part name="response" element="tns:RemoverRegiaoResponse"/>
+	</message>
+	
+	<message name="RemoverDistritoRequestMsg">
+		<part name="request" element="tns:RemoverDistritoRequest"/>
+	</message>
+	<message name="RemoverDistritoResponseMsg">
+		<part name="response" element="tns:RemoverDistritoResponse"/>
+	</message>
+	
+	<message name="RemoverEstadoRequestMsg">
+		<part name="request" element="tns:RemoverEstadoRequest"/>
+	</message>
+	<message name="RemoverEstadoResponseMsg">
+		<part name="response" element="tns:RemoverEstadoResponse"/>
+	</message>
+	
+	<message name="TechnicalFaultMsg">
+		<part name="TechnicalFault" element="ebo1:TechnicalFault"/>
+	</message>
+	<message name="BusinessFaultMsg">
+		<part name="BusinessFault" element="ebo1:BusinessFault"/>
+	</message>	
+	
+  	<portType name="ManterHierarquiaOrganizacionalPortType">
+
+		<operation name="manterNegocioEmpresa">
+			<input message="tns:ManterNegocioEmpresaRequestMsg"/>
+			<output message="tns:ManterNegocioEmpresaResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+
+		<operation name="manterDistrito">
+			<input message="tns:ManterDistritoRequestMsg"/>
+			<output message="tns:ManterDistritoResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+		
+		<operation name="manterEstado">
+			<input message="tns:ManterEstadoRequestMsg"/>
+			<output message="tns:ManterEstadoResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+		
+		<operation name="manterRegiao">
+			<input message="tns:ManterRegiaoRequestMsg"/>
+			<output message="tns:ManterRegiaoResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+		
+		<operation name="removerNegocioEmpresa">
+			<input message="tns:RemoverNegocioEmpresaRequestMsg"/>
+			<output message="tns:RemoverNegocioEmpresaResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+
+		<operation name="removerDistrito">
+			<input message="tns:RemoverDistritoRequestMsg"/>
+			<output message="tns:RemoverDistritoResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+		
+		<operation name="removerEstado">
+			<input message="tns:RemoverEstadoRequestMsg"/>
+			<output message="tns:RemoverEstadoResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+		
+		<operation name="removerRegiao">
+			<input message="tns:RemoverRegiaoRequestMsg"/>
+			<output message="tns:RemoverRegiaoResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+	</portType>
+	
+	<binding name="ManterHierarquiaOrganizacionalBinding" type="tns:ManterHierarquiaOrganizacionalPortType">
+		<soap12:binding transport="http://www.w3.org/2003/05/soap/bindings/HTTP/" style="document"/>
+		<operation name="manterNegocioEmpresa">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+		
+		<operation name="manterRegiao">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+		
+		<operation name="manterEstado">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+		
+		<operation name="manterDistrito">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>	
+		
+		<operation name="removerNegocioEmpresa">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+		
+		<operation name="removerRegiao">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+		
+		<operation name="removerEstado">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+		
+		<operation name="removerDistrito">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+	</binding>
+
+	<service name="ManterHierarquiaOrganizacionalService">
+		<port name="ManterHierarquiaOrganizacionalPort" binding="tns:ManterHierarquiaOrganizacionalBinding">
+			<soap12:address location="http://localhost:7001/wsintegracaohierarquiaorganizacional/service/manterHierarquiaOrganizacionalV1"/>
+		</port>
+	</service>
+</definitions>

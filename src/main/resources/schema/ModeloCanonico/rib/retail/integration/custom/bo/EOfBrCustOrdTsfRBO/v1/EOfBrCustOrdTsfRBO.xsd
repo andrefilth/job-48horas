@@ -1,0 +1,29 @@
+<xs:schema elementFormDefault="qualified"
+    targetNamespace="http://www.oracle.com/retail/integration/custom/bo/EOfBrCustOrdTsfRBO/v1"
+    version="1.0"
+    xmlns="http://www.oracle.com/retail/integration/custom/bo/EOfBrCustOrdTsfRBO/v1"
+    xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="EOfBrCustOrdTsfRBO">
+		<xs:complexType>
+			<xs:sequence>
+				<!-- Adding Element in XSD -->
+				<!-- xs:element maxOccurs="1" minOccurs="0" name="elementName" type="elementType">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description of the element</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				-->
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>  
+<!-- Adding simple Type -->
+<!-- <xs:simpleType name="elementType">
+		<retailDoc:annotation>
+            <retailDoc:documentation>Description of Simple Type</retailDoc:documentation>
+        </retailDoc:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="maxValue"/>
+		</xs:restriction>
+	</xs:simpleType>
+-->	  
+</xs:schema>

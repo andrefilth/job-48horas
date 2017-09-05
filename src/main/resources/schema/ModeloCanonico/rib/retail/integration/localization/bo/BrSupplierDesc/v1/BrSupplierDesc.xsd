@@ -1,0 +1,463 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/localization/bo/BrSupplierDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/localization/bo/BrSupplierDesc/v1" xmlns:EOfBrSupplierDesc="http://www.oracle.com/retail/integration/custom/bo/EOfBrSupplierDesc/v1" xmlns:NameValPairRBO="http://www.oracle.com/retail/integration/base/bo/NameValPairRBO/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/EOfBrSupplierDesc/v1" schemaLocation="../../../../custom/bo/EOfBrSupplierDesc/v1/EOfBrSupplierDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+	<xs:import namespace="http://www.oracle.com/retail/integration/base/bo/NameValPairRBO/v1" schemaLocation="../../../../base/bo/NameValPairRBO/v1/NameValPairRBO.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+	<xs:element name="BrSupplierDesc">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrSupplierDesc:EOfBrSupplierDesc">
+               		<retailDoc:annotation>
+                 		<retailDoc:documentation>Provide an extension hook to customize SupplierDesc
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="BrSupAttr">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element minOccurs="0" name="taxpayer_type" type="varchar21">
+			<retailDoc:annotation>
+				<retailDoc:documentation> Taxpayer Type.
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+		<xs:element minOccurs="0" name="addr_1" type="varchar2240">
+			<retailDoc:annotation>
+				<retailDoc:documentation> Address.
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+		<xs:element minOccurs="0" name="addr_2" type="varchar2240">
+			<retailDoc:annotation>
+				<retailDoc:documentation> Address.
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+		<xs:element minOccurs="0" name="addr_3" type="varchar2240">
+			<retailDoc:annotation>
+				<retailDoc:documentation> Address.
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+		<xs:element minOccurs="0" name="neighborhood" type="varchar2240">
+			<retailDoc:annotation>
+				<retailDoc:documentation> Neighborhood.
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+		<xs:element minOccurs="0" name="jurisdiction_code" type="varchar210">
+			<retailDoc:annotation>
+				<retailDoc:documentation> City.
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+		<xs:element minOccurs="0" name="state" type="varchar25">
+			<retailDoc:annotation>
+				<retailDoc:documentation> State.
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+		<xs:element minOccurs="0" name="country" type="varchar23">
+			<retailDoc:annotation>
+				<retailDoc:documentation> Country.
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+		<xs:element minOccurs="0" name="postal_code" type="varchar230">
+			<retailDoc:annotation>
+				<retailDoc:documentation> Postal Code.
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+		<xs:element minOccurs="0" name="cpf" type="varchar211">
+			<retailDoc:annotation>
+				<retailDoc:documentation> CPF.
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+		<xs:element minOccurs="0" name="cnpj" type="varchar214">
+			<retailDoc:annotation>
+				<retailDoc:documentation> CNPJ.
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+		<xs:element minOccurs="0" name="nit" type="varchar2250">
+			<retailDoc:annotation>
+				<retailDoc:documentation> NIT.
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+		<xs:element minOccurs="0" name="suframa" type="varchar2250">
+			<retailDoc:annotation>
+				<retailDoc:documentation> SUFRAMA.
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+		<xs:element minOccurs="0" name="im" type="varchar2250">
+			<retailDoc:annotation>
+				<retailDoc:documentation> City Inscription.
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+		<xs:element minOccurs="0" name="ie" type="varchar2250">
+			<retailDoc:annotation>
+				<retailDoc:documentation> State Inscription.
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+		<xs:element minOccurs="0" name="iss_contrib_ind" type="varchar21">
+			<retailDoc:annotation>
+				<retailDoc:documentation> ISS Contributor.
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+		<xs:element minOccurs="0" name="simples_ind" type="varchar21">
+			<retailDoc:annotation>
+				<retailDoc:documentation> SIMPLES Contributor.
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+		<xs:element minOccurs="0" name="st_contrib_ind" type="varchar21">
+			<retailDoc:annotation>
+				<retailDoc:documentation> ST Contributor.
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+		<xs:element minOccurs="0" name="rural_prod_ind" type="varchar21">
+			<retailDoc:annotation>
+				<retailDoc:documentation> Rural Producer.
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+		<xs:element minOccurs="0" name="ipi_ind" type="varchar21">
+			<retailDoc:annotation>
+				<retailDoc:documentation> IPI Contributor.
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+		<xs:element minOccurs="0" name="icms_contrib_ins" type="varchar21">
+			<retailDoc:annotation>
+				<retailDoc:documentation> ICMS Contributor.
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+		<xs:element minOccurs="0" name="pis_contrib_ind" type="varchar21">
+			<retailDoc:annotation>
+				<retailDoc:documentation> PIS Contributor.
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+		<xs:element minOccurs="0" name="cofins_contrib_ind" type="varchar21">
+			<retailDoc:annotation>
+				<retailDoc:documentation> cofins Contributor.
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+		<xs:element minOccurs="0" name="is_income_range_eligible" type="varchar21">
+			<retailDoc:annotation>
+				<retailDoc:documentation> This indicates whether the supplier's income range is eligible for a reduction in tax basis.
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+		<xs:element minOccurs="0" name="is_distr_a_manufacturer" type="varchar21">
+			<retailDoc:annotation>
+				<retailDoc:documentation> This indicates whether the Distributor is also a Manufacturer..
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+		<xs:element minOccurs="0" name="icms_simples_rate" type="number20_4">
+			<retailDoc:annotation>
+				<retailDoc:documentation> This indicates the ICMS rate of a supplier participating in SIMPLES regime..
+				</retailDoc:documentation>
+			</retailDoc:annotation>
+		</xs:element>
+	       <xs:element maxOccurs="unbounded" minOccurs="0" ref="BrTributarySub">
+		   <retailDoc:annotation>
+		       <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+		   </retailDoc:annotation>
+	       </xs:element>
+	       <xs:element maxOccurs="unbounded" minOccurs="0" ref="BrCnaeCodes">
+		   <retailDoc:annotation>
+		       <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+		   </retailDoc:annotation>
+	       </xs:element>
+	       <xs:element maxOccurs="unbounded" minOccurs="0" ref="BrTaxRegime">
+		   <retailDoc:annotation>
+		       <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+		   </retailDoc:annotation>
+	       </xs:element>        
+	       <xs:element maxOccurs="unbounded" minOccurs="0" ref="NameValPairRBO:NameValPairRBO">
+		   <retailDoc:annotation>
+		       <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+		   </retailDoc:annotation>
+	       </xs:element>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrSupplierDesc:EOfBrSupAttr">
+               		<retailDoc:annotation>
+                 		<retailDoc:documentation>Provide an extension hook to customize SupAttr
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+
+      <xs:element name="BrTributarySub">
+          <retailDoc:annotation>
+              <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+          </retailDoc:annotation>
+          <xs:complexType>
+              <xs:sequence>
+                  <xs:element name="country_id" type="varchar23">
+                      <retailDoc:annotation>
+                          <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                      </retailDoc:annotation>
+                  </xs:element>
+                  <xs:element name="state" type="varchar23" minOccurs="0">
+                      <retailDoc:annotation>
+                          <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                      </retailDoc:annotation>
+                  </xs:element>
+                  <xs:element name="ie_subs" type="varchar2250" minOccurs="0">
+                      <retailDoc:annotation>
+                          <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                      </retailDoc:annotation>
+                  </xs:element>
+                  <xs:element maxOccurs="1" minOccurs="0" ref="EOfBrSupplierDesc:EOfBrTributarySub">
+                      <retailDoc:annotation>
+                          <retailDoc:documentation>Provide an extension hook to customize TributarySub.</retailDoc:documentation>
+                      </retailDoc:annotation>
+                  </xs:element>
+              </xs:sequence>
+          </xs:complexType>
+      </xs:element>
+      <xs:element name="BrCnaeCodes">
+          <retailDoc:annotation>
+              <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+          </retailDoc:annotation>
+          <xs:complexType>
+              <xs:sequence>
+                  <xs:element name="module" type="varchar24">
+                      <retailDoc:annotation>
+                          <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                      </retailDoc:annotation>
+                  </xs:element>
+                  <xs:element name="country_id" type="varchar23">
+                      <retailDoc:annotation>
+                          <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                      </retailDoc:annotation>
+                  </xs:element>
+                  <xs:element name="cnae_code" type="varchar29" minOccurs="0">
+                      <retailDoc:annotation>
+                          <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                      </retailDoc:annotation>
+                  </xs:element>
+                  <xs:element name="primary_ind" type="varchar21" minOccurs="0">
+                      <retailDoc:annotation>
+                          <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                      </retailDoc:annotation>
+                  </xs:element>
+                  <xs:element maxOccurs="1" minOccurs="0" ref="EOfBrSupplierDesc:EOfBrCnaeCodes">
+                      <retailDoc:annotation>
+                          <retailDoc:documentation>Provide an extension hook to customize CnaeCodes.</retailDoc:documentation>
+                      </retailDoc:annotation>
+                  </xs:element>
+              </xs:sequence>
+          </xs:complexType>
+      </xs:element>     
+      <xs:element name="BrTaxRegime">
+          <retailDoc:annotation>
+              <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+          </retailDoc:annotation>
+          <xs:complexType>
+              <xs:sequence>
+                  <xs:element name="tax_regime" type="varchar26">
+                      <retailDoc:annotation>
+                          <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                      </retailDoc:annotation>
+                  </xs:element>
+                  <xs:element maxOccurs="1" minOccurs="0" ref="EOfBrSupplierDesc:EOfBrTaxRegimeb">
+                      <retailDoc:annotation>
+                          <retailDoc:documentation>Provide an extension hook to customize TaxRegime.</retailDoc:documentation>
+                      </retailDoc:annotation>
+                  </xs:element>
+              </xs:sequence>
+          </xs:complexType>
+      </xs:element>      	
+	<xs:element name="BrSupSite">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrSupplierDesc:EOfBrSupSite">
+               		<retailDoc:annotation>
+                 		<retailDoc:documentation>Provide an extension hook to customize SupSite
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="BrSupSiteOrgUnit">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrSupplierDesc:EOfBrSupSiteOrgUnit">
+               		<retailDoc:annotation>
+                 		<retailDoc:documentation>Provide an extension hook to customize SupSiteOrgUnit
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="BrSupSiteAddr">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrSupplierDesc:EOfBrSupSiteAddr">
+               		<retailDoc:annotation>
+                 		<retailDoc:documentation>Provide an extension hook to customize SupSiteAddr
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:element name="BrAddr">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfBrSupplierDesc:EOfBrAddr">
+               		<retailDoc:annotation>
+                 		<retailDoc:documentation>Provide an extension hook to customize Addr
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	
+	<xs:simpleType name="varchar21">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max length of 1 character.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="varchar23">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max length of 3 character.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="varchar24">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max length of 4 character.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="varchar25">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max length of 5 character.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="varchar26">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max length of 6 character.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="6"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="varchar29">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max length of 9 character.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="9"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="varchar210">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max length of 10 character.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="varchar211">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max length of 11 character.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="11"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="varchar214">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max length of 14 character.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="14"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="varchar230">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max length of 30 character.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="30"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="varchar2240">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max length of 240 character.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="240"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="varchar2250">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max length of 250 character.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="250"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="number20_4">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a number of digits count of 20 and decimal count of 4.
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="20"/>
+			<xs:fractionDigits value="4"/>
+		</xs:restriction>
+	</xs:simpleType>	
+	
+</xs:schema>

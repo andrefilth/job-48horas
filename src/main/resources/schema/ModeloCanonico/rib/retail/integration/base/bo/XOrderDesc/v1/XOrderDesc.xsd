@@ -1,0 +1,286 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/XOrderDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/XOrderDesc/v1" xmlns:ExtOfXOrderDesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfXOrderDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfXOrderDesc/v1" schemaLocation="../../../../custom/bo/ExtOfXOrderDesc/v1/ExtOfXOrderDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="XOrderDtl">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" name="item" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>An approved, transaction level item.  If a pack, it must be an orderable pack (with an order_as_type of 'P').  This is required if the ref_item field is not populated.An item/location may be added to the order in worksheet or approved status.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="location" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>An active store or warehouse.  If multichannel is on, and a warehouse is being order to, a virtual warehouse is expected.  An item/location may be added to the order in worksheet or approved status.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="unit_cost" type="number20_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The cost of the item from the supplier in the order's currency.  This can be modified if the status is worksheet or approved, but not if any portion of the item's order quantity is in transit or has been received.  If it is not specified on the message, it will default from the item supplier cost for this location.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="ref_item" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The id of a reference item which can be used instead of using the item field.  If the item field is not populated this field is required.  A ref item/location may be added to the order in worksheet or approved status.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="origin_country_id" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The identifier of the country from which the item is being sourced.  This field cannot be modified.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="supp_pack_size" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The supplier pack size for the item on the order.  This may be updated in worksheet or approved status.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="qty_ordered" type="number12_4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The quantity ordered of item.  This can be updated in worksheet or approved status to adjust the quantity of an item/location or cancel an item/location from the order.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="location_type" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The location type of the location.  Valid values are 'S' store and 'W' warehouse.  This field cannot be modified.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="cancel_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates if the detail record's quantity should be cancelled.  Valid values are 'Y'es and 'N'o.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="reinstate_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates if a detail record which was previously cancelled should be reinstated.  This will reinstate in the order quantity the amount in the cancelled bucket.  Valid values are 'Y'es and 'N'o.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfXOrderDesc:ExtOfXOrderDtl">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize XOrderDtl.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="XOrderDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="order_no" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The unique identifier for the order.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="supplier" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The identifier of the supplier from which the order will be sourced.  This cannot be modified if details exist for the PO.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="currency_code" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The code of the order's currency.  If not populated, the supplier's currency will be used.  This field can be modified if the order status is worksheet or approved and the order has not been shipped.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="terms" type="varchar215">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The sales terms of the order.  If not populated on the create message, will default to the supplier's terms.  This can be modified in worksheet or approved status.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="not_before_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The first date that delivery will be accepted.  This can be modified in worksheet or approved status.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="not_after_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The last date that delivery will be accepted.  This can be modified in worksheet or approved status.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="otb_eow_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The end of week date of the OTB bucket used.  This can be modified in worksheet or approved status.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="dept" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The department in which are all the items on the order.  This field is required if the system enforces single department ordering.  This cannot be modified if details exist for the PO.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="status" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The code for the status of the order.  Valid values are 'W' worksheet and 'A' approved for PO creation.  It is also possible to modify the status to 'C' closed.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="exchange_rate" type="number20_10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The rate of exchange for the PO used between the order and primary currencies.  This field can be modified if the order status is worksheet or approved and the order has not been shipped..</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="include_on_ord_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates if the order should be included in on-order calculations.  This can be modified in worksheet or approved status.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="written_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The date the order was created.  If this field is not populated on the message it will default to the time of creation in RMS.  It cannot be modified.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="XOrderDtl">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="orig_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates where the order originated. Valid values include: 2 - Manual, 6 - AIP generated order, 7 , 8.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="edi_po_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates whether or not the order will be transmitted to the supplier via an Electronic Data Exchange transaction. Valid values are: Y = Submit via EDI, N = Do not use EDI.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="pre_mark_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This field indicated whether or not a supplier has agreed to break an order into separate boxes so that the boxes can be sent directly to stores.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="user_id" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates where the order was approved. It will be the user ID of the person approving the order.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="comment_desc" type="varchar22000">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Any comments pertaining to the order.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfXOrderDesc:ExtOfXOrderDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize XOrderDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="number12_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 12 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number12_10">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 12 and fraction digit count of 10.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="12"/>
+            <xs:fractionDigits value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar225">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 25 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar230">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 30 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="30"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar23">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 3 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar215">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 15 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="15"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar210">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 10 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number20_4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 20 and fraction digit count of 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="20"/>
+            <xs:fractionDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number20_10">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 20 and fraction digit count of 10.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:decimal">
+            <xs:totalDigits value="20"/>
+            <xs:fractionDigits value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number10">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 10.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar22000">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 2000 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="2000"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 1 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,32 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/LocOfReportLocDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/LocOfReportLocDesc/v1" xmlns:BrReportLocDesc="http://www.oracle.com/retail/integration/localization/bo/BrReportLocDesc/v1" xmlns:InReportLocDesc="http://www.oracle.com/retail/integration/localization/bo/InReportLocDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/localization/bo/InReportLocDesc/v1" schemaLocation="../../../../localization/bo/InReportLocDesc/v1/InReportLocDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+	<xs:import namespace="http://www.oracle.com/retail/integration/localization/bo/BrReportLocDesc/v1" schemaLocation="../../../../localization/bo/BrReportLocDesc/v1/BrReportLocDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+	<xs:element name="LocOfReportLocDesc">
+    	<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="InReportLocDesc:InReportLocDesc">
+                   <retailDoc:annotation>
+	               		<retailDoc:documentation>India Localization.</retailDoc:documentation>
+                   	</retailDoc:annotation>
+            	</xs:element>
+            	<xs:element maxOccurs="unbounded" minOccurs="0" ref="BrReportLocDesc:BrReportLocDesc">
+                   <retailDoc:annotation>
+	                	<retailDoc:documentation>Brazil Localization.</retailDoc:documentation>
+                   </retailDoc:annotation>
+            	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

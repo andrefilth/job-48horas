@@ -1,0 +1,67 @@
+<definitions name="RegistrarNotaFiscalEBSv1" targetNamespace="http://www.cea.com.br/EBS/CEA/synchro/gerarnotafiscal/v1" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.cea.com.br/EBS/CEA/synchro/gerarnotafiscal/v1" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.cea.com.br/EBS/CEA/synchro/gerarnotafiscal/v1" schemaLocation="GerarNotaFiscalEBS_v1.xsd">
+			</xsd:import>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="GerarNotaFiscalEBO_v1.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</types>
+
+	<message name="GerarNotaFiscalRequestMsg">
+		<part name="request" element="tns:GerarNotaFiscalRequest"/>
+	</message>
+
+	<message name="GerarNotaFiscalResponseMsg">
+		<part name="response" element="tns:GerarNotaFiscalResponse"/>
+	</message>
+
+	<message name="ParametroInvalidoFaultMsg">
+		<part name="ParametroInvalidoFault" element="ebo:ParametroInvalidoFault"/>
+	</message>
+
+	<message name="TechnicalFaultMsg">
+		<part name="TechnicalFault" element="ebo:TechnicalFault"/>
+	</message>
+
+	<portType name="GerarNotaFiscalPortType">
+
+		<operation name="gerarNotaFiscal">
+			<input message="tns:GerarNotaFiscalRequestMsg"/>
+			<output message="tns:GerarNotaFiscalResponseMsg"/>
+			
+			<fault name="ParametroInvalidoFault" message="tns:ParametroInvalidoFaultMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+		</operation>
+
+	</portType>
+	
+	<binding name="GerarNotaFiscalBinding" type="tns:GerarNotaFiscalPortType">
+		<soap12:binding transport="http://www.w3.org/2003/05/soap/bindings/HTTP/" style="document"/>
+		<operation name="gerarNotaFiscal">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="ParametroInvalidoFault">
+				<soap12:fault name="ParametroInvalidoFault" use="literal"/>
+			</fault>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+		</operation>
+	</binding>
+	
+	<service name="GerarNotaFiscalService">
+		<port name="GerarNotaFiscalPort" binding="tns:GerarNotaFiscalBinding">
+			<soap12:address location="http://treinamento02:7000/ModeloImplementacao-JAXWS/service"/>
+		</port>
+	</service>	
+
+</definitions>

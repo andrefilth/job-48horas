@@ -1,0 +1,65 @@
+<definitions name="Consume" targetNamespace="http://www.cea.com.br/EBS/CEA/sit/reclassificacao" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.cea.com.br/EBS/CEA/sit/reclassificacao" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="ReclassificacaoEBO_v1.xsd">
+			</xsd:import>
+		</xsd:schema>
+		
+		
+		<xsd:schema>
+			<xsd:import namespace="http://www.cea.com.br/EBS/CEA/sit/reclassificacao" schemaLocation="ReclassificacaoEBS_v1.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</types>
+
+	<message name="ReclassificacaoFromDB2RequestMsg">
+		<part name="request" element="tns:ReclassificacaoFromDB2Request"/>
+	</message>
+	<message name="ReclassificacaoFromDB2ResponseMsg">
+		<part name="response" element="tns:ReclassificacaoFromDB2Response"/>
+	</message>
+
+	<message name="TechnicalFaultMsg">
+		<part name="TechnicalFault" element="ebo:TechnicalFault"/>
+	</message>
+	<message name="BusinessFaultMsg">
+		<part name="BusinessFault" element="ebo:BusinessFault"/>
+	</message>
+
+
+	<portType name="SITPortType">
+		<operation name="ReclassificacaoFromDB2">
+			<input message="tns:ReclassificacaoFromDB2RequestMsg"/>
+			<output message="tns:ReclassificacaoFromDB2ResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+	</portType>
+
+	<binding name="SITBinding" type="tns:SITPortType">
+		<soap12:binding transport="http://www.w3.org/2003/05/soap/bindings/HTTP/" style="document"/>
+		<operation name="ReclassificacaoFromDB2">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+	</binding>
+
+	<service name="SITService">
+		<port name="SITPort" binding="tns:SITBinding">
+			<soap12:address location="http://localhost:8080/referencia/service"/>
+		</port>
+	</service>
+
+</definitions>

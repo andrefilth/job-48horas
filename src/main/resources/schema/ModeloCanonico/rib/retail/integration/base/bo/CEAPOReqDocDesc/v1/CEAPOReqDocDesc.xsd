@@ -1,0 +1,54 @@
+<xs:schema elementFormDefault="qualified"
+    targetNamespace="http://www.oracle.com/retail/integration/base/bo/CEAPOReqDocDesc/v1"
+    version="1.0"
+    xmlns="http://www.oracle.com/retail/integration/base/bo/CEAPOReqDocDesc/v1"
+    xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<retailDoc:annotation>
+        <retailDoc:documentation>Generic element for flexfields solution use.</retailDoc:documentation>
+	</retailDoc:annotation>    
+	<xs:element name="CEAPOReqDocDesc">
+        <xs:complexType>
+            <xs:sequence>
+				<xs:element name="doc_id" type="number6">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Document Identificator.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element name="doc_desc" type="varchar2120">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Document Description.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+				<xs:element minOccurs="0" name="doc_text" type="varchar22000">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Document Text.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+			</xs:sequence>
+        </xs:complexType>
+    </xs:element>
+	<xs:simpleType name="number6">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 6.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="varchar2120">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 120 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="120"/>
+        </xs:restriction>
+    </xs:simpleType>
+	<xs:simpleType name="varchar22000">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 2000 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="2000"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

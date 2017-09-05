@@ -1,0 +1,26 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/localization/bo/BrXOrderDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/localization/bo/BrXOrderDesc/v1" xmlns:EOfBrXOrderDesc="http://www.oracle.com/retail/integration/custom/bo/EOfBrXOrderDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/EOfBrXOrderDesc/v1" schemaLocation="../../../../custom/bo/EOfBrXOrderDesc/v1/EOfBrXOrderDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+	<xs:element name="BrXOrderDesc">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element name="utilization_id" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Indicates if an item is a service item or a product item.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+	<xs:simpleType name="varchar24">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 1 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

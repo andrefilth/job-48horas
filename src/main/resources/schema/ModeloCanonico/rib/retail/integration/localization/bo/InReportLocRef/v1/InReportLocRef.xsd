@@ -1,0 +1,19 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/localization/bo/InReportLocRef/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/localization/bo/InReportLocRef/v1" xmlns:EOfInReportLocRef="http://www.oracle.com/retail/integration/custom/bo/EOfInReportLocRef/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/EOfInReportLocRef/v1" schemaLocation="../../../../custom/bo/EOfInReportLocRef/v1/EOfInReportLocRef.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+	<xs:element name="InReportLocRef">
+		<xs:complexType>
+            <xs:sequence>
+            	<xs:element maxOccurs="1" minOccurs="0" ref="EOfInReportLocRef:EOfInReportLocRef">
+               		<retailDoc:annotation>
+                 		<retailDoc:documentation>Provide an extension hook to customize ReportLocRef
+                 		</retailDoc:documentation>
+               		</retailDoc:annotation>
+             	</xs:element>
+            </xs:sequence>
+        </xs:complexType>
+	</xs:element>
+</xs:schema>

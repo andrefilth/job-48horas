@@ -1,0 +1,41 @@
+<xsd:schema targetNamespace="http://www.cea.com.br/EBO/CEA/v1" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.cea.com.br/EBO/CEA/v1" xmlns:v2="http://www.cea.com.br/EBO/CEA/v2">
+
+	<xsd:include schemaLocation="UsuarioServiceDeskTypeEBO_v1.xsd">
+	</xsd:include>
+
+	<!-- Response de criar/atualizar usuario -->
+	<xsd:element name="UsuarioServiceDeskRespostaType">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="tns:UsuarioServiceDeskType">
+					<xsd:annotation>
+						<xsd:documentation>
+							Usuário do Service Desk.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Status" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>
+							Status de retorno.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Mensagem" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>
+							Mensagem de retorno.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="CodigoRetorno" type="xsd:string">
+					<xsd:annotation>
+						<xsd:documentation>
+							Código de retorno.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

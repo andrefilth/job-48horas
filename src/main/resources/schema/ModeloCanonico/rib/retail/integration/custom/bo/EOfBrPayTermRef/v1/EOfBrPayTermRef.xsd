@@ -1,0 +1,16 @@
+<xs:schema elementFormDefault="qualified"
+    targetNamespace="http://www.oracle.com/retail/integration/custom/bo/EOfBrPayTermRef/v1"
+    version="1.0"
+    xmlns="http://www.oracle.com/retail/integration/custom/bo/EOfBrPayTermRef/v1"
+    xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="EOfBrPayTermRef">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="EOfBrTermsSeq">
+        <xs:complexType>
+            <xs:sequence/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

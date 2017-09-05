@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.cea.com.br/EBO/CEA/v1"
+	xmlns:tns="http://www.cea.com.br/EBO/CEA/v1"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" attributeFormDefault="qualified"
+	version="1.0">
+
+	<xsd:complexType name="SmartType">
+		<xsd:sequence>
+			<xsd:element name="status-workflow" minOccurs="1"
+				maxOccurs="1" nillable="false" type="tns:StatusWorkflowType" />
+			<xsd:element name="status-homologacao" minOccurs="1"
+				maxOccurs="1" nillable="false">
+				<xsd:simpleType>
+					<xsd:annotation>
+						<xsd:documentation>
+							<![CDATA[
+									- Indica o status do smart, se esta homologado ou não. 
+									Todos os smarts que não possuem um processo de homologacao terão como resposta que esta homologado.  
+									]]>
+						</xsd:documentation>
+					</xsd:annotation>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="HOMOLOGADO" />
+						<xsd:enumeration value="NAO_HOMOLOGADO" />
+					</xsd:restriction>
+				</xsd:simpleType>
+
+			</xsd:element>
+			<xsd:element name="tipo-smart" minOccurs="1" maxOccurs="1"
+				nillable="false" type="tns:TipoSmartType" />
+			<xsd:element name="titulo" type="xsd:string" minOccurs="1"
+				maxOccurs="1" nillable="false" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+	<xsd:simpleType name="StatusWorkflowType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[
+							- Indica o status do processo do smart. Finalizado indica que o smart teve o processo concluido. 
+							]]>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="FINALIZADO" />
+			<xsd:enumeration value="NAO_FINALIZADO" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+
+
+	<xsd:simpleType name="TipoSmartType">
+		<xsd:annotation>
+			<xsd:documentation>
+				<![CDATA[- Retorna o tipo do smart]]>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="INCIDENTES" />
+			<xsd:enumeration value="DEMANDA" />
+			<xsd:enumeration value="SERVICO" />
+			<xsd:enumeration value="SISTEMA" />
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

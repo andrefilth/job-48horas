@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://www.cea.com.br/EBO/CEA/v1"
+	elementFormDefault="unqualified" attributeFormDefault="unqualified"
+	version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.cea.com.br/EBO/CEA/v1"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:complexType name="RecebimentoFromDB2Type">
+		<xsd:sequence>
+			<xsd:element name="Local" type="int" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="NumeroPedido" type="int" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="TipoDocumento" type="string" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="NumeroDocumento" type="string" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="ListaDetalhe" type="tns:RecebimentoDetalheType" minOccurs="0" maxOccurs="unbounded" nillable="false" />
+		</xsd:sequence>
+	</xsd:complexType>	
+	
+	<xsd:complexType name="RecebimentoDetalheType">
+		<xsd:sequence>
+			<xsd:element name="CodigoItem" type="string" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="QuantidadeItem" type="int" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="receipt_xactn_type" type="string"  nillable="false" />
+			<xsd:element name="DataRecebimento" type="dateTime" minOccurs="1" maxOccurs="1" nillable="true" />
+			<xsd:element name="NumeroRecebimento" type="int" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="ContainerID" type="string" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="DestinoEstoque" type="string" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="Usuario" type="string" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="CustoUnitario" type="decimal" minOccurs="1" maxOccurs="1" nillable="false" />
+			<xsd:element name="QuantidadeExpedida" type="int" minOccurs="1" maxOccurs="1" nillable="false" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,56 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/XOrgHrLocTrt/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/XOrgHrLocTrt/v1" xmlns:ExtOfXOrgHrLocTrt="http://www.oracle.com/retail/integration/custom/bo/ExtOfXOrgHrLocTrt/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>
+			This is root element of this document which contains name
+			space definitions for the document elements.
+		</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfXOrgHrLocTrt/v1" schemaLocation="../../../../custom/bo/ExtOfXOrgHrLocTrt/v1/ExtOfXOrgHrLocTrt.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				It's a referenced element. For detailed description,
+				please refer referenced element doc.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="XOrgHrLocTrt">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				Description is not available.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="hier_trait_id" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							The location trait associated to the
+							hierarchy value. This value must be
+							predefined on LOC_TRAITS table. A location
+							trait cannot be associated with (or deleted
+							from) a chain.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfXOrgHrLocTrt:ExtOfXOrgHrLocTrt">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Provide an extension hook to customize
+							XOrgHrLocTrt.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="number4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a number of digits count 4.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

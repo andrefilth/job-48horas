@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.cea.com.br/EBO/CEA/v1"
+	xmlns:tns="http://www.cea.com.br/EBO/CEA/v1" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="unqualified" attributeFormDefault="unqualified"
+	version="1.0">
+
+	<xsd:complexType name="MetaInfType">
+		<xsd:sequence>
+			<xsd:element name="transacao-id" type="xsd:string"
+				minOccurs="1" maxOccurs="1">
+				<xsd:annotation><xsd:documentation><![CDATA[
+					ID da transação, usado para identificar um processo desde sua origem.
+				]]></xsd:documentation></xsd:annotation>					
+			</xsd:element>
+			<xsd:element name="codigo-aplicacao-origem"
+				type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation><xsd:documentation><![CDATA[
+					ID da aplicacao, usado para a aplicação que originou a chamada.
+				]]></xsd:documentation></xsd:annotation>					
+			</xsd:element>	
+			<xsd:element name="codigo-operacao-origem" type="xsd:string"
+				minOccurs="1" maxOccurs="1">
+				<xsd:annotation><xsd:documentation><![CDATA[
+					ID da operacao dentro da aplicacao, usado para identificar na aplicação 
+					a operação executada
+				]]></xsd:documentation></xsd:annotation>					
+			</xsd:element>	
+			<xsd:element name="endereco-aplicacao-origem"
+				type="xsd:string" minOccurs="1" maxOccurs="1">
+				<xsd:annotation><xsd:documentation><![CDATA[
+					Endereço da aplicação, usado para identificar o servidor/instancia 
+					que origiou a solicitação
+				]]></xsd:documentation></xsd:annotation>					
+			</xsd:element>	
+			<xsd:element name="usuario-id-origem" type="xsd:string"
+				minOccurs="1" maxOccurs="1">
+				<xsd:annotation><xsd:documentation><![CDATA[
+					Id do usuario
+				]]></xsd:documentation></xsd:annotation>					
+			</xsd:element>	
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

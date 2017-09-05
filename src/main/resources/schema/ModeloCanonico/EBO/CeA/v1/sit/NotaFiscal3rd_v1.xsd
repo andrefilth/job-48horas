@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema 
+	targetNamespace="http://www.cea.com.br/EBO/CEA/v1" 
+	elementFormDefault="unqualified" 
+	attributeFormDefault="unqualified" 
+	version="1.0" 
+	xmlns="http://www.w3.org/2001/XMLSchema" 
+	xmlns:tns="http://www.cea.com.br/EBO/CEA/v1" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:element name="NFEntradaFromSRF" type="tns:InsereNFRFMTypeList"/>
+	
+	<xsd:complexType name ="InsereNFDescontosType">
+		<xsd:sequence>
+			<xsd:element name="ValorDesconto" type="decimal" nillable="true" minOccurs="0"/>
+			<xsd:element name="TipoDesconto" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="string">
+    					<xsd:enumeration value="I"/>
+    					<xsd:enumeration value="C"/>
+  					</xsd:restriction>
+  				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name ="NotaComplementarType">
+		<xsd:sequence>
+			<xsd:element name="ChaveAcessoNotaOriginal" type="string" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name ="ImportacaoDetalheType">
+		<xsd:sequence>
+			<xsd:element name="ValorTotalII" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor II (imposto de importacao) rateado pelo SKU. UTILIZADO SOMENTE PARA IMPORTACAO</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="PercentualII" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Percentual de taxa de II (imposto de importacao). UTILIZADO SOMENTE PARA IMPORTACAO</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="ValorBaseII" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor base do II (imposto de importacao). UTILIZADO SOMENTE PARA IMPORTACAO</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValorRecuperavelII" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor Recuperavel II</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="BaseRecuperavelII" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Base recuperavel II</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="TaxaCambio" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Cotação dolar em que o item foi negociado. UTILIZADO SOMENTE PARA IMPORTACAO.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AdicaoDI" type="int" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Adição da DI. UTILIZADO SOMENTE PARA IMPORTACAO.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SequencialAdicaoDI" type="int" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Item de adição da DI. UTILIZADO SOMENTE PARA IMPORTACAO.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="FabricanteItem" type="int" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Código do fabricante do item. UTILIZADO SOMENTE PARA IMPORTACAO.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DescontosAdicaoDI" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Descontos na adição da DI. UTILIZADO SOMENTE PARA IMPORTACAO.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name ="ImportacaoCabecalhoType">
+		<xsd:sequence>
+			<xsd:element name="ValorTotalII" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor total de II (imposto de importacao) do documento fiscal. UTILIZADO SOMENTE PARA IMPORTACAO</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="BaseII" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Taxa base do II (imposto de importacao). UTILIZADO SOMENTE PARA IMPORTACAO</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="DataCotacaoTaxaCambio" type="dateTime" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Data da cotação do dólar da DI. UTILIZADO SOMENTE PARA IMPORTACAO</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>		
+			<xsd:element name="ValorDespesasNaoTributaveis" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Data da cotação do dólar da DI. UTILIZADO SOMENTE PARA IMPORTACAO</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="DataDesembaraco" type="dateTime" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Data de Desembaraço. UTILIZADO SOMENTE PARA IMPORTACAO</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="CodigoDI" type="string" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Numero da DI. UTILIZADO SOMENTE PARA IMPORTACAO</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="DataEmissaoDI" type="dateTime" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Data Emissao da DI. UTILIZADO SOMENTE PARA IMPORTACAO</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="TipoDI" type="string" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Tipo de DI. UTILIZADO SOMENTE PARA IMPORTACAO</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="AutoridadeFiscal" type="string" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>ID Autoridade Fiscal. UTILIZADO SOMENTE PARA IMPORTACAO</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	
+	<xsd:complexType name ="InsereNFAttributes">
+		<xsd:sequence>
+			<xsd:element name="attribute1" type="string" nillable="true" minOccurs="0"/>
+			<xsd:element name="attribute2" type="string" nillable="true" minOccurs="0"/>
+			<xsd:element name="attribute3" type="string" nillable="true" minOccurs="0"/>
+			<xsd:element name="attribute4" type="string" nillable="true" minOccurs="0"/>
+			<xsd:element name="attribute5" type="string" nillable="true" minOccurs="0"/>
+			<xsd:element name="attribute6" type="string" nillable="true" minOccurs="0"/>
+			<xsd:element name="attribute7" type="string" nillable="true" minOccurs="0"/>
+			<xsd:element name="attribute8" type="string" nillable="true" minOccurs="0"/>
+			<xsd:element name="attribute9" type="string" nillable="true" minOccurs="0"/>
+			<xsd:element name="attribute10" type="string" nillable="true" minOccurs="0"/>
+			<xsd:element name="attribute11" type="string" nillable="true" minOccurs="0"/>
+			<xsd:element name="attribute12" type="string" nillable="true" minOccurs="0"/>
+			<xsd:element name="attribute13" type="string" nillable="true" minOccurs="0"/>
+			<xsd:element name="attribute14" type="string" nillable="true" minOccurs="0"/>
+			<xsd:element name="attribute15" type="string" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name = "InsereNFDetalheRFMType">
+		<xsd:sequence>
+			<xsd:element name="NumeroLinha" type="int" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Numero da linha do documento fiscal</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NumeroRequisicao" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Identificador do pedido, transferencia ou alocacao</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="Item" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>SKU</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="CodigoNCM" type="string" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>NCM do sku</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="CFOP" type="string" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Código do CFOP</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>													
+			<xsd:element name="Quantidade" type="int" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Quantidade do sku</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="ValorUnitario" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor unitario do sku no documento fiscal</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="ValorLiquido" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor liquido do sku no documento fiscal</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="ValorTotal" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor total do sku no documento fiscal </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="ValorDescontos" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Tag descontinuada pois foi criada uma lista visando a possibilidade de usar mais de um tipo de desconto.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="Descontos" minOccurs="0" maxOccurs="unbounded" nillable="true" type="tns:InsereNFDescontosType">
+				<xsd:annotation>
+					<xsd:documentation>Lista de descontos, com valor e tipo de desconto.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="NumeroPack" type="string" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Identificador do pack do sku</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="ItemFornecedor" type="string" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Codigo do item para o fornecedor (VPN)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="PercentualReducaoBaseCalculo" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Percentual de Reducao da base de calculo</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="ValorDespesasAduaneiras" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor das despesas aduaneiras por item</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValorIOF" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor do IOF (Imposto sobre Operação Financeira) por item</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="ValorTotalPIS" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor PIS rateado pelo SKU</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="PercentualPIS" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Percentual de taxa de PIS</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="ValorBasePIS" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor base do PIS</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="ValorRecuperavelPIS" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor Recuperavel PIS</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="BaseRecuperavelPIS" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Base recuperavel PIS</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="ValorTotalCOFINS" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor COFINS rateado pelo SKU</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="PercentualCOFINS" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Percentual de taxa de COFINS</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="ValorBaseCOFINS" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor base do COFINS</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="ValorRecuperavelCOFINS" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor Recuperavel COFINS</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="BaseRecuperavelCOFINS" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Base recuperavel COFINS</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="ValorTotalICMS" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor ICMS rateado pelo SKU</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="PercentualICMS" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Percentual de taxa de ICMS</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="ValorBaseICMS" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor base do ICMS</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="ValorRecuperavelICMS" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor Recuperavel ICMS</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="BaseRecuperavelICMS" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Base recuperavel ICMS</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>				
+			<xsd:element name="ValorTotalIPI" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor IPI rateado pelo SKU</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="PercentualIPI" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Percentual de taxa de IPI</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="ValorBaseIPI" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor base do IPI</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="ValorRecuperavelIPI" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor Recuperavel IPI</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="BaseRecuperavelIPI" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Base recuperavel IPI</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="ValorTotalICMSSTT" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor ICMS ST para tras rateado pelo SKU</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="PercentualICMSSTT" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Percentual de taxa de ICMS ST para tras</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="ValorBaseICMSSTT" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor base do ICMS ST para tras</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>		
+			<xsd:element name="ValorRecuperavelICMSSTT" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor Recuperavel ICMSSTT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="BaseRecuperavelICMSSTT" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Base recuperavel ICMSSTT</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>		
+			<xsd:element name="ValorTotalICMSSTF" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor ICMS ST para frente rateado pelo SKU</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="PercentualICMSSTF" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Percentual de taxa de ICMS ST para frente</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="ValorBaseICMSSTF" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor base do ICMS ST para frente</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ValorRecuperavelICMSSTF" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Valor Recuperavel ICMSSTF</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="BaseRecuperavelICMSSTF" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Base recuperavel ICMSSTF</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="ValorRecuperavel" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>DESCONTINUADO!!!!!</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>						
+			<xsd:element name="BaseRecuperavel" type="decimal" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>DESCONTINUADO!!!!!</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="ICMSCST" type="string" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>codigo da situacao tributaria ICMS</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="PISCST" type="string" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>codigo da situacao tributaria PIS</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="COFINSCST" type="string" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>codigo da situacao tributaria COFINS</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="IPICST" type="string" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>codigo da situacao tributaria IPI</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>	
+			<xsd:element name="InformacoesComplementares" type="string" minOccurs="0" nillable="true">
+				<xsd:annotation>
+					<xsd:documentation>Campo destinado as mensagens legais da NF (quadro INFORMAÇÕES COMPLEMENTARES da Danfe)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Importacao" nillable="true" type="tns:ImportacaoDetalheType" minOccurs="0"/>
+			<xsd:element name="Atributos" nillable="true" type="tns:InsereNFAttributes" minOccurs="0"/>	
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name ="InsereNFRFMType">		
+			<xsd:sequence>
+				<xsd:element name="LocalDestino" type="decimal" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Identificador da filial destino</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="TipoLocalDestino" type="string" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Identifica se a filial destino é uma "S"tore ou um "W"arehouse</xsd:documentation>
+					</xsd:annotation>			
+				</xsd:element>
+				<xsd:element name="LocalOrigem" type="decimal" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Identificador do local de origem</xsd:documentation>
+					</xsd:annotation>			
+				</xsd:element>
+				<xsd:element name="TipoLocalOrigem" type="string" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Identifica se a filial origem é uma "S"tore, um "W"arehouse ou um "SU"pplier.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="NumeroNotaFiscal" type="decimal" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Número do documento Fiscal</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="SerieNotaFiscal" type="string" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Série do documento Fiscal</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="DataEmissaoNotaFiscal" type="dateTime" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Data de emissão do documento Fiscal</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>			
+				<xsd:element name="DataEntradaSaida" type="dateTime" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Data da entrada ou saída da mercadoria</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="NOPFiscal" type="string" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Natureza da operacao fiscal</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>			
+				<xsd:element name="CNPJTransportador" type="string" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>CNPJ do transportador</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>				
+				<xsd:element name="QuantidadeTotalItens" type="decimal" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Quantidade total de itens no documento fiscal</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>			
+				<xsd:element name="ValorTotalItens" type="decimal" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Valor total dos itens do documento fiscal</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>			
+				<xsd:element name="ValorTotalINotaFiscal" type="decimal" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Valor total do documento fiscal</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>			
+				<xsd:element name="PesoLiquido" type="decimal" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Peso liquido total das mercadorias da Nota Fiscal</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>			
+				<xsd:element name="PesoBruto" type="decimal" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Peso Bruto total das mercadorias da Nota Fiscal</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>			
+				<xsd:element name="ValorFrete" type="decimal" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Valor Total do frete</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>			
+				<xsd:element name="ValorSeguro" type="decimal" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Valor Total do Seguro</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>			
+				<xsd:element name="OutrosValores" type="decimal" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Outros valores do documento fiscal</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>			
+				<xsd:element name="ValorTotalDescontos" type="decimal" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Valor total de descontos</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>					
+				<xsd:element name="ChaveAcesso" type="string" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Chave de acesso da Nota Fiscal Eletronica</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>			
+				<xsd:element name="Comentarios" type="string" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Comentarios adicionais do documento fiscal</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>			
+				<xsd:element name="ValorTotalPIS" type="decimal" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Valor total de PIS do documento fiscal</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>			
+				<xsd:element name="BasePIS" type="decimal" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Taxa base do PIS</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>			
+				<xsd:element name="ValorTotalCOFINS" type="decimal" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Valor total de COFINS do documento fiscal</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>			
+				<xsd:element name="BaseCOFINS" type="decimal" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Taxa base do COFINS</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>			
+				<xsd:element name="ValorTotalICMS" type="decimal" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Valor total de ICMS do documento fiscal</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>			
+				<xsd:element name="BaseICMS" type="decimal" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Taxa base do ICMS</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>	
+				<xsd:element name="ValorTotalIPI" type="decimal" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Valor total de ICMS do documento fiscal</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>			
+				<xsd:element name="BaseIPI" type="decimal" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Taxa base do ICMS</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="ValorTotalICMSSTT" type="decimal" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Valor total de ICMS do documento fiscal</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>			
+				<xsd:element name="BaseICMSSTT" type="decimal" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Taxa base do ICMS</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>	
+				<xsd:element name="ValorTotalICMSSTF" type="decimal" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Valor total de ICMS do documento fiscal</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>			
+				<xsd:element name="BaseICMSSTF" type="decimal" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Taxa base do ICMS</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>		
+				<xsd:element name="PlacaVeiculo" type="string" minOccurs="0" nillable="true">
+					<xsd:annotation>
+						<xsd:documentation>Placa do transportador</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="Importacao" nillable="true" type="tns:ImportacaoCabecalhoType" minOccurs="0"/>
+				<xsd:element name="InfoNotaComplementar" nillable="true" type="tns:NotaComplementarType" minOccurs="0"/>
+				<xsd:element name="Atributos" nillable="true" type="tns:InsereNFAttributes" minOccurs="0"/>			
+				<xsd:element name="DetalhesNotaFiscal" minOccurs="0" maxOccurs="unbounded" nillable="true" type="tns:InsereNFDetalheRFMType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+		
+		<xsd:complexType name="InsereNFRFMTypeList">
+			<xsd:sequence>
+				<xsd:element name="InsereNFRFM" minOccurs="0" maxOccurs="unbounded" nillable="true" type="tns:InsereNFRFMType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+</xsd:schema>

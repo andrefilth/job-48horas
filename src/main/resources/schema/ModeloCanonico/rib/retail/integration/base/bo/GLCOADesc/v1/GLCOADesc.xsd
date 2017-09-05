@@ -1,0 +1,208 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/GLCOADesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/GLCOADesc/v1" xmlns:ExtOfGLCOADesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfGLCOADesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfGLCOADesc/v1" schemaLocation="../../../../custom/bo/ExtOfGLCOADesc/v1/ExtOfGLCOADesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="GLCOADesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="primary_account" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>This denotes the primary account for a chart of accounts.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="attribute1" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Secondary Account information.  A value is required if description1 is supplied.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="attribute2" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Secondary Account information.  A value is required if description2 is supplied.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="attribute3" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Secondary Account information.  A value is required if description3 is supplied.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="attribute4" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Secondary Account information.  A value is required if description4 is supplied.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="attribute5" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Secondary Account information.  A value is required if description5 is supplied.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="attribute6" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Secondary Account information.  A value is required if description6 is supplied.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="attribute7" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Secondary Account information.  A value is required if description7 is supplied.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="attribute8" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Secondary Account information. A value is required if description8 is supplied.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="attribute9" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Secondary Account information.  A value is required if description9 is supplied.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="attribute10" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Secondary Account information.  A value is required if description10 is supplied.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="attribute11" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Secondary Account information.  A value is required if description11 is supplied.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="attribute12" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Secondary Account information.  A value is required if description12 is supplied.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="attribute13" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Secondary Account information.  A value is required if description13  is supplied.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="attribute14" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Secondary Account information.  A value is required if description14 is supplied.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="attribute15" type="varchar225">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Secondary Account information.  A value is required if description15 is supplied.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="description1" type="varchar250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description of the attribute1 field.      Required if attribute1 supplied and you are not using Oracle Financials 11.5.10 or greater.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="description2" type="varchar250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description of the attribute2 field.   Required if attribute2 supplied and you are not using Oracle Financials 11.5.10 or greater.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="description3" type="varchar250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description of the attribute3 field.  Required if attribute3 supplied and you are not using Oracle Financials 11.5.10 or greater.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="description4" type="varchar250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description of the attribute4 field.  Required if attribute4 supplied and you are not using Oracle Financials 11.5.10 or greater.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="description5" type="varchar250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description of the attribute5 field.  Required if attribute5 supplied and you are not using Oracle Financials 11.5.10 or greater.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="description6" type="varchar250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description of the attribute6 field.  Required if attribute6 supplied and you are not using Oracle Financials 11.5.10 or greater.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="description7" type="varchar250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description of the attribute7 field.  Required if attribute7 supplied and you are not using Oracle Financials 11.5.10 or greater.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="description8" type="varchar250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description of the attribute8 field.  Required if attribute8 supplied and you are not using Oracle Financials 11.5.10 or greater.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="description9" type="varchar250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description of the attribute9 field.  Required if attribute9 supplied and you are not using Oracle Financials 11.5.10 or greater.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="description10" type="varchar250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description of the attribute10 field.  Required if attribute10 supplied and you are not using Oracle Financials 11.5.10 or greater.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="description11" type="varchar250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description of the attribute11 field.  Required if attribute11 supplied and you are not using Oracle Financials 11.5.10 or greater.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="description12" type="varchar250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description of the attribute12 field.  Required if attribute12 supplied and you are not using Oracle Financials 11.5.10 or greater.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="description13" type="varchar250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description of the attribute13 field.  Required if attribute13 supplied and you are not using Oracle Financials 11.5.10 or greater.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="description14" type="varchar250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description of the attribute14 field.  Required if attribute14 supplied and you are not using Oracle Financials 11.5.10 or greater</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="description15" type="varchar250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description of the attribute15 field.  Required if attribute15 supplied and you are not using Oracle Financials 11.5.10 or greater.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="set_of_books_id" type="number15">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfGLCOADesc:ExtOfGLCOADesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize GLCOADesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="number15">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 15.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="15"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar225">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 25 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar250">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 50 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

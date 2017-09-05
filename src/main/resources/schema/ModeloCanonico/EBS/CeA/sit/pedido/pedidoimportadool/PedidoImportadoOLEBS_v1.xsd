@@ -1,0 +1,20 @@
+<!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5. --><xsd:schema targetNamespace="http://www.cea.com.br/EBS/CEA/sit/pedidoimportado/defineoperadorlogistico" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns:tns="http://www.cea.com.br/EBS/CEA/sit/pedidoimportado/defineoperadorlogistico" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="PedidoImportadoOLEBO_v1.xsd"/>
+
+	<xsd:element name="PedidoImportadoOLToDB2Request">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="PedidoImportadoToDB2" type="ebo:PedidoImportadoOLDB2Type"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="PedidoImportadoOLToDB2Response">
+		<xsd:complexType>
+			<xsd:sequence>
+	 			<xsd:element name="MensagemResposta" type="ebo:MensagemRespostaType"/>	 
+	 		</xsd:sequence>
+	 	</xsd:complexType>
+	 </xsd:element>
+		
+</xsd:schema>

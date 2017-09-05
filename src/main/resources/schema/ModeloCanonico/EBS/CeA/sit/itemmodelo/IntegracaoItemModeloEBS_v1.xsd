@@ -1,0 +1,25 @@
+<xsd:schema targetNamespace="http://www.cea.com.br/EBS/CEA/sit/itemmodelo" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns:tns="http://www.cea.com.br/EBS/CEA/sit/itemmodelo" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="IntegracaoItemModeloEBO_v1.xsd"/>
+
+	<xsd:element name="ManterItemModeloFromDB2Request">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Item" type="string" minOccurs="0" nillable="true"/>
+				<xsd:element name="TipoItem" type="string" minOccurs="0" nillable="true"/>
+				<xsd:element name="Origem" type="string" minOccurs="0" nillable="true"/>
+				<xsd:element name="CodigoAcao" type="int" minOccurs="0" nillable="true"/>
+				<xsd:element name="IdentificadorIntegracao" type="int" minOccurs="0" nillable="true"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ManterItemModeloFromDB2Response">
+		<xsd:complexType>
+			<xsd:sequence>
+	 			<xsd:element name="MensagemResposta" type="ebo:MensagemRespostaType"/>	 
+	 		    <xsd:element name="ItemModeloFromDB2" type="ebo:ItemModeloFromDB2Type"/>
+	 		</xsd:sequence>
+	 	</xsd:complexType>
+	 </xsd:element>
+		
+</xsd:schema>

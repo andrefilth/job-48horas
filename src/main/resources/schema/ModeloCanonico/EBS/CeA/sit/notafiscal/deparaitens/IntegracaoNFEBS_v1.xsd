@@ -1,0 +1,21 @@
+<xsd:schema targetNamespace="http://www.cea.com.br/EBS/CEA/sit/notafiscal/deparaitens" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns:tns="http://www.cea.com.br/EBS/CEA/sit/notafiscal/deparaitens" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="IntegracaoNFEBO_v1.xsd"/>
+
+	<xsd:element name="InsereNFToRFMRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="InsereNFToRFM" type="ebo:InsereNFRFMType"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="InsereNFToRFMResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+	 			<xsd:element name="MensagemResposta" type="ebo:MensagemRespostaType"/>	 
+	 			<xsd:element name="InsereNFToRFM" type="ebo:InsereNFRFMTypeList"/>
+	 		</xsd:sequence>
+	 	</xsd:complexType>
+	 </xsd:element>
+		
+</xsd:schema>

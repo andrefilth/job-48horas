@@ -1,0 +1,121 @@
+<xs:schema elementFormDefault="qualified"
+    targetNamespace="http://www.oracle.com/retail/integration/base/bo/FiscalFDNRBO/v1"
+    version="1.0"
+    xmlns="http://www.oracle.com/retail/integration/base/bo/FiscalFDNRBO/v1"
+    xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>
+			This is root element of this document which contains name
+			space definitions for the document elements.
+		</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:element name="FiscalFDNRBO">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This object hosts the tax foundation data of RMS.   The data is provided by the external tax vendors.
+				The object is envisioned as a generic container for simple foundation data exported by tax vendors and
+				currently it supports all the use cases for foundation data download supported by MasterSaf for RMS/RFM.
+				The object can be extended further if necessary.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="1" name="fiscal_code" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates code of the foundation data.   This is  a container field
+							which holds the appropriate foundation data code like item category code, service category code,
+							nature of operation code from a taxation perspective.    This object will be differentiated based on
+							the specific fiscal foundation data solicited in the request.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="1" name="fiscal_code_description" type="varchar21000">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates description associated with the fiscal code
+							data.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="fiscal_parent_code" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates parent code associated with the fiscal code.   These are typically hierarchical fiscal code
+							representation having a tax implication.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="fiscal_extended_parent_code" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicates parent of the parent code.   Again a second level hierarchy having a tax implication.   A
+							max of two levels of hierarchy suffices.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="origin_state" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicate the origin state in case of future change on NCM.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="destination_state" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicate the destination state in case of future change on NCM.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="creation_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicate the creation date of the future NCM.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="effective_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>
+							Indicate the effective date of the future NCM.
+						</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar230">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a string of max length of 30
+				characters.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="30"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2250">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a string of max length of 250
+				characters.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="250"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21000">
+        <retailDoc:annotation>
+            <retailDoc:documentation>
+				This type can hold a string of max length of 1000
+				characters.
+			</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1000"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

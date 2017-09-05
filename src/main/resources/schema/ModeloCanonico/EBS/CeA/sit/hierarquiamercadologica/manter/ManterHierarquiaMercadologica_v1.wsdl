@@ -1,0 +1,336 @@
+<definitions name="ManterHierarquiaMercadologica" targetNamespace="http://www.cea.com.br/EBS/CEA/hierarquiamercadologica/manter/v1" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.cea.com.br/EBS/CEA/hierarquiamercadologica/manter/v1" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ 
+	<types>
+		<xsd:schema>
+			<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="ManterHierarquiaMercadologicaEBO_v1.xsd">
+			</xsd:import>
+		</xsd:schema>
+		<xsd:schema>
+			<xsd:import namespace="http://www.cea.com.br/EBS/CEA/hierarquiamercadologica/manter/v1" schemaLocation="ManterHierarquiaMercadologicaEBS_v1.xsd">
+			</xsd:import>
+		</xsd:schema>
+	</types>
+<!-- By Group -->
+	<message name="ManterDivisaoRequestMsg">
+		<part name="request" element="tns:ManterDivisaoRequest"/>
+	</message>
+	<message name="ManterDivisaoResponseMsg">
+		<part name="response" element="tns:ManterDivisaoResponse"/>
+	</message>
+
+	<message name="RemoverDivisaoRequestMsg">
+		<part name="request" element="tns:RemoverDivisaoRequest"/>
+	</message>
+	<message name="RemoverDivisaoResponseMsg">
+		<part name="response" element="tns:RemoverDivisaoResponse"/>
+	</message>
+
+	<message name="ManterDepartamentoRequestMsg">
+		<part name="request" element="tns:ManterDepartamentoRequest"/>
+	</message>
+	<message name="ManterDepartamentoResponseMsg">
+		<part name="response" element="tns:ManterDepartamentoResponse"/>
+	</message>
+
+	<message name="RemoverDepartamentoRequestMsg">
+		<part name="request" element="tns:RemoverDepartamentoRequest"/>
+	</message>
+	<message name="RemoverDepartamentoResponseMsg">
+		<part name="response" element="tns:RemoverDepartamentoResponse"/>
+	</message>
+
+	<message name="ManterSubdepartamentoRequestMsg">
+		<part name="request" element="tns:ManterSubdepartamentoRequest"/>
+	</message>
+	<message name="ManterSubdepartamentoResponseMsg">
+		<part name="response" element="tns:ManterSubdepartamentoResponse"/>
+	</message>
+
+	<message name="RemoverSubdepartamentoRequestMsg">
+		<part name="request" element="tns:RemoverSubdepartamentoRequest"/>
+	</message>
+	<message name="RemoverSubdepartamentoResponseMsg">
+		<part name="response" element="tns:RemoverSubdepartamentoResponse"/>
+	</message>
+
+	<message name="ManterClassificacaoRequestMsg">
+		<part name="request" element="tns:ManterClassificacaoRequest"/>
+	</message>
+	<message name="ManterClassificacaoResponseMsg">
+		<part name="response" element="tns:ManterClassificacaoResponse"/>
+	</message>
+
+	<message name="RemoverClassificacaoRequestMsg">
+		<part name="request" element="tns:RemoverClassificacaoRequest"/>
+	</message>
+	<message name="RemoverClassificacaoResponseMsg">
+		<part name="response" element="tns:RemoverClassificacaoResponse"/>
+	</message>
+
+	<message name="ManterClassificacaoCodigoRequestMsg">
+		<part name="request" element="tns:ManterClassificacaoCodigoRequest"/>
+	</message>
+	<message name="ManterClassificacaoCodigoResponseMsg">
+		<part name="response" element="tns:ManterClassificacaoCodigoResponse"/>
+	</message>
+
+	<message name="RemoverClassificacaoCodigoRequestMsg">
+		<part name="request" element="tns:RemoverClassificacaoCodigoRequest"/>
+	</message>
+	<message name="RemoverClassificacaoCodigoResponseMsg">
+		<part name="response" element="tns:RemoverClassificacaoCodigoResponse"/>
+	</message>
+
+	<message name="TechnicalFaultMsg">
+		<part name="TechnicalFault" element="ebo:TechnicalFault"/>
+	</message>
+	<message name="BusinessFaultMsg">
+		<part name="BusinessFault" element="ebo:BusinessFault"/>
+	</message>	
+
+	
+	<portType name="ManterHierarquiaMercadologicaPortType">
+
+		<operation name="manterDivisao">
+			<input message="tns:ManterDivisaoRequestMsg"/>
+			<output message="tns:ManterDivisaoResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+
+		<operation name="removerDivisao">
+			<input message="tns:RemoverDivisaoRequestMsg"/>
+			<output message="tns:RemoverDivisaoResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+
+		<operation name="manterDepartamento">
+			<input message="tns:ManterDepartamentoRequestMsg"/>
+			<output message="tns:ManterDepartamentoResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+		
+		<operation name="removerDepartamento">
+			<input message="tns:RemoverDepartamentoRequestMsg"/>
+			<output message="tns:RemoverDepartamentoResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+		
+		<operation name="manterSubdepartamento">
+			<input message="tns:ManterSubdepartamentoRequestMsg"/>
+			<output message="tns:ManterSubdepartamentoResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+		
+		<operation name="removerSubdepartamento">
+			<input message="tns:RemoverSubdepartamentoRequestMsg"/>
+			<output message="tns:RemoverSubdepartamentoResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+		
+		<operation name="manterClassificacao">
+			<input message="tns:ManterClassificacaoRequestMsg"/>
+			<output message="tns:ManterClassificacaoResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+		
+		<operation name="removerClassificacao">
+			<input message="tns:RemoverClassificacaoRequestMsg"/>
+			<output message="tns:RemoverClassificacaoResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+		
+		<operation name="manterClassificacaoCodigo">
+			<input message="tns:ManterClassificacaoCodigoRequestMsg"/>
+			<output message="tns:ManterClassificacaoCodigoResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+		
+		<operation name="removerClassificacaoCodigo">
+			<input message="tns:RemoverClassificacaoCodigoRequestMsg"/>
+			<output message="tns:RemoverClassificacaoCodigoResponseMsg"/>
+			<fault name="TechnicalFault" message="tns:TechnicalFaultMsg"/>
+			<fault name="BusinessFault" message="tns:BusinessFaultMsg"/>
+		</operation>
+		
+	</portType>
+
+	<binding name="ManterHierarquiaMercadologicaBinding" type="tns:ManterHierarquiaMercadologicaPortType">
+		<soap12:binding transport="http://www.w3.org/2003/05/soap/bindings/HTTP/" style="document"/>
+		<operation name="manterDivisao">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>	
+		
+		<operation name="removerDivisao">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>	
+		
+		<operation name="manterDepartamento">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+		
+		<operation name="removerDepartamento">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+		
+		<operation name="manterSubdepartamento">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+		
+		<operation name="removerSubdepartamento">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+		
+		<operation name="manterClassificacao">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+
+		<operation name="removerClassificacao">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+		
+		<operation name="manterClassificacaoCodigo">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+
+		<operation name="removerClassificacaoCodigo">
+			<soap12:operation soapAction=""/>
+			<input>
+				<soap12:body use="literal"/>
+			</input>
+			<output>
+				<soap12:body use="literal"/>
+			</output>
+			<fault name="TechnicalFault">
+				<soap12:fault name="TechnicalFault" use="literal"/>
+			</fault>
+			<fault name="BusinessFault">
+				<soap12:fault name="BusinessFault" use="literal"/>
+			</fault>
+		</operation>
+
+	</binding>
+
+	<service name="ManterHierarquiaMercadologicaService">
+		<port name="ManterHierarquiaMercadologicaPort" binding="tns:ManterHierarquiaMercadologicaBinding">
+			<soap12:address location="http://localhost:7001/wsintegracaohierarquiamercadologica/service/manterHierarquiaMercadologicaV1"/>
+		</port>
+	</service>
+
+</definitions>

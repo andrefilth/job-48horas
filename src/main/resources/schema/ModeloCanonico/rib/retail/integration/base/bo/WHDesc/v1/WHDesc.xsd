@@ -1,0 +1,450 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/WHDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/WHDesc/v1" xmlns:AddrDesc="http://www.oracle.com/retail/integration/base/bo/AddrDesc/v1" xmlns:ExtOfWHDesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfWHDesc/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation> This is root element of this document which 
+			contains name space definitions for the document elements. 
+			</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/base/bo/AddrDesc/v1" schemaLocation="../../AddrDesc/v1/AddrDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation> It's a referenced element. For detailed 
+				description, please refer referenced element doc. 
+				</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfWHDesc/v1" schemaLocation="../../../../custom/bo/ExtOfWHDesc/v1/ExtOfWHDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation> It's a referenced element. For detailed 
+				description, please refer referenced element doc. 
+				</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="WHDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation> Description is not available. 
+				</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="wh" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> The number which uniquely 
+							identifies the warehouse. The wh table stores all 
+							warehouses in the system, both virtual and 
+							physical. </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="wh_name" type="varchar2150">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Not Yet Available 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="wh_add1" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Not Yet Available 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="wh_add2" type="varchar2240">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Not Yet Available 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="wh_city" type="varchar2120">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Not Yet Available 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="county" type="varchar2250">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Not Yet Available 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="state" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Not Yet Available 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="country_id" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Not Yet Available 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="wh_pcode" type="varchar230">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> NA </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="email" type="varchar2100">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Not Yet Available 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="stockholding_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Indicates if the warehouse is 
+							a stock holding location. In a non-multichannel 
+							environment, this will always be 'Y'. In a 
+							multichannel environment it will be 'N' for a 
+							physical warehouse and 'Y' for a virtual warehouse. 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="channel_id" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> The channel for which the 
+							virtual warehouse will be assigned. 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="currency_code" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> The code for the currency 
+							which the warehouse uses. </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="duns_number" type="varchar29">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> This type can hold a number 
+							of digits count umber. </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="duns_loc" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> The Dun and Bradstreet number 
+							to identify the location. </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="physical_wh" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> The number of the physical 
+							warehouse corresponding to this warehouse. 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="break_pack_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Indicates whether or not the 
+							warehouse is capable of distributing less than the 
+							supplier case quantity. Valid values are 'Y' or 'N' 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="redist_wh_ind" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Indicates whether the 
+							warehouse is a 'Re-Distribution' warehouse. Used as 
+							a location on Purchase Orders in place of actual 
+							locations that are unknown at the time of purchase 
+							order creation. Used by Redistribution report. 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="delivery_policy" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> The delivery policy of the 
+							warehouse. Next day indicates that the if a 
+							location is closed, the warehouse will deliver on 
+							the next day. Next Valid Delivery Day indicates 
+							that the warehouse will wait until the next 
+							scheduled delivery day. </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="contact_person" type="varchar2120">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> NA </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="dest_fax" type="varchar220">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> NA </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="phone_nbr" type="varchar220">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> NA </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="default_route" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> NA </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="default_carrier_code" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> NA </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="default_service_code" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> NA </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="expedite_route" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> NA </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="expedite_carrier_code" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> NA </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="expedite_service_code" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> NA </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bol_upload_type" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> NA </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="bol_print_type" type="varchar24">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> NA </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="lead_time" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> NA </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="distance_to_dest" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> NA </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="drop_trailers_accepted_flag" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> NA </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="rcv_dock_available_flag" type="varchar21">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> NA </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="container_type" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> NA </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="mld_default_route" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> NA </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="unit_pick_container_type" type="varchar26">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> NA </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="dest_seq_nbr" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> NA </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="owning_dc" type="varchar210">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> NA </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="AddrDesc:AddrDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> It's a referenced element. 
+							For detailed description, please refer referenced 
+							element doc. </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="pricing_loc" type="number10">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> The location for which 
+							pricing info was copied for this warehouse. 
+							</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element minOccurs="0" name="pricing_loc_curr" type="varchar23">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> This is the currency code of 
+							the pricing location. </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfWHDesc:ExtOfWHDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation> Provide an extension hook to 
+							customize WHDesc. </retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar2250">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 250 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="250"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar210">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 10 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2240">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 240 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="240"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar22">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 2 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar220">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 20 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2150">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 150 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="150"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number4">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a number of digits 
+				count 4. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2100">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 100 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar230">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 30 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="30"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number6">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a number of digits 
+				count 6. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar23">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 3 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar2120">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 120 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="120"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar26">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 6 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar24">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 4 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number10">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a number of digits 
+				count 10. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number15">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a number of digits 
+				count 15. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:long">
+            <xs:totalDigits value="15"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar21">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 1 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="varchar29">
+        <retailDoc:annotation>
+            <retailDoc:documentation> This type can hold a string of max length 
+				of 9 characters. </retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="9"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

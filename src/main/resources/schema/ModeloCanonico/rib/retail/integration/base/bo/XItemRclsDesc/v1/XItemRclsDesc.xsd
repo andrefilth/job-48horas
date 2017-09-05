@@ -1,0 +1,80 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://www.oracle.com/retail/integration/base/bo/XItemRclsDesc/v1" version="1.0" xmlns="http://www.oracle.com/retail/integration/base/bo/XItemRclsDesc/v1" xmlns:ExtOfXItemRclsDesc="http://www.oracle.com/retail/integration/custom/bo/ExtOfXItemRclsDesc/v1" xmlns:XItemRclsDtl="http://www.oracle.com/retail/integration/base/bo/XItemRclsDtl/v1" xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <retailDoc:annotation>
+        <retailDoc:documentation>This is root element of this document which contains name space definitions for the document elements.</retailDoc:documentation>
+    </retailDoc:annotation>
+    <xs:import namespace="http://www.oracle.com/retail/integration/custom/bo/ExtOfXItemRclsDesc/v1" schemaLocation="../../../../custom/bo/ExtOfXItemRclsDesc/v1/ExtOfXItemRclsDesc.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:import namespace="http://www.oracle.com/retail/integration/base/bo/XItemRclsDtl/v1" schemaLocation="../../XItemRclsDtl/v1/XItemRclsDtl.xsd">
+        <retailDoc:annotation>
+            <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+        </retailDoc:annotation>
+    </xs:import>
+    <xs:element name="XItemRclsDesc">
+        <retailDoc:annotation>
+            <retailDoc:documentation>Description is not available.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="reclass_no" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The unique number which identifies the reclass event.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="reclass_desc" type="varchar2120">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The description of the reclass event.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="reclass_date" type="xs:dateTime">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The date on which the reclass event is scheduled to take place.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="to_dept" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The department to which the item will belong after the reclass event.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="to_class" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The class to which the item will belong after the reclass event.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element name="to_subclass" type="number4">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>The subclass to which the item will belong after the reclass event.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" minOccurs="0" ref="XItemRclsDtl:XItemRclsDtl">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>It's a referenced element. For detailed description, please refer referenced element doc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+                <xs:element maxOccurs="1" minOccurs="0" ref="ExtOfXItemRclsDesc:ExtOfXItemRclsDesc">
+                    <retailDoc:annotation>
+                        <retailDoc:documentation>Provide an extension hook to customize XItemRclsDesc.</retailDoc:documentation>
+                    </retailDoc:annotation>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="varchar2120">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a string of max length of 120 characters.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="120"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="number4">
+        <retailDoc:annotation>
+            <retailDoc:documentation>This type can hold a number of digits count 4.</retailDoc:documentation>
+        </retailDoc:annotation>
+        <xs:restriction base="xs:int">
+            <xs:totalDigits value="4"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

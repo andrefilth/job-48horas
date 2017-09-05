@@ -1,0 +1,210 @@
+<xs:schema
+	xmlns="http://www.oracle.com/retail/integration/base/bo/CreditRecRBO/v1"
+	xmlns:retailDoc="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified"
+	targetNamespace="http://www.oracle.com/retail/integration/base/bo/CreditRecRBO/v1"
+	version="1.0">
+	<retailDoc:annotation>
+		<retailDoc:documentation>
+			This is root element of this document which
+			contains name
+			space definitions for the document elements.
+		</retailDoc:documentation>
+	</retailDoc:annotation>
+	<xs:element name="CreditRecRBO">
+		<retailDoc:annotation>
+			<retailDoc:documentation>
+				Contains details of a Credit Record
+			</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" name="src_federal_tax_reg_id" type="varchar225">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates the Federal Tax Registration
+							Number of the Issuer.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element name="dst_federal_tax_reg_id" type="varchar225">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates the Federal Tax Registration
+							Number of the Destination.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="src_ref_federal_tax_reg_id" type="varchar225">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates the Federal Tax Registration
+							Number of the Reference of Source.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element name="item_code" type="varchar225" >
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates the item code of the item.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element name="item_id" type="varchar225" minOccurs="0">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates the item Id of the item.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element name="document_series" minOccurs="0" type="varchar225">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates the Series of Fiscal
+							document.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element name="document_number" minOccurs="0" type="varchar225">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates the Fiscal document
+							number.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="fiscal_document_date"
+					type="xs:dateTime">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates the Fiscal Document Date.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element name="ref_document_series" minOccurs="0" type="varchar225">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates the Series of Referenced Fiscal
+							document.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element name="ref_document_number" minOccurs="0" type="varchar225">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates the Referenced Fiscal document
+							number.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="ref_fiscal_document_date"
+					type="xs:dateTime">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates the Referenced Fiscal Document Date.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="quantity" type="number12_4">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates quantity of items.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="quantity_recovered" type="number12_4">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates quantity recovered for ST.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="unit_of_measure" type="varchar225">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates unit of measurement of the item.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="total_cost" type="number20_4">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates total cost of the item.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="icms_taxable_basis_amount" type="number20_4">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates ICMS taxable base value of the item.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="icms_tax_amount" type="number20_4">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates ICMS tax amount of the item.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="icmsst_taxable_basis_amount" type="number20_4">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates ICMS-ST taxable base value of the item.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="icmsst_tax_amount" type="number20_4">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates ICMS-ST tax amount of the item.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="icmsste_taxable_basis_amount" type="number20_4">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates ICMS-STE taxable base value of the item.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+				<xs:element minOccurs="0" name="icmsste_tax_amount" type="number20_4">
+					<retailDoc:annotation>
+						<retailDoc:documentation>
+							Indicates ICMS-STE tax amount of the item.
+						</retailDoc:documentation>
+					</retailDoc:annotation>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="varchar225">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a string of max length of
+				25 characters.</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="25" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="number20_4">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a number of digits count
+				20 and fraction digit count of 4.</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="20" />
+			<xs:fractionDigits value="4" />
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="number12_4">
+		<retailDoc:annotation>
+			<retailDoc:documentation>This type can hold a number of digits count
+				12 and fraction digit count of 4.</retailDoc:documentation>
+		</retailDoc:annotation>
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="12" />
+			<xs:fractionDigits value="4" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

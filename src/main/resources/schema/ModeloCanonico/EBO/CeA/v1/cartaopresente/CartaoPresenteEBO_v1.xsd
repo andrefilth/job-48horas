@@ -1,0 +1,126 @@
+<schema targetNamespace="http://www.cea.com.br/EBO/CEA/cartaopresente/v1" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://www.cea.com.br/EBO/CEA/v2" xmlns:tns="http://www.cea.com.br/EBO/CEA/cartaopresente/v1">
+
+	<import namespace="http://www.cea.com.br/EBO/CEA/v2" schemaLocation="../../v2/commons/DataTypesEBOv2.xsd"/>
+
+	<simpleType name="CartaoPresenteType">
+		<annotation>
+			<documentation>
+				Cartão Presente.
+				Exemplo de Cartão: 10000000006543210
+			</documentation>
+		</annotation>
+		<restriction base="string">
+			<pattern value="[0-9]{16,17}"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="CartaoPLCeAType">
+		<annotation>
+			<documentation>
+				Cartão PL ou CeA.
+				Exemplo de Cartão: 6542898387535195
+			</documentation>
+		</annotation>
+		<restriction base="string">
+			<pattern value="[0-9]{16}"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="StatusCartaoPresenteType">
+		<annotation>
+			<documentation>
+				
+				É a situação do Cartão Presente.
+
+				INATIVO - cartão presente não habilitado (novo)
+
+				ATIVO - cartão presente já habilitado
+
+				EXPIRADO - cartão presente com validade vencida
+
+				BLOQUEADO - cartão presente inutilizado
+				
+			</documentation>
+		</annotation>
+		<restriction base="string">
+			<enumeration value="INATIVO"/>
+			<enumeration value="ATIVO"/>
+			<enumeration value="EXPIRADO"/>
+			<enumeration value="BLOQUEADO"/>
+		</restriction>
+	</simpleType>
+
+	<complexType name="EnderecoType">
+		<sequence>
+			<element name="Logradouro" type="string" minOccurs="1" maxOccurs="1">
+				<annotation>
+					<documentation>
+						Representa o logradouro do cliente (com o tipo de logradouro e o número).
+						Exemplo Al. Araguaia, 1222
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Complemento" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="Bairro" type="string" minOccurs="0" maxOccurs="1"/>
+			<element name="Cidade" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="Uf" type="ns2:UfType" minOccurs="1" maxOccurs="1"/>
+			<element name="Cep" type="ns2:CepType" minOccurs="1" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="PessoaFisicaType">
+		<sequence>
+			<element name="CPF" type="ns2:CpfType" minOccurs="1" maxOccurs="1"/>
+			<element name="Nome" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="Sobrenome" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="Sexo" type="ns2:SexoType" minOccurs="0" maxOccurs="1"/>
+			<element name="DataNascimento" type="date" minOccurs="0" maxOccurs="1"/>
+			<element name="EnderecoResidencial" type="tns:EnderecoType" minOccurs="0" maxOccurs="1"/>
+			<element name="TelefoneResidencial" type="ns2:TelefoneType" minOccurs="0" maxOccurs="1"/>
+			<element name="Email" type="ns2:EnderecoEmailType" minOccurs="0" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="PessoaJuridicaType">
+		<sequence>
+			<element name="CNPJ" type="ns2:CnpjType" minOccurs="1" maxOccurs="1"/>
+			<element name="RazaoSocial" type="string" minOccurs="1" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="IdentificacaoClienteType">
+		<choice>
+			<element name="PessoaFisica" type="tns:PessoaFisicaType" minOccurs="0" maxOccurs="1"/>
+			<element name="PessoaJuridica" type="tns:PessoaJuridicaType" minOccurs="0" maxOccurs="1"/>
+		</choice>
+	</complexType>
+
+	<complexType name="ClienteType">
+		<sequence>
+			<element name="Identificacao" type="tns:IdentificacaoClienteType" minOccurs="1" maxOccurs="1"/>
+			<element name="EnderecoComercial" type="tns:EnderecoType" minOccurs="0" maxOccurs="1"/>
+			<element name="TelefoneCelular" type="ns2:TelefoneType" minOccurs="0" maxOccurs="1"/>
+			<element name="TelefoneComercial" type="ns2:TelefoneType" minOccurs="0" maxOccurs="1"/>
+			<element name="EmailComercial" type="string" minOccurs="0" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="ExtratoType">
+		<sequence>
+			<element name="Data" type="date" minOccurs="1" maxOccurs="1"/>
+			<element name="Loja" type="int" minOccurs="0" maxOccurs="1"/>
+			<element name="Pdv" type="int" minOccurs="0" maxOccurs="1"/>
+			<element name="Operacao" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="ValorOperacao" type="decimal" minOccurs="0" maxOccurs="1"/>
+			<element name="IDTransacao" type="long" minOccurs="0" maxOccurs="1"/>
+			<element name="Observacao" type="string" minOccurs="0" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+
+	<complexType name="ExtratoListType">
+		<sequence>
+			<element name="Extrato" type="tns:ExtratoType" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+
+</schema>

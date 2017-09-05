@@ -1,0 +1,30 @@
+<xsd:schema targetNamespace="http://www.cea.com.br/EBS/CEA/sit/estruturamercadologica" elementFormDefault="unqualified" attributeFormDefault="unqualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ebo="http://www.cea.com.br/EBO/CEA/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:import namespace="http://www.cea.com.br/EBO/CEA/v1" schemaLocation="EstruturaMercadologicaEBO_v1.xsd"/>
+
+	<xsd:element name="EstruturaMercadologicaFromDB2Request">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="IdentificadorIntegracao" type="xsd:int" minOccurs="1" maxOccurs="1" nillable="false"/>
+				
+				<xsd:element name="CodigoDivisao" type="xsd:int" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="CodigoDepartamento" type="xsd:int" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="CodigoSubDepartamento" type="xsd:int" minOccurs="1" maxOccurs="1" nillable="false"/>				
+				<xsd:element name="CodigoFormulaNegocio" type="xsd:decimal" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="CodigoClassificacao" type="xsd:int" minOccurs="1" maxOccurs="1" nillable="false"/>
+				<xsd:element name="ClassificacaoCodigo" type="xsd:int" minOccurs="1" maxOccurs="1" nillable="false"/>
+				
+				<xsd:element name="NomeAcao" type="xsd:string" minOccurs="1" maxOccurs="1" nillable="false"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="EstruturaMercadologicaFromDB2Response">
+		<xsd:complexType>
+			<xsd:sequence>
+	 			<xsd:element name="EstruturaMercadologicaFromDB2" type="ebo:EstruturaMercadologicaFromDB2Type"/>
+	 			<xsd:element name="MensagemResposta" type="ebo:MensagemRespostaType"/>	 
+	 		</xsd:sequence>
+	 	</xsd:complexType>
+	 </xsd:element>
+		
+</xsd:schema>
